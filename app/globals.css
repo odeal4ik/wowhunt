@@ -1,28 +1,28 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 * {
-  margin: 0;
+    margin: 0;
 }
 body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
 }
 img,
 picture,
 video,
 canvas,
 svg {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 input,
 button,
 textarea,
 select {
-  font: inherit;
+    font: inherit;
 }
 p,
 h1,
@@ -31,56 +31,56 @@ h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
 #root,
 #__next {
-  isolation: isolate;
+    isolation: isolate;
 }
 
 :root {
-  --background: #0e0e20;
-  --text-color: #ffffff;
+    --background: #0e0e20;
+    --text-color: #ffffff;
 
-  --text-color-secondary: #9f9fb7;
-  --neutral-soft: #6d6d91;
+    --text-color-secondary: #9f9fb7;
+    --neutral-soft: #6d6d91;
 
-  --neutral-container-soft: rgba(75, 75, 119, 0.05);
-  --neutral-container-active: rgba(75, 75, 119, 0.3);
+    --neutral-container-soft: rgba(75, 75, 119, 0.05);
+    --neutral-container-active: rgba(75, 75, 119, 0.3);
 
-  /* dark */
-  --dark-muted: #4b4b77;
+    /* dark */
+    --dark-muted: #4b4b77;
 
-  /* yellow */
-  --yellow-500: #fbbf24;
-  /* green */
-  --green-500: #00ff66;
+    /* yellow */
+    --yellow-500: #fbbf24;
+    /* green */
+    --green-500: #00ff66;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--text-color);
-  font-family: var(--font-barlow-regular-sans), serif;
-  font-weight: 400;
-  font-size: 16px;
-  font-style: normal;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background: var(--background);
+    color: var(--text-color);
+    font-family: var(--font-barlow-regular-sans), serif;
+    font-weight: 400;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }

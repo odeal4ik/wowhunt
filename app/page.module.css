@@ -1,11 +1,12 @@
 .page {
-  display: flex;
+    display: flex;
 }
 
 .main {
 }
 
 .footer {
+    height: 600px;
 }
 
 /* Enable hover only on non-touch devices */
