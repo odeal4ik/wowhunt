@@ -1,0 +1,68 @@
+.header {
+  display: flex;
+  padding-inline: 56px;
+  padding-block: 20px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.leftWrapper {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.logoWrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  cursor: pointer;
+
+  .logo {
+    height: 40px;
+  }
+
+  .name {
+    font-size: 24px;
+    line-height: 32px;
+    font-family: var(--font-montserrat-bold-sans);
+    font-weight: 700;
+    text-transform: uppercase;
+
+    & > span {
+      transition: all 0.2s ease;
+    }
+
+    & > span:nth-child(1) {
+      color: var(--yellow-500);
+    }
+
+    &:hover {
+      & > span:nth-child(1) {
+        color: var(--text-color);
+      }
+
+      & > span:nth-child(2) {
+        color: var(--yellow-500);
+      }
+    }
+  }
+}
+
+.catalogBtn {
+  display: flex;
+  padding-block: 6px;
+  padding-inline: 16px;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  background: var(--yellow-500);
+  border: 1px solid var(--yellow-500);
+
+  & > span {
+    line-height: 28px;
+  }
+}

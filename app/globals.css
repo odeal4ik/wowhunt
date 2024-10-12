@@ -1,8 +1,50 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
+
 :root {
   --background: #0e0e20;
   --text-color: #ffffff;
 
   --text-color-secondary: #9f9fb7;
+
+  --yellow-500: #fbbf24;
 }
 
 html,
@@ -14,8 +56,9 @@ body {
 body {
   background: var(--background);
   color: var(--text-color);
-  font-family: var(--font-barlow-sans), serif;
+  font-family: var(--font-barlow-regular-sans), serif;
   font-weight: 400;
+  font-size: 16px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

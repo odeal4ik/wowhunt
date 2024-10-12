@@ -4,8 +4,14 @@ import "./globals.css";
 
 const barlowSans = localFont({
   src: "./fonts/Barlow/Barlow-Regular.ttf",
-  variable: "--font-barlow-sans",
+  variable: "--font-barlow-regular-sans",
   weight: "400",
+});
+
+const montserratSans = localFont({
+  src: "./fonts/Montserrat/Montserrat-Bold.ttf",
+  variable: "--font-montserrat-bold-sans",
+  weight: "700",
 });
 
 export const metadata: Metadata = {
@@ -21,8 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${barlowSans.variable}`}>{children}</body>
+    <html lang="ru">
+      <body className={`${barlowSans.variable} ${montserratSans.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
