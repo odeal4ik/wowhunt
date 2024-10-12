@@ -1,0 +1,14 @@
+.splitter {
+    max-width: 100%;
+    width: 100%;
+    font-size: 30px;
+    line-height: 36px;
+    font-family: var(--font-barlow-bold-sans), serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('/images/splitter.png') center center no-repeat;
+    background-size: auto 70px;
+    height: 70px;
+    padding-block: 100px;
+}
