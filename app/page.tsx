@@ -4,9 +4,10 @@ import { Splitter } from '@/components/splitter/splitter';
 import { GamesPlates } from '@/components/games-plates/games-plates';
 import { GamesTabs } from '@/components/games-tabs/games-tabs';
 import { Support } from '@/components/support/support';
+import { WhyUs } from '@/components/why-us/why-us';
+import { HowItWorks } from '@/components/how-it-works/how-it-works';
 
 import styles from './page.module.css';
-import { WhyUs } from '@/components/why-us/why-us';
 
 export default function Home() {
     return (
@@ -25,12 +26,9 @@ export default function Home() {
                 <GamesTabs />
 
                 <Splitter title="HOW IT WORKS" />
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                    iste praesentium blanditiis exercitationem ratione ducimus
-                    qui temporibus, molestiae nulla deleniti. Quia illo numquam
-                    rerum deserunt soluta impedit, iste perferendis totam?
-                </div>
+
+                <HowItWorks />
+
                 <Splitter title="WHY CHOOSE US" />
 
                 <WhyUs />
