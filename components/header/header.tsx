@@ -1,7 +1,7 @@
 import styles from "./header.module.css";
 import Logo from "@/images/logo.svg";
 
-export default function Header() {
+export function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.leftWrapper}>

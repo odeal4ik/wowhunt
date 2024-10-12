@@ -1,10 +1,13 @@
-import Header from "@/components/header/header";
+import { Header } from "@/components/header/header";
+import { HeroBlock } from "@/components/hero-block/hero-block";
+
 import styles from "./page.module.css";
 
 export default function Home() {
   return (
     <>
       <Header />
+      <HeroBlock />
       <div className={styles.page}>
         <main className={styles.main}>
           <div>
