@@ -43,8 +43,18 @@ h6 {
   --text-color: #ffffff;
 
   --text-color-secondary: #9f9fb7;
+  --neutral-soft: #6d6d91;
 
+  --neutral-container-soft: rgba(75, 75, 119, 0.05);
+  --neutral-container-active: rgba(75, 75, 119, 0.3);
+
+  /* dark */
+  --dark-muted: #4b4b77;
+
+  /* yellow */
   --yellow-500: #fbbf24;
+  /* green */
+  --green-500: #00ff66;
 }
 
 html,
