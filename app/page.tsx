@@ -4,6 +4,7 @@ import { Splitter } from '@/components/splitter/splitter';
 import { GamesPlates } from '@/components/games-plates/games-plates';
 
 import styles from './page.module.css';
+import { GamesTabs } from '@/components/games-tabs/games-tabs';
 
 export default function Home() {
     return (
@@ -19,12 +20,8 @@ export default function Home() {
 
                 <Splitter title="HOT OFFERS" />
 
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                    iste praesentium blanditiis exercitationem ratione ducimus
-                    qui temporibus, molestiae nulla deleniti. Quia illo numquam
-                    rerum deserunt soluta impedit, iste perferendis totam?
-                </div>
+                <GamesTabs />
+
                 <Splitter title="HOW IT WORKS" />
                 <div>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit

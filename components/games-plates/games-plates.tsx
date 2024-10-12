@@ -91,10 +91,7 @@ export function GamesPlates() {
                     (_, index) => (
                         <div className={styles.plate} key={gameNames[index]}>
                             <img
-                                src={
-                                    `./games-icons/game${index + 1}.png` ||
-                                    `./games-icons/game${index + 1}.svg`
-                                }
+                                src={`./games-icons/game${index + 1}.png`}
                                 alt={gameNames[index]}
                                 loading="lazy"
                             />

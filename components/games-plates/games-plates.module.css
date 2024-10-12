@@ -35,7 +35,6 @@
     );
     border-radius: 16px;
     cursor: pointer;
-    transition: all 3s ease;
 
     &:hover {
         background: linear-gradient(

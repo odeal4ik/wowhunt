@@ -1,0 +1,75 @@
+.wrapper {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    margin: 0 auto;
+}
+
+.tabControlsWrapper {
+    display: flex;
+    gap: 24px;
+}
+
+.tabControl {
+    font-size: 16px;
+    font-family: var(--font-barlow-bold-sans), serif;
+    line-height: 24px;
+    color: var(--text-color-secondary);
+    border: 1px solid var(--dark-muted);
+    background-color: transparent;
+    padding: 14px 36px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: var(--text-color);
+    }
+
+    &.active {
+        color: var(--text-color);
+        background-color: rgba(75, 75, 119, 0.3);
+    }
+}
+
+.tabsWrapper {
+    max-width: 100%;
+    width: 100%;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(4, minmax(293px, 1fr));
+    place-items: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    min-height: 420px;
+    gap: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+
+    & > .image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.label {
+    position: relative;
+    text-transform: uppercase;
+    font-family: var(--font-barlow-bold-sans), serif;
+    font-size: 16px;
+    line-height: 19px;
+}
