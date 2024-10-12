@@ -20,10 +20,15 @@ const barlowBoldSans = localFont({
     weight: '700',
 });
 
-const montserratSans = localFont({
+const montserratBoldSans = localFont({
     src: './fonts/Montserrat/Montserrat-Bold.ttf',
     variable: '--font-montserrat-bold-sans',
     weight: '700',
+});
+const montserratSans = localFont({
+    src: './fonts/Montserrat/Montserrat-Regular.ttf',
+    variable: '--font-montserrat-sans',
+    weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -40,7 +45,7 @@ export default function RootLayout({
     return (
         <html lang="ru">
             <body
-                className={`${barlowSans.variable} ${barlowMediumSans.variable} ${barlowBoldSans.variable} ${montserratSans.variable}`}>
+                className={`${barlowSans.variable} ${barlowMediumSans.variable} ${barlowBoldSans.variable} ${montserratBoldSans.variable} ${montserratSans.variable}`}>
                 {children}
             </body>
         </html>

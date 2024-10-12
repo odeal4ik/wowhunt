@@ -6,16 +6,15 @@ import { GamesTabs } from '@/components/games-tabs/games-tabs';
 import { Support } from '@/components/support/support';
 import { WhyUs } from '@/components/why-us/why-us';
 import { HowItWorks } from '@/components/how-it-works/how-it-works';
-
-import styles from './page.module.css';
 import { Carousel } from '@/components/carousel/carousel';
+import { Footer } from '@/components/footer/footer';
 
 export default function Home() {
     return (
         <>
             <Header />
 
-            <main className={styles.main}>
+            <main>
                 <HeroBlock />
 
                 <Splitter title="CHOOSE GAME" />
@@ -41,7 +40,7 @@ export default function Home() {
                 <Support />
             </main>
 
-            <footer className={styles.footer}></footer>
+            <Footer />
         </>
     );
 }
