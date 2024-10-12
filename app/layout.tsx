@@ -8,6 +8,12 @@ const barlowSans = localFont({
     weight: '400',
 });
 
+const barlowMediumSans = localFont({
+    src: './fonts/Barlow/Barlow-Medium.ttf',
+    variable: '--font-barlow-medium-sans',
+    weight: '500',
+});
+
 const barlowBoldSans = localFont({
     src: './fonts/Barlow/Barlow-Bold.ttf',
     variable: '--font-barlow-bold-sans',
@@ -34,7 +40,7 @@ export default function RootLayout({
     return (
         <html lang="ru">
             <body
-                className={`${barlowSans.variable} ${barlowBoldSans.variable} ${montserratSans.variable}`}>
+                className={`${barlowSans.variable} ${barlowMediumSans.variable} ${barlowBoldSans.variable} ${montserratSans.variable}`}>
                 {children}
             </body>
         </html>
