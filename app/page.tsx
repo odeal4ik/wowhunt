@@ -1,6 +1,7 @@
 import { Header } from '@/components/header/header';
 import { HeroBlock } from '@/components/hero-block/hero-block';
 import { Splitter } from '@/components/splitter/splitter';
+import { GamesPlates } from '@/components/games-plates/games-plates';
 
 import styles from './page.module.css';
 
@@ -11,14 +12,13 @@ export default function Home() {
 
             <main className={styles.main}>
                 <HeroBlock />
+
                 <Splitter title="CHOOSE GAME" />
-                <div>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
-                    iste praesentium blanditiis exercitationem ratione ducimus
-                    qui temporibus, molestiae nulla deleniti. Quia illo numquam
-                    rerum deserunt soluta impedit, iste perferendis totam?
-                </div>
+
+                <GamesPlates />
+
                 <Splitter title="HOT OFFERS" />
+
                 <div>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit
                     iste praesentium blanditiis exercitationem ratione ducimus
