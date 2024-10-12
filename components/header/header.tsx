@@ -1,3 +1,6 @@
+'use client';
+
+import { useRef } from 'react';
 import styles from './header.module.css';
 
 export function Header() {

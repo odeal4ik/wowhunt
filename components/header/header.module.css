@@ -5,9 +5,13 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     z-index: 5;
+
+    &.blured {
+        backdrop-filter: blur(30px);
+    }
 }
 
 .leftWrapper {
