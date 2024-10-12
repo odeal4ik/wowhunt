@@ -3,6 +3,7 @@
 
 .footer {
     height: 600px;
+    background-color: var(--text-color-secondary);
 }
 
 /* Enable hover only on non-touch devices */
