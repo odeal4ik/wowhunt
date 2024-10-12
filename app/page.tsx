@@ -8,6 +8,7 @@ import { WhyUs } from '@/components/why-us/why-us';
 import { HowItWorks } from '@/components/how-it-works/how-it-works';
 
 import styles from './page.module.css';
+import { Carousel } from '@/components/carousel/carousel';
 
 export default function Home() {
     return (
@@ -24,6 +25,8 @@ export default function Home() {
                 <Splitter title="HOT OFFERS" />
 
                 <GamesTabs />
+
+                <Carousel />
 
                 <Splitter title="HOW IT WORKS" />
 
