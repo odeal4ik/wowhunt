@@ -38,8 +38,8 @@ export function Carousel() {
                                 learn a lot by doing, and since LFR is pretty
                                 toxic in WoW, it is hard for a beginner to learn
                                 through LFR. I like running with these guys.
-                                They'll carry you through so you can learn the
-                                mechanics while running through without
+                                They&apos;ll carry you through so you can learn
+                                the mechanics while running through without
                                 stressing out.
                             </span>
                         </div>

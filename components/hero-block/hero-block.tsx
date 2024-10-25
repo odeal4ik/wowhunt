@@ -1,5 +1,3 @@
-import cn from 'classnames';
-
 import styles from './hero-block.module.css';
 
 const advantages = [

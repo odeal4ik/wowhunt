@@ -43,8 +43,6 @@ const gameCards = [
     },
 ];
 
-const tabs = ['WoW Dragonflight', 'Diablo IV', 'Destiny 2'];
-
 export function GamesTabs() {
     const [activeTab, setActiveTab] = useState(gameCards[1].id);
 
