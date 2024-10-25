@@ -31,6 +31,10 @@
         flex-grow: 1;
         gap: 12px;
     }
+
+    @media (width <= 768px) {
+        gap: 8px;
+    }
 }
 
 .burgerBtn {
@@ -53,6 +57,11 @@
 
     @media (width <= 1024px) {
         display: flex;
+    }
+
+    @media (width <= 768px) {
+        width: 40px;
+        height: 40px;
     }
 }
 
@@ -124,15 +133,15 @@
         padding-inline-end: 38px;
         border-radius: 12px;
         width: 100%;
-        font-size: var(--font-size-l);
+        font-size: var(--font-size-m);
         line-height: 28px;
         color: var(--text-color);
         background-color: var(--dark-container-active);
         border: 1px solid var(--text-color-secondary);
         background-position: calc(100% - 12px) 50%;
         background-repeat: no-repeat;
-        outline: none;
         transition: var(--btn-transition);
+        outline: rgb(251, 191, 36, 0.1) 4px solid;
     }
 
     @media (width <= 1024px) {
@@ -150,10 +159,23 @@
             background-image: url('/system-icons/magnifier.svg');
             background-color: var(--neutral-container-soft);
             border: 1px solid var(--neutral-container-active);
+            outline: none;
         }
 
         & > .search:hover {
             border-color: var(--yellow-500);
+        }
+    }
+
+    @media (width <= 768px) {
+        & > .search {
+            padding-block: 5px;
+        }
+
+        & > .search:not(:focus) {
+            background-size: 16px;
+            width: 40px;
+            padding-block: 5px;
         }
     }
 }
@@ -294,6 +316,12 @@
         color: var(--text-color);
         background-color: rgb(251, 191, 36, 0.2);
     }
+
+    @media (width <= 768px) {
+        & > .languageBtn > label {
+            padding: 9px 10px;
+        }
+    }
 }
 
 .basket {
@@ -311,5 +339,10 @@
     &:hover {
         background-color: var(--neutral-container-hover);
         border-color: var(--neutral-hover);
+    }
+
+    @media (width <= 768px) {
+        width: 40px;
+        height: 40px;
     }
 }

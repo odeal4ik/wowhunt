@@ -18,13 +18,18 @@
     width: 100%;
     display: grid;
     gap: 25px;
-    grid-template-columns: repeat(7, minmax(204px, 1fr));
+    grid-template-columns: repeat(7, 1fr);
     justify-items: center;
     align-items: center;
 
     @media (width <= 1024px) {
-        grid-template-columns: repeat(4, minmax(207px, 1fr));
+        grid-template-columns: repeat(4, 1fr);
         padding-inline: 64px;
+    }
+
+    @media (width <= 768px) {
+        grid-template-columns: repeat(3, 1fr);
+        padding-inline: 50px;
     }
 }
 
