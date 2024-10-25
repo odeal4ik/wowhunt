@@ -14,7 +14,7 @@
 }
 
 .tabControl {
-    font-size: 16px;
+    font-size: var(--font-size-m);
     font-family: var(--font-barlow-bold-sans), serif;
     line-height: 24px;
     color: var(--text-color-secondary);
@@ -105,7 +105,7 @@
 
 .priceTitle {
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: var(--font-size-m);
     line-height: 20.8px;
     color: var(--text-color-secondary);
 }

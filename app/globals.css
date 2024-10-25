@@ -56,6 +56,12 @@ h6 {
     --yellow-500: #fbbf24;
     /* green */
     --green-500: #00ff66;
+
+    /* fonts */
+    --font-size-ss: 12px;
+    --font-size-s: 14px;
+    --font-size-m: 16px;
+    --font-size-l: 20px;
 }
 
 html,
@@ -68,7 +74,7 @@ body {
     color: var(--text-color);
     font-family: var(--font-barlow-regular-sans), serif;
     font-weight: 400;
-    font-size: 16px;
+    font-size: var(--font-size-m);
     font-style: normal;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

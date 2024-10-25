@@ -48,13 +48,13 @@
 .label {
     text-transform: uppercase;
     font-family: var(--font-barlow-bold-sans), serif;
-    font-size: 16px;
+    font-size: var(--font-size-m);
     line-height: 19px;
 }
 
 .button {
     font-family: var(--font-barlow-bold-sans), serif;
-    font-size: 16px;
+    font-size: var(--font-size-m);
     line-height: 19px;
     color: var(--text-color);
     border: 2px solid var(--dark-muted);

@@ -87,7 +87,7 @@
 }
 
 .advantagesSubTitle {
-    font-size: 20px;
+    font-size: var(--font-size-l);
     line-height: 28px;
     color: var(--text-color-secondary);
     display: flex;

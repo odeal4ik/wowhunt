@@ -71,12 +71,12 @@
     flex-direction: column;
 
     & > span {
-        font-size: 20px;
+        font-size: var(--font-size-l);
         line-height: 28px;
     }
 
     & > span + span {
-        font-size: 20px;
+        font-size: var(--font-size-l);
         line-height: 30px;
         color: var(--text-color-secondary);
     }
@@ -125,12 +125,12 @@
 
 .title {
     font-family: var(--font-barlow-bold-sans), serif;
-    font-size: 20px;
+    font-size: var(--font-size-l);
     line-height: 26px;
 }
 
 .description {
-    font-size: 16px;
+    font-size: var(--font-size-m);
     line-height: 20.8px;
     color: var(--text-color-secondary);
 }

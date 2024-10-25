@@ -15,12 +15,21 @@
     padding-inline: 56px;
     padding-block: 20px;
     margin-inline: auto;
+
+    @media (width <= 1024px) {
+        padding-inline: 32px;
+        padding-block: 12px;
+    }
 }
 
 .leftWrapper {
     display: flex;
     gap: 24px;
     align-items: center;
+
+    @media (width <= 1024px) {
+        flex-grow: 1;
+    }
 }
 
 .logoWrapper {
@@ -75,6 +84,10 @@
     & > span {
         line-height: 28px;
     }
+
+    @media (width <= 1024px) {
+        display: none;
+    }
 }
 
 .searchWrapper {
@@ -85,19 +98,27 @@
         padding-inline-end: 38px;
         border-radius: 12px;
         width: 100%;
-        font-size: 20px;
+        font-size: var(--font-size-l);
         line-height: 28px;
         color: var(--text-color);
         background: transparent;
         border: 1px solid var(--text-color-secondary);
         outline: none;
     }
+
+    @media (width <= 1024px) {
+        margin-inline-start: auto;
+    }
 }
 
 .modal {
-    font-size: 20px;
+    font-size: var(--font-size-l);
     line-height: 28px;
     white-space: nowrap;
+
+    @media (width <= 1024px) {
+        display: none;
+    }
 }
 
 .contact {
@@ -121,15 +142,23 @@
     }
 
     & > .label {
-        font-size: 20px;
+        font-size: var(--font-size-l);
         line-height: 28px;
         white-space: nowrap;
+    }
+
+    @media (width <= 1024px) {
+        display: none;
     }
 }
 
 .rightWrapper {
     display: flex;
     align-items: center;
+
+    @media (width <= 1024px) {
+        flex-shrink: 0;
+    }
 }
 
 .trustAndLanguage {
@@ -137,6 +166,11 @@
     align-items: center;
     padding-inline: 31px;
     gap: 16px;
+
+    @media (width <= 1024px) {
+        flex-shrink: 0;
+        padding-inline: 12px;
+    }
 }
 
 .trust {
@@ -155,6 +189,10 @@
         line-height: 15.6px;
         white-space: nowrap;
     }
+
+    @media (width <= 1024px) {
+        display: none;
+    }
 }
 
 .languageWrapper {
@@ -167,12 +205,41 @@
 
     & > .languageBtn > label {
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: var(--font-size-l);
         line-height: 28px;
         padding: 11px;
         border-radius: 8px;
         border: 1px solid var(--dark-muted);
         cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    @media (width <= 1024px) {
+        gap: 0;
+        background-color: rgb(14, 14, 32, 0.3);
+        border: 1px solid var(--dark-muted);
+        border-radius: 8px;
+
+        & > .languageBtn {
+            margin: -1px;
+        }
+
+        & > .languageBtn > label {
+            display: flex;
+            padding: 12px;
+            font-size: var(--font-size-m);
+            line-height: 1.3;
+        }
+
+        & > .languageBtn > input:not(:checked) + label {
+            border-color: transparent;
+        }
+    }
+
+    & > .languageBtn > input:checked + label {
+        border-color: var(--yellow-500);
+        color: var(--text-color);
+        background-color: rgb(251, 191, 36, 0.2);
     }
 }
 

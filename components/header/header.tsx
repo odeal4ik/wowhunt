@@ -1,12 +1,10 @@
 'use client';
 
-import cn from 'classnames';
-
 import styles from './header.module.css';
 
 export function Header() {
     return (
-        <header className={cn(styles.header)}>
+        <header className={styles.header}>
             <div className={styles.wrapper}>
                 <div className={styles.leftWrapper}>
                     <a className={styles.logoWrapper}>
@@ -61,12 +59,22 @@ export function Header() {
 
                         <div className={styles.languageWrapper}>
                             <div className={styles.languageBtn}>
-                                <input id="0" type="radio" name="radio-lang" />
+                                <input
+                                    id="0"
+                                    type="radio"
+                                    name="radio-lang"
+                                    value="eu"
+                                />
                                 <label htmlFor="0">Eu</label>
                             </div>
 
                             <div className={styles.languageBtn}>
-                                <input id="1" type="radio" name="radio-lang" />
+                                <input
+                                    id="1"
+                                    type="radio"
+                                    name="radio-lang"
+                                    value="us"
+                                />
                                 <label htmlFor="1">Us</label>
                             </div>
                         </div>
