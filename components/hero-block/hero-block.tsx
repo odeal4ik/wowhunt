@@ -38,30 +38,36 @@ export function HeroBlock() {
                     </p>
                 </div>
                 <div className={styles.advantages}>
-                    {advantages.map((advantage) => (
-                        <div
-                            className={styles.advantagesItem}
-                            key={advantage.title}>
-                            <div className={styles.advantagesIcon}>
-                                <img
-                                    src={advantage.icon}
-                                    alt={advantage.title}
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className={styles.advantagesContent}>
-                                <div className={styles.advantagesTitle}>
-                                    {advantage.title}
+                    {advantages.map(
+                        (
+                            advantage, // index
+                        ) => (
+                            <div
+                                className={styles.advantagesItem}
+                                // to control order of items from CMS in future
+                                // style={{ order: index + 1 }}
+                                key={advantage.title}>
+                                <div className={styles.advantagesIcon}>
+                                    <img
+                                        src={advantage.icon}
+                                        alt={advantage.title}
+                                        loading="lazy"
+                                    />
                                 </div>
-                                <div
-                                    className={styles.advantagesSubTitle}
-                                    dangerouslySetInnerHTML={{
-                                        __html: advantage.subTitle,
-                                    }}
-                                />
+                                <div className={styles.advantagesContent}>
+                                    <div className={styles.advantagesTitle}>
+                                        {advantage.title}
+                                    </div>
+                                    <div
+                                        className={styles.advantagesSubTitle}
+                                        dangerouslySetInnerHTML={{
+                                            __html: advantage.subTitle,
+                                        }}
+                                    />
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ),
+                    )}
                 </div>
             </div>
         </section>

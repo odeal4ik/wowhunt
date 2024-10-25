@@ -18,7 +18,7 @@
 
     @media (width <= 1024px) {
         padding-inline: 32px;
-        padding-block: 12px;
+        padding-block: 19px;
     }
 }
 
@@ -29,6 +29,7 @@
 
     @media (width <= 1024px) {
         flex-grow: 1;
+        gap: 12px;
     }
 }
 

@@ -16,6 +16,12 @@
     align-items: flex-start;
     padding-inline: 170px;
     gap: 56px;
+
+    @media (width <= 1024px) {
+        padding-inline: 44px 206px;
+        padding-block: 113px;
+        justify-content: flex-end;
+    }
 }
 
 .heroImg {
@@ -39,7 +45,7 @@
 
 .heroTitle {
     font-size: 72px;
-    line-height: 72px;
+    line-height: 1;
     text-transform: uppercase;
     font-family: var(--font-barlow-bold-sans), sans-serif;
 
@@ -50,18 +56,30 @@
 
 .heroDescription {
     font-size: 30px;
-    line-height: 36px;
+    line-height: 1.2;
 }
 
 .advantages {
     display: flex;
+    flex-wrap: wrap;
     gap: 20px;
+
+    @media (width <= 1024px) {
+        gap: 32px 24px;
+    }
 }
 
 .advantagesItem {
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media (width <= 1024px) {
+        /* Could be removed if order of items will be controlled from CMS */
+        &:nth-child(2) {
+            order: 1;
+        }
+    }
 }
 
 .advantagesIcon {
@@ -83,12 +101,12 @@
 .advantagesTitle {
     font-family: var(--font-barlow-bold-sans), sans-serif;
     font-size: 32px;
-    line-height: 32px;
+    line-height: 1;
 }
 
 .advantagesSubTitle {
     font-size: var(--font-size-l);
-    line-height: 28px;
+    line-height: 1.4;
     color: var(--text-color-secondary);
     display: flex;
     align-items: center;
