@@ -6,16 +6,26 @@
     align-items: center;
     gap: 60px;
     margin: 0 auto;
+
+    @media (width <= 1024px) {
+        max-width: 100%;
+        padding-block-end: 30px;
+    }
 }
 
 .plateWrapper {
     max-width: 100%;
     width: 100%;
-
     display: grid;
     gap: 25px;
     grid-template-columns: repeat(7, minmax(204px, 1fr));
-    place-items: center;
+    justify-items: center;
+    align-items: center;
+
+    @media (width <= 1024px) {
+        grid-template-columns: repeat(4, minmax(207px, 1fr));
+        padding-inline: 64px;
+    }
 }
 
 .plate {
@@ -23,10 +33,10 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    text-align: center;
     width: 100%;
     height: 192px;
-    padding-block: 24px;
-    padding-inline: 24px;
+    padding: 24px;
     gap: 8px;
     background: linear-gradient(
         313.42deg,
@@ -42,6 +52,15 @@
             rgba(20, 21, 48, 1),
             rgba(78, 82, 182, 0.05)
         );
+    }
+
+    @media (width <= 1024px) {
+        height: 188px;
+
+        /* TODO - remove, it is dirty fix to align items */
+        &:last-of-type {
+            display: none;
+        }
     }
 }
 

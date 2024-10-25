@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import styles from './games-tabs.module.css';
 import cn from 'classnames';
+import { GamesTabBadge } from '../games-tab-badge/games-tab-badge';
 
 const gameCards = [
     {
@@ -77,6 +78,14 @@ export function GamesTabs() {
                             src="./images/card-frame.svg"
                             alt="frame"
                             loading="lazy"
+                        />
+
+                        {/* TODO set own rules */}
+                        <GamesTabBadge
+                            isHotOffer={card.includes('h')}
+                            isWeeklyOffer={
+                                card.includes('h') || card.includes('d')
+                            }
                         />
 
                         <div className={styles.content}>

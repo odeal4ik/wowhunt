@@ -87,6 +87,7 @@ export function GamesPlates() {
     return (
         <div className={styles.wrapper}>
             <div className={styles.plateWrapper}>
+                {/* should be decided about even and odd number of items and grid from design side */}
                 {Array.from({ length: !isMoreGames ? 21 : 73 }).map(
                     (_, index) => (
                         <div className={styles.plate} key={gameNames[index]}>
