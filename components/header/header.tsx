@@ -7,6 +7,10 @@ export function Header() {
         <header className={styles.header}>
             <div className={styles.wrapper}>
                 <div className={styles.leftWrapper}>
+                    <button className={styles.burgerBtn}>
+                        <img src="./system-icons/burger.svg" alt="catalog" />
+                    </button>
+
                     <a className={styles.logoWrapper}>
                         <img
                             src="./images/logo.svg"

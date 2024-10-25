@@ -96,3 +96,9 @@ a {
     color: inherit;
     text-decoration: none;
 }
+
+button {
+    appearance: none;
+    border: none;
+    background: none;
+}
