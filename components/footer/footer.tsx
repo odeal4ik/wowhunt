@@ -15,13 +15,13 @@ export function Footer() {
                             <span className={styles.name}>wowhunt</span>
                         </a>
                         <div className={styles.copyrights}>
-                            © WOWHUNT 2017-2023. All right reserved. Pauros
-                            LLC.
+                            © WOWHUNT 2017-2023. All right reserved. Pauros LLC.
                         </div>
                         <div className={styles.email}>
                             Contact Email: support@wowhunt.com
                         </div>
                     </div>
+
                     <div className={styles.list}>
                         <span className={styles.title}>WotLK</span>
                         <ul>
@@ -39,6 +39,7 @@ export function Footer() {
                             </li>
                         </ul>
                     </div>
+
                     <div className={styles.list}>
                         <span className={styles.title}>
                             Terms and Conditions
@@ -52,16 +53,20 @@ export function Footer() {
                             </li>
                         </ul>
                     </div>
+
                     <div className={styles.payments}>
                         {Array.from({ length: 13 }).map((_, index) => (
                             <img
                                 key={index}
-                                src={`./payments-methods/payment${index + 1}.svg`}
+                                src={`./payments-methods/payment${
+                                    index + 1
+                                }.svg`}
                                 alt={`payment-${index + 1}`}
                             />
                         ))}
                     </div>
                 </div>
+
                 <div className={styles.disclaimer}>
                     WOWHUNT is not endorsed by or in any way affiliated with
                     Blizzard Entertainment, Bungie or other game developers, and

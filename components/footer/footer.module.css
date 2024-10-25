@@ -13,13 +13,25 @@
     align-items: center;
     justify-content: space-between;
     padding-block: 64px;
+
+    @media (width <= 1024px) {
+        max-width: 100%;
+        padding-inline: 154px;
+        padding-block: 64px;
+        row-gap: 73px;
+    }
 }
 
 .links {
     width: 100%;
     display: grid;
     grid-template-columns: 318px 150px 150px 1fr;
-    gap: 16px;
+    column-gap: 16px;
+
+    @media (width <= 1024px) {
+        grid-template-columns: 385px 1fr 1fr;
+        row-gap: 77px;
+    }
 }
 
 .logo {
@@ -82,6 +94,10 @@
     & > img {
         flex: 0 1 auto;
         align-self: center;
+    }
+
+    @media (width <= 1024px) {
+        grid-column: span 3;
     }
 }
 
