@@ -50,20 +50,21 @@
     width: 100%;
     display: grid;
     gap: 40px;
-    grid-template-columns: repeat(4, minmax(293px, 1fr));
-    place-items: center;
+    grid-template-columns: repeat(4, 293px);
+    align-items: center;
+    justify-content: center;
 
     @media (width <= 1280px) {
-        grid-template-columns: repeat(3, minmax(293px, 1fr));
+        grid-template-columns: repeat(3, 293px);
         gap: 25px;
     }
 
     @media (width <= 1024px) {
-        grid-template-columns: repeat(2, minmax(293px, 1fr));
+        grid-template-columns: repeat(2, 293px);
     }
 
     @media (width <= 680px) {
-        grid-template-columns: repeat(1, minmax(293px, 1fr));
+        grid-template-columns: repeat(1, 293px);
     }
 }
 
@@ -114,10 +115,6 @@
     padding-inline: 16px 24px;
     gap: 16px;
     min-height: 160px;
-
-    @media (width <= 768px) {
-        min-height: 181px;
-    }
 }
 
 .label {

@@ -15,6 +15,12 @@
     }
 }
 
+.image {
+    @media (width <= 768px) {
+        display: none;
+    }
+}
+
 .wrapper {
     max-width: 728px;
     width: 100%;

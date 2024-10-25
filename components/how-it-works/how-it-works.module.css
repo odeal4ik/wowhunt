@@ -23,6 +23,11 @@
         padding-inline: 116px;
         grid-template-columns: 1fr;
     }
+
+    @media (width <= 1024px) {
+        max-width: calc(100% - 72px);
+        padding-inline: 77px;
+    }
 }
 
 .image {

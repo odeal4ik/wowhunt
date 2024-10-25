@@ -8,6 +8,11 @@
     @media (width <= 1024px) {
         padding-block-end: 347px;
     }
+
+    @media (width <= 768px) {
+        padding-inline: 36px;
+        gap: 25px;
+    }
 }
 
 .button {

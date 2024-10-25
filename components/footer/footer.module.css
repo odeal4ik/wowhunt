@@ -20,6 +20,10 @@
         padding-block: 64px;
         row-gap: 73px;
     }
+
+    @media (width <= 768px) {
+        padding-inline: 36px;
+    }
 }
 
 .links {
@@ -80,6 +84,12 @@
         font-size: var(--font-size-m);
         line-height: 20.8px;
         color: var(--neutral-soft);
+    }
+
+    @media (width <= 768px) {
+        & > ul > li + li {
+            margin-block-start: 4px;
+        }
     }
 }
 
