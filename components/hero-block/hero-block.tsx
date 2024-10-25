@@ -1,3 +1,5 @@
+import cn from 'classnames';
+
 import styles from './hero-block.module.css';
 
 const advantages = [
@@ -27,40 +29,42 @@ export function HeroBlock() {
                 loading="lazy"
                 className={styles.heroImg}
             />
-            <div className={styles.heading}>
-                <h1 className={styles.heroTitle}>
-                    Global <span>boosting</span> service
-                </h1>
+            <div className={styles.contentWrapper}>
+                <div className={styles.heading}>
+                    <h1 className={styles.heroTitle}>
+                        Global <span>boosting</span> service
+                    </h1>
 
-                <p className={styles.heroDescription}>
-                    Avoid wasting time with pugs
-                </p>
-            </div>
-            <div className={styles.advantages}>
-                {advantages.map((advantage) => (
-                    <div
-                        className={styles.advantagesItem}
-                        key={advantage.title}>
-                        <div className={styles.advantagesIcon}>
-                            <img
-                                src={advantage.icon}
-                                alt={advantage.title}
-                                loading="lazy"
-                            />
-                        </div>
-                        <div className={styles.advantagesContent}>
-                            <div className={styles.advantagesTitle}>
-                                {advantage.title}
+                    <p className={styles.heroDescription}>
+                        Avoid wasting time with pugs
+                    </p>
+                </div>
+                <div className={styles.advantages}>
+                    {advantages.map((advantage) => (
+                        <div
+                            className={styles.advantagesItem}
+                            key={advantage.title}>
+                            <div className={styles.advantagesIcon}>
+                                <img
+                                    src={advantage.icon}
+                                    alt={advantage.title}
+                                    loading="lazy"
+                                />
                             </div>
-                            <div
-                                className={styles.advantagesSubTitle}
-                                dangerouslySetInnerHTML={{
-                                    __html: advantage.subTitle,
-                                }}
-                            />
+                            <div className={styles.advantagesContent}>
+                                <div className={styles.advantagesTitle}>
+                                    {advantage.title}
+                                </div>
+                                <div
+                                    className={styles.advantagesSubTitle}
+                                    dangerouslySetInnerHTML={{
+                                        __html: advantage.subTitle,
+                                    }}
+                                />
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </section>
     );
