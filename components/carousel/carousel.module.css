@@ -42,6 +42,10 @@
             #12132b 100%
         );
     }
+
+    @media (width <= 1024px) {
+        margin-block-end: 20px;
+    }
 }
 
 .heading {

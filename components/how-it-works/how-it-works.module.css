@@ -14,6 +14,15 @@
         rgba(255, 255, 255, 0.27) -70.46%,
         rgba(153, 153, 153, 0) 144.84%
     );
+
+    @media (width <= 1024px) {
+        max-width: calc(100% - 248px);
+        width: 100%;
+        margin: 0 auto 20px;
+        padding-block: 68px 82px;
+        padding-inline: 116px;
+        grid-template-columns: 1fr;
+    }
 }
 
 .image {
@@ -28,6 +37,10 @@
     align-items: flex-start;
     justify-content: flex-start;
     gap: 18px;
+
+    @media (width <= 1024px) {
+        order: -1;
+    }
 }
 
 .item {

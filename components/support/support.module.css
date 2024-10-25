@@ -4,6 +4,10 @@
     align-items: center;
     gap: 62px;
     padding-block-end: 200px;
+
+    @media (width <= 1024px) {
+        padding-block-end: 347px;
+    }
 }
 
 .button {
