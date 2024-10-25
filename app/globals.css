@@ -45,10 +45,13 @@ h6 {
     --text-color-secondary: #9f9fb7;
     --neutral-soft: #6d6d91;
 
+    --neutral-hover: #43436a;
     --neutral-container-soft: rgba(75, 75, 119, 0.05);
+    --neutral-container-hover: rgba(75, 75, 119, 0.2);
     --neutral-container-active: rgba(75, 75, 119, 0.3);
 
     /* dark */
+    --dark-container-active: rgb(14, 14, 32, 0.3);
     --dark-muted: #4b4b77;
     --dark-hover: #0a0c1e;
 
@@ -62,6 +65,9 @@ h6 {
     --font-size-s: 14px;
     --font-size-m: 16px;
     --font-size-l: 20px;
+
+    /* Button behavior */
+    --btn-transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 html,

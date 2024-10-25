@@ -91,6 +91,8 @@
 }
 
 .searchWrapper {
+    position: relative;
+
     & > .search {
         padding-block-start: 7px;
         padding-block-end: 9px;
@@ -101,13 +103,34 @@
         font-size: var(--font-size-l);
         line-height: 28px;
         color: var(--text-color);
-        background: transparent;
+        background-color: var(--dark-container-active);
         border: 1px solid var(--text-color-secondary);
+        background-position: calc(100% - 12px) 50%;
+        background-repeat: no-repeat;
         outline: none;
+        transition: var(--btn-transition);
     }
 
     @media (width <= 1024px) {
         margin-inline-start: auto;
+
+        & > .search::placeholder {
+            opacity: 0;
+        }
+
+        & > .search:not(:focus) {
+            color: transparent;
+            width: 44px;
+            padding-inline: 12px;
+            padding-block: 7px;
+            background-image: url('/system-icons/magnifier.svg');
+            background-color: var(--neutral-container-soft);
+            border: 1px solid var(--neutral-container-active);
+        }
+
+        & > .search:hover {
+            border-color: var(--yellow-500);
+        }
     }
 }
 
@@ -210,13 +233,18 @@
         padding: 11px;
         border-radius: 8px;
         border: 1px solid var(--dark-muted);
+        background-color: var(--dark-container-active);
         cursor: pointer;
-        transition: background-color 0.2s ease;
+        transition: var(--btn-transition);
+
+        &:hover {
+            border-color: var(--yellow-500);
+        }
     }
 
     @media (width <= 1024px) {
         gap: 0;
-        background-color: rgb(14, 14, 32, 0.3);
+        background-color: var(--dark-container-active);
         border: 1px solid var(--dark-muted);
         border-radius: 8px;
 
@@ -225,6 +253,7 @@
         }
 
         & > .languageBtn > label {
+            background-color: transparent;
             display: flex;
             padding: 12px;
             font-size: var(--font-size-m);
@@ -251,6 +280,12 @@
     border-radius: 12px;
     width: 44px;
     height: 44px;
-    background: transparent;
+    background-color: var(--neutral-container-soft);
     border: 1px solid var(--neutral-container-active);
+    transition: var(--btn-transition);
+
+    &:hover {
+        background-color: var(--neutral-container-hover);
+        border-color: var(--neutral-hover);
+    }
 }
