@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import cn from 'classnames';
@@ -54,6 +55,7 @@ export function HowItWorks() {
                         onClick={() => setActiveItem(item)}>
                         <div className={styles.icon}>
                             <img
+                                loading="lazy"
                                 src={item.icon}
                                 alt={`How it works icon ${item.id}`}
                             />
@@ -61,11 +63,13 @@ export function HowItWorks() {
 
                         <div className={styles.content}>
                             <div className={styles.title}>{item.title}</div>
-                            {activeItem.id === item.id && (
-                                <div className={styles.text}>
-                                    {item.description}
-                                </div>
-                            )}
+
+                            <div
+                                className={cn(styles.text, {
+                                    [styles.active]: activeItem.id === item.id,
+                                })}>
+                                {item.description}
+                            </div>
                         </div>
                     </button>
                 ))}

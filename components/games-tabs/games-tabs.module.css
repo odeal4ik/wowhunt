@@ -14,13 +14,20 @@
     }
 
     @media (width <= 768px) {
-        padding-inline: 78px;
+        padding-inline: 40px;
     }
 }
 
 .tabControlsWrapper {
     display: flex;
     gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @media (width <= 600px) {
+        gap: 20px 24px;
+    }
 }
 
 .tabControl {
@@ -121,7 +128,7 @@
     text-transform: uppercase;
     font-family: var(--font-barlow-bold-sans), serif;
     font-size: 26px;
-    line-height: 33.8px;
+    line-height: 1.3;
 }
 
 .price {

@@ -48,12 +48,8 @@
         --_columns: 2;
     }
 
-    @media (width <= 665px) {
-        padding-inline: 26px;
-        --_columns: 2;
-    }
-
     @media (width <= 440px) {
+        padding-inline: 26px;
         grid-gap: 8px 20px;
         --_columns: 2;
         --_item-width: 1fr;

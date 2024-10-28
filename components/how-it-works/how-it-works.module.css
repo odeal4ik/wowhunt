@@ -28,12 +28,30 @@
         max-width: calc(100% - 72px);
         padding-inline: 77px;
     }
+
+    @media (width <= 600px) {
+        max-width: calc(100% - 24px);
+        margin-block-end: 48px;
+        padding-block: 32px;
+        padding-inline: 12px;
+    }
 }
 
 .image {
     width: 100%;
     height: 375px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > img {
+        object-fit: contain;
+        object-position: 50% 50%;
+    }
+
+    @media (width <= 600px) {
+        display: none;
+    }
 }
 
 .accordeon {
@@ -76,6 +94,20 @@
         );
     }
 
+    @media (width <= 600px) {
+        pointer-events: none;
+        border: 2px solid var(--text-color-secondary);
+        background: linear-gradient(
+            237.82deg,
+            rgba(131, 133, 180, 0.71),
+            rgba(131, 133, 180, 0)
+        );
+
+        .title {
+            color: var(--text-color);
+        }
+    }
+
     &.active .title {
         color: var(--text-color);
     }
@@ -102,4 +134,13 @@
 .text {
     font-size: var(--font-size-l);
     line-height: 28px;
+    display: none;
+
+    &.active {
+        display: inline;
+    }
+
+    @media (width <= 600px) {
+        display: inline;
+    }
 }

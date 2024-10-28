@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 5;
@@ -19,6 +19,11 @@
     @media (width <= 1024px) {
         padding-inline: 32px;
         padding-block: 19px;
+    }
+
+    @media (width <= 600px) {
+        padding-inline: 12px;
+        padding-block: 4px;
     }
 }
 
@@ -63,6 +68,10 @@
         width: 40px;
         height: 40px;
     }
+
+    @media (width <= 600px) {
+        flex-shrink: 0;
+    }
 }
 
 .logoWrapper {
@@ -73,6 +82,10 @@
 
     .logo {
         height: 40px;
+
+        @media (width <= 600px) {
+            height: 30px;
+        }
     }
 
     .name {
@@ -99,6 +112,14 @@
                 color: var(--yellow-500);
             }
         }
+
+        @media (width <= 600px) {
+            display: none;
+        }
+    }
+
+    @media (width <= 600px) {
+        flex-shrink: 0;
     }
 }
 
@@ -157,6 +178,7 @@
             padding-inline: 12px;
             padding-block: 7px;
             background-image: url('/system-icons/magnifier.svg');
+            background-position: center center;
             background-color: var(--neutral-container-soft);
             border: 1px solid var(--neutral-container-active);
             outline: none;
@@ -167,7 +189,7 @@
         }
     }
 
-    @media (width <= 768px) {
+    @media (width <= 768px) and (width > 600px) {
         & > .search {
             padding-block: 5px;
         }
@@ -176,6 +198,22 @@
             background-size: 16px;
             width: 40px;
             padding-block: 5px;
+        }
+    }
+
+    @media (width <= 600px) {
+        & > .search {
+            font-size: var(--font-size-ss);
+            line-height: 26px;
+            padding-block: 2.5px;
+            padding-inline: 8px;
+            border-radius: 6px;
+        }
+
+        & > .search:not(:focus) {
+            background-size: 15px;
+            width: 33px;
+            padding-block: 2.5px;
         }
     }
 }
@@ -322,6 +360,12 @@
             padding: 9px 10px;
         }
     }
+
+    @media (width <= 600px) {
+        & > .languageBtn > label {
+            padding: 5.5px;
+        }
+    }
 }
 
 .basket {
@@ -344,5 +388,10 @@
     @media (width <= 768px) {
         width: 40px;
         height: 40px;
+    }
+
+    @media (width <= 600px) {
+        width: 33px;
+        height: 33px;
     }
 }

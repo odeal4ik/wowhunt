@@ -46,6 +46,11 @@
     @media (width <= 1024px) {
         margin-block-end: 20px;
     }
+
+    @media (width <= 600px) {
+        margin-block-start: 120px;
+        padding-block-end: 40px;
+    }
 }
 
 .heading {
@@ -54,19 +59,29 @@
     justify-content: center;
     max-width: 100%;
     width: 100%;
-    gap: 26px;
+    column-gap: 26px;
     padding-block: 66px 72px;
+
+    @media (width <= 600px) {
+        flex-wrap: wrap;
+        padding-block: 45px 50px;
+    }
 }
 
 .title {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 2px;
 
     & > span {
         font-family: var(--font-barlow-bold-sans), serif;
         font-size: 38px;
         line-height: 38px;
+    }
+
+    @media (width <= 600px) {
+        column-gap: 6px;
     }
 }
 

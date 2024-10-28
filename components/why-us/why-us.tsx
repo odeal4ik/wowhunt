@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from './why-us.module.css';
 
 export function WhyUs() {
     return (
         <section className={styles.whyUs}>
             <div className={styles.image}>
-                <img src="./images/whyus.png" alt="whyus" />
+                <img src="./images/whyus.png" alt="whyus" loading="lazy" />
             </div>
 
             <div className={styles.wrapper}>
@@ -12,7 +13,8 @@ export function WhyUs() {
                     <img
                         src="./system-icons/writting.svg"
                         alt="Why us 1"
-                        className={styles.image}
+                        className={styles.icon}
+                        loading="lazy"
                     />
                     <div className={styles.content}>
                         <h3 className={styles.title}>ONLINE 24/7</h3>
@@ -27,7 +29,8 @@ export function WhyUs() {
                     <img
                         src="./system-icons/time.svg"
                         alt="Why us 2"
-                        className={styles.image}
+                        className={styles.icon}
+                        loading="lazy"
                     />
                     <div className={styles.content}>
                         <h3 className={styles.title}>FAST DELIVERY</h3>
@@ -42,7 +45,8 @@ export function WhyUs() {
                     <img
                         src="./system-icons/star.svg"
                         alt="Why us 3"
-                        className={styles.image}
+                        className={styles.icon}
+                        loading="lazy"
                     />
                     <div className={styles.content}>
                         <h3 className={styles.title}>WE ARE TRUSTED</h3>
@@ -54,11 +58,13 @@ export function WhyUs() {
                             <img
                                 src="./images/trastpilot-star.svg"
                                 alt="trastpilot"
+                                loading="lazy"
                             />
                             <span>Trustpilot</span>
                             <img
                                 src="./images/trustpilot-stars.png"
                                 alt="trastpilot"
+                                loading="lazy"
                             />
                         </p>
                     </div>

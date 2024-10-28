@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from './carousel.module.css';
 
 export function Carousel() {
@@ -10,9 +11,11 @@ export function Carousel() {
                         height={42}
                         src="./images/trastpilot-star.svg"
                         alt="trust pilot"
+                        loading="lazy"
                     />
                     <span>Trustpilot</span>
                 </div>
+
                 <div className={styles.reviews}>
                     <span>Excellent 4.9 out of 5</span>
                     <span>Based on 650 reviews</span>
@@ -23,7 +26,11 @@ export function Carousel() {
                 {Array.from({ length: 10 }).map((_, index) => (
                     <div className={styles.item} key={index}>
                         <div className={styles.rating}>
-                            <img src="/images/five-stars.svg" alt="carousel" />
+                            <img
+                                src="/images/five-stars.svg"
+                                alt="carousel"
+                                loading="lazy"
+                            />
                             <span className={styles.author}>
                                 Joanna Hargett
                             </span>

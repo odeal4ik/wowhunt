@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import styles from './header.module.css';
@@ -8,13 +9,18 @@ export function Header() {
             <div className={styles.wrapper}>
                 <div className={styles.leftWrapper}>
                     <button className={styles.burgerBtn}>
-                        <img src="./system-icons/burger.svg" alt="catalog" />
+                        <img
+                            src="./system-icons/burger.svg"
+                            alt="catalog"
+                            loading="lazy"
+                        />
                     </button>
 
                     <a className={styles.logoWrapper}>
                         <img
                             src="./images/logo.svg"
                             alt="logo"
+                            loading="lazy"
                             className={styles.logo}
                         />
 
@@ -25,7 +31,11 @@ export function Header() {
                     </a>
 
                     <button className={styles.catalogBtn}>
-                        <img src="./images/catalog.png" alt="catalog" />
+                        <img
+                            src="./images/catalog.png"
+                            alt="catalog"
+                            loading="lazy"
+                        />
 
                         <span>Catalog</span>
                     </button>
@@ -55,6 +65,7 @@ export function Header() {
                             <img
                                 src="./images/trustpilot.png"
                                 alt="trust pilot"
+                                loading="lazy"
                             />
                             <div className={styles.trustLabel}>
                                 TrustScore 4.9 | 650 reviews
@@ -85,7 +96,11 @@ export function Header() {
                     </div>
 
                     <a className={styles.basket} href="/shopping-card">
-                        <img src="./images/basket.svg" alt="Basket" />
+                        <img
+                            src="./images/basket.svg"
+                            alt="Basket"
+                            loading="lazy"
+                        />
                     </a>
                 </div>
             </div>

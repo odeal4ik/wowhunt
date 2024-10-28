@@ -13,11 +13,10 @@
         gap: 20px;
         padding-block-end: 20px;
     }
-}
 
-.image {
-    @media (width <= 768px) {
-        display: none;
+    @media (width <= 600px) {
+        padding-inline: 12px;
+        padding-block-end: 48px;
     }
 }
 
@@ -27,21 +26,52 @@
     display: flex;
     flex-direction: column;
     gap: 28px;
+
+    @media (width <= 600px) {
+        row-gap: 16px;
+    }
+}
+
+.image {
+    @media (width <= 768px) {
+        display: none;
+    }
 }
 
 .item {
     max-width: 100%;
     width: 100%;
     display: flex;
-    gap: 20px;
+    align-items: flex-start;
+    column-gap: 20px;
     padding: 28px;
     background: linear-gradient(
-        85.33deg,
+        86deg,
         rgba(59, 60, 104, 0.45),
-        rgba(59, 60, 104, 0.182706),
+        rgba(59, 60, 104, 0.19),
         rgba(59, 60, 104, 0)
     );
     border-radius: 18px;
+
+    @media (width <= 600px) {
+        padding: 24px 20px;
+        background: linear-gradient(
+            86deg,
+            rgba(59, 60, 104, 0.45),
+            rgba(59, 60, 104, 0.19),
+            rgba(59, 60, 104, 0.1)
+        );
+    }
+}
+
+.icon {
+    width: 62px;
+    height: 62px;
+
+    @media (width <= 600px) {
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .content {
@@ -59,21 +89,19 @@
 .text {
     font-size: var(--font-size-l);
     line-height: 28px;
+    color: #a2a6c4;
 }
 
 .trust {
     padding-block-start: 16px;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
 
     & > span {
         font-family: var(--font-barlow-bold-sans), serif;
         font-size: 24px;
-        line-height: 31.2px;
-    }
-
-    & > span + img {
-        padding-inline-start: 16px;
+        line-height: 1.3;
     }
 }
