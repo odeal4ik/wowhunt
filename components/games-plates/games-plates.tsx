@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
@@ -92,6 +93,7 @@ export function GamesPlates() {
                     (_, index) => (
                         <div className={styles.plate} key={gameNames[index]}>
                             <img
+                                className={styles.image}
                                 src={`./games-icons/game${index + 1}.png`}
                                 alt={gameNames[index]}
                                 loading="lazy"

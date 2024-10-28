@@ -14,22 +14,46 @@
 }
 
 .plateWrapper {
-    max-width: 100%;
-    width: 100%;
+    --_columns: 7;
+    --_item-width: 204px;
     display: grid;
-    gap: 25px;
-    grid-template-columns: repeat(7, 1fr);
+    grid-gap: 25px;
+    grid-template-columns: repeat(var(--_columns), var(--_item-width));
     justify-items: center;
     align-items: center;
 
-    @media (width <= 1024px) {
-        grid-template-columns: repeat(4, 1fr);
+    @media (width <= 1600px) and (width > 1350px) {
+        --_columns: 6;
+    }
+
+    @media (width <= 1350px) and (width > 1120px) {
+        --_columns: 5;
+    }
+
+    @media (width <= 1120px) and (width > 900px) {
+        --_columns: 4;
         padding-inline: 64px;
     }
 
-    @media (width <= 768px) {
-        grid-template-columns: repeat(3, 1fr);
+    @media (width <= 900px) and (width > 665px) {
+        --_columns: 3;
         padding-inline: 50px;
+    }
+
+    @media (width <= 665px) {
+        --_columns: 2;
+    }
+
+    @media (width <= 665px) {
+        padding-inline: 26px;
+        --_columns: 2;
+    }
+
+    @media (width <= 440px) {
+        grid-gap: 8px 20px;
+        --_columns: 2;
+        --_item-width: 1fr;
+        width: 100%;
     }
 }
 
@@ -61,10 +85,26 @@
 
     @media (width <= 1024px) {
         height: 188px;
+    }
 
-        /* TODO - remove, it is dirty fix to align items */
-        &:last-of-type {
-            display: none;
+    @media (width <= 440px) {
+        height: auto;
+        flex-direction: row;
+        padding: 7px 15px;
+        border-radius: 8px;
+        gap: 6px;
+        justify-content: space-between;
+
+        .image {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .label {
+            font-size: var(--font-size-ss);
+            text-align: center;
+            flex-grow: 1;
         }
     }
 }
