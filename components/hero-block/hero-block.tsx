@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from './hero-block.module.css';
 
 const advantages = [
@@ -27,6 +28,7 @@ export function HeroBlock() {
                 loading="lazy"
                 className={styles.heroImg}
             />
+
             <div className={styles.contentWrapper}>
                 <div className={styles.heading}>
                     <h1 className={styles.heroTitle}>
@@ -37,6 +39,7 @@ export function HeroBlock() {
                         Avoid wasting time with pugs
                     </p>
                 </div>
+
                 <div className={styles.advantages}>
                     {advantages.map(
                         (

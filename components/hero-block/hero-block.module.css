@@ -4,8 +4,17 @@
     height: 650px;
     position: relative;
 
-    @media (width <= 768px) {
+    @media (width <= 850px) {
+        height: unset;
+    }
+
+    @media (width <= 768px) and (width > 600px) {
         margin-block-end: 12px;
+    }
+
+    @media (width <= 600px) {
+        --_mobile-hero-additional-padding: 240px;
+        padding-block-start: var(--_mobile-hero-additional-padding);
     }
 }
 
@@ -32,6 +41,11 @@
         gap: 24px;
         padding-block-end: 121px;
     }
+
+    @media (width <= 600px) {
+        padding-block-end: 34px;
+        justify-content: flex-end;
+    }
 }
 
 .heroImg {
@@ -43,6 +57,11 @@
     object-fit: cover;
     object-position: 65% 50%;
     z-index: -1;
+
+    @media (width <= 600px) {
+        object-position: 75% 50%;
+        height: calc(100% - var(--_mobile-hero-additional-padding));
+    }
 }
 
 .heading {
@@ -50,7 +69,11 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    row-gap: 12px;
+
+    @media (width <= 600px) {
+        row-gap: 4px;
+    }
 }
 
 .heroTitle {
@@ -63,15 +86,24 @@
         color: var(--yellow-500);
     }
 
-    @media (width <= 768px) {
+    @media (width <= 768px) and (width > 600px) {
         font-size: 60px;
         padding-inline-end: 200px;
+    }
+
+    @media (width <= 600px) {
+        font-size: 32px;
     }
 }
 
 .heroDescription {
     font-size: 30px;
     line-height: 1.2;
+
+    @media (width <= 600px) {
+        font-size: 20px;
+        line-height: 1.4;
+    }
 }
 
 .advantages {
@@ -83,8 +115,12 @@
         gap: 32px 24px;
     }
 
-    @media (width <= 768px) {
+    @media (width <= 768px) and (width > 600px) {
         gap: 24px;
+    }
+
+    @media (width <= 600px) {
+        gap: 22px;
     }
 }
 
@@ -93,11 +129,15 @@
     align-items: center;
     gap: 20px;
 
-    @media (width <= 1024px) {
+    @media (width <= 1024px) and (width > 600px) {
         /* Could be removed if order of items will be controlled from CMS */
         &:nth-child(2) {
             order: 1;
         }
+    }
+
+    @media (width <= 600px) {
+        gap: 15px;
     }
 }
 
@@ -109,18 +149,37 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (width <= 600px) {
+        width: 41px;
+        height: 41px;
+
+        & > img {
+            width: 20px;
+            height: 20px;
+        }
+    }
 }
 
 .advantagesContent {
     display: flex;
     flex-direction: column;
     gap: 2px;
+
+    @media (width <= 600px) {
+        gap: 0;
+    }
 }
 
 .advantagesTitle {
     font-family: var(--font-barlow-bold-sans), sans-serif;
     font-size: 32px;
     line-height: 1;
+
+    @media (width <= 600px) {
+        font-size: var(--font-size-sm);
+        line-height: 26px;
+    }
 }
 
 .advantagesSubTitle {
@@ -130,4 +189,9 @@
     display: flex;
     align-items: center;
     gap: 4px;
+
+    @media (width <= 600px) {
+        font-size: var(--font-size-s);
+        line-height: 20px;
+    }
 }
