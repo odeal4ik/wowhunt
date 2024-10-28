@@ -22,11 +22,13 @@
     }
 
     @media (width <= 768px) {
-        padding-inline: 36px;
+        padding-block: 36px 88px;
+        padding-inline: 12px;
     }
 }
 
 .links {
+    max-width: 100%;
     width: 100%;
     display: grid;
     grid-template-columns: 318px 150px 150px 1fr;
@@ -36,6 +38,11 @@
         grid-template-columns: 385px 1fr 1fr;
         row-gap: 77px;
     }
+
+    @media (width <= 700px) {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 44px;
+    }
 }
 
 .logo {
@@ -43,6 +50,10 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
+
+    @media (width <= 700px) {
+        grid-column: span 2;
+    }
 }
 
 .logoWrapper {
@@ -53,6 +64,7 @@
 }
 
 .name {
+    text-transform: uppercase;
     font-family: var(--font-montserrat-bold-sans);
     color: var(--neutral-soft);
     font-size: 24px;
@@ -108,6 +120,11 @@
 
     @media (width <= 1024px) {
         grid-column: span 3;
+    }
+
+    @media (width <= 700px) {
+        grid-column: span 2;
+        padding-inline-start: 0;
     }
 }
 

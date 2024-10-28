@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import styles from './footer.module.css';
 
 export function Footer() {
@@ -11,6 +12,7 @@ export function Footer() {
                                 src="./images/logo-dark.svg"
                                 alt="logo"
                                 className={styles.logo}
+                                loading="lazy"
                             />
                             <span className={styles.name}>wowhunt</span>
                         </a>
@@ -62,6 +64,7 @@ export function Footer() {
                                     index + 1
                                 }.svg`}
                                 alt={`payment-${index + 1}`}
+                                loading="lazy"
                             />
                         ))}
                     </div>
