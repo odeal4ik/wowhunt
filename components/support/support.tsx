@@ -4,7 +4,7 @@ import styles from './support.module.css';
 export function Support() {
     return (
         <section className={styles.support}>
-            <button className={styles.button}>
+            <button className={styles.button} type="button">
                 <img
                     src="./system-icons/discord.svg"
                     alt="discord"
@@ -13,7 +13,7 @@ export function Support() {
                 WOWHUNT
             </button>
 
-            <button className={styles.button}>
+            <button className={styles.button} type="button">
                 <img
                     src="./system-icons/livechat.svg"
                     alt="live-chat"

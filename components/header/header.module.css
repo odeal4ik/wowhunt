@@ -16,6 +16,10 @@
     padding-block: 20px;
     margin-inline: auto;
 
+    &.blured {
+        backdrop-filter: blur(30px);
+    }
+
     @media (width <= 1024px) {
         padding-inline: 32px;
         padding-block: 19px;
@@ -123,27 +127,6 @@
     }
 }
 
-.catalogBtn {
-    display: flex;
-    padding-block: 6px;
-    padding-inline: 16px;
-    gap: 16px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 12px;
-    cursor: pointer;
-    background: var(--yellow-500);
-    border: 1px solid var(--yellow-500);
-
-    & > span {
-        line-height: 28px;
-    }
-
-    @media (width <= 1024px) {
-        display: none;
-    }
-}
-
 .searchWrapper {
     position: relative;
 
@@ -162,7 +145,10 @@
         background-position: calc(100% - 12px) 50%;
         background-repeat: no-repeat;
         transition: var(--btn-transition);
-        outline: rgb(251, 191, 36, 0.1) 4px solid;
+
+        &:focus {
+            outline: rgb(251, 191, 36, 0.1) 4px solid;
+        }
     }
 
     @media (width <= 1024px) {

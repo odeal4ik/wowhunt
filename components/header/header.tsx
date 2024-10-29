@@ -1,14 +1,26 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-
+import cn from 'classnames';
+import { useState } from 'react';
+import CatalogButton from '../catalog-button/catalog-button';
 import styles from './header.module.css';
+import Catalog from '../catalog/catalog';
 
 export function Header() {
+    const [isCatalogVisible, setIsCatalogVisible] = useState(false);
+
+    function toggleCatalogVisibility() {
+        setIsCatalogVisible(!isCatalogVisible);
+    }
+
     return (
         <header className={styles.header}>
-            <div className={styles.wrapper}>
+            <div
+                className={cn(styles.wrapper, {
+                    [styles.blured]: isCatalogVisible,
+                })}>
                 <div className={styles.leftWrapper}>
-                    <button className={styles.burgerBtn}>
+                    <button className={styles.burgerBtn} type="button">
                         <img
                             src="./system-icons/burger.svg"
                             alt="catalog"
@@ -30,15 +42,7 @@ export function Header() {
                         </div>
                     </a>
 
-                    <button className={styles.catalogBtn}>
-                        <img
-                            src="./images/catalog.png"
-                            alt="catalog"
-                            loading="lazy"
-                        />
-
-                        <span>Catalog</span>
-                    </button>
+                    <CatalogButton onClick={toggleCatalogVisibility} />
 
                     <div className={styles.searchWrapper}>
                         <input
@@ -104,6 +108,8 @@ export function Header() {
                     </a>
                 </div>
             </div>
+
+            <Catalog isVisible={isCatalogVisible} />
         </header>
     );
 }
