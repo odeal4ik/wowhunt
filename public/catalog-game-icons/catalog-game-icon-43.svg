@@ -1,9 +1,9 @@
-<svg width="30" height="30" viewBox="0 0 30 30" fill="#6d6d91" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<mask id="mask0_97_57289" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="6" width="30" height="18">
-<path d="M0 6H4.68173L10.9651 16.3846L12.3819 14.1818L7.3306 6H12.0123L18.2957 16.3846L19.5893 14.1818H20.4517L25.3799 6H22.8542L18.2957 13.5524L15.9548 9.83916L18.2957 6H25.3799H30L24.5175 15.1259H23.655L18.2957 24L14.5996 18.021L10.9651 24L0 6Z" fill="url(#pattern0_97_57289)"/>
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<mask id="mask0_97_57289" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="4" width="24" height="16">
+<path d="M0 4.80078H3.74538L8.77207 13.1085L9.90554 11.3462L5.86448 4.80078H9.60986L14.6366 13.1085L15.6715 11.3462H16.3614L20.3039 4.80078H18.2834L14.6366 10.8427L12.7639 7.87211L14.6366 4.80078H20.3039H24L19.614 12.1015H18.924L14.6366 19.2008L11.6797 14.4176L8.77207 19.2008L0 4.80078Z" fill="url(#pattern0_97_57289)"/>
 </mask>
 <g mask="url(#mask0_97_57289)">
-<path d="M0 6H30L24.3902 15.0311H23.5366L18.0488 24L14.4512 18.083L10.8537 24L0 6Z" fill="#6d6d91"/>
+<path d="M0 4.80078H24L19.5122 12.0257H18.8293L14.439 19.2008L11.561 14.4672L8.68293 19.2008L0 4.80078Z" fill="none"/>
 </g>
 <defs>
 <pattern id="pattern0_97_57289" patternContentUnits="objectBoundingBox" width="1" height="1">

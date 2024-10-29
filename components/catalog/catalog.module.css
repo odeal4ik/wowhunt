@@ -63,8 +63,16 @@
 }
 
 .menuImage {
+    display: none;
+}
+
+.iconWrapper {
+    display: inline-flex;
+    flex-shrink: 0;
+    line-height: 1;
     width: 24px;
     height: 24px;
+    font-size: var(--font-size-ss);
 }
 
 .categories {

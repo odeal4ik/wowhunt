@@ -8,12 +8,10 @@ export function Icon({
     fill?: string;
 }) {
     return (
-        <span aria-hidden={true} className={styles.wrapper}>
-            <Svg
-                className={styles.icon}
-                xmlns="http://www.w3.org/2000/svg"
-                fill={fill || 'currentColor'}
-            />
-        </span>
+        <Svg
+            className={styles.icon}
+            xmlns="http://www.w3.org/2000/svg"
+            fill={fill || 'currentColor'}
+        />
     );
 }
