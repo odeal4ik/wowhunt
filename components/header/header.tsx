@@ -5,6 +5,7 @@ import { useState } from 'react';
 import CatalogButton from '../catalog-button/catalog-button';
 import styles from './header.module.css';
 import Catalog from '../catalog/catalog';
+import CatalogBurgerButton from '../catalog-burger-button/catalog-burger-button';
 
 export function Header() {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
@@ -20,13 +21,7 @@ export function Header() {
                     [styles.blured]: isCatalogVisible,
                 })}>
                 <div className={styles.leftWrapper}>
-                    <button className={styles.burgerBtn} type="button">
-                        <img
-                            src="./system-icons/burger.svg"
-                            alt="catalog"
-                            loading="lazy"
-                        />
-                    </button>
+                    <CatalogBurgerButton onClick={toggleCatalogVisibility} />
 
                     <a className={styles.logoWrapper}>
                         <img

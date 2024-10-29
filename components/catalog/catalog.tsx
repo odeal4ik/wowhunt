@@ -2,6 +2,8 @@ import { Suspense } from 'react';
 import styles from './catalog.module.css';
 import cn from 'classnames';
 
+import Arrow from '../../public/system-icons/arrow-right.svg';
+
 import { Icon } from '../../core-components/icon/icon';
 import { gameNames } from './mocks';
 
@@ -14,13 +16,17 @@ export default function Catalog({ isVisible }: { isVisible: boolean }) {
                     {gameNames.map(({ name, icon }) => (
                         <li key={name} className={styles.menuItem}>
                             <a href="#">
-                                <span className={styles.iconWrapper}>
+                                <span className={styles.menuIcon}>
                                     <Suspense fallback={'Loading...'}>
                                         <Icon svg={icon} />
                                     </Suspense>
                                 </span>
 
                                 {name}
+
+                                <span className={styles.menuArrow}>
+                                    <Icon svg={Arrow} fill="" />
+                                </span>
                             </a>
                         </li>
                     ))}

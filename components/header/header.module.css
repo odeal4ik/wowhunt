@@ -46,38 +46,6 @@
     }
 }
 
-.burgerBtn {
-    display: none;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
-    width: 44px;
-    height: 44px;
-    background-color: var(--neutral-container-soft);
-    border: 1px solid var(--neutral-container-active);
-    transition: var(--btn-transition);
-    cursor: pointer;
-
-    &:hover {
-        background-color: var(--neutral-container-hover);
-        border-color: var(--neutral-hover);
-    }
-
-    @media (width <= 1024px) {
-        display: flex;
-    }
-
-    @media (width <= 768px) {
-        width: 40px;
-        height: 40px;
-    }
-
-    @media (width <= 600px) {
-        flex-shrink: 0;
-    }
-}
-
 .logoWrapper {
     display: flex;
     gap: 4px;

@@ -1,0 +1,63 @@
+.burgerBtn {
+    display: none;
+    position: relative;
+    flex-direction: column;
+    row-gap: 3px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    width: 44px;
+    height: 44px;
+    background-color: var(--neutral-container-soft);
+    border: 1px solid var(--neutral-container-active);
+    transition: var(--btn-transition);
+    cursor: pointer;
+
+    & > span {
+        width: 16px;
+        height: 2px;
+        border-radius: 9999px;
+        background-color: var(--text-color);
+        transition: rotate 0.3s ease, translate 0.3s ease;
+    }
+
+    &.active {
+        border-color: var(--yellow-500);
+        color: var(--text-color);
+        background-color: rgb(251, 191, 36, 0.2);
+
+        & > span {
+            &:nth-child(1) {
+                rotate: 45deg;
+                translate: 0 5px;
+            }
+
+            &:nth-child(2) {
+                opacity: 0;
+            }
+
+            &:nth-child(3) {
+                rotate: -45deg;
+                translate: 0 -5px;
+            }
+        }
+    }
+
+    &:not(&.active):hover {
+        background-color: var(--neutral-container-hover);
+        border-color: var(--neutral-hover);
+    }
+
+    @media (width <= 1024px) {
+        display: flex;
+    }
+
+    @media (width <= 768px) {
+        width: 40px;
+        height: 40px;
+    }
+
+    @media (width <= 600px) {
+        flex-shrink: 0;
+    }
+}
