@@ -1,14 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
 import cn from 'classnames';
-import { useState } from 'react';
-import CatalogButton from '../catalog-button/catalog-button';
+import { useEffect, useState } from 'react';
+
+import { CatalogButton } from '../catalog-button/catalog-button';
+import { Catalog } from '../catalog/catalog';
+import { CatalogBurgerButton } from '../catalog-burger-button/catalog-burger-button';
+
 import styles from './header.module.css';
-import Catalog from '../catalog/catalog';
-import CatalogBurgerButton from '../catalog-burger-button/catalog-burger-button';
 
 export function Header() {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
+
+    useEffect(() => {
+        document.body.style.overflow = isCatalogVisible ? 'hidden' : 'auto';
+    }, [isCatalogVisible]);
 
     function toggleCatalogVisibility() {
         setIsCatalogVisible(!isCatalogVisible);

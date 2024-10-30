@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from './catalog-button.module.css';
 import cn from 'classnames';
 
-export default function CatalogButton({ onClick }: { onClick?: () => void }) {
+export function CatalogButton({ onClick }: { onClick?: () => void }) {
     const [isActive, setIsActive] = useState(false);
 
     function toggleCatalog() {
