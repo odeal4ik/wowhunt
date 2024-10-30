@@ -13,17 +13,34 @@ export function Catalog({ isVisible }: { isVisible: boolean }) {
         gameNames[0].name,
     );
 
+    const [visibleCategory, setVisibleCategory] = useState<string>('');
+
+    function setActiveCategoryVisible() {
+        if (window.innerWidth <= 700) {
+            console.log(window.innerWidth);
+            setVisibleCategory(activeCategory);
+            console.log(visibleCategory);
+        }
+    }
+
     return (
-        <div className={cn(styles.catalog, { [styles.visible]: isVisible })}>
-            <div className={styles.menu}>
+        <div
+            className={cn(styles.catalog, {
+                [styles.visible]: isVisible,
+            })}>
+            <div
+                className={cn(styles.menu, {
+                    [styles.withChoosedCategory]: Boolean(visibleCategory),
+                })}>
                 <span className={styles.menuTitle}>CHOOSE THE GAME</span>
 
                 <ul className={styles.menuList}>
                     {gameNames.map(({ name, icon }) => (
                         <li key={name} className={styles.menuItem}>
-                            <a
-                                href="#"
-                                onMouseOver={() => setActiveCategory(name)}>
+                            <button
+                                type="button"
+                                onMouseOver={() => setActiveCategory(name)}
+                                onClick={setActiveCategoryVisible}>
                                 <span className={styles.menuIcon}>
                                     <Suspense fallback={'Loading...'}>
                                         <Icon svg={icon} />
@@ -35,13 +52,17 @@ export function Catalog({ isVisible }: { isVisible: boolean }) {
                                 <span className={styles.menuArrow}>
                                     <Icon svg={Arrow} fill="" />
                                 </span>
-                            </a>
+                            </button>
                         </li>
                     ))}
                 </ul>
             </div>
 
-            <CatalogCategories activeCategory={activeCategory} />
+            <CatalogCategories
+                activeCategory={activeCategory}
+                visibleCategory={visibleCategory}
+                clearVisibleCategory={() => setVisibleCategory('')}
+            />
         </div>
     );
 }

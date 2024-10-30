@@ -1,20 +1,24 @@
 import { useState } from 'react';
 import cn from 'classnames';
 
-import styles from './catalog-categories.module.css';
 import { GamesCard } from '../games-card/games-card';
+
+import Arrow from '../../public/system-icons/arrow-right.svg';
+
+import styles from './catalog-categories.module.css';
+import { Icon } from '../../core-components/icon/icon';
 
 const tabs = [
     'Pandaria Remix',
     'HOT OFFERS 🔥',
     'SEASON 4 OFFERS',
-    'WoW Dragonflight',
-    'WoW Shadowlands',
-    'WoW TBC Classic',
+    'Dragonflight',
+    'Shadowlands',
+    'TBC Classic',
     'Mystic+ Dengeons',
     'WoW Raids',
     'Dragonflight 10.2.6',
-    'WoW Classic',
+    'Classic',
     'WoW Classic TBC',
 ];
 
@@ -31,29 +35,39 @@ const cards = [
 
 export function CatalogCategories({
     activeCategory,
+    visibleCategory,
+    clearVisibleCategory,
 }: {
     activeCategory: string;
+    visibleCategory: string;
+    clearVisibleCategory: () => void;
 }) {
     const [activeTab, setActiveTab] = useState(tabs[0]);
 
     return (
-        <div className={styles.categories}>
-            <h2 className={styles.title}>{activeCategory}</h2>
+        <div
+            className={cn(styles.categories, {
+                [styles.withChoosedCategory]: Boolean(visibleCategory),
+            })}>
+            <h2 className={styles.title}>
+                <button type="button" onClick={clearVisibleCategory}>
+                    {activeCategory && <Icon svg={Arrow} />}
+                    {activeCategory}
+                </button>
+            </h2>
 
             <div className={styles.tabs}>
-                <div className={styles.buttons}>
-                    {tabs.map((name) => (
-                        <button
-                            key={name}
-                            type="button"
-                            onClick={() => setActiveTab(name)}
-                            className={cn(styles.btn, [
-                                activeTab === name && styles.active,
-                            ])}>
-                            {name}
-                        </button>
-                    ))}
-                </div>
+                {tabs.map((name) => (
+                    <button
+                        key={name}
+                        type="button"
+                        onClick={() => setActiveTab(name)}
+                        className={cn(styles.tab, [
+                            activeTab === name && styles.active,
+                        ])}>
+                        {name}
+                    </button>
+                ))}
             </div>
 
             <div className={styles.cards}>

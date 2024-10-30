@@ -13,7 +13,7 @@ export function Header() {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
 
     useEffect(() => {
-        document.body.style.overflow = isCatalogVisible ? 'hidden' : 'auto';
+        document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';
     }, [isCatalogVisible]);
 
     function toggleCatalogVisibility() {
