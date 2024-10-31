@@ -2,6 +2,8 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
+
 import styles from './games-plates.module.css';
 
 const gameNames = [
@@ -91,7 +93,13 @@ export function GamesPlates() {
                 {/* should be decided about even and odd number of items and grid from design side */}
                 {Array.from({ length: !isMoreGames ? 21 : 73 }).map(
                     (_, index) => (
-                        <div className={styles.plate} key={gameNames[index]}>
+                        <Link
+                            href={`/${gameNames[index]
+                                .toLowerCase()
+                                .replace(/ /g, '-')
+                                .replace("'", '')}`}
+                            className={styles.plate}
+                            key={gameNames[index]}>
                             <img
                                 className={styles.image}
                                 src={`./games-icons/game${index + 1}.png`}
@@ -101,7 +109,7 @@ export function GamesPlates() {
                             <span className={styles.label}>
                                 {gameNames[index]}
                             </span>
-                        </div>
+                        </Link>
                     ),
                 )}
             </div>

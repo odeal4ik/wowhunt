@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
+
 import styles from './footer.module.css';
 
 export function Footer() {
@@ -7,7 +9,7 @@ export function Footer() {
             <div className={styles.footer}>
                 <div className={styles.links}>
                     <div className={styles.logo}>
-                        <a className={styles.logoWrapper}>
+                        <Link href="/" className={styles.logoWrapper}>
                             <img
                                 src="./images/logo-dark.svg"
                                 alt="logo"
@@ -15,7 +17,7 @@ export function Footer() {
                                 loading="lazy"
                             />
                             <span className={styles.name}>wowhunt</span>
-                        </a>
+                        </Link>
                         <div className={styles.copyrights}>
                             © WOWHUNT 2017-2023. All right reserved. Pauros LLC.
                         </div>

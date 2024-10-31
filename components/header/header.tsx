@@ -8,6 +8,7 @@ import { Catalog } from '../catalog/catalog';
 import { CatalogBurgerButton } from '../catalog-burger-button/catalog-burger-button';
 
 import styles from './header.module.css';
+import Link from 'next/link';
 
 export function Header() {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
@@ -29,7 +30,7 @@ export function Header() {
                 <div className={styles.leftWrapper}>
                     <CatalogBurgerButton onClick={toggleCatalogVisibility} />
 
-                    <a className={styles.logoWrapper}>
+                    <Link className={styles.logoWrapper} href="/">
                         <img
                             src="./images/logo.svg"
                             alt="logo"
@@ -41,7 +42,7 @@ export function Header() {
                             <span>wow</span>
                             <span>hunt</span>
                         </div>
-                    </a>
+                    </Link>
 
                     <CatalogButton onClick={toggleCatalogVisibility} />
 

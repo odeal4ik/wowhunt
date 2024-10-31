@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { Header } from '@/components/header/header';
+import { Footer } from '@/components/footer/footer';
 
 const barlowSans = localFont({
     src: './fonts/Barlow/Barlow-Regular.ttf',
@@ -51,7 +53,9 @@ export default function RootLayout({
         <html lang="ru">
             <body
                 className={`${barlowSans.variable} ${barlowMediumSans.variable} ${barlowBoldSans.variable} ${montserratBoldSans.variable} ${montserratSans.variable} ${barlowExtraBoldSans.variable}`}>
+                <Header />
                 {children}
+                <Footer />
             </body>
         </html>
     );

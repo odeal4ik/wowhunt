@@ -1,4 +1,3 @@
-import { Header } from '@/components/header/header';
 import { HeroBlock } from '@/components/hero-block/hero-block';
 import { Splitter } from '@/components/splitter/splitter';
 import { GamesPlates } from '@/components/games-plates/games-plates';
@@ -7,40 +6,33 @@ import { Carousel } from '@/components/carousel/carousel';
 import { HowItWorks } from '@/components/how-it-works/how-it-works';
 import { WhyUs } from '@/components/why-us/why-us';
 import { Support } from '@/components/support/support';
-import { Footer } from '@/components/footer/footer';
 
 export default function Home() {
     return (
-        <>
-            <Header />
+        <main>
+            <HeroBlock />
 
-            <main>
-                <HeroBlock />
+            <Splitter title="CHOOSE GAME" />
 
-                <Splitter title="CHOOSE GAME" />
+            <GamesPlates />
 
-                <GamesPlates />
+            <Splitter title="HOT OFFERS" />
 
-                <Splitter title="HOT OFFERS" />
+            <GamesTabs />
 
-                <GamesTabs />
+            <Carousel />
 
-                <Carousel />
+            <Splitter title="HOW IT WORKS" />
 
-                <Splitter title="HOW IT WORKS" />
+            <HowItWorks />
 
-                <HowItWorks />
+            <Splitter title="WHY CHOOSE US" />
 
-                <Splitter title="WHY CHOOSE US" />
+            <WhyUs />
 
-                <WhyUs />
+            <Splitter title="24/7 ONLINE SUPPORT" />
 
-                <Splitter title="24/7 ONLINE SUPPORT" />
-
-                <Support />
-            </main>
-
-            <Footer />
-        </>
+            <Support />
+        </main>
     );
 }
