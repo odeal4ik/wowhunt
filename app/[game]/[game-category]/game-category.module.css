@@ -6,13 +6,9 @@
 }
 
 .title {
-    font-size: 96px;
+    font-size: 60px;
     line-height: 1;
     font-family: var(--font-barlow-bold-sans), serif;
-
-    @media (width <= 1024px) {
-        font-size: 60px;
-    }
 
     @media (width <= 768px) {
         font-size: 38px;

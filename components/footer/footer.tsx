@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Icon } from '../../core-components/icon/icon';
 import Logo from '@/images/logo/logo-dark.svg';
 import styles from './footer.module.css';
+import Image from 'next/image';
 
 export function Footer() {
     return (
@@ -57,13 +58,15 @@ export function Footer() {
 
                     <div className={styles.payments}>
                         {Array.from({ length: 13 }).map((_, index) => (
-                            <img
+                            <Image
                                 key={index}
                                 src={`./payments-methods/payment${
                                     index + 1
                                 }.svg`}
                                 alt={`payment-${index + 1}`}
                                 loading="lazy"
+                                width={50}
+                                height={50}
                             />
                         ))}
                     </div>
