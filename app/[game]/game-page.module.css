@@ -1,0 +1,56 @@
+.game {
+    padding-block-start: 16px;
+
+    container-type: inline-size;
+    container-name: game;
+}
+
+.title {
+    font-size: 96px;
+    line-height: 1;
+    font-family: var(--font-barlow-bold-sans), serif;
+
+    @media (width <= 1024px) {
+        font-size: 60px;
+    }
+
+    @media (width <= 768px) {
+        font-size: 38px;
+    }
+
+    @media (width <= 600px) {
+        font-size: 32px;
+    }
+}
+
+.subtitle {
+    line-height: var(--font-line-height-130);
+}
+
+.cards {
+    max-width: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    --_columns: 5;
+    grid-template-columns: repeat(var(--_columns), 293px);
+    gap: 32px 20px;
+    padding-block-start: 68px;
+
+    @container game (width < 1550px ) {
+        --_columns: 4;
+    }
+
+    @container game (width < 1240px ) {
+        --_columns: 3;
+    }
+
+    @container game (width < 920px ) {
+        --_columns: 2;
+    }
+
+    @container game (width < 610px ) {
+        --_columns: 1;
+    }
+}
