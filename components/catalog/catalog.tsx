@@ -1,3 +1,5 @@
+'use client';
+
 import { Suspense, useState } from 'react';
 import styles from './catalog.module.css';
 import cn from 'classnames';
@@ -16,10 +18,8 @@ export function Catalog({ isVisible }: { isVisible: boolean }) {
     const [visibleCategory, setVisibleCategory] = useState<string>('');
 
     function setActiveCategoryVisible() {
-        if (window.innerWidth <= 700) {
-            console.log(window.innerWidth);
+        if (window && window.innerWidth <= 700) {
             setVisibleCategory(activeCategory);
-            console.log(visibleCategory);
         }
     }
 

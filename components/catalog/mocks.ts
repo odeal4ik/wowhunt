@@ -6,7 +6,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-1.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-1.svg'
                 ),
         ),
     },
@@ -15,7 +15,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-2.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-2.svg'
                 ),
         ),
     },
@@ -24,7 +24,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-3.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-3.svg'
                 ),
         ),
     },
@@ -33,7 +33,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-4.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-4.svg'
                 ),
         ),
     },
@@ -42,7 +42,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-5.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-5.svg'
                 ),
         ),
     },
@@ -51,7 +51,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-6.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-6.svg'
                 ),
         ),
     },
@@ -60,7 +60,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-7.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-7.svg'
                 ),
         ),
     },
@@ -69,7 +69,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-8.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-8.svg'
                 ),
         ),
     },
@@ -78,7 +78,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-9.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-9.svg'
                 ),
         ),
     },
@@ -87,7 +87,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-10.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-10.svg'
                 ),
         ),
     },
@@ -96,7 +96,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-11.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-11.svg'
                 ),
         ),
     },
@@ -105,7 +105,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-12.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-12.svg'
                 ),
         ),
     },
@@ -114,7 +114,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-13.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-13.svg'
                 ),
         ),
     },
@@ -123,7 +123,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-14.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-14.svg'
                 ),
         ),
     },
@@ -132,7 +132,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-15.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-15.svg'
                 ),
         ),
     },
@@ -141,7 +141,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-16.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-16.svg'
                 ),
         ),
     },
@@ -150,7 +150,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-17.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-17.svg'
                 ),
         ),
     },
@@ -159,7 +159,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-18.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-18.svg'
                 ),
         ),
     },
@@ -168,7 +168,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-19.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-19.svg'
                 ),
         ),
     },
@@ -177,7 +177,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-20.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-20.svg'
                 ),
         ),
     },
@@ -186,7 +186,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-21.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-21.svg'
                 ),
         ),
     },
@@ -195,7 +195,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-22.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-22.svg'
                 ),
         ),
     },
@@ -204,7 +204,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-23.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-23.svg'
                 ),
         ),
     },
@@ -213,7 +213,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-24.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-24.svg'
                 ),
         ),
     },
@@ -222,7 +222,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-25.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-25.svg'
                 ),
         ),
     },
@@ -231,7 +231,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-26.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-26.svg'
                 ),
         ),
     },
@@ -240,7 +240,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-27.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-27.svg'
                 ),
         ),
     },
@@ -249,7 +249,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-28.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-28.svg'
                 ),
         ),
     },
@@ -258,7 +258,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-29.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-29.svg'
                 ),
         ),
     },
@@ -267,7 +267,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-30.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-30.svg'
                 ),
         ),
     },
@@ -276,7 +276,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-31.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-31.svg'
                 ),
         ),
     },
@@ -285,7 +285,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-32.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-32.svg'
                 ),
         ),
     },
@@ -294,7 +294,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-33.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-33.svg'
                 ),
         ),
     },
@@ -303,7 +303,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-34.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-34.svg'
                 ),
         ),
     },
@@ -312,7 +312,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-35.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-35.svg'
                 ),
         ),
     },
@@ -321,7 +321,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-36.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-36.svg'
                 ),
         ),
     },
@@ -330,7 +330,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-37.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-37.svg'
                 ),
         ),
     },
@@ -339,7 +339,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-38.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-38.svg'
                 ),
         ),
     },
@@ -348,7 +348,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-39.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-39.svg'
                 ),
         ),
     },
@@ -357,7 +357,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-40.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-40.svg'
                 ),
         ),
     },
@@ -366,7 +366,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-41.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-41.svg'
                 ),
         ),
     },
@@ -375,7 +375,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-42.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-42.svg'
                 ),
         ),
     },
@@ -384,7 +384,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-43.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-43.svg'
                 ),
         ),
     },
@@ -393,7 +393,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-44.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-44.svg'
                 ),
         ),
     },
@@ -402,7 +402,7 @@ export const gameNames = [
         icon: lazy(
             async () =>
                 await import(
-                    '../../public/catalog-game-icons/catalog-game-icon-45.svg'
+                    '@/images/catalog-game-icons/catalog-game-icon-45.svg'
                 ),
         ),
     },

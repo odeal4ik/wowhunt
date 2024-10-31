@@ -1,16 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 'use client';
-import cn from 'classnames';
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import cn from 'classnames';
 
 import { CatalogButton } from '../catalog-button/catalog-button';
 import { Catalog } from '../catalog/catalog';
 import { CatalogBurgerButton } from '../catalog-burger-button/catalog-burger-button';
 
 import styles from './header.module.css';
-import Link from 'next/link';
 
-export function Header() {
+export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
 
     useEffect(() => {
@@ -25,7 +25,7 @@ export function Header() {
         <header className={styles.header}>
             <div
                 className={cn(styles.wrapper, {
-                    [styles.blured]: isCatalogVisible,
+                    [styles.blured]: isCatalogVisible || isBlured,
                 })}>
                 <div className={styles.leftWrapper}>
                     <CatalogBurgerButton onClick={toggleCatalogVisibility} />
