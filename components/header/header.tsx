@@ -7,6 +7,9 @@ import cn from 'classnames';
 import { CatalogButton } from '../catalog-button/catalog-button';
 import { Catalog } from '../catalog/catalog';
 import { CatalogBurgerButton } from '../catalog-burger-button/catalog-burger-button';
+import { Icon } from '../../core-components/icon/icon';
+
+import Logo from '@/images/logo/logo.svg';
 
 import styles from './header.module.css';
 
@@ -31,12 +34,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     <CatalogBurgerButton onClick={toggleCatalogVisibility} />
 
                     <Link className={styles.logoWrapper} href="/">
-                        <img
-                            src="./images/logo.svg"
-                            alt="logo"
-                            loading="lazy"
-                            className={styles.logo}
-                        />
+                        <Icon svg={Logo} />
 
                         <div className={styles.name}>
                             <span>wow</span>

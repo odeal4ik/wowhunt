@@ -1,5 +1,5 @@
 import { GamesCard } from '@/components/games-card/games-card';
-import styles from './game-page.module.css';
+import styles from './game.module.css';
 
 const cards = [
     'R6 SIEGE WINS BOOST',

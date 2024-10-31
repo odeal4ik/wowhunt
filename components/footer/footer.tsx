@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
+import { Icon } from '../../core-components/icon/icon';
+import Logo from '@/images/logo/logo-dark.svg';
 import styles from './footer.module.css';
 
 export function Footer() {
@@ -10,12 +12,7 @@ export function Footer() {
                 <div className={styles.links}>
                     <div className={styles.logo}>
                         <Link href="/" className={styles.logoWrapper}>
-                            <img
-                                src="./images/logo-dark.svg"
-                                alt="logo"
-                                className={styles.logo}
-                                loading="lazy"
-                            />
+                            <Icon svg={Logo} />
                             <span className={styles.name}>wowhunt</span>
                         </Link>
                         <div className={styles.copyrights}>

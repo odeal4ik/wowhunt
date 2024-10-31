@@ -1,0 +1,24 @@
+.category {
+    padding-block-start: 16px;
+
+    container-type: inline-size;
+    container-name: game;
+}
+
+.title {
+    font-size: 96px;
+    line-height: 1;
+    font-family: var(--font-barlow-bold-sans), serif;
+
+    @media (width <= 1024px) {
+        font-size: 60px;
+    }
+
+    @media (width <= 768px) {
+        font-size: 38px;
+    }
+
+    @media (width <= 600px) {
+        font-size: 32px;
+    }
+}
