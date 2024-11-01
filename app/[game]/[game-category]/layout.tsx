@@ -45,6 +45,32 @@ export default function GameCategoryLayout({
                         <span>Quantity</span>
                         <span />
                     </span>
+
+                    <div className={styles.inputs}>
+                        <input
+                            className={styles.number}
+                            type="number"
+                            id="quantity-number"
+                            name="quantity-number"
+                            defaultValue="5"
+                            min="1"
+                            max="10"
+                        />
+                        <input
+                            className={styles.range}
+                            type="range"
+                            id="quantity-range"
+                            name="quantity-range"
+                            min="1"
+                            max="10"
+                            defaultValue="5"
+                        />
+                        <div className={styles.steps}>
+                            {Array.from({ length: 10 }).map((_, i) => (
+                                <span key={i}>{i + 1}</span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
