@@ -287,7 +287,7 @@
             display: flex;
             padding: 12px;
             font-size: var(--font-size-m);
-            line-height: 1.3;
+            line-height: var(--font-line-height-130);
         }
 
         & > .languageBtn > input:not(:checked) + label {

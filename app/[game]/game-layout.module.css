@@ -1,5 +1,5 @@
 .game {
-    padding-top: 86px;
+    padding-block-start: 86px;
 
     background-image: url('/games-images/game1.png');
     background-size: 100% minmax(auto, 650px);

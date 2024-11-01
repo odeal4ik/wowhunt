@@ -102,7 +102,7 @@
 
     @media (width <= 600px) {
         font-size: 20px;
-        line-height: 1.4;
+        line-height: var(--font-line-height-140);
     }
 }
 
@@ -184,7 +184,7 @@
 
 .advantagesSubTitle {
     font-size: var(--font-size-l);
-    line-height: 1.4;
+    line-height: var(--font-line-height-140);
     color: var(--text-color-secondary);
     display: flex;
     align-items: center;

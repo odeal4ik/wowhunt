@@ -7,7 +7,7 @@
     margin: 0;
 }
 body {
-    line-height: 1.5;
+    line-height: var(--font-line-height-150);
     -webkit-font-smoothing: antialiased;
 }
 img,
@@ -55,6 +55,7 @@ h6 {
     --dark-muted: #4b4b77;
     --dark-hover: #0a0c1e;
     --dark-active: #090916;
+    --dark-soft: #272742;
 
     /* yellow */
     --yellow-500: #fbbf24;
@@ -70,6 +71,7 @@ h6 {
 
     --font-line-height-130: 1.3;
     --font-line-height-140: 1.4;
+    --font-line-height-150: 1.5;
 
     /* Button behavior */
     --btn-transition: background-color 0.2s ease, border-color 0.2s ease;
