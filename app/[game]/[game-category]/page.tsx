@@ -30,6 +30,7 @@ export default function GameCategory() {
                 </div>
             </div>
 
+            {/* Did not understood from design what it should be TABS (how they named in Figma) or anchor links because they match with h5 tags in design  */}
             <div className={styles.tabs}>
                 <div className={styles.controls}>
                     {controls.map((control, index) => (
