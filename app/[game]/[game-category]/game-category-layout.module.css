@@ -5,6 +5,7 @@
     padding-inline-start: 28px;
     max-width: 1440px;
     width: 100%;
+    align-items: start;
 }
 
 .filters {
@@ -18,6 +19,9 @@
     display: flex;
     flex-direction: column;
     row-gap: 28px;
+
+    position: sticky;
+    top: 20px;
 }
 
 .item {
@@ -85,4 +89,41 @@
     border-color: var(--yellow-500);
     color: #000;
     background-color: var(--yellow-500);
+}
+
+.price {
+    text-transform: uppercase;
+    font-family: var(--font-barlow-extra-bold-sans), serif;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.submition {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+
+    & > button {
+        padding-block: 10px;
+        text-transform: uppercase;
+        font-size: var(--font-size-m);
+        line-height: var(--font-line-height-150);
+        border-radius: 8px;
+        font-family: var(--font-barlow-extra-bold-sans), serif;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 6px;
+
+        &.submit {
+            background-color: var(--yellow-500);
+            color: var(--dark-soft);
+        }
+
+        &.chat {
+            background-color: #1e1f39;
+            color: var(--text-color);
+            padding-inline-end: 10px;
+        }
+    }
 }

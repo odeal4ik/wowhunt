@@ -1,6 +1,9 @@
 import cn from 'classnames';
 
 import styles from './game-category-layout.module.css';
+import { Icon } from '../../../core-components/icon/icon';
+
+import Chat from '@/images/icons/writting.svg';
 
 export default function GameCategoryLayout({
     children,
@@ -37,35 +40,45 @@ export default function GameCategoryLayout({
                     </div>
                 </div>
 
-                <div className={styles.region}>
+                <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>Quantity</span>
                         <span />
                     </span>
                 </div>
-                <div className={styles.region}>
+                <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>ranks</span>
                         <span />
                     </span>
                 </div>
-                <div className={styles.region}>
+                <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>Raid Mode (Required)</span>
                         <span />
                     </span>
                 </div>
-                <div className={styles.region}>
+                <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>Choose Difficulty</span>
                         <span />
                     </span>
                 </div>
-                <div className={styles.region}>
+                <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>Loot Options</span>
                         <span />
                     </span>
+                </div>
+
+                <div className={styles.price}>€53.99</div>
+
+                <div className={styles.submition}>
+                    <button className={styles.submit}>BUY NOW</button>
+                    <button className={styles.chat}>
+                        <Icon svg={Chat} fill="#9f9fb7" />
+                        CHAT
+                    </button>
                 </div>
             </div>
         </section>
