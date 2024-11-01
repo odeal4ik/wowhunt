@@ -9,7 +9,7 @@ export function Carousel() {
                     <img
                         width={42}
                         height={42}
-                        src="./images/trastpilot-star.svg"
+                        src="/images/trastpilot-star.svg"
                         alt="trust pilot"
                         loading="lazy"
                     />

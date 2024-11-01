@@ -10,7 +10,7 @@ const advantages = [
     {
         icon: './images/star.svg',
         title: 'TRUST',
-        subTitle: `Rated 5 stars <img src="./images/trastpilot-star.svg" alt="trastpilot" /> on <span>Trustpilot</span>`,
+        subTitle: `Rated 5 stars <img src="/images/trastpilot-star.svg" alt="trastpilot" /> on <span>Trustpilot</span>`,
     },
     {
         icon: './images/sand-clock.svg',
@@ -23,7 +23,7 @@ export function HeroBlock() {
     return (
         <section className={styles.hero}>
             <img
-                src="./images/hero_block.png"
+                src="/images/hero_block.png"
                 alt="hero"
                 loading="lazy"
                 className={styles.heroImg}

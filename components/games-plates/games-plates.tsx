@@ -102,7 +102,7 @@ export function GamesPlates() {
                             key={gameNames[index]}>
                             <img
                                 className={styles.image}
-                                src={`./games-icons/game${index + 1}.png`}
+                                src={`/games-icons/game${index + 1}.png`}
                                 alt={gameNames[index]}
                                 loading="lazy"
                             />

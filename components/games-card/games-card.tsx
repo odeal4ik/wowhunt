@@ -1,21 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import { GamesTabBadge } from '../games-tab-badge/games-tab-badge';
 
 import styles from './games-card.module.css';
 
 export function GamesCard({ card }: { card: string }) {
     return (
-        <div className={styles.card}>
+        <Link href="/game/game-category" className={styles.card}>
             <img
                 className={styles.image}
-                src="./images/card.png"
+                src="/images/card.png"
                 alt="card"
                 loading="lazy"
             />
 
             <img
                 className={styles.frame}
-                src="./images/card-frame.svg"
+                src="/images/card-frame.svg"
                 alt="frame"
                 loading="lazy"
             />
@@ -50,6 +51,6 @@ export function GamesCard({ card }: { card: string }) {
                     />
                 </svg>
             </button>
-        </div>
+        </Link>
     );
 }

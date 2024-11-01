@@ -67,7 +67,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                             target="_blank"
                             className={styles.trust}>
                             <img
-                                src="./images/trustpilot.png"
+                                src="/images/trustpilot.png"
                                 alt="trust pilot"
                                 loading="lazy"
                             />
@@ -101,7 +101,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
 
                     <a className={styles.basket} href="/shopping-card">
                         <img
-                            src="./images/basket.svg"
+                            src="/images/basket.svg"
                             alt="Basket"
                             loading="lazy"
                         />

@@ -14,7 +14,7 @@ export function GamesTabBadge({
                 <div className={styles.hotOffer}>
                     HOT OFFER{' '}
                     <img
-                        src="./badges/flame.svg"
+                        src="/badges/flame.svg"
                         alt="hot offer"
                         loading="lazy"
                     />
@@ -25,7 +25,7 @@ export function GamesTabBadge({
                 <div className={styles.weeklyOffer}>
                     Weekly offer
                     <img
-                        src="./badges/clock.svg"
+                        src="/badges/clock.svg"
                         alt="weekly offer"
                         loading="lazy"
                     />

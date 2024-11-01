@@ -5,13 +5,13 @@ export function WhyUs() {
     return (
         <section className={styles.whyUs}>
             <div className={styles.image}>
-                <img src="./images/whyus.png" alt="whyus" loading="lazy" />
+                <img src="/images/whyus.png" alt="whyus" loading="lazy" />
             </div>
 
             <div className={styles.wrapper}>
                 <div className={styles.item}>
                     <img
-                        src="./system-icons/writting.svg"
+                        src="/system-icons/writting.svg"
                         alt="Why us 1"
                         className={styles.icon}
                         loading="lazy"
@@ -27,7 +27,7 @@ export function WhyUs() {
 
                 <div className={styles.item}>
                     <img
-                        src="./system-icons/time.svg"
+                        src="/system-icons/time.svg"
                         alt="Why us 2"
                         className={styles.icon}
                         loading="lazy"
@@ -43,7 +43,7 @@ export function WhyUs() {
 
                 <div className={styles.item}>
                     <img
-                        src="./system-icons/star.svg"
+                        src="/system-icons/star.svg"
                         alt="Why us 3"
                         className={styles.icon}
                         loading="lazy"
@@ -56,13 +56,13 @@ export function WhyUs() {
                         </p>
                         <p className={styles.trust}>
                             <img
-                                src="./images/trastpilot-star.svg"
+                                src="/images/trastpilot-star.svg"
                                 alt="trastpilot"
                                 loading="lazy"
                             />
                             <span>Trustpilot</span>
                             <img
-                                src="./images/trustpilot-stars.png"
+                                src="/images/trustpilot-stars.png"
                                 alt="trastpilot"
                                 loading="lazy"
                             />

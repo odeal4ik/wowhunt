@@ -60,7 +60,7 @@ export function Footer() {
                         {Array.from({ length: 13 }).map((_, index) => (
                             <Image
                                 key={index}
-                                src={`./payments-methods/payment${
+                                src={`/payments-methods/payment${
                                     index + 1
                                 }.svg`}
                                 alt={`payment-${index + 1}`}

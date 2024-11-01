@@ -6,7 +6,7 @@ export function Support() {
         <section className={styles.support}>
             <button className={styles.button} type="button">
                 <img
-                    src="./system-icons/discord.svg"
+                    src="/system-icons/discord.svg"
                     alt="discord"
                     loading="lazy"
                 />
@@ -15,7 +15,7 @@ export function Support() {
 
             <button className={styles.button} type="button">
                 <img
-                    src="./system-icons/livechat.svg"
+                    src="/system-icons/livechat.svg"
                     alt="live-chat"
                     loading="lazy"
                 />
