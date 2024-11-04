@@ -93,13 +93,27 @@
 
 .inputs {
     width: 100%;
+    position: relative;
 
-    & > input {
-        width: 100%;
+    &.singles {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        .number {
+            margin-block-end: 26px;
+        }
+    }
+
+    &.doubles {
+        display: grid;
+        grid-template-columns: 1fr 1ch 1fr;
+        column-gap: 12px;
+        align-items: center;
         text-align: center;
     }
 
     .number {
+        width: 100%;
         color: var(--text-color);
         background-color: #171930;
         font-family: var(--font-barlow-extra-bold-sans), serif;
@@ -109,7 +123,7 @@
         height: 48px;
         border-radius: 6px;
         transition: outline 0.2s ease, border-color 0.2s ease;
-        margin-block-end: 20px;
+        text-align: center;
 
         -moz-appearance: textfield; /* Firefox */
         &::-webkit-outer-spin-button,
@@ -125,66 +139,6 @@
 
         &:focus-visible {
             outline: rgb(251, 191, 36, 0.1) 4px solid;
-        }
-    }
-
-    .range {
-        -webkit-appearance: none;
-        appearance: none;
-        background: transparent;
-        cursor: pointer;
-
-        &:focus {
-            outline: none;
-        }
-
-        /***** Chrome, Safari, Opera and Edge Chromium styles *****/
-        /* slider track */
-        &::-webkit-slider-runnable-track {
-            background-color: var(--yellow-500);
-            border-radius: 9999px;
-            height: 4px;
-        }
-
-        /* slider thumb */
-        &::-webkit-slider-thumb {
-            -webkit-appearance: none; /* Override default look */
-            appearance: none;
-            margin-top: -6px; /* Centers thumb on the track */
-
-            /*custom styles*/
-            background-color: var(--yellow-500);
-            height: 16px;
-            width: 16px;
-            border-radius: 9999px;
-        }
-
-        &:focus::-webkit-slider-thumb {
-            box-shadow: 0 0 1px 0 rgb(68, 83, 113, 0.1);
-        }
-
-        /******** Firefox styles ********/
-        /* slider track */
-        &:-moz-range-track {
-            background-color: var(--yellow-500);
-            border-radius: 9999px;
-            height: 4px;
-        }
-
-        /* slider thumb */
-        &::-moz-range-thumb {
-            border: none; /*Removes extra border that FF applies*/
-            border-radius: 0; /*Removes default border-radius that FF applies*/
-
-            /*custom styles*/
-            background-color: var(--yellow-500);
-            height: 16px;
-            width: 16px;
-            border-radius: 9999px;
-        }
-
-        &:focus::-moz-range-thumb {
-            box-shadow: 0 0 1px 0 rgb(68, 83, 113, 0.1);
         }
     }
 
@@ -213,6 +167,7 @@
     column-gap: 24px;
 
     & > button {
+        cursor: pointer;
         padding-block: 10px;
         text-transform: uppercase;
         font-size: var(--font-size-m);

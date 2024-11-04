@@ -1,0 +1,77 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    border-radius: 9999px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+        to right,
+        var(--yellow-500) 0%,
+        var(--yellow-500) var(--_input-range-value),
+        rgb(75, 75, 119, 0.1) var(--_input-range-value),
+        rgb(75, 75, 119, 0.1) 100%
+    );
+}
+
+.range {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    /***** Chrome, Safari, Opera and Edge Chromium styles *****/
+    /* slider track */
+    &::-webkit-slider-runnable-track {
+        background-color: transparent;
+        border-radius: 9999px;
+        height: 4px;
+    }
+
+    /* slider thumb */
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none; /* Override default look */
+        appearance: none;
+        margin-top: -6px; /* Centers thumb on the track */
+
+        /*custom styles*/
+        background-color: var(--yellow-500);
+        height: 16px;
+        width: 16px;
+        border-radius: 9999px;
+    }
+
+    &:focus::-webkit-slider-thumb {
+        box-shadow: 0 0 1px 0 rgb(68, 83, 113, 0.1);
+    }
+
+    /******** Firefox styles ********/
+    /* slider track */
+    &:-moz-range-track {
+        background-color: var(--yellow-500);
+        border-radius: 9999px;
+        height: 4px;
+    }
+
+    /* slider thumb */
+    &::-moz-range-thumb {
+        border: none; /*Removes extra border that FF applies*/
+        border-radius: 0; /*Removes default border-radius that FF applies*/
+
+        /*custom styles*/
+        background-color: var(--yellow-500);
+        height: 16px;
+        width: 16px;
+        border-radius: 9999px;
+    }
+
+    &:focus::-moz-range-thumb {
+        box-shadow: 0 0 1px 0 rgb(68, 83, 113, 0.1);
+    }
+}

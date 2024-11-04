@@ -1,9 +1,13 @@
+'use client';
+
 import cn from 'classnames';
 
 import styles from './game-category-layout.module.css';
 import { Icon } from '../../../core-components/icon/icon';
 
 import Chat from '@/images/icons/writting.svg';
+import { InputRange } from '../../../core-components/input/range/input-range';
+import { InputSlider } from '../../../core-components/input/slider/input-slider';
 
 export default function GameCategoryLayout({
     children,
@@ -46,7 +50,7 @@ export default function GameCategoryLayout({
                         <span />
                     </span>
 
-                    <div className={styles.inputs}>
+                    <div className={cn(styles.inputs, styles.singles)}>
                         <input
                             className={styles.number}
                             type="number"
@@ -56,14 +60,12 @@ export default function GameCategoryLayout({
                             min="1"
                             max="10"
                         />
-                        <input
-                            className={styles.range}
-                            type="range"
+                        <InputRange
+                            defaultValue={5}
+                            min={1}
+                            max={10}
                             id="quantity-range"
                             name="quantity-range"
-                            min="1"
-                            max="10"
-                            defaultValue="5"
                         />
                         <div className={styles.steps}>
                             {Array.from({ length: 10 }).map((_, i) => (
@@ -77,6 +79,44 @@ export default function GameCategoryLayout({
                         <span>ranks</span>
                         <span />
                     </span>
+
+                    <div className={cn(styles.inputs, styles.doubles)}>
+                        <input
+                            className={styles.number}
+                            type="number"
+                            id="rank-number-2"
+                            name="rank-number-2"
+                            defaultValue="2"
+                            min="1"
+                            max="10"
+                        />
+                        -
+                        <input
+                            className={styles.number}
+                            type="number"
+                            id="rank-number-2"
+                            name="rank-number-2"
+                            defaultValue="8"
+                            min="1"
+                            max="10"
+                        />
+                    </div>
+                    <div className={styles.inputs}>
+                        <InputSlider
+                            defaultValue1={2}
+                            defaultValue2={8}
+                            min={1}
+                            max={10}
+                            id="rank-range"
+                            name="rank-range"
+                        />
+
+                        <div className={styles.steps}>
+                            {Array.from({ length: 10 }).map((_, i) => (
+                                <span key={i}>{i + 1}</span>
+                            ))}
+                        </div>
+                    </div>
                 </div>
                 <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
