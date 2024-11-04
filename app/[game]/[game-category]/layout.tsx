@@ -9,6 +9,7 @@ import Chat from '@/images/icons/writting.svg';
 import { InputRange } from '../../../core-components/input/range/input-range';
 import { InputSlider } from '../../../core-components/input/slider/input-slider';
 import { InputNumber } from '../../../core-components/input/number/input-number';
+import { Select } from '../../../core-components/select/select';
 
 export default function GameCategoryLayout({
     children,
@@ -112,6 +113,11 @@ export default function GameCategoryLayout({
                                 <span key={i}>{i + 1}</span>
                             ))}
                         </div>
+                    </div>
+                    <div className={styles.selects}>
+                        <Select />
+                        -
+                        <Select />
                     </div>
                 </div>
                 <div className={styles.item}>

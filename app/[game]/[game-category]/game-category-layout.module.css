@@ -125,6 +125,15 @@
     }
 }
 
+.selects {
+    display: grid;
+    grid-template-columns: 1fr 1ch 1fr;
+    column-gap: 12px;
+    align-items: center;
+    text-align: center;
+    margin-block-end: 10px;
+}
+
 .price {
     text-transform: uppercase;
     font-family: var(--font-barlow-extra-bold-sans), serif;
