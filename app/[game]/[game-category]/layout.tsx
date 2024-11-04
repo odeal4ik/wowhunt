@@ -8,6 +8,7 @@ import { Icon } from '../../../core-components/icon/icon';
 import Chat from '@/images/icons/writting.svg';
 import { InputRange } from '../../../core-components/input/range/input-range';
 import { InputSlider } from '../../../core-components/input/slider/input-slider';
+import { InputNumber } from '../../../core-components/input/number/input-number';
 
 export default function GameCategoryLayout({
     children,
@@ -51,14 +52,12 @@ export default function GameCategoryLayout({
                     </span>
 
                     <div className={cn(styles.inputs, styles.singles)}>
-                        <input
-                            className={styles.number}
-                            type="number"
+                        <InputNumber
                             id="quantity-number"
                             name="quantity-number"
-                            defaultValue="5"
-                            min="1"
-                            max="10"
+                            defaultValue={5}
+                            min={1}
+                            max={10}
                         />
                         <InputRange
                             defaultValue={5}
@@ -74,6 +73,7 @@ export default function GameCategoryLayout({
                         </div>
                     </div>
                 </div>
+
                 <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>ranks</span>
@@ -81,24 +81,20 @@ export default function GameCategoryLayout({
                     </span>
 
                     <div className={cn(styles.inputs, styles.doubles)}>
-                        <input
-                            className={styles.number}
-                            type="number"
-                            id="rank-number-2"
-                            name="rank-number-2"
-                            defaultValue="2"
-                            min="1"
-                            max="10"
+                        <InputNumber
+                            id="rank-number-1"
+                            name="rank-number-1"
+                            defaultValue={2}
+                            min={1}
+                            max={10}
                         />
                         -
-                        <input
-                            className={styles.number}
-                            type="number"
+                        <InputNumber
                             id="rank-number-2"
                             name="rank-number-2"
-                            defaultValue="8"
-                            min="1"
-                            max="10"
+                            defaultValue={8}
+                            min={1}
+                            max={10}
                         />
                     </div>
                     <div className={styles.inputs}>

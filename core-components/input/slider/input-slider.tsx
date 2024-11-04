@@ -44,8 +44,12 @@ export function InputSlider({
             className={styles.wrapper}
             style={
                 {
-                    '--_input-range-value-1': `${value1}%`,
-                    '--_input-range-value-2': `${value2}%`,
+                    '--_input-range-value-1': `${
+                        value1 > value2 ? value2 : value1
+                    }%`,
+                    '--_input-range-value-2': `${
+                        value1 > value2 ? value1 : value2
+                    }%`,
                 } as React.CSSProperties
             }>
             <input
