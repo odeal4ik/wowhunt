@@ -6,7 +6,7 @@ import cn from 'classnames';
 import Chevron from '../../../public/system-icons/chevron.svg';
 
 import styles from './game-category.module.css';
-import { Icon } from '../../../core-components/icon/icon';
+import { Icon } from '@/core/icon/icon';
 
 const controls = ["What you'll get", 'Requirements', 'More info', 'Reviews'];
 

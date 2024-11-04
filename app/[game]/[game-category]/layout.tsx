@@ -3,13 +3,13 @@
 import cn from 'classnames';
 
 import styles from './game-category-layout.module.css';
-import { Icon } from '../../../core-components/icon/icon';
+import { Icon } from '@/core/icon/icon';
 
 import Chat from '@/images/icons/writting.svg';
-import { InputRange } from '../../../core-components/input/range/input-range';
-import { InputSlider } from '../../../core-components/input/slider/input-slider';
-import { InputNumber } from '../../../core-components/input/number/input-number';
-import { Select } from '../../../core-components/select/select';
+import { InputRange } from '@/core/input/range/input-range';
+import { InputSlider } from '@/core/input/slider/input-slider';
+import { InputNumber } from '@/core/input/number/input-number';
+import { Select } from '@/core/select/select';
 
 export default function GameCategoryLayout({
     children,
