@@ -40,38 +40,45 @@ export function InputSlider({
         }
     };
     return (
-        <div
-            className={styles.wrapper}
-            style={
-                {
-                    '--_input-range-value-1': `${
-                        value1 > value2 ? value2 : value1
-                    }%`,
-                    '--_input-range-value-2': `${
-                        value1 > value2 ? value1 : value2
-                    }%`,
-                } as React.CSSProperties
-            }>
-            <input
-                className={styles.slider}
-                id={`${id}-1`}
-                name={`${name}-1`}
-                type="range"
-                min={min}
-                max={max}
-                defaultValue={defaultValue1}
-                onChange={onLocalChange1}
-            />
-            <input
-                className={styles.slider}
-                id={`${id}-2`}
-                name={`${name}-2`}
-                type="range"
-                min={min}
-                max={max}
-                defaultValue={defaultValue2}
-                onChange={onLocalChange2}
-            />
+        <div className={styles.wrapper}>
+            <div
+                className={styles.track}
+                style={
+                    {
+                        '--_input-range-value-1': `${
+                            value1 > value2 ? value2 : value1
+                        }%`,
+                        '--_input-range-value-2': `${
+                            value1 > value2 ? value1 : value2
+                        }%`,
+                    } as React.CSSProperties
+                }>
+                <input
+                    className={styles.slider}
+                    id={`${id}-1`}
+                    name={`${name}-1`}
+                    type="range"
+                    min={min}
+                    max={max}
+                    defaultValue={defaultValue1}
+                    onChange={onLocalChange1}
+                />
+                <input
+                    className={styles.slider}
+                    id={`${id}-2`}
+                    name={`${name}-2`}
+                    type="range"
+                    min={min}
+                    max={max}
+                    defaultValue={defaultValue2}
+                    onChange={onLocalChange2}
+                />
+            </div>
+            <div className={styles.steps}>
+                {Array.from({ length: 10 }).map((_, i) => (
+                    <span key={i}>{i + 1}</span>
+                ))}
+            </div>
         </div>
     );
 }

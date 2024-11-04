@@ -67,11 +67,6 @@ export default function GameCategoryLayout({
                             id="quantity-range"
                             name="quantity-range"
                         />
-                        <div className={styles.steps}>
-                            {Array.from({ length: 10 }).map((_, i) => (
-                                <span key={i}>{i + 1}</span>
-                            ))}
-                        </div>
                     </div>
                 </div>
 
@@ -107,31 +102,32 @@ export default function GameCategoryLayout({
                             id="rank-range"
                             name="rank-range"
                         />
-
-                        <div className={styles.steps}>
-                            {Array.from({ length: 10 }).map((_, i) => (
-                                <span key={i}>{i + 1}</span>
-                            ))}
-                        </div>
                     </div>
-                    <div className={styles.selects}>
+                    <div className={styles['rank-selects']}>
                         <Select />
                         -
                         <Select />
                     </div>
                 </div>
+
                 <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>Raid Mode (Required)</span>
                         <span />
                     </span>
                 </div>
+
                 <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>Choose Difficulty</span>
                         <span />
                     </span>
+
+                    <div className={styles['dificulty-select']}>
+                        <Select />
+                    </div>
                 </div>
+
                 <div className={styles.item}>
                     <span className={cn(styles.label, styles.withLine)}>
                         <span>Loot Options</span>

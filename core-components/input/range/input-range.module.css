@@ -1,4 +1,10 @@
 .wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 12px;
+}
+
+.track {
     position: relative;
     width: 100%;
     height: 4px;
@@ -74,4 +80,14 @@
     &:focus::-moz-range-thumb {
         box-shadow: 0 0 1px 0 rgb(68, 83, 113, 0.1);
     }
+}
+
+.steps {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--font-size-s);
+    line-height: var(--font-line-height-130);
+    padding-inline: 5px;
 }

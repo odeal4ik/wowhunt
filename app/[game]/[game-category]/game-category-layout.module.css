@@ -98,10 +98,7 @@
     &.singles {
         display: grid;
         grid-template-columns: 1fr;
-
-        .number {
-            margin-block-end: 26px;
-        }
+        row-gap: 26px;
     }
 
     &.doubles {
@@ -112,26 +109,18 @@
         text-align: center;
         margin-block-end: 10px;
     }
-
-    .steps {
-        width: 100%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: space-between;
-        font-size: var(--font-size-s);
-        line-height: var(--font-line-height-130);
-        padding-inline: 5px;
-        padding-block-start: 6px;
-    }
 }
 
-.selects {
+.rank-selects {
     display: grid;
     grid-template-columns: 1fr 1ch 1fr;
     column-gap: 12px;
     align-items: center;
     text-align: center;
     margin-block-end: 10px;
+}
+
+.dificulty-select {
 }
 
 .price {

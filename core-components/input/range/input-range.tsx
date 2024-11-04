@@ -16,36 +16,43 @@ export function InputRange({
     name: string;
     onChange?: (value: number) => void;
 }) {
-    const [value, setValue] = useState(
-        Math.round(100 / (max - min)) * (defaultValue - min),
-    );
+    const percent = (num: number) =>
+        Math.round(100 / (max - min)) * (num - min);
+
+    const [value, setValue] = useState(percent(defaultValue));
 
     const onLocalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const percent = (100 / (max - min)) * (Number(e.target.value) - min);
-        setValue(percent);
+        setValue(percent(Number(e.target.value)));
 
         if (onChange) {
             onChange(Number(e.target.value));
         }
     };
     return (
-        <div
-            className={styles.wrapper}
-            style={
-                {
-                    '--_input-range-value': `${value}%`,
-                } as React.CSSProperties
-            }>
-            <input
-                className={styles.range}
-                id={id}
-                name={name}
-                type="range"
-                min={min}
-                max={max}
-                defaultValue={defaultValue}
-                onChange={onLocalChange}
-            />
+        <div className={styles.wrapper}>
+            <div
+                className={styles.track}
+                style={
+                    {
+                        '--_input-range-value': `${value}%`,
+                    } as React.CSSProperties
+                }>
+                <input
+                    className={styles.range}
+                    id={id}
+                    name={name}
+                    type="range"
+                    min={min}
+                    max={max}
+                    defaultValue={defaultValue}
+                    onChange={onLocalChange}
+                />
+            </div>
+            <div className={styles.steps}>
+                {Array.from({ length: 10 }).map((_, i) => (
+                    <span key={i}>{i + 1}</span>
+                ))}
+            </div>
         </div>
     );
 }
