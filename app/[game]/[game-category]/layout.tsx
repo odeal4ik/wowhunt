@@ -10,6 +10,7 @@ import { InputRange } from '@/core/input/range/input-range';
 import { InputSlider } from '@/core/input/slider/input-slider';
 import { InputNumber } from '@/core/input/number/input-number';
 import { Select } from '@/core/select/select';
+import { Checkbox } from '@/core/input/checkbox/checkbox';
 
 export default function GameCategoryLayout({
     children,
@@ -115,6 +116,21 @@ export default function GameCategoryLayout({
                         <span>Raid Mode (Required)</span>
                         <span />
                     </span>
+
+                    <div className={styles.checkboxes}>
+                        <Checkbox
+                            name="mode"
+                            value="1"
+                            id="raid-mode-1"
+                            label="10 players"
+                        />
+                        <Checkbox
+                            name="mode"
+                            value="2"
+                            id="raid-mode-2"
+                            label="20 players"
+                        />
+                    </div>
                 </div>
 
                 <div className={styles.item}>

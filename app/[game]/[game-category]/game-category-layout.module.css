@@ -111,6 +111,12 @@
     }
 }
 
+.checkboxes {
+    display: flex;
+    flex-direction: column;
+    row-gap: 8px;
+}
+
 .rank-selects {
     display: grid;
     grid-template-columns: 1fr 1ch 1fr;
