@@ -83,6 +83,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                                     type="radio"
                                     name="radio-lang"
                                     value="eu"
+                                    defaultChecked
                                 />
                                 <label htmlFor="0">Eu</label>
                             </div>

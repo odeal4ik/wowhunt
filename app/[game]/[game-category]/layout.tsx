@@ -31,6 +31,7 @@ export default function GameCategoryLayout({
                                 type="radio"
                                 name="region"
                                 value="eu"
+                                defaultChecked
                             />
                             <label htmlFor="region-1">Eu</label>
                         </div>
@@ -123,12 +124,14 @@ export default function GameCategoryLayout({
                             value="1"
                             id="raid-mode-1"
                             label="10 players"
+                            defaultChecked
                         />
                         <Checkbox
                             name="mode"
                             value="2"
                             id="raid-mode-2"
-                            label="20 players"
+                            label="25 players"
+                            price="€107.19"
                         />
                     </div>
                 </div>
@@ -139,7 +142,7 @@ export default function GameCategoryLayout({
                         <span />
                     </span>
 
-                    <div className={styles['dificulty-select']}>
+                    <div>
                         <Select />
                     </div>
                 </div>
@@ -149,13 +152,30 @@ export default function GameCategoryLayout({
                         <span>Loot Options</span>
                         <span />
                     </span>
+
+                    <div className={styles['loot-options']}>
+                        <label htmlFor="loot-1">
+                            Item
+                            <input id="loot-1" type="radio" name="loot" />
+                        </label>
+                        <label htmlFor="loot-2">
+                            Item
+                            <input id="loot-2" type="radio" name="loot" />
+                        </label>
+                        <label htmlFor="loot-3">
+                            Item
+                            <input id="loot-3" type="radio" name="loot" />
+                        </label>
+                    </div>
                 </div>
 
                 <div className={styles.price}>€53.99</div>
 
                 <div className={styles.submition}>
-                    <button className={styles.submit}>BUY NOW</button>
-                    <button className={styles.chat}>
+                    <button className={styles.submit} type="submit">
+                        BUY NOW
+                    </button>
+                    <button className={styles.chat} type="button">
                         <Icon svg={Chat} fill="#9f9fb7" />
                         CHAT
                     </button>

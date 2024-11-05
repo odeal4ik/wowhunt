@@ -44,7 +44,7 @@
     &::-webkit-slider-thumb {
         -webkit-appearance: none; /* Override default look */
         appearance: none;
-        margin-top: -6px; /* Centers thumb on the track */
+        margin-block-start: -6px; /* Centers thumb on the track */
 
         /*custom styles*/
         background-color: var(--yellow-500);

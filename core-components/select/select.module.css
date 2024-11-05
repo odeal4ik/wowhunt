@@ -8,7 +8,7 @@
 }
 
 .label {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-family: var(--font-barlow-bold-sans), serif;
     font-size: var(--font-size-m);
     line-height: var(--font-line-height-150);
     cursor: pointer;

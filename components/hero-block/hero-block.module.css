@@ -80,7 +80,7 @@
     font-size: 72px;
     line-height: 1;
     text-transform: uppercase;
-    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-family: var(--font-barlow-bold-sans), serif;
 
     & > span {
         color: var(--yellow-500);
@@ -172,7 +172,7 @@
 }
 
 .advantagesTitle {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-family: var(--font-barlow-bold-sans), serif;
     font-size: 32px;
     line-height: 1;
 

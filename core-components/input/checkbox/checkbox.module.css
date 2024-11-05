@@ -1,12 +1,13 @@
 .label {
     font-size: var(--font-size-m);
     line-height: var(--font-line-height-150);
-    padding-left: 28px;
+    padding-inline-start: 28px;
     font-family: var(--font-barlow-semi-bold-sans), serif;
     position: relative;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
+    justify-content: space-between;
 
     &::before {
         content: '';
@@ -39,6 +40,10 @@
             opacity: 1;
         }
     }
+
+    & > span + span {
+        font-family: var(--font-barlow-bold-sans), serif;
+    }
 }
 
 .input {
@@ -48,4 +53,6 @@
     top: 0;
     left: 0;
     opacity: 0;
+    visibility: hidden;
+    display: none;
 }

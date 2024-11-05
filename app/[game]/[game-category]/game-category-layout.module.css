@@ -126,14 +126,53 @@
     margin-block-end: 10px;
 }
 
-.dificulty-select {
-}
-
 .price {
     text-transform: uppercase;
     font-family: var(--font-barlow-extra-bold-sans), serif;
     font-size: 32px;
     line-height: 1;
+    padding-block: 4px;
+}
+
+.loot-options {
+    background-color: rgb(24, 26, 55, 0.4);
+    padding-inline: 6px;
+    padding-block: 6px;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    & > label {
+        font-size: var(--font-size-m);
+        line-height: var(--font-line-height-150);
+        font-family: var(--font-barlow-semi-bold-sans), serif;
+        padding-block: 6px;
+        padding-inline: 6px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: color 0.2s ease-in, background-color 0.2s ease-in;
+
+        &:has(input:checked) {
+            background-color: var(--yellow-500);
+            color: var(--background);
+
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        & > input {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+    }
 }
 
 .submition {
