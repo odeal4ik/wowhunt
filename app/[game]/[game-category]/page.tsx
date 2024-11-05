@@ -14,7 +14,7 @@ export default function GameCategory() {
     const [activeTab, setActiveTab] = useState(controls[0]);
 
     return (
-        <div className={styles.category}>
+        <>
             <h1 className={styles.title}>
                 ALL PHASE 1 RAIDS BUNDLE | CATA CLASSIC
             </h1>
@@ -132,6 +132,6 @@ export default function GameCategory() {
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

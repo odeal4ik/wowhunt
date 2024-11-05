@@ -156,7 +156,12 @@ export default function GameCategoryLayout({
                     <div className={styles['loot-options']}>
                         <label htmlFor="loot-1">
                             Item
-                            <input id="loot-1" type="radio" name="loot" />
+                            <input
+                                id="loot-1"
+                                type="radio"
+                                name="loot"
+                                defaultChecked
+                            />
                         </label>
                         <label htmlFor="loot-2">
                             Item

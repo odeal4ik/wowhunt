@@ -2,10 +2,14 @@
     padding-block-start: 86px;
 
     background-image: url('/games-images/game1.png');
-    background-size: 100% minmax(auto, 650px);
+    background-size: 100%;
     background-position: top center;
     background-repeat: no-repeat;
     position: relative;
+
+    @media (width <= 1400px) {
+        background-size: auto;
+    }
 }
 
 .wrapper {
@@ -14,6 +18,10 @@
     grid-template-columns: var(--_sidebar-width) calc(
             100vw - var(--_sidebar-width)
         );
+
+    @media (width <= 1280px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 .content {
@@ -25,4 +33,19 @@
 
 .other {
     grid-column: 2;
+}
+
+@media (width <= 1280px) {
+    .wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .other {
+        min-width: 0;
+        grid-column: 1;
+    }
+
+    .content {
+        padding-block-start: 115px;
+    }
 }

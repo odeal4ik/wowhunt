@@ -25,11 +25,11 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     }
 
     return (
-        <header className={styles.header}>
-            <div
-                className={cn(styles.wrapper, {
-                    [styles.blured]: isCatalogVisible || isBlured,
-                })}>
+        <header
+            className={cn(styles.header, {
+                [styles.blured]: isCatalogVisible || isBlured,
+            })}>
+            <div className={styles.wrapper}>
                 <div className={styles.leftWrapper}>
                     <CatalogBurgerButton onClick={toggleCatalogVisibility} />
 

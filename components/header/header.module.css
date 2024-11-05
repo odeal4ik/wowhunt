@@ -4,6 +4,10 @@
     top: 0;
     left: 0;
     z-index: 5;
+
+    &.blured {
+        backdrop-filter: blur(30px);
+    }
 }
 
 .wrapper {
@@ -15,10 +19,6 @@
     padding-inline: 56px;
     padding-block: 20px;
     margin-inline: auto;
-
-    &.blured {
-        backdrop-filter: blur(30px);
-    }
 
     @media (width <= 1024px) {
         padding-inline: 32px;

@@ -8,6 +8,10 @@
     width: 100%;
 
     grid-row: span 2;
+
+    @media (width <= 1280px) {
+        display: none;
+    }
 }
 
 .list {
