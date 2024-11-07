@@ -1,3 +1,4 @@
+'use client';
 import { GamesCard } from '@/components/games-card/games-card';
 import styles from './search.module.css';
 
@@ -13,9 +14,10 @@ const cards = [
 ];
 
 export default function Search() {
+    const searchInput = localStorage.getItem('dataSearch');
     return (
         <div className={styles.search}>
-            <h1 className={styles.title}>SEARCH RESULTS FOR “R6”</h1>
+            <h1 className={styles.title}>SEARCH RESULTS FOR “{searchInput}”</h1>
 
             <div className={styles.cards}>
                 {cards.map((card) => (

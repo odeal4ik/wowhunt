@@ -49,6 +49,15 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                             className={styles.search}
                             type="text"
                             placeholder="Search"
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    localStorage.setItem(
+                                        'dataSearch',
+                                        e.currentTarget.value,
+                                    );
+                                    window.location.href = '/search';
+                                }
+                            }}
                         />
                     </div>
 
