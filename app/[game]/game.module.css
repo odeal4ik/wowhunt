@@ -1,8 +1,5 @@
 .game {
     padding-block-start: 16px;
-
-    container-type: inline-size;
-    container-name: game;
 }
 
 .title {
@@ -34,23 +31,7 @@
     align-items: center;
     justify-content: center;
     --_columns: 5;
-    grid-template-columns: repeat(var(--_columns), 293px);
+    grid-template-columns: repeat(auto-fill, 293px);
     gap: 32px 20px;
     padding-block-start: 68px;
-
-    @container game (width < 1550px ) {
-        --_columns: 4;
-    }
-
-    @container game (width < 1240px ) {
-        --_columns: 3;
-    }
-
-    @container game (width < 920px ) {
-        --_columns: 2;
-    }
-
-    @container game (width < 610px ) {
-        --_columns: 1;
-    }
 }

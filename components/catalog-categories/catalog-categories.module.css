@@ -100,24 +100,15 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(4, 293px);
+    grid-template-columns: repeat(auto-fill, 293px);
     gap: 48px;
-
-    @container categories (width < 1320px ) {
-        grid-template-columns: repeat(3, 293px);
-    }
 
     @container categories (width < 1100px ) {
         gap: 25px;
     }
 
     @container categories (width < 950px ) {
-        grid-template-columns: repeat(2, 293px);
         gap: 20px;
-    }
-
-    @container categories (width < 640px ) {
-        grid-template-columns: repeat(1, 293px);
     }
 }
 
@@ -132,6 +123,7 @@
     padding: 12px 133px;
     border-radius: 12px;
     cursor: pointer;
+    text-transform: uppercase;
 
     @media (width <= 665px) {
         padding: 7px 39px;

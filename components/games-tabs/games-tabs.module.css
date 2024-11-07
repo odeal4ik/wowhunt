@@ -57,20 +57,11 @@
     width: 100%;
     display: grid;
     gap: 40px;
-    grid-template-columns: repeat(4, 293px);
+    grid-template-columns: repeat(auto-fill, 293px);
     align-items: center;
     justify-content: center;
 
     @media (width <= 1280px) {
-        grid-template-columns: repeat(3, 293px);
         gap: 25px;
-    }
-
-    @media (width <= 1024px) {
-        grid-template-columns: repeat(2, 293px);
-    }
-
-    @media (width <= 680px) {
-        grid-template-columns: repeat(1, 293px);
     }
 }
