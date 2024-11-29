@@ -14,6 +14,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    column-gap: 16px;
     max-width: 1920px;
     width: 100%;
     padding-inline: 56px;
@@ -48,9 +49,10 @@
 
 .logoWrapper {
     display: flex;
-    gap: 4px;
+    column-gap: 12px;
     align-items: center;
     cursor: pointer;
+    padding-inline-end: 8px;
 
     & > svg {
         flex-shrink: 0;
@@ -59,7 +61,7 @@
     .name {
         font-size: 24px;
         line-height: 32px;
-        font-family: var(--font-montserrat-bold-sans);
+        font-family: Montserrat, sans-serif;
         font-weight: 700;
         text-transform: uppercase;
 
@@ -68,16 +70,20 @@
         }
 
         & > span:nth-child(1) {
+            color: var(--text-color);
+        }
+
+        & > span:nth-child(2) {
             color: var(--yellow-500);
         }
 
         &:hover {
             & > span:nth-child(1) {
-                color: var(--text-color);
+                color: var(--yellow-500);
             }
 
             & > span:nth-child(2) {
-                color: var(--yellow-500);
+                color: var(--text-color);
             }
         }
 
@@ -93,6 +99,7 @@
 
 .searchWrapper {
     position: relative;
+    min-width: 254px;
 
     & > .search {
         padding-block-start: 7px;
@@ -101,22 +108,33 @@
         padding-inline-end: 38px;
         border-radius: 12px;
         width: 100%;
-        font-size: var(--font-size-m);
-        line-height: 28px;
         color: var(--text-color);
+        font-size: var(--font-size-m);
+        line-height: var(--font-line-height-140);
         background-color: var(--dark-container-active);
         border: 1px solid var(--text-color-secondary);
         background-position: calc(100% - 12px) 50%;
         background-repeat: no-repeat;
         transition: var(--btn-transition);
 
+        &::placeholder {
+            color: var(--text-color);
+            font-size: var(--font-size-l);
+            line-height: var(--font-line-height-140);
+        }
+
         &:focus {
+            outline-offset: 0;
+            border-color: var(--text-color-secondary);
             outline: rgb(251, 191, 36, 0.1) 4px solid;
+            padding-inline-end: 20px;
         }
     }
 
     @media (width <= 1024px) {
         margin-inline-start: auto;
+        width: 100%;
+        min-width: 0;
 
         & > .search::placeholder {
             opacity: 0;
@@ -135,7 +153,7 @@
         }
 
         & > .search:hover {
-            border-color: var(--yellow-500);
+            border-color: var(--text-color-secondary);
         }
     }
 
@@ -169,12 +187,18 @@
 }
 
 .modal {
+    color: var(--text-color);
     font-size: var(--font-size-l);
     line-height: 28px;
     white-space: nowrap;
+    transition: var(--btn-transition);
 
-    @media (width <= 1024px) {
+    @media (width <= 1280px) {
         display: none;
+    }
+
+    &:hover {
+        color: #737bf3;
     }
 }
 
@@ -183,6 +207,7 @@
     justify-content: space-between;
     align-items: center;
     gap: 16px;
+    color: var(--text-color);
     border: 1px solid var(--text-color-secondary);
     padding-block-start: 5px;
     padding-block-end: 7px;
@@ -196,6 +221,7 @@
         background: var(--green-500);
         border: 1px solid var(--neutral-soft);
         transform: translateY(25%);
+        animation: greendot 1s linear infinite alternate;
     }
 
     & > .label {
@@ -204,8 +230,22 @@
         white-space: nowrap;
     }
 
-    @media (width <= 1024px) {
+    &:hover {
+        background-color: #24274d;
+        transition: background-color 0.2s;
+    }
+
+    @media (width <= 1600px) {
         display: none;
+    }
+}
+
+@keyframes greendot {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
 
@@ -222,7 +262,11 @@
     display: flex;
     align-items: center;
     padding-inline: 31px;
-    gap: 16px;
+    column-gap: 16px;
+
+    @media (width <= 1350px) {
+        padding-inline-start: 0;
+    }
 
     @media (width <= 1024px) {
         flex-shrink: 0;
@@ -236,15 +280,53 @@
     align-items: center;
     padding-inline: 32px;
 
-    & > img {
-        width: 141px;
+    .stars {
+        display: flex;
+        align-items: center;
+        column-gap: 3px;
+
+        & > svg:not(.star) {
+            width: 20px;
+            height: 20px;
+            margin-inline-end: 8px;
+        }
+
+        .star {
+            width: 19px;
+            height: 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+
+            background-color: #00b67a;
+            border-radius: 4px;
+
+            & > svg {
+                width: 10px;
+                height: 10px;
+
+                & > g > path:nth-child(1) {
+                    fill: #fff;
+                }
+
+                & > g > path:nth-child(2) {
+                    fill: #00b67a;
+                }
+            }
+        }
     }
 
     & > .trustLabel {
+        color: var(--text-color);
         font-size: 12px;
         font-weight: 400;
         line-height: 15.6px;
         white-space: nowrap;
+    }
+
+    @media (width <= 1350px) {
+        padding-inline: 0;
     }
 
     @media (width <= 1024px) {
@@ -254,7 +336,7 @@
 
 .languageWrapper {
     display: flex;
-    gap: 20px;
+    column-gap: 16px;
 
     & > .languageBtn > input {
         display: none;
@@ -262,6 +344,7 @@
 
     & > .languageBtn > label {
         text-transform: uppercase;
+        color: var(--text-color);
         font-size: var(--font-size-l);
         line-height: 28px;
         padding: 11px;
@@ -330,6 +413,11 @@
     border: 1px solid var(--neutral-container-active);
     transition: var(--btn-transition);
 
+    & > svg {
+        width: 18px;
+        height: 18px;
+    }
+
     &:hover {
         background-color: var(--neutral-container-hover);
         border-color: var(--neutral-hover);
@@ -344,4 +432,19 @@
         width: 33px;
         height: 33px;
     }
+}
+
+.count {
+    width: 16px;
+    height: 16px;
+    border-radius: 9999px;
+    background-color: var(--yellow-500);
+    position: absolute;
+    top: -5%;
+    right: -5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-ss);
+    font-weight: 600;
 }

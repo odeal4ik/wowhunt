@@ -44,6 +44,9 @@
     text-transform: uppercase;
     margin-block-start: 69px;
 
+    max-width: 540px;
+    width: 100%;
+
     @media (width <= 665px) {
         padding: 7px 39px;
     }
