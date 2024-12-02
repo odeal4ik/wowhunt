@@ -1,0 +1,49 @@
+.shoppingCardContainer {
+    padding-block-start: 86px;
+    background-size: 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    @media (max-width: 1400px) {
+        background-size: auto;
+    }
+}
+
+.wrapper {
+    display: grid;
+    --_sidebar-width: 280px;
+    grid-template-columns: var(--_sidebar-width) calc(100% - var(--_sidebar-width));
+}
+
+@media (max-width: 1024px) {
+    .wrapper {
+        display: block;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    padding-inline: 35px;
+    padding-block: 60px;
+}
+
+.other {
+    grid-column: 2;
+}
+
+@media (max-width: 1280px) {
+   .other {
+        min-width: 0;
+        grid-column: 1;
+    }
+}
+
+@media (max-width: 400px) {
+    .content {
+        padding-block: 0;
+        padding-inline: 12px;
+    }
+
+}

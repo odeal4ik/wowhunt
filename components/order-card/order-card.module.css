@@ -1,0 +1,145 @@
+.cardsList {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin: 0 auto;
+    padding: 0 125px 0 85px;
+
+    @media (width <= 1400px) {
+        padding: 15px 0 25px;
+    }
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    background-color: #171a39;
+    border-radius: 12px;
+    padding: 22px 46px 16px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+    @media (width <= 1024px) {
+        padding: 22px 40px 16px;
+    }
+
+    @media (width <= 400px) {
+        padding: 28px 10px 20px 32px;
+    }
+}
+
+.cardContent {
+    display: flex;
+
+    @media (width < 768px) {
+        flex-direction: column;
+    }
+
+    @media (width <= 400px) {
+        gap: 12px;
+    }
+}
+
+.cardTitle {
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    font-family: var(--font-barlow-bold-sans);
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.cardOptions {
+    flex: 1;
+    color: #9f9fb7;
+}
+
+.cardSubtitle {
+    color: var(--text-color);
+    font-family: var(--font-barlow-regular-sans);
+    font-size: var(--font-size-m);
+    line-height: 130%;
+    margin-bottom: 16px;
+}
+
+.list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    list-style: disc;
+
+    & li::marker {
+        color: white;
+    }
+
+    @media (width <= 1024px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.label {
+    color: var(--text-color);
+    font-family: var(--font-barlow-regular-sans);
+    font-size: var(--font-size-l);
+    line-height: 28px;
+    text-transform: uppercase;
+}
+
+.highlight {
+    color: var(--yellow-500);
+    font-family: var(--font-barlow-regular-sans);
+    font-size: var(--font-size-l);
+    line-height: 28px;
+}
+
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+
+    @media (width <= 1024px) {
+        align-items: end;
+    }
+
+    @media (width <= 400px) {
+        align-items: center;
+        gap: 18px;
+    }
+}
+
+.price {
+    font-family: var(--font-barlow-bold-sans);
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-size: 32px;
+    line-height: 32px;
+}
+
+.deleteButton {
+    cursor: pointer;
+    padding: 10px;
+    background: rgba(75, 75, 119, 0.05);
+    border: 1px solid rgba(75, 75, 119, 0.3);
+    border-radius: 12px;
+}
+
+.deleteButton:hover {
+    background: rgba(75, 75, 119, 0.2);
+    border: 1px solid #43436a;
+}
+
+.deleteButton:active {
+    background: rgba(75, 75, 119, 0.3);
+    border: 1px solid #6d6d91;
+}
+
+.deleteButton img {
+    width: 16px;
+    height: 16px;
+}

@@ -1,0 +1,43 @@
+.orderTotalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  margin-top: 70px;
+}
+
+.orderTotalText {
+  font-family: var(--font-barlow-bold-sans);
+  font-size: 2rem;
+}
+
+.orderTotalAmount {
+  color: var(--yellow-500);
+}
+
+.buyNowButton {
+  background-color: var(--yellow-500);
+  color: var(--background);
+  font-family: var(--font-barlow-bold-sans);
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: var(--font-size-h3);
+  padding: 4px 120px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .buyNowButton {
+    padding: 4px 100px;
+  }
+}
+
+.buyNowButton:hover {
+  background: #DFAA22;
+}
+
+.buyNowButton:active {
+  background-color: #d89f07;
+}
+

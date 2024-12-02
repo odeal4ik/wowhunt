@@ -1,0 +1,55 @@
+.title {
+    font-size: 60px;
+    font-family: var(--font-barlow-extra-bold-sans);
+    color: var(--yellow-500);
+    line-height: 60px;
+
+    @media (width <= 1024px) {
+        font-size: 50px;
+    }
+
+    @media (width <= 376px) {
+        font-size: 38px;
+        line-height: 38px;
+    }
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0 60px 0;
+
+    @media (width <= 400px) {
+        margin-top: 17px;
+    }
+}
+
+.formContainer {
+    display: flex;
+    justify-content: center;
+    gap: 85px;
+    margin-top: 140px;
+    padding-left: 52px;
+
+    @media (width <= 1024px) {
+        margin-top: 80px;
+        flex-direction: column;
+        padding-inline: 33px;
+    }
+
+    @media (width <= 400px) {
+        margin-top: 62px;
+        padding-inline: 0;
+    }
+}
+
+.titleForm {
+    font-family: var(--font-barlow-bold-sans);
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-130);
+    margin-bottom: 60px;
+}
+
+.titleFormColor {
+    color: var(--yellow-500);
+}
