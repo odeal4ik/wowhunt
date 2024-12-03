@@ -48,7 +48,7 @@ export function Footer() {
                         </a>
                         <ul>
                             <li>
-                                <a href="#">Privacy Policy</a>
+                                <a href="/privacy-policy">Privacy Policy</a>
                             </li>
                             <li>
                                 <a href="#">Contact Us</a>
