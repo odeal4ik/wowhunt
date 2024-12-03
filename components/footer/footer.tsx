@@ -43,9 +43,9 @@ export function Footer() {
                     </div>
 
                     <div className={styles.list}>
-                        <span className={styles.title}>
+                        <a className={styles.title} href='/terms-and-condition'>
                             Terms and Conditions
-                        </span>
+                        </a>
                         <ul>
                             <li>
                                 <a href="#">Privacy Policy</a>
