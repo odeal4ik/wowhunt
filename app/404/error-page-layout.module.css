@@ -1,0 +1,32 @@
+.container {
+    padding-block-start: 86px;
+    position: relative;
+}
+
+.wrapper {
+    display: grid;
+    --_sidebar-width: 280px;
+    grid-template-columns: var(--_sidebar-width) calc(100% - var(--_sidebar-width));
+}
+
+@media (max-width: 1023px) {
+    .wrapper {
+        display: block;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.other {
+    grid-column: 2;
+}
+
+@media (max-width: 1280px) {
+   .other {
+        min-width: 0;
+        grid-column: 1;
+    }
+}

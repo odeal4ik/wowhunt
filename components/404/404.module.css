@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    align-items: center;
+    padding-block: 80px;
+    padding-left: 160px;
+
+    @media (width <= 1500px) {
+        padding-left: 100px;
+    }
+    @media (width <= 1284px) {
+        padding-left: 0;
+        padding-block: 10px;
+    }
+    @media (width <= 740px) {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        overflow-x: hidden;
+    }
+}
+
+.image {
+    @media (width <= 1700px) {
+        width: 720px;
+        height: 680px;
+    }
+    @media (width <= 1500px) {
+        width: 507px;
+        height: 488px;
+    }
+    @media (width <= 456px) {
+        width: auto;
+        height: 494px;
+        margin-inline: -20px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.content {
+    margin-top: 150px;
+    margin-left: -170px;
+
+    @media (width <= 1700px) {
+        margin-left: -150px;
+    }
+
+    @media (width <= 1500px) {
+        margin-left: -80px;
+        margin-bottom: 60px;
+    }
+    @media (width <= 1284px) {
+        display: flex;
+        flex-direction: column;
+        margin-top: 50px;
+        margin-left: -120px;
+    }
+    @media (width <= 740px) {
+        margin-left: 0;
+        margin-top: 0;
+        padding-left: 19px;
+    }
+}
+
+.title {
+    font-family: var(--font-barlow-extra-bold-sans), serif;
+    font-size: 200px;
+    line-height: 170px;
+    color: var(--yellow-500);
+    align-items: center;
+
+    @media (width <= 1700px) {
+        font-size: 120px;
+        line-height: 100px;
+    }
+    @media (width <= 1500px) {
+        font-size: 100px;
+        line-height: 80px;
+    }
+    @media (width <= 1284px) {
+        font-size: 96px;
+        line-height: 96px;
+    }
+}
+
+.descriptionMain {
+    font-family: var(--font-barlow-bold-sans), serif;
+    font-size: 38px;
+    line-height: 38px;
+    padding-block: 10px;
+
+    @media (width <= 456px) {
+        font-size: 32px;
+        line-height: 32px;
+    }
+}
+
+.descriptionSecond {
+    font-family: var(--font-barlow-bold-sans), serif;
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-130);
+    color: var(--neutral-soft);
+
+    @media (width <= 456px) {
+        font-size: 20px;
+        line-height: 130%;
+    }
+}
+
+.link {
+    font-family: var(--font-barlow-bold-sans), serif;
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-130);
+    color: var(--text-color);
+    cursor: pointer;
+
+    @media (width <= 456px) {
+        font-size: 20px;
+        line-height: 130%;
+    }
+}
