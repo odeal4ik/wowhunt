@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import styles from './sidebar.module.css';
 
 const categories = [
@@ -13,7 +12,15 @@ const categories = [
     'RTP',
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+    isVisible?: boolean;
+}
+
+export function Sidebar({ isVisible = true }: SidebarProps) {
+    if (!isVisible) {
+        return null;
+    }
+
     return (
         <div className={styles.sidebar}>
             <ul className={styles.list}>
