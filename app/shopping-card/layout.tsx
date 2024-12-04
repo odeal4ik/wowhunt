@@ -17,19 +17,21 @@ export default function ShoppingCardLayout({
     const [isSidebarVisible, setIsSidebarVisible] = useState(true);
 
     useEffect(() => {
-        const updateSidebarVisibility = () => {
-            setIsSidebarVisible(window.innerWidth > 1024);
+        const mediaQuery = window.matchMedia('(min-width: 1024px)');
+        
+        const updateSidebarVisibility = (e: MediaQueryListEvent | MediaQueryList) => {
+            setIsSidebarVisible(e.matches);
         };
 
-        // Устанавливаем видимость при первой загрузке
-        updateSidebarVisibility();
+        // Устанавливаем начальное состояние
+        updateSidebarVisibility(mediaQuery);
 
-        // Добавляем слушатель изменения размера окна
-        window.addEventListener('resize', updateSidebarVisibility);
+        // Добавляем слушатель изменения медиа-запроса
+        mediaQuery.addEventListener('change', updateSidebarVisibility);
 
         // Убираем слушатель при размонтировании
         return () => {
-            window.removeEventListener('resize', updateSidebarVisibility);
+            mediaQuery.removeEventListener('change', updateSidebarVisibility);
         };
     }, []);
 

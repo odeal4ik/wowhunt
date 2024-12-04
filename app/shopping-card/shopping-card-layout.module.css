@@ -16,7 +16,7 @@
     grid-template-columns: var(--_sidebar-width) calc(100% - var(--_sidebar-width));
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
     .wrapper {
         display: block;
     }
