@@ -123,7 +123,7 @@ export default function PrivacyPolicy() {
             <div className={styles.wrapper}>
                 <div className={styles.imageContainer}>
                     <Image
-                        src="/images/pp/privacy_policy.png"
+                        src="/images/privacy_policy.webp"
                         alt="Privacy Policy"
                         width={610}
                         height={605}

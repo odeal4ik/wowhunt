@@ -93,8 +93,10 @@ export default function TermsAndCondition() {
             <div className={styles.wrapper}>
                 <div className={styles.imageContainer}>
                     <img
-                        src="/images/pp/image-removebg-preview.png"
+                        src="/images/terms-and-condition.webp"
                         alt="agency-img"
+                        width={610}
+                        height={605}
                         loading="lazy"
                         className={styles.agencyImg}
                     />
