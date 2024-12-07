@@ -8,6 +8,7 @@ import { CatalogButton } from '../catalog-button/catalog-button';
 import { Catalog } from '../catalog/catalog';
 import { CatalogBurgerButton } from '../catalog-burger-button/catalog-burger-button';
 import { Icon } from '../../core-components/icon/icon';
+import { ModelWorkWithUs } from '../model-work-with-us/model-work-with-us'; // added import
 
 import Logo from '@/images/logo/logo.svg';
 
@@ -61,7 +62,9 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                         />
                     </div>
 
-                    <span className={styles.modal}>Work With Us</span>
+                    <ModelWorkWithUs>
+                        <button className={styles.modal}>Work With Us</button>
+                    </ModelWorkWithUs>
 
                     <a href="/" className={styles.contact}>
                         <div className={styles.dot}></div>

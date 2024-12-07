@@ -5,8 +5,15 @@
     left: 0;
     z-index: 5;
 
-    &.blured {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         backdrop-filter: blur(30px);
+        z-index: -1;
     }
 }
 
@@ -192,6 +199,7 @@
     line-height: 28px;
     white-space: nowrap;
     transition: var(--btn-transition);
+    cursor: pointer;
 
     @media (width <= 1280px) {
         display: none;
