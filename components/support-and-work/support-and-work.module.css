@@ -5,14 +5,19 @@
 }
 
 .containerCatalog {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
-    padding-block: 30px;
-    padding-inline: 40px;
-    width: 100%;
-    background-color: #0e1029;
-    border-bottom: 1px solid var(--dark-soft);
+    display: none;
+
+    @media (width <= 1601px) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding-block: 30px;
+        padding-inline: 40px;
+        width: 100%;
+        background-color: #0e1029;
+        border-bottom: 1px solid var(--dark-soft);
+    }
 }
 
 .modal {
