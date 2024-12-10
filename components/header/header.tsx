@@ -16,10 +16,26 @@ import styles from './header.module.css';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
+    const [isContactVisible, setContactVisible] = useState(true);
+    const [isModelVisible, setModelVisible] = useState(true);
 
     useEffect(() => {
         document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';
     }, [isCatalogVisible]);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setContactVisible(window.innerWidth > 1600);
+            setModelVisible(window.innerWidth > 1280);
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     function toggleCatalogVisibility() {
         setIsCatalogVisible(!isCatalogVisible);
@@ -62,7 +78,10 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                         />
                     </div>
 
-                            <SupportAndWork />
+                            <SupportAndWork
+                                isModelVisible={isModelVisible}
+                                isContactVisible={isContactVisible}
+                            />
                 </div>
 
                 <div className={styles.rightWrapper}>
@@ -115,7 +134,13 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                 </div>
             </div>
 
-            <Catalog isVisible={isCatalogVisible} />
+            {isCatalogVisible && (
+                <Catalog
+                    isVisible={isCatalogVisible}
+                    isContactVisible={isContactVisible}
+                    isModelVisible={isModelVisible}
+                />
+            )}
         </header>
     );
 }
