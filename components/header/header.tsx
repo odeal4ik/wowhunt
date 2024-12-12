@@ -9,6 +9,7 @@ import { Catalog } from '../catalog/catalog';
 import { CatalogBurgerButton } from '../catalog-burger-button/catalog-burger-button';
 import { Icon } from '../../core-components/icon/icon';
 import { SupportAndWork } from '../support-and-work/support-and-work';
+import { SearchWrapper } from '../search-wrapper/search-wrapper';
 
 import Logo from '@/images/logo/logo.svg';
 
@@ -41,18 +42,23 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
         setIsCatalogVisible(!isCatalogVisible);
     }
 
+    const handleSearch = (query: string) => {
+        localStorage.setItem('dataSearch', query);
+        window.location.href = '/search';
+    };
+
     return (
         <header
             className={cn(styles.header, {
                 [styles.blured]: isCatalogVisible || isBlured,
-            })}>
+            })}
+        >
             <div className={styles.wrapper}>
                 <div className={styles.leftWrapper}>
                     <CatalogBurgerButton onClick={toggleCatalogVisibility} />
 
                     <Link className={styles.logoWrapper} href="/">
                         <Icon svg={Logo} />
-
                         <div className={styles.name}>
                             <span>wow</span>
                             <span>hunt</span>
@@ -61,27 +67,12 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
 
                     <CatalogButton onClick={toggleCatalogVisibility} />
 
-                    <div className={styles.searchWrapper}>
-                        <input
-                            className={styles.search}
-                            type="text"
-                            placeholder="Search"
-                            onKeyDown={(e) => {
-                                if (e.key === 'Enter') {
-                                    localStorage.setItem(
-                                        'dataSearch',
-                                        e.currentTarget.value,
-                                    );
-                                    window.location.href = '/search';
-                                }
-                            }}
-                        />
-                    </div>
+                    <SearchWrapper onSearch={handleSearch} />
 
-                            <SupportAndWork
-                                isModelVisible={isModelVisible}
-                                isContactVisible={isContactVisible}
-                            />
+                    <SupportAndWork
+                        isModelVisible={isModelVisible}
+                        isContactVisible={isContactVisible}
+                    />
                 </div>
 
                 <div className={styles.rightWrapper}>
@@ -89,7 +80,8 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                         <a
                             href="https://www.trustpilot.com/review/wowhunt.com"
                             target="_blank"
-                            className={styles.trust}>
+                            className={styles.trust}
+                        >
                             <img
                                 src="/images/trustpilot.png"
                                 alt="trust pilot"
