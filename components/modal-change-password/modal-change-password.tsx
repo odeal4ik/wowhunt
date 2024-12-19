@@ -115,6 +115,11 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
         return criterionMet ? 'success' : 'attention';
     };
 
+    const handleMouseDown = (e: React.MouseEvent) => {
+        e.preventDefault();
+        togglePasswordVisibility();
+    };
+
     if (!isOpen) return null;
 
     return (
@@ -158,7 +163,7 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
                                 <button
                                     type="button"
                                     className={styles.eyeButton}
-                                    onClick={togglePasswordVisibility}>
+                                    onMouseDown={handleMouseDown}>
                                     <Image
                                         src={`/system-icons/password-${showPassword ? 'show' : 'hide'}.svg`}
                                         alt="Toggle password visibility"
