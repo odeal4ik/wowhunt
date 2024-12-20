@@ -27,6 +27,7 @@ export const ModelLoginIn = ({
         };
     }, [isOpen, onClose]);
 
+     if (!isOpen) return null;  
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
             <div
