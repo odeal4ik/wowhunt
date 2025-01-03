@@ -1,0 +1,379 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.label {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-l);
+    line-height: 28px;
+    color: var(--text-color-secondary);
+    padding-block: 20px;
+
+    @media (width <= 768px) {
+        padding-block-start: 0px;
+        padding-block-end: 7px;
+    }
+}
+
+.value {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: 38px;
+    line-height: 38px;
+    padding-block: 14px;
+    padding-inline-start: 12px;
+    background: #27294c;
+    border-radius: 8px;
+
+    @media (width <= 768px) {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    @media (width <= 400px) {
+        font-size: var(--font-size-h3);
+        line-height: 28px;
+    }
+}
+
+.buttonsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding-block: 30px;
+
+    @media (width <= 768px) {
+        margin-block-start: 0px;
+        gap: 7px;
+    }
+}
+
+.button {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: var(--font-size-l);
+    line-height: 24px;
+    color: var(--dark-soft);
+    background-color: var(--yellow-500);
+    border-radius: 8px;
+    padding: 12px 35px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+
+    &:hover {
+        color: var(--background);
+        background: #dfaa22;
+    }
+}
+
+.myWithdrawButton {
+    color: var(--text-color);
+    background: rgb(52, 52, 83);
+
+    &:hover {
+        background-color: #2a2d3e;
+    }
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal[data-visible='true'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalContent {
+    position: absolute;
+    background: linear-gradient(
+            237.82deg,
+            rgba(59, 60, 104, 0.6) -147.73%,
+            rgba(59, 60, 104, 0) 180.56%
+        ),
+        #090916;
+    padding: 20px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+
+    @media (min-width: 769px) {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 800px;
+        border-radius: 20px;
+    }
+
+    @media (width <= 768px) {
+        border-radius: 20px;
+        margin-inline: 10px;
+        max-width: 350px;
+    }
+}
+
+/* Десктопная версия */
+@media (min-width: 769px) {
+    .mobileWithdraws {
+        display: none;
+    }
+}
+
+/* Мобильная версия */
+@media (max-width: 768px) {
+    .desktopWithdraws {
+        display: none;
+    }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0 30px;
+    padding: 0 40px;
+}
+
+.modalTitle {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: 38px;
+    line-height: 38px;
+    margin: 0;
+}
+
+.closeButton {
+    background: rgba(75, 75, 119, 0.3);
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: none;
+
+    &:hover {
+        background-color: rgba(75, 75, 119, 0.5);
+    }
+}
+
+.closeIcon {
+    width: 10px;
+    height: 10px;
+}
+
+/* Десктопная таблица */
+.withdrawsTable {
+    padding: 0 40px;
+}
+
+.tableHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.2fr 1fr;
+    gap: 20px;
+    padding: 15px 20px;
+}
+
+.tableHeaderCell {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-height-130);
+    margin: 0;
+}
+
+.tableBody {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1.2fr 1fr;
+    gap: 20px;
+    padding: 15px 20px;
+
+    &:nth-child(odd) {
+        background: #212140;
+        border-radius: 6px;
+    }
+}
+
+.tableCell {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: 24px;
+    margin: 0;
+}
+
+/* Мобильная версия списка */
+.mobileWithdrawsList {
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mobileWithdrawItem {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &:nth-child(odd) {
+        background: #212140;
+        border-radius: 6px;
+    }
+
+    @media (width <= 768px) {
+        gap: 6px;
+    }
+}
+
+.mobileWithdrawRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mobileWithdrawLabel {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-height-130);
+    color: var(--text-color-secondary);
+    margin: 0;
+}
+
+.mobileWithdrawValue {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: 24px;
+    text-align: right;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .modalHeader {
+        padding: 0 20px;
+        margin: 10px 0 20px;
+    }
+
+    .modalTitle {
+        font-size: var(--font-size-h3);
+        line-height: var(--font-line-height-130);
+    }
+
+    .closeButton {
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* Стили для формы вывода средств */
+.withdrawModal {
+    max-width: 600px;
+}
+
+.withdrawForm {
+    padding: 0 40px 30px;
+}
+
+.withdrawFormGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.withdrawLabel {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+}
+
+.withdrawSelect,
+.withdrawInput {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    color: var(--text-color);
+    background: rgba(75, 75, 119, 0.3);
+    border: 1px solid rgba(75, 75, 119, 0.5);
+    border-radius: 8px;
+    padding: 12px 15px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:hover,
+    &:focus {
+        border-color: rgba(75, 75, 119, 0.8);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.withdrawSelect {
+    appearance: none;
+    background: url('/system-icons/arrow-down.svg') no-repeat center;
+    background-position: right 15px center;
+    padding-right: 35px;
+}
+
+.withdrawCommission {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-s);
+    color: var(--text-color-secondary);
+    margin: 0;
+}
+
+.withdrawAmountGroup {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+
+    @media (width <= 768px) {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.withdrawSubmitButton {
+    width: 100%;
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: var(--font-size-m);
+    color: var(--dark-soft);
+    background-color: var(--yellow-500);
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 10px;
+
+    &:hover {
+        color: var(--background);
+        background: #dfaa22;
+    }
+}
+
+.withdrawNote {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-s);
+    color: var(--text-color-secondary);
+    text-align: center;
+    margin: 15px 0 0;
+}

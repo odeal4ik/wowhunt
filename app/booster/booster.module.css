@@ -1,0 +1,129 @@
+.main {
+    padding-block: 30px;
+    padding-inline-start: 20px;
+    background: #1a1d2e;
+
+    @media (width <= 440px) {
+        padding-inline: 12px;
+    }
+}
+
+.title {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: 38px;
+    line-height: 38px;
+    color: var(--yellow-500);
+    padding-block-end: 27px;
+}
+
+.container {
+    display: flex;
+    gap: 10px;
+    border-radius: 12px;
+    color: var(--text-color);
+
+    @media (width <= 1500px) {
+        display: grid;
+        grid-template-areas:
+            'left middle'
+            'right right';
+        grid-template-columns: minmax(0, 420px) minmax(0, 450px);
+    }
+
+    @media (width <= 768px) {
+        grid-template-areas:
+            'left middle'
+            'right middle';
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    @media (width <= 640px) {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    @media (width <= 400px) {
+        gap: 5px;
+    }
+}
+
+.section {
+    border: 0.8px solid #3d4066;
+    border-radius: 12px;
+    padding-inline: 20px;
+    padding-block-start: 20px;
+
+    @media (width <= 768px) {
+        padding-inline: 15px;
+    }
+}
+
+.leftSection {
+    width: 100%;
+    max-width: 420px;
+
+    @media (width <= 1500px) {
+        grid-area: left;
+    }
+
+    @media (width <= 768px) {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media (width <= 640px) {
+        max-width: none;
+        order: 1;
+    }
+}
+
+.middleSection {
+    width: 100%;
+    max-width: 450px;
+
+    @media (width <= 1500px) {
+        grid-area: middle;
+    }
+
+    @media (width <= 640px) {
+        max-width: none;
+        order: 3;
+    }
+}
+
+.rightSection {
+    width: 100%;
+    max-width: 348px;
+
+    @media (width <= 1500px) {
+        grid-area: right;
+    }
+
+    @media (width <= 768px) {
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    @media (width <= 640px) {
+        order: 2;
+        max-width: none;
+    }
+}
+
+@media (width <= 768px) {
+    .leftSection > :nth-child(2) {
+        display: none;
+    }
+}
+
+.orderTitle {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: 38px;
+    line-height: 38px;
+    padding-block: 50px 20px;
+}
