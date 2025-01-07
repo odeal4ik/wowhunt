@@ -7,10 +7,11 @@ import Arrow from '../../public/system-icons/arrow-right.svg';
 
 import styles from './catalog-categories.module.css';
 import { Icon } from '../../core-components/icon/icon';
+import { TabsList } from '@/components/tabs-list/tabs-list';
 
 const tabs = [
     'Pandaria Remix',
-    'HOT OFFERS 🔥',
+    '🔥 HOT OFFERS 🔥',
     'SEASON 4 OFFERS',
     'Dragonflight',
     'Shadowlands',
@@ -56,19 +57,14 @@ export function CatalogCategories({
                 </button>
             </h2>
 
-            <div className={styles.tabs}>
-                {tabs.map((name) => (
-                    <button
-                        key={name}
-                        type="button"
-                        onClick={() => setActiveTab(name)}
-                        className={cn(styles.tab, [
-                            activeTab === name && styles.active,
-                        ])}>
-                        {name}
-                    </button>
-                ))}
-            </div>
+            <TabsList
+                tabs={tabs}
+                activeTab={activeTab}
+                onTabChange={setActiveTab}
+                className={styles.tabs}
+                tabClassName={styles.tab}
+                activeTabClassName={styles.active}
+            />
 
             <div className={styles.cards}>
                 {cards.map((card) => (
