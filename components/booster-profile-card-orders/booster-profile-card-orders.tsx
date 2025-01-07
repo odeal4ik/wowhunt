@@ -27,7 +27,7 @@ export function BoosterProfileCardOrders() {
             },
             region: '№51719',
             country: 'US',
-            countryFlag: '../system-icons/usa-flag.svg',
+            countryFlag: '../system-icons/us-flag.svg',
         },
         {
             id: '2',
@@ -46,7 +46,7 @@ export function BoosterProfileCardOrders() {
             },
             region: '№51719',
             country: 'US',
-            countryFlag: '../system-icons/usa-flag.svg',
+            countryFlag: '../system-icons/us-flag.svg',
         },
         {
             id: '3',
@@ -63,7 +63,7 @@ export function BoosterProfileCardOrders() {
             },
             region: '№51719',
             country: 'US',
-            countryFlag: '../system-icons/usa-flag.svg',
+            countryFlag: '../system-icons/us-flag.svg',
         },
         {
             id: '4',
@@ -79,7 +79,7 @@ export function BoosterProfileCardOrders() {
             },
             region: '№51719',
             country: 'US',
-            countryFlag: '../system-icons/usa-flag.svg',
+            countryFlag: '../system-icons/us-flag.svg',
         },
         {
             id: '5',
@@ -102,7 +102,7 @@ export function BoosterProfileCardOrders() {
             },
             region: '№51719',
             country: 'US',
-            countryFlag: '../system-icons/usa-flag.svg',
+            countryFlag: '../system-icons/us-flag.svg',
         },
     ];
 
