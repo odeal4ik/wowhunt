@@ -1,0 +1,110 @@
+.regionSelector {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+
+    @media (width <= 768px) {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
+
+.regionSelectorTitle {
+    font-family: var(--font-barlow-bold-sans), serif;
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-130);
+
+    @media (width <= 550px) {
+        font-size: var(--font-size-l);
+    }
+}
+
+.regionSelectorContent {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+    @media (width <= 550px) {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        grid-template-rows: auto auto;
+        gap: 10px;
+
+        & > :last-child {
+            grid-column: 1 / -1;
+            width: 100%;
+        }
+    }
+
+    @media (width <= 440px) {
+        grid-template-columns: auto auto;
+    }
+}
+
+.regionButtons,
+.factionButtons {
+    display: flex;
+    background: rgba(75, 75, 119, 0.2);
+    border: 1px solid rgba(68, 83, 113, 0.15);
+    border-radius: 8px;
+
+    @media (width <= 440px) {
+        justify-content: center;
+    }
+}
+
+.regionBtn,
+.factionBtn {
+    font-family: var(--font-barlow-semi-bold-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: 24px;
+    color: var(--text-colory);
+    padding: 4px 14px;
+    margin: 5px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    &.active {
+        background-color: var(--yellow-500);
+        color: var(--dark-soft);
+    }
+
+    @media (width <= 768px) {
+        font-size: var(--font-size-s);
+        padding: 8px 16px;
+    }
+}
+
+.serverSelect {
+    flex: 1;
+}
+
+.select {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-height-130);
+    color: var(--text-color-secondary);
+    background: rgba(75, 75, 119, 0.2);
+    border: 1px solid rgba(68, 83, 113, 0.15);
+    border-radius: 8px;
+    appearance: none;
+    background-image: url('/system-icons/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    width: 100%;
+    max-width: 380px;
+    padding: 13px 12px;
+    cursor: pointer;
+
+    @media (width <= 550px) {
+        max-width: 100%;
+    }
+}
