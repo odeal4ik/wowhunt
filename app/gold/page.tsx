@@ -11,13 +11,26 @@ import { Faq } from '@/components/faq/faq';
 import { Steps } from '@/components/steps/steps';
 import { RegionFactionServerSelector } from '@/components/region-faction-server-selector/region-faction-server-selector';
 import { WhyUsSection } from '@/components/why-us-section/why-us-section';
-import { tabs, goldCards } from './constants';
+
+const tabs = [
+    'Gold TWW',
+    'D4 Gold',
+    'Gold WoW Hardcore',
+    'POE Currencies',
+    'TESO Gold',
+    'LA Gold',
+    'Gold Classic Season of Discovery',
+    'Gold Classic Era',
+    'Last Epoch Gold',
+    'NW Coins',
+    'Cataclysm Gold',
+    'Tarisland Gold',
+];
 
 export default function GoldOrder() {
     const [activeTab, setActiveTab] = useState(tabs[0]);
     const [activeRegion, setActiveRegion] = useState('EU');
     const [activeFaction, setActiveFaction] = useState('Alliance');
-   /*  const [cards, setCards] = useState(goldCards); */
 
     return (
         <div className={styles.container}>
@@ -49,10 +62,8 @@ export default function GoldOrder() {
                     onFactionChange={setActiveFaction}
                 />
                 <GoldCards
-                    initialCards={goldCards}
                     activeRegion={activeRegion}
                     activeFaction={activeFaction}
-                    /* onCardsChange={setCards} */
                 />
             </div>
 

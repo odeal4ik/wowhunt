@@ -32,22 +32,6 @@
     }
 }
 
-.cards:not(.showAll) > *:nth-child(n + 9) {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    .cards:not(.showAll) > *:nth-child(n + 5) {
-        display: none;
-    }
-}
-
-@media (max-width: 440px) {
-    .cards:not(.showAll) > *:nth-child(n + 4) {
-        display: none;
-    }
-}
-
 .card {
     display: flex;
     flex-direction: column;

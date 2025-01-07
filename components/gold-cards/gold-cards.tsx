@@ -1,7 +1,87 @@
 import Image from 'next/image';
 import cn from 'classnames';
 import styles from './gold-cards.module.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+
+const goldCards = [
+    {
+        id: 1,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 100,
+        price: 4.38,
+    },
+    {
+        id: 2,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 10500,
+        price: 4.38,
+    },
+    {
+        id: 3,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 5300,
+        price: 4.38,
+    },
+    {
+        id: 4,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 45700,
+        price: 4.38,
+    },
+    {
+        id: 5,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 20600,
+        price: 4.38,
+    },
+    {
+        id: 6,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 14600,
+        price: 4.38,
+    },
+    {
+        id: 7,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 18700,
+        price: 4.38,
+    },
+    {
+        id: 8,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 0,
+        price: 4.38,
+    },
+    {
+        id: 9,
+        name: 'Aegwynn Gold',
+        deliveryTime: '10 min delivery time',
+        inStock: 15002584,
+        count: 2345600,
+        price: 4.38,
+    }
+];
+
+interface GoldCardsProps {
+    activeRegion: string;
+    activeFaction: string;
+}
 
 interface GoldCard {
     id: number;
@@ -12,40 +92,16 @@ interface GoldCard {
     price: number;
 }
 
-interface GoldCardsProps {
-    initialCards: GoldCard[];
-    activeRegion: string;
-    activeFaction: string;
-    onCardsChange?: (cards: GoldCard[]) => void;
-}
+export function GoldCards({ activeRegion, activeFaction }: GoldCardsProps) {
+    const [cards, setCards] = useState<GoldCard[]>(goldCards);
+    const [showAllCards, setShowAllCards] = useState(false);
 
-export function GoldCards({
-    initialCards,
-    activeRegion,
-    activeFaction,
-    onCardsChange,
-}: GoldCardsProps) {
-    const [cards, setCards] = useState(initialCards);
-    const [isMoreOrders, setIsMoreOrders] = useState(false);
+    const cardsToShow = showAllCards ? cards : cards.slice(0, 8);
 
-    useEffect(() => {
-        onCardsChange?.(cards);
-    }, [cards, onCardsChange]);
-
-    const handleIncreaseAmount = (cardId: number) => {
+    const handleChangeAmount = (cardId: number, newAmount: number) => {
         setCards((prevCards) =>
             prevCards.map((card) =>
-                card.id === cardId ? { ...card, count: card.count + 100 } : card,
-            ),
-        );
-    };
-
-    const handleDecreaseAmount = (cardId: number) => {
-        setCards((prevCards) =>
-            prevCards.map((card) =>
-                card.id === cardId && card.count > 0
-                    ? { ...card, count: card.count - 100 }
-                    : card,
+                card.id === cardId ? { ...card, count: newAmount } : card,
             ),
         );
     };
@@ -54,9 +110,9 @@ export function GoldCards({
         <div className={styles.cardsWrapper}>
             <div
                 className={cn(styles.cards, {
-                    [styles.showAll]: isMoreOrders,
+                    [styles.showAll]: showAllCards,
                 })}>
-                {cards.map((card) => (
+                {cardsToShow.map((card) => (
                     <div key={card.id} className={styles.card}>
                         <div className={styles.cardHeader}>
                             <Image
@@ -103,7 +159,7 @@ export function GoldCards({
                             <button
                                 type="button"
                                 className={styles.cardAmountBtn}
-                                onClick={() => handleDecreaseAmount(card.id)}>
+                                onClick={() => handleChangeAmount(card.id, Math.max(card.count - 100, 0))}>
                                 −
                             </button>
                             <p className={styles.cardAmountValue}>
@@ -112,7 +168,7 @@ export function GoldCards({
                             <button
                                 type="button"
                                 className={styles.cardAmountBtn}
-                                onClick={() => handleIncreaseAmount(card.id)}>
+                                onClick={() => handleChangeAmount(card.id, card.count + 100)}>
                                 +
                             </button>
                         </div>
@@ -121,7 +177,9 @@ export function GoldCards({
                             <p className={styles.cardPriceValue}>
                                 €{((card.price * card.count) / 100).toFixed(2)}
                             </p>
-                            <p className={styles.cardPriceUnit}>For {card.count.toLocaleString()}K</p>
+                            <p className={styles.cardPriceUnit}>
+                                For {card.count.toLocaleString()}K
+                            </p>
                         </div>
 
                         <button className={styles.cardBuyButton}>
@@ -130,12 +188,12 @@ export function GoldCards({
                     </div>
                 ))}
             </div>
-            {cards.length > 1 && (
+            {cards.length >= 8 && (
                 <button
                     type="button"
                     className={styles.showMore}
-                    onClick={() => setIsMoreOrders(!isMoreOrders)}>
-                    {isMoreOrders ? 'SHOW LESS' : 'SHOW MORE'}
+                    onClick={() => setShowAllCards(!showAllCards)}>
+                    {showAllCards ? 'SHOW LESS' : 'SHOW MORE'}
                 </button>
             )}
         </div>
