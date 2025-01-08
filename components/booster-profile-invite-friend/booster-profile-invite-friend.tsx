@@ -1,8 +1,5 @@
 import styles from './booster-profile-invite-friend.module.css';
 
-
-
-
 export function BoosterProfileInviteFriend() {   
     return (
         <div className={styles.inviteSection}>

@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './booster-profile-info.module.css';
 import Image from 'next/image';
 import { BoosterProfileNotification } from '../booster-profile-notification/booster-profile-notification';
+import { useEscapeClose } from '../../hooks/useEscapeClose';
 
 interface BoosterProfileInfoProps {
     id: string;
@@ -16,23 +17,10 @@ export function BoosterProfileInfo({ id, email }: BoosterProfileInfoProps) {
     const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
     const [isChangeEmailOpen, setIsChangeEmailOpen] = useState(false);
 
-    useEffect(() => {
-        if (!isSettingsOpen && !isNotificationsOpen && !isChangePasswordOpen && !isChangeEmailOpen) return;
-
-        const handleEscKey = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') {
-                setIsSettingsOpen(false);
-                setIsNotificationsOpen(false);
-                setIsChangePasswordOpen(false);
-                setIsChangeEmailOpen(false);
-            }
-        };
-
-        document.addEventListener('keydown', handleEscKey);
-        return () => {
-            document.removeEventListener('keydown', handleEscKey);
-        };
-    }, [isSettingsOpen, isNotificationsOpen, isChangePasswordOpen, isChangeEmailOpen]);
+    useEscapeClose(isSettingsOpen, () => setIsSettingsOpen(false));
+    useEscapeClose(isNotificationsOpen, () => setIsNotificationsOpen(false));
+    useEscapeClose(isChangePasswordOpen, () => setIsChangePasswordOpen(false));
+    useEscapeClose(isChangeEmailOpen, () => setIsChangeEmailOpen(false));
 
     return (
         <div className={styles.profileSection}>

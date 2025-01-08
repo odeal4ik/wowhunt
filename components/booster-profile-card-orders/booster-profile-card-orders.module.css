@@ -11,16 +11,16 @@
 }
 
 .gameItem {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-height-130);
+    color: var(--text-color);
     display: flex;
     align-items: center;
     gap: 8px;
     padding: 8px 12px;
     background: rgba(75, 75, 119, 0.2);
     border-radius: 8px;
-    font-family: var(--font-barlow-regular-sans), sans-serif;
-    font-size: var(--font-size-m);
-    line-height: var(--font-line-height-130);
-    color: var(--text-color);
     cursor: pointer;
 }
 
@@ -49,22 +49,6 @@
     }
     @media (width <= 640px) {
         grid-template-columns: repeat(1, 1fr);
-    }
-}
-
-.wrapper:not(.showAll) > *:nth-child(n + 4) {
-    display: none;
-}
-
-@media (max-width: 1439px) {
-    .wrapper:not(.showAll) > *:nth-child(n + 3) {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .wrapper:not(.showAll) > *:nth-child(n + 2) {
-        display: none;
     }
 }
 
@@ -280,4 +264,3 @@
     color: var(--text-color-secondary);
     margin-top: 20px;
 }
-

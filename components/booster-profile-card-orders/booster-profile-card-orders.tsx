@@ -4,112 +4,114 @@ import { useState } from 'react';
 import styles from './booster-profile-card-orders.module.css';
 import Image from 'next/image';
 
+const mockOrders = [
+    {
+        id: '1',
+        game: 'D2: Seals & Triumphs',
+        img: '../system-icons/destiny2.svg',
+        title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
+        price: 5.75,
+        details: {
+            faction: 'Method',
+            methodOfCompletion: 'MyPlus Bundle',
+            mythicBundle: '3+1 FREE M+ 5',
+            timerOption: 'No Timer Guarantee',
+            specificDungeons: 'Loot Traders',
+            completionSpeed: 'Normal',
+            extraOptions: '500K Gold',
+        },
+        region: '№51719',
+        country: 'US',
+        countryFlag: '../system-icons/us-flag.svg',
+    },
+    {
+        id: '2',
+        game: 'D2: Seals & Triumphs',
+        img: '../system-icons/destiny2.svg',
+        title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
+        price: 5.75,
+        details: {
+            faction: 'Method',
+            methodOfCompletion: 'MyPlus Bundle',
+            mythicBundle: '3+1 FREE M+ 5',
+            timerOption: 'No Timer Guarantee',
+            specificDungeons: 'Loot Traders',
+            completionSpeed: 'Normal',
+            extraOptions: '500K Gold',
+        },
+        region: '№51719',
+        country: 'US',
+        countryFlag: '../system-icons/us-flag.svg',
+    },
+    {
+        id: '3',
+        game: 'D2: Episode Echoes',
+        img: '../system-icons/destiny2.svg',
+        title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
+        price: 5.75,
+        details: {
+            faction: 'Method',
+            methodOfCompletion: 'MyPlus Bundle',
+            mythicBundle: '3+1 FREE M+ 5',
+            timerOption: 'No Timer Guarantee',
+            specificDungeons: 'Specific dungeons (check comments)',
+        },
+        region: '№51719',
+        country: 'US',
+        countryFlag: '../system-icons/us-flag.svg',
+    },
+    {
+        id: '4',
+        game: 'WoW TWW: Heritage',
+        img: '../system-icons/destiny2.svg',
+        title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
+        price: 5.75,
+        details: {
+            faction: 'Method',
+            methodOfCompletion: 'MyPlus Bundle',
+            mythicBundle: '3+1 FREE M+ 5',
+            timerOption: 'No Timer Guarantee',
+        },
+        region: '№51719',
+        country: 'US',
+        countryFlag: '../system-icons/us-flag.svg',
+    },
+    {
+        id: '5',
+        game: 'D2: Seals & Triumphs D2: Seals & Triumphs',
+        img: '../system-icons/destiny2.svg',
+        title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle Nerub-ar Palace Raid | Heroic + Normal Bundle',
+        price: 5.75,
+        details: {
+            faction: 'Method Method Method Method',
+            methodOfCompletion:
+                'MyPlus Bundle MyPlus Bundle MyPlus BundleMyPlus Bundle',
+            mythicBundle:
+                '3+1 FREE M+ 5 3+1 FREE M+ 5 3+1 FREE M+ 5 3+1 FREE M+ 5',
+            timerOption:
+                'No Timer Guarantee No Timer Guarantee No Timer GuaranteeNo Timer Guarantee',
+            specificDungeons:
+                'Loot Traders Loot Traders Loot Traders Loot Traders',
+            completionSpeed: 'Normal Normal Normal Normal',
+            extraOptions: '500K Gold 500K Gold 500K Gold 500K Gold',
+        },
+        region: '№51719',
+        country: 'US',
+        countryFlag: '../system-icons/us-flag.svg',
+    },
+];
+
 export function BoosterProfileCardOrders() {
-
-    const [isMoreOrders, setIsMoreOrders] = useState(false);
     const [activeGame, setActiveGame] = useState<string | null>(null);
+    const [isMoreOrders, setIsMoreOrders] = useState(false);
 
-    const mockOrders = [
-        {
-            id: '1',
-            game: 'D2: Seals & Triumphs',
-            img: '../system-icons/destiny2.svg',
-            title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
-            price: 5.75,
-            details: {
-                faction: 'Method',
-                methodOfCompletion: 'MyPlus Bundle',
-                mythicBundle: '3+1 FREE M+ 5',
-                timerOption: 'No Timer Guarantee',
-                specificDungeons: 'Loot Traders',
-                completionSpeed: 'Normal',
-                extraOptions: '500K Gold',
-            },
-            region: '№51719',
-            country: 'US',
-            countryFlag: '../system-icons/us-flag.svg',
-        },
-        {
-            id: '2',
-            game: 'D2: Seals & Triumphs',
-            img: '../system-icons/destiny2.svg',
-            title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
-            price: 5.75,
-            details: {
-                faction: 'Method',
-                methodOfCompletion: 'MyPlus Bundle',
-                mythicBundle: '3+1 FREE M+ 5',
-                timerOption: 'No Timer Guarantee',
-                specificDungeons: 'Loot Traders',
-                completionSpeed: 'Normal',
-                extraOptions: '500K Gold',
-            },
-            region: '№51719',
-            country: 'US',
-            countryFlag: '../system-icons/us-flag.svg',
-        },
-        {
-            id: '3',
-            game: 'D2: Episode Echoes',
-            img: '../system-icons/destiny2.svg',
-            title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
-            price: 5.75,
-            details: {
-                faction: 'Method',
-                methodOfCompletion: 'MyPlus Bundle',
-                mythicBundle: '3+1 FREE M+ 5',
-                timerOption: 'No Timer Guarantee',
-                specificDungeons: 'Specific dungeons (check comments)',
-            },
-            region: '№51719',
-            country: 'US',
-            countryFlag: '../system-icons/us-flag.svg',
-        },
-        {
-            id: '4',
-            game: 'WoW TWW: Heritage',
-            img: '../system-icons/destiny2.svg',
-            title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
-            price: 5.75,
-            details: {
-                faction: 'Method',
-                methodOfCompletion: 'MyPlus Bundle',
-                mythicBundle: '3+1 FREE M+ 5',
-                timerOption: 'No Timer Guarantee',
-            },
-            region: '№51719',
-            country: 'US',
-            countryFlag: '../system-icons/us-flag.svg',
-        },
-        {
-            id: '5',
-            game: 'D2: Seals & Triumphs D2: Seals & Triumphs',
-            img: '../system-icons/destiny2.svg',
-            title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle Nerub-ar Palace Raid | Heroic + Normal Bundle',
-            price: 5.75,
-            details: {
-                faction: 'Method Method Method Method',
-                methodOfCompletion:
-                    'MyPlus Bundle MyPlus Bundle MyPlus BundleMyPlus Bundle',
-                mythicBundle:
-                    '3+1 FREE M+ 5 3+1 FREE M+ 5 3+1 FREE M+ 5 3+1 FREE M+ 5',
-                timerOption:
-                    'No Timer Guarantee No Timer Guarantee No Timer GuaranteeNo Timer Guarantee',
-                specificDungeons:
-                    'Loot Traders Loot Traders Loot Traders Loot Traders',
-                completionSpeed: 'Normal Normal Normal Normal',
-                extraOptions: '500K Gold 500K Gold 500K Gold 500K Gold',
-            },
-            region: '№51719',
-            country: 'US',
-            countryFlag: '../system-icons/us-flag.svg',
-        },
-    ];
+    const ordersToRender = isMoreOrders ? mockOrders : mockOrders.slice(0, 3);
 
     if (mockOrders.length === 0) {
         return (
             <div className={styles.noServicesMessage}>
-                Just mark which services you can do and we will show you best offers!
+                Just mark which services you can do and we will show you best
+                offers!
             </div>
         );
     }
@@ -151,9 +153,6 @@ export function BoosterProfileCardOrders() {
         <div className={styles.container}>
             <nav className={styles.gamesNav}>
                 {games.map((game) => {
-                     mockOrders.find(
-                        (order) => order.game === game,
-                    );
                     return (
                         <div
                             key={game}
@@ -177,7 +176,7 @@ export function BoosterProfileCardOrders() {
             </nav>
             <div
                 className={`${styles.wrapper} ${isMoreOrders ? styles.showAll : ''}`}>
-                {filteredOrders.map((order) => (
+                {ordersToRender.map((order) => (
                     <div key={order.id} className={styles.card}>
                         <div className={styles.header}>
                             <div className={styles.gameInfo}>
@@ -247,7 +246,7 @@ export function BoosterProfileCardOrders() {
                     </div>
                 ))}
             </div>
-            {filteredOrders.length > 1 && (
+            {filteredOrders.length > 3 && (
                 <button
                     type="button"
                     className={styles.showMore}
