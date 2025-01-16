@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import styles from './modal-change-password.module.css';
 import Image from 'next/image';
+import { useEscapeClose } from '../../hooks/useEscapeClose';
 
 interface PasswordCriteria {
     lowercase: boolean;
@@ -37,21 +38,7 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
         { key: 'length', label: '8 characters' },
     ] as const;
 
-    useEffect(() => {
-        if (!isOpen) return;
-
-        const handleEscKey = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') {
-                handleClose();
-            }
-        };
-
-        document.addEventListener('keydown', handleEscKey);
-
-        return () => {
-            document.removeEventListener('keydown', handleEscKey);
-        };
-    }, [isOpen]);
+    useEscapeClose(isOpen, onClose);
 
     const resetState = () => {
         setPassword('');

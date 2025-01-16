@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styles from './model-sing-up.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEscapeClose } from '../../hooks/useEscapeClose';
 
 interface FormField {
     name: string;
@@ -39,16 +40,8 @@ export const ModalForm = ({
     isOpen,
     onClose,
 }: ModalFormProps) => {
-    useEffect(() => {
-        if (!isOpen) return;
-        const handleEscKey = (event: KeyboardEvent) => {
-            if (event.key === 'Escape') onClose();
-        };
-        document.addEventListener('keydown', handleEscKey);
-        return () => {
-            document.removeEventListener('keydown', handleEscKey);
-        };
-    }, [isOpen, onClose]);
+    
+    useEscapeClose(isOpen, onClose);
     if (!isOpen) return null;
 
     return (
