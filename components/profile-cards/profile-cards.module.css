@@ -1,0 +1,60 @@
+.cardGrid {
+    max-width: 100%;
+    width: 100%;
+    display: grid;
+    align-items: stretch;
+    justify-content: start;
+    grid-template-columns: repeat(4, minmax(280px, 340px));
+    grid-auto-rows: minmax(auto, max-content);
+    gap: 32px 20px;
+
+    @media (width <= 1600px) {
+        grid-template-columns: repeat(4, minmax(260px, 1fr));
+    }
+
+    @media (width <= 1470px) {
+        grid-template-columns: repeat(3, minmax(260px, 1fr));
+    }
+
+    @media (width <= 1150px) {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+        gap: 10px;
+    }
+
+    @media (width <= 1024px) {
+        grid-template-columns: repeat(3, minmax(260px, 1fr));
+        gap: 20px;
+    }
+
+    @media (width <= 840px) {
+        grid-template-columns: repeat(2, minmax(260px, 1fr));
+        gap: 10px;
+    }
+
+    @media (width <= 500px) {
+        grid-template-columns: repeat(1, minmax(260px, 1fr));
+        justify-content: center;
+    }
+}
+
+.showMore {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: var(--font-size-m);
+    color: var(--text-color);
+    background: rgba(75, 75, 119, 0.1);
+    border: 2px solid var(--dark-muted);
+    padding: 12px 32px;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    max-width: 540px;
+    margin: 42px auto 150px;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        background: rgba(31, 41, 55, 0.5);
+    }
+}

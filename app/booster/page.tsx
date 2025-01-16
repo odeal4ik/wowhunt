@@ -14,6 +14,7 @@ interface BoosterProps {
     email: string;
     balance?: number;
     totalEarned?: number;
+    srcImg?: string;
 }
 
 export default function BooBooster({
@@ -21,6 +22,7 @@ export default function BooBooster({
     email = 'nikita.kudenikov@longdomain.com',
     balance = 10000000,
     totalEarned = 10000000,
+    srcImg = '/images/avatar-profile.png',
 }: BoosterProps) {
 
     return (
@@ -29,7 +31,7 @@ export default function BooBooster({
                 <h1 className={styles.title}>BooBooster</h1>
                 <div className={styles.container}>
                     <div className={`${styles.leftSection} ${styles.section}`}>
-                        <BoosterProfileInfo id={id} email={email} />
+                        <BoosterProfileInfo id={id} email={email} srcImg={srcImg} />
                         <BoosterProfileNotification />
                     </div>
 

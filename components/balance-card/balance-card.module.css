@@ -1,0 +1,178 @@
+.container {
+    position: relative;
+    background: #171728;
+    border-radius: 20px;
+    padding-inline: 50px 20px;
+    padding-block-start: 28px;
+    width: 100%;
+    max-width: 692px;
+    overflow: hidden;
+    --start-gradient: var(--custom-start-color, #d203fa);
+    --end-gradient: var(--custom-end-color, #e44803);
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 121px;
+        height: 121px;
+        left: 110px;
+        top: 180px;
+        background: linear-gradient(
+            360deg,
+            var(--start-gradient) -68.38%,
+            var(--end-gradient) 191.88%
+        );
+        opacity: 0.3;
+        filter: blur(32px);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 159px;
+        height: 159px;
+        right: 145px;
+        bottom: 130px;
+        background: linear-gradient(
+            360deg,
+            var(--start-gradient) -117.09%,
+            var(--end-gradient) 114.64%
+        );
+        opacity: 0.3;
+        filter: blur(32px);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    @media (width <= 1500px) {
+        padding-inline-start: 25px;
+        padding-block-start: 25px;
+    }
+
+    @media (width <= 1200px) {
+        &::before {
+            width: 90px;
+            height: 90px;
+            left: 60px;
+            top: 150px;
+        }
+
+        &::after {
+            width: 120px;
+            height: 120px;
+            right: 60px;
+            bottom: 80px;
+        }
+    }
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-l);
+    color: var(--text-color);
+    line-height: 28px;
+    margin: 0;
+
+    @media (width <= 1200px) {
+        font-size: var(--font-size-ss);
+        line-height: 21px;
+    }
+}
+
+.balance {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    color: var(--text-color);
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 4px;
+
+    @media (width <= 1200px) {
+        margin-bottom: 0;
+    }
+}
+
+.currencySymbol {
+    font-size: 50px;
+    line-height: 52px;
+    color: var(--text-color);
+
+    @media (width <= 1200px) {
+        font-size: 30px;
+        line-height: 39px;
+    }
+}
+
+.integerNumber {
+    font-size: 70px;
+    line-height: 83px;
+
+    @media (width <= 1200px) {
+        font-size: 40px;
+        line-height: 62px;
+    }
+}
+
+.decimalNumber {
+    font-size: 40px;
+    line-height: 83px;
+    color: var(--text-color-secondary);
+
+    @media (width <= 1200px) {
+        font-size: var(--font-size-l);
+        line-height: 62px;
+    }
+}
+
+.arrow {
+    @media (width <= 1200px) {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+.chart {
+    position: relative;
+    z-index: 1;
+    max-width: 520px;
+    max-height: 144px;
+    margin: 0 0 70px 8px;
+    cursor: pointer;
+
+    @media (width <= 1600px) {
+        max-width: 420px;
+    }
+
+    @media (width <= 1200px) {
+        margin-bottom: 40px;
+    }
+
+    @media (width <= 768px) {
+        margin-bottom: 25px;
+    }
+    @media (width <= 620px) {
+        max-width: 100%;
+    }
+}
+
+.dates {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-ss);
+    line-height: var(--font-line-height-130);
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(100%);
+    display: flex;
+    justify-content: space-around;
+}
