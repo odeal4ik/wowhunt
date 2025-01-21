@@ -1,23 +1,19 @@
 .shoppingCardContainer {
     padding-block-start: 86px;
-    background-size: 100%;
-    background-position: top center;
-    background-repeat: no-repeat;
-    position: relative;
 
-    @media (max-width: 1400px) {
-        background-size: auto;
+    @media (width <= 600px) {
+        padding-block-start: 0;
     }
 }
 
 .wrapper {
     display: grid;
     --_sidebar-width: 280px;
-    grid-template-columns: var(--_sidebar-width) calc(100% - var(--_sidebar-width));
-}
+    grid-template-columns: var(--_sidebar-width) calc(
+            100% - var(--_sidebar-width)
+        );
 
-@media (max-width: 1023px) {
-    .wrapper {
+    @media (width <= 1023px) {
         display: block;
     }
 }
@@ -25,25 +21,38 @@
 .content {
     display: flex;
     flex-direction: column;
-    padding-inline: 35px;
-    padding-block: 60px;
+}
+
+.breadcrumbs {
+    padding-inline: 58px;
+    padding-block-start: 52px;
+
+    @media (width <= 1024px) {
+        padding-inline: 50px;
+    }
+
+    @media (width <= 600px) {
+        padding-block-start: 92px;
+        padding-inline: 12px;
+    }
 }
 
 .other {
     grid-column: 2;
-}
+    padding-inline: 58px;
+    padding-block-start: 52px;
 
-@media (max-width: 1280px) {
-   .other {
+    @media (width <= 1280px) {
         min-width: 0;
         grid-column: 1;
     }
-}
 
-@media (max-width: 400px) {
-    .content {
+    @media (width <= 1024px) {
+        padding-inline: 36px;
+    }
+
+    @media (width <= 400px) {
         padding-block: 0;
         padding-inline: 12px;
     }
-
 }

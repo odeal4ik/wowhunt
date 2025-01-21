@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import styles from './form-order.module.css';
 
 export function FormOrder() {
@@ -31,7 +30,7 @@ export function FormOrder() {
                 </div>
 
                 <div className={styles.formGroup}>
-                    <label htmlFor="notes" className={styles.formLabel}>
+                    <label htmlFor="notes" className={`${styles.formLabel} ${styles.labelDown}`}>
                         Additional information
                     </label>
                     <p className={styles.formDescription}>

@@ -2,11 +2,10 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
-    margin: 0 auto;
-    padding: 0 125px 0 85px;
+    padding-inline: calc(8% - 63px) calc(12% - 86px);
 
-    @media (width <= 1400px) {
-        padding: 15px 0 25px;
+    @media (width <= 400px) {
+        padding: 0;
     }
 }
 
@@ -17,15 +16,22 @@
     align-items: stretch;
     background-color: #171a39;
     border-radius: 12px;
-    padding: 22px 46px 16px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding-inline: 46px;
+    padding-block: 22px 32px;
+    background: linear-gradient(
+        237.82deg,
+        rgba(59, 60, 104, 0.45) -147.73%,
+        rgba(59, 60, 104, 0) 180.56%
+    );
 
     @media (width <= 1024px) {
-        padding: 22px 40px 16px;
+        padding-inline: 40px 18px;
+        padding-block: 20px 24px;
     }
 
-    @media (width <= 400px) {
-        padding: 28px 10px 20px 32px;
+    @media (width <= 600px) {
+        padding-block: 28px 20px;
+        padding-inline: 32px 18px;
     }
 }
 
@@ -42,18 +48,24 @@
 }
 
 .cardTitle {
-    font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 20px;
-    text-transform: uppercase;
     font-family: var(--font-barlow-bold-sans);
     font-size: 32px;
     line-height: 32px;
+    color: var(--text-color);
+    padding-block-end: 20px;
+    text-transform: uppercase;
+
+    @media (width <= 1024px) {
+        padding-block-end: 16px;
+    }
+
+    @media (width <= 600px) {
+        padding-block-end: 20px;
+    }
 }
 
 .cardOptions {
     flex: 1;
-    color: #9f9fb7;
 }
 
 .cardSubtitle {
@@ -61,40 +73,44 @@
     font-family: var(--font-barlow-regular-sans);
     font-size: var(--font-size-m);
     line-height: 130%;
-    margin-bottom: 16px;
+    padding-block-end: 16px;
+
+    @media (width <= 1024px) {
+        padding-block-end: 12px;
+    }
+}
+
+.cardContainer {
+    margin-inline-start: 15px;
 }
 
 .list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 12px;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 20px;
     padding: 0;
-    margin: 0;
-    list-style: disc;
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-l);
+    line-height: 28px;
 
-    & li::marker {
-        color: white;
+    @media (width <= 1240px) {
+        grid-template-columns: 1fr;
     }
 
-    @media (width <= 1024px) {
-        display: flex;
-        flex-direction: column;
+    @media (width <= 600px) {
+        font-size: var(--font-size-m);
+        line-height: var(--font-line-height-130);
     }
 }
 
 .label {
-    color: var(--text-color);
-    font-family: var(--font-barlow-regular-sans);
-    font-size: var(--font-size-l);
     line-height: 28px;
     text-transform: uppercase;
+    padding-inline-start: 1px;
 }
 
-.highlight {
+.value {
     color: var(--yellow-500);
-    font-family: var(--font-barlow-regular-sans);
-    font-size: var(--font-size-l);
-    line-height: 28px;
 }
 
 .actions {
@@ -105,9 +121,11 @@
 
     @media (width <= 1024px) {
         align-items: end;
+        gap: 18px;
     }
 
-    @media (width <= 400px) {
+    @media (width <= 600px) {
+        padding-block-start: 10px;
         align-items: center;
         gap: 18px;
     }
@@ -115,10 +133,12 @@
 
 .price {
     font-family: var(--font-barlow-bold-sans);
-    color: var(--text-color);
-    font-size: 1.4rem;
     font-size: 32px;
     line-height: 32px;
+
+    @media (width <= 1024px) {
+        padding-block-end: 3px;
+    }
 }
 
 .deleteButton {
@@ -127,16 +147,16 @@
     background: rgba(75, 75, 119, 0.05);
     border: 1px solid rgba(75, 75, 119, 0.3);
     border-radius: 12px;
-}
 
-.deleteButton:hover {
-    background: rgba(75, 75, 119, 0.2);
-    border: 1px solid #43436a;
-}
+    &:hover {
+        background: rgba(75, 75, 119, 0.2);
+        border: 1px solid #43436a;
+    }
 
-.deleteButton:active {
-    background: rgba(75, 75, 119, 0.3);
-    border: 1px solid #6d6d91;
+    &:active {
+        background: rgba(75, 75, 119, 0.3);
+        border: 1px solid #6d6d91;
+    }
 }
 
 .deleteButton img {

@@ -1,43 +1,42 @@
 .orderTotalContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 36px;
-  margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 36px;
+    margin-block-start: 76px;
 }
 
 .orderTotalText {
-  font-family: var(--font-barlow-bold-sans);
-  font-size: 2rem;
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: 32px;
+    line-height: 32px;
 }
 
 .orderTotalAmount {
-  color: var(--yellow-500);
+    color: var(--yellow-500);
 }
 
 .buyNowButton {
-  background-color: var(--yellow-500);
-  color: var(--background);
-  font-family: var(--font-barlow-bold-sans);
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: var(--font-size-h3);
-  padding: 4px 120px;
-  border-radius: 8px;
-  cursor: pointer;
-}
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: var(--font-size-h3);
+    color: var(--background);
+    background-color: var(--yellow-500);
+    text-transform: uppercase;
+    padding: 4px 120px;
+    border-radius: 8px;
+    cursor: pointer;
 
-@media (max-width: 700px) {
-  .buyNowButton {
-    padding: 4px 100px;
-  }
-}
+    &:hover {
+        background: #dfaa22;
+    }
 
-.buyNowButton:hover {
-  background: #DFAA22;
-}
+    &:active {
+        background: #d89f07;
+    }
 
-.buyNowButton:active {
-  background-color: #d89f07;
+    @media (width <= 768px) {
+        display: block;
+        width: calc(100% - 72px);
+        padding: 4px 0;
+    }
 }
-
