@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import styles from './user-profile-block.module.css';
+import { ProgressBooster } from '../progress-booster/progress-booster';
 
 interface UserProfileBlockProps {
     id: string;
@@ -19,7 +20,12 @@ export function UserProfileBlock({ id, email, srcImg }: UserProfileBlockProps) {
             />
             <div className={styles.profileInfo}>
                 <div className={styles.idContainer}>
-                    <p className={styles.idUser}>ID: {id}</p>
+                    <div className={styles.wrapper}>
+                        <p className={styles.idUser}>ID: {id}</p>
+                        <div className={styles.progressContainer}>
+                            <ProgressBooster />
+                        </div>
+                    </div>
                     <p className={styles.emailUser}>{email}</p>
                 </div>
             </div>

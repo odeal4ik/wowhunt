@@ -12,8 +12,8 @@ import ProgressBar from '@/components/progress-bar/progress-bar';
 import { getUserProgress } from '../../utils/progress';
 
 export default function Profile() {
-    const currentProgress = 90;
-    const { image, title } = getUserProgress(currentProgress);
+    const currentProgress = 50;
+    const { image, title, description } = getUserProgress(currentProgress);
 
     return (
         <main className={styles.main}>
@@ -38,9 +38,11 @@ export default function Profile() {
                     </div>
                 </div>
                 <ProgressBlock
+                    variant="profile"
                     progress={currentProgress}
                     image={image}
                     title={title}
+                    description={description}
                 />
                 <div className={styles.inviteBlock}>
                     <InviteFriend price={15} />
@@ -57,18 +59,16 @@ export default function Profile() {
             <div className={styles.containerBalance}>
                 <BalanceCard
                     balance={12.345}
-                    isIncreasing={true}
-                    title="Balance"
-                    startColor="#9001AD"
-                    endColor="#E94A05"
+                    balanceTitle="Balance"
+                    isIncreasingBalance={true}
+                    buttonsReports={false}
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
                 <BalanceCard
                     balance={20.953}
-                    isIncreasing={true}
-                    title="Total spending"
-                    startColor="#0B4E9A"
-                    endColor="#B2E8FC"
+                    balanceTitle="Total spending"
+                    isIncreasingBalance={true}
+                    buttonsReports={false}
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
             </div>

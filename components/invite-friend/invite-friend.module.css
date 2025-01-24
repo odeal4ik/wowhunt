@@ -78,7 +78,7 @@
     padding-block-start: 25px;
 
     @media (width <= 1375px) {
-        width: 650px;
+        max-width: 650px;
         gap: 13px;
         padding-block-start: 0;
     }
@@ -125,7 +125,7 @@
     position: absolute;
     right: 0;
     top: 0;
-    transform: translate(-50px, 127px);
+    transform: translate(-54px, 127px);
 
     &:hover {
         color: var(--background);

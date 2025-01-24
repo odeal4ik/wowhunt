@@ -1,0 +1,9 @@
+.statusProgressBooster {
+  font-family: var(--font-barlow-extra-bold-sans), sans-serif;
+  font-size: var(--font-size-ss);
+  line-height: var(--font-line-height-130);
+  background: linear-gradient(93.21deg, #1791b7 11.02%, #213cca 91.15%);
+  border-radius: 8px;
+  padding: 5px 12px;
+  margin-block-end: 9px;
+}

@@ -1,0 +1,116 @@
+.modalButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modalNotificationRow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #27294c;
+    border-radius: 8px;
+    padding-block: 11px;
+    padding-inline: 15px;
+
+    @media (width <= 1375px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+    }
+}
+
+.notificationItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.notificationText {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-height-130);
+    color: var(--text-color);
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.notificationCheckbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:checked + .slider {
+        background-color: var(--yellow-500);
+    }
+
+    &:checked + .slider:before {
+        transform: translateX(20px);
+    }
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #353767;
+    transition: 0.4s;
+    border-radius: 34px;
+
+    &:before {
+        position: absolute;
+        content: '';
+        height: 16px;
+        width: 16px;
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
+    }
+}
+
+.modalButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-s);
+    line-height: var(--font-line-height-130);
+    color: var(--text-color);
+    padding: 11px 24px;
+    background: #2ea5d8;
+    border-radius: 8px;
+    cursor: pointer;
+
+    @media (width <= 1440px) {
+        padding-inline: 15px;
+    }
+}
+
+.telegramInstructions {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-height-130);
+    color: #7f8da4;
+}
+
+.telegramInstructions ol {
+    padding-inline-start: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.textStyle {
+    color: var(--yellow-500);
+    cursor: pointer;
+}

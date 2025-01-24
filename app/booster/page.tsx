@@ -1,54 +1,109 @@
 'use client';
 
-import { BoosterProfileBalance } from '@/components/booster-profile-balance/booster-profile-balance';
-import { BoosterProfileCardsBoost } from '@/components/booster-profile-cards-boost/booster-profile-cards-boost';
-import { BoosterProfileEarnings } from '@/components/booster-profile-earnings/booster-profile-earnings';
-import { BoosterProfileInfo } from '@/components/booster-profile-info/booster-profile-info';
-import { BoosterProfileInviteFriend } from '@/components/booster-profile-invite-friend/booster-profile-invite-friend';
-import { BoosterProfileNotification } from '@/components/booster-profile-notification/booster-profile-notification';
-import { BoosterProfileCardOrders } from '@/components/booster-profile-card-orders/booster-profile-card-orders';
+import Image from 'next/image';
+import { useState } from 'react';
+import { UserProfileBlock } from '@/components/user-profile-block/user-profile-block';
+import { InviteFriend } from '@/components/invite-friend/invite-friend';
+import { ProgressBlock } from '@/components/progress-block/progress-block';
+import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
+import { BalanceCard } from '@/components/balance-card/balance-card';
+
+import { BoosterButtonServices } from '@/components/booster-button-services/booster-button-services';
+import { ProgressBooster } from '@/components/progress-booster/progress-booster';
+
+
 import styles from './booster.module.css';
+import imgLevel from '../../public/images/level-beginner-silver.png';
 
-interface BoosterProps {
-    id?: string;
-    email: string;
-    balance?: number;
-    totalEarned?: number;
-    srcImg?: string;
-}
+import { CategoriesModal } from '@/components/modal-filter-categorie/modal-filter-categorie';
+import { BoosterOrderCards } from '@/components/booster-order-cards/booster-order-cards';
 
-export default function BooBooster({
-    id = '123456789',
-    email = 'nikita.kudenikov@longdomain.com',
-    balance = 10000000,
-    totalEarned = 10000000,
-    srcImg = '/images/avatar-profile.png',
-}: BoosterProps) {
+export default function Profile() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
         <main className={styles.main}>
-            <div className={styles.wrapper}>
-                <h1 className={styles.title}>BooBooster</h1>
-                <div className={styles.container}>
-                    <div className={`${styles.leftSection} ${styles.section}`}>
-                        <BoosterProfileInfo id={id} email={email} srcImg={srcImg} />
-                        <BoosterProfileNotification />
+            <div className={styles.containerHeader}>
+                <div className={styles.profileBlock}>
+                    <div className={styles.userBlock}>
+                        <UserProfileBlock
+                            id="123456789"
+                            email="nikita.kudenikov@longdomain.com"
+                            srcImg="/images/avatar-booster-profile.webp"
+                        />
+                        <Image
+                            src={imgLevel}
+                            alt="level"
+                            width={57}
+                            height={48}
+                            className={styles.imgLevel}
+                        />
                     </div>
+                    <div className={styles.btnServices}>
+                        <div className={styles.progressBlock}>
+                            <div className={styles.titleContainer}>
+                                <p className={styles.headerTitle}>
+                                    Young Booster
+                                </p>
+                                <ProgressBooster />
+                            </div>
+                            <p className={styles.headerProgress}>
+                                To reach the next level you need to have 4
+                                completed orders.
+                            </p>
+                        </div>
 
-                    <div
-                        className={`${styles.middleSection} ${styles.section}`}>
-                        <BoosterProfileInviteFriend />
-                        <BoosterProfileCardsBoost />
-                    </div>
-
-                    <div className={`${styles.rightSection} ${styles.section}`}>
-                        <BoosterProfileBalance balance={balance} />
-                        <BoosterProfileEarnings totalEarned={totalEarned} />
+                        <BoosterButtonServices
+                            buttonText="Services that i can do"
+                            onClick={() => setIsModalOpen(true)}
+                        />
                     </div>
                 </div>
-                <p className={styles.orderTitle}>Ready to take new order 😊?</p>
-                <BoosterProfileCardOrders />
+
+                <ProgressBlock
+                    variant="booster"
+                    buttonText="Services that i can do"
+                    image={imgLevel}
+                    title="Young Booster"
+                    description="To reach the next level you need to have 4 completed orders."
+                    onClick={() => setIsModalOpen(true)}
+                />
+                <div className={styles.inviteBlock}>
+                    <InviteFriend price={10} />
+                </div>
+                <div className={styles.buttonsBlockDesktop}>
+                    <ProfileButtonsBlock email="nikita.kudenikov@srg.com" />
+                </div>
             </div>
+
+            <div className={styles.containerBalance}>
+                <BalanceCard
+                    balance={12.345}
+                    balanceTitle="Balance"
+                    isIncreasingBalance={true}
+                    lastOrder={10.345}
+                    lastOrderTitle="Last order"
+                    isIncreasingLastOrder={true}
+                    buttonsReports={true}
+                    rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
+                />
+                <BalanceCard
+                    balance={20.953}
+                    balanceTitle="Total earnings"
+                    isIncreasingBalance={true}
+                    buttonsReports={false}
+                    rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
+                />
+            </div>
+            <div className={styles.containerCards}>
+                <BoosterOrderCards />
+            </div>
+            {isModalOpen && (
+                <CategoriesModal
+                    onClose={() => setIsModalOpen(false)}
+                    isOpen={isModalOpen}
+                />
+            )}
         </main>
     );
 }

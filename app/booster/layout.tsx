@@ -5,7 +5,7 @@ import { Sidebar } from '@/components/sidebar/sidebar';
 
 import styles from './booster-layout.module.css';
 
-export default function BooBoosterLayout({
+export default function ProfileLayout({
     children,
 }: {
     children: React.ReactNode;

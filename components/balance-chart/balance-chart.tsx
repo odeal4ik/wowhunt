@@ -2,6 +2,7 @@ import styles from './balance-chart.module.css';
 import { ChartOptions, TooltipItem, Chart as ChartJS } from 'chart.js';
 import { useRef } from 'react';
 import { Line } from 'react-chartjs-2';
+import { calculateDate } from '../balance-card/balance-card';
 
 interface BalanceChartProps {
     rowDataPoints: number[];
@@ -21,13 +22,13 @@ export function BalanceChart({
     const chartRef = useRef<ChartJS<'line'>>(null);
 
     const labels = [
-        '01.09',
-        '15.09',
-        '29.09',
-        '31.09',
-        '01.10',
-        '15.10',
-        '29.10',
+      calculateDate(30),
+      calculateDate(25),
+      calculateDate(20),
+      calculateDate(15),
+      calculateDate(10),
+      calculateDate(5),
+      calculateDate(0),
     ];
 
     const maxValue = Math.max(...rowDataPoints);

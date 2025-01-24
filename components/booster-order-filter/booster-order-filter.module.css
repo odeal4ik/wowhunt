@@ -1,0 +1,35 @@
+.gamesNav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.gameItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(75, 75, 119, 0.2);
+    border-radius: 8px;
+    padding: 11px 20px;
+}
+
+.gameInfo {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-height-130);
+}
+
+.gameTitle {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    color: var(--yellow-500);
+}
+
+.gameValue {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+}
+
+.closeIcon {
+  cursor: pointer;
+}

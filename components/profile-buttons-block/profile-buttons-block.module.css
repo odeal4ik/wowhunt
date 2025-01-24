@@ -113,7 +113,7 @@ input:checked + .slider:before {
     gap: 11px;
 
     @media (width <= 680px) {
-        width: 90%;
+        width: 100%;
     }
 }
 
@@ -141,6 +141,7 @@ input:checked + .slider:before {
         flex-direction: row;
         padding-block-start: 0;
         padding-inline-end: 0;
+        margin-inline: 18px;
     }
 
     @media (width <= 680px) {
@@ -186,12 +187,13 @@ input:checked + .slider:before {
 .notificationsModal {
     display: none;
     position: fixed;
+    z-index: 9999;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
+    /* z-index: 1000; */
 }
 
 .settingsModal[data-visible='true'],
@@ -206,7 +208,8 @@ input:checked + .slider:before {
 }
 
 .modalContent {
-    position: absolute;
+    position: fixed;
+    z-index: 9999;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -226,14 +229,13 @@ input:checked + .slider:before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 20px 0 10px;
+    padding-block-end: 8px;
 }
 
 .modalTitle {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: 38px;
-    line-height: 38px;
-    margin: 0;
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-130);
 }
 
 .closeButton {
@@ -249,11 +251,6 @@ input:checked + .slider:before {
     &:hover {
         background-color: rgba(75, 75, 119, 0.5);
     }
-}
-
-.closeIcon {
-    width: 14px;
-    height: 14px;
 }
 
 .modalButtons {
@@ -292,11 +289,13 @@ input:checked + .slider:before {
     width: 100%;
 }
 
-.changeEmailModal,
+.changeEmailModal {
+    max-width: 350px;
+    padding-inline: 20px;
+    padding-block: 29px 27px;
+}
+
 .changePasswordModal {
-    max-width: 520px;
-    padding-inline: 60px;
-    padding-block: 40px 36px;
 }
 
 .changePasswordModalTitle {
@@ -362,22 +361,103 @@ input:checked + .slider:before {
     margin-block-start: 10px;
 }
 
-.currentEmail {
+.currentEmailContainer {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
     font-family: var(--font-barlow-regular-sans), sans-serif;
     font-size: var(--font-size-ss);
     line-height: var(--font-line-height-130);
-    display: inline-flex;
-    gap: 5px;
     background: #353767;
     border-radius: 8px;
     padding: 9px 12px;
-    margin-bottom: 22px;
-    word-break: break-all;
+    margin-block-end: 14px;
+}
 
-    & span {
-        font-family: var(--font-barlow-semi-bold-sans), sans-serif;
-        display: inline-block;
-        overflow: hidden;
-        text-overflow: ellipsis;
+.currentEmailText {
+    width: fit-content;
+    white-space: nowrap;
+}
+
+.currentEmail {
+    word-break: break-all;
+    font-family: var(--font-barlow-semi-bold-sans), sans-serif;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.label {
+    display: block;
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: 24px;
+    padding-block-end: 10px;
+}
+
+.input {
+    width: 100%;
+    padding: 12px;
+    background: rgba(75, 75, 119, 0.2);
+    border: 2px solid rgba(68, 83, 113, 0.15);
+    border-radius: 6px;
+    color: var(--text-color);
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    line-height: var(--font-line-height-130);
+
+    &::placeholder {
+        color: var(--text-color-secondary);
+        font-size: var(--font-size-m);
+    }
+
+    &:focus {
+        outline-offset: 0;
+        border: 1px solid var(--yellow-500);
+        outline: rgb(251, 191, 36, 0.1) 4px solid;
+    }
+}
+
+.continueButton {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: var(--font-size-l);
+    line-height: 24px;
+    color: var(--dark-soft);
+    background-color: var(--yellow-500);
+    border-radius: 8px;
+    padding: 11px 35px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    width: 100%;
+
+    &:hover {
+        color: var(--background);
+        background: #dfaa22;
+    }
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.buttonsContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: background-color 0.2s;
+    border-radius: 8px;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
     }
 }

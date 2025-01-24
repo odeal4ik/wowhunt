@@ -1,33 +1,58 @@
-import Image from 'next/image';
+import Image, { StaticImageData } from 'next/image';
 import styles from './progress-block.module.css';
 import ProgressBar from '../progress-bar/progress-bar';
+import { BoosterButtonServices } from '../booster-button-services/booster-button-services';
+import { ProgressBooster } from '../progress-booster/progress-booster';
 
-interface ProgressBlockProps {
-    progress: number;
-    image: string;
+interface BaseProfileBlockProps {
+    image: string | StaticImageData;
     title: string;
+    description: string;
 }
 
-export function ProgressBlock({ progress, image, title }: ProgressBlockProps) {
+interface ProfileVariantProps extends BaseProfileBlockProps {
+    variant: 'profile';
+    progress: number;
+}
+
+interface BoosterVariantProps extends BaseProfileBlockProps {
+    variant: 'booster';
+    buttonText: string;
+    onClick: () => void;
+}
+
+type ProgressBlockProps = ProfileVariantProps | BoosterVariantProps;
+
+export function ProgressBlock(props: ProgressBlockProps) {
     return (
         <div className={styles.container}>
             <div className={styles.headerContainer}>
                 <Image
-                    src={image}
-                    alt={title}
+                    src={props.image}
+                    alt={props.title}
                     width={88}
                     height={72}
                     className={styles.imgLevel}
                 />
-                <div>
-                    <h3 className={styles.headerTitle}>{title}</h3>
-                    <p className={styles.headerProgress}>
-                        Your progress is the amount accumulated through your
-                        purchases, make them to get more rewards.
-                    </p>
+                <div className={styles.wrapper}>
+                    <div className={styles.titleContainer}>
+                        <h3 className={styles.headerTitle}>{props.title}</h3>
+                        {props.variant === 'booster' ? (
+                            <ProgressBooster />
+                        ) : null}
+                    </div>
+
+                    <p className={styles.headerProgress}>{props.description}</p>
                 </div>
             </div>
-            <ProgressBar progress={progress} />
+            {props.variant === 'profile' ? (
+                <ProgressBar progress={props.progress} />
+            ) : (
+                <BoosterButtonServices
+                    buttonText={props.buttonText}
+                    onClick={props.onClick}
+                />
+            )}
         </div>
     );
 }

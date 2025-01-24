@@ -1,129 +1,233 @@
 .main {
-    padding-block: 30px;
-    padding-inline-start: 20px;
-    background: #1a1d2e;
+    padding-block-start: 55px;
+    padding-inline: 70px 30px;
+    position: relative;
+    z-index: 1;
 
-    @media (width <= 440px) {
-        padding-inline: 12px;
+    @media (width <= 1530px) {
+        padding-inline-start: 22px;
     }
-}
 
-.title {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: 38px;
-    line-height: 38px;
-    color: var(--yellow-500);
-    padding-block-end: 27px;
-}
+    @media (width <= 1200px) {
+        padding-block-start: 0px;
+    }
 
-.container {
-    display: flex;
-    gap: 10px;
-    border-radius: 12px;
-    color: var(--text-color);
-
-    @media (width <= 1500px) {
+    @media (width <= 768px) {
         display: grid;
-        grid-template-areas:
-            'left middle'
-            'right right';
-        grid-template-columns: minmax(0, 420px) minmax(0, 450px);
-    }
-
-    @media (width <= 768px) {
-        grid-template-areas:
-            'left middle'
-            'right middle';
+        gap: 24px;
+        padding-inline-start: 22px;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 15px;
+        grid-template-rows: auto;
+        grid-template-areas:
+            'containerHeaderBlock containerBalanceBlock'
+            'containerCardsBlock containerCardsBlock';
     }
 
-    @media (width <= 640px) {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    @media (width <= 700px) {
+        gap: 12px;
     }
 
-    @media (width <= 400px) {
-        gap: 5px;
+    @media (width <= 650px) {
+        padding-inline: 12px;
+        gap: 12px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            'containerHeaderBlock'
+            'containerBalanceBlock'
+            'containerCardsBlock';
     }
 }
 
-.section {
-    border: 0.8px solid #3d4066;
-    border-radius: 12px;
-    padding-inline: 20px;
-    padding-block-start: 20px;
+.containerHeader,
+.containerBalance {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.containerHeader {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1424px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+    z-index: 1;
+    margin-block-end: 96px;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 253px;
+        height: 253px;
+        left: 0;
+        top: 0;
+        background: #9f9fb7;
+        opacity: 0.1;
+        filter: blur(134px);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 192px;
+        height: 180px;
+        right: 0;
+        bottom: 70px;
+        background: #9001ad;
+        opacity: 0.3;
+        filter: blur(77px);
+        border-radius: 50%;
+        z-index: -1;
+    }
+
+    @media (width <= 1375px) {
+        /*   background: #9f9fb7;
+       */
+       /*  z-index: 0; */
+        margin-block-end: 0;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'profileBlock'
+            'progressBar'
+            'inviteBlock';
+    }
 
     @media (width <= 768px) {
-        padding-inline: 15px;
+        grid-area: containerHeaderBlock;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            'profileBlock'
+            'buttonsMobileBlock'
+            'inviteBlock';
     }
 }
 
-.leftSection {
-    width: 100%;
-    max-width: 420px;
+.profileBlock {
+    padding-block: 18px;
+    padding-inline: 18px;
+    max-width: 400px;
 
-    @media (width <= 1500px) {
-        grid-area: left;
+    @media (width <= 1471px) {
+        padding-block-end: 54px;
     }
+
+    @media (width <= 1375px) {
+        max-width: none;
+        grid-area: profileBlock;
+        padding-block-end: 0;
+    }
+}
+
+.userBlock {
+    display: flex;
+    align-items: center;
+    gap: 10%;
 
     @media (width <= 768px) {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media (width <= 640px) {
-        max-width: none;
-        order: 1;
+        align-items: flex-start;
+        gap: 0;
     }
 }
 
-.middleSection {
-    width: 100%;
-    max-width: 450px;
+.imgLevel,
+.btnServices,
+.progressBar {
+    display: none;
 
-    @media (width <= 1500px) {
-        grid-area: middle;
-    }
-
-    @media (width <= 640px) {
-        max-width: none;
-        order: 3;
+    @media (width <= 1375px) {
+        display: block;
     }
 }
 
-.rightSection {
-    width: 100%;
-    max-width: 348px;
-
-    @media (width <= 1500px) {
-        grid-area: right;
-    }
+.progressBlock {
+    display: none;
 
     @media (width <= 768px) {
-        max-width: 420px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    @media (width <= 640px) {
-        order: 2;
-        max-width: none;
+        display: block;
     }
 }
 
-@media (width <= 768px) {
-    .leftSection > :nth-child(2) {
-        display: none;
-    }
+.titleContainer {
+    display: flex;
+    gap: 7px;
 }
 
-.orderTitle {
+.headerTitle {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: 38px;
-    line-height: 38px;
-    padding-block: 50px 20px;
+    font-size: var(--font-size-m);
+    line-height: 24px;
+}
+
+.headerProgress {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-s);
+    line-height: var(--font-line-height-130);
+    color: var(--text-color);
+    opacity: 0.6;
+    padding-block-end: 14px;
+}
+
+.btnServices {
+    @media (width <= 1375px) {
+        padding-block-start: 24px;
+    }
+}
+
+.inviteBlock {
+    @media (width <= 1375px) {
+        grid-area: inviteBlock;
+        padding-inline-start: 18px;
+        padding-block-end: 29px;
+    }
+
+    @media (width <= 768px) {
+        padding-block-end: 0;
+    }
+}
+
+.buttonsBlockDesktop {
+    display: block;
+    padding-block: 24px 32px;
+    position: absolute;
+    top: 100%;
+    z-index: 10;
+    width: 100%;
+
+    @media (width <= 1375px) {
+        position: static;
+        padding-block: 0;
+    }
+}
+
+.containerBalance {
+    display: flex;
+    gap: 24px;
+    margin-block-end: 37px;
+
+    @media (width <= 1375px) {
+        padding-block-start: 20px;
+    }
+
+    @media (width <= 1200px) {
+        gap: 17px;
+    }
+
+    @media (width <= 768px) {
+        padding-block-start: 0;
+        margin-block-end: 0;
+        gap: 12px;
+        flex-direction: column;
+        grid-area: containerBalanceBlock;
+    }
+}
+
+.containerCards {
+    grid-area: containerCardsBlock;
 }
