@@ -1,12 +1,40 @@
 'use client';
+
 import styles from './error-page.module.css';
-import { ErrorPage } from '@/components/404/404';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function ErrorPage404() {
     return (
         <div className={styles.container}>
-            <div className={styles.wrapper}>
-                <ErrorPage />
+            <Image
+                src="/images/404.png"
+                alt="404 Error Illustration"
+                width={820}
+                height={780}
+                priority={true}
+                className={styles.image}
+            />
+            <div className={styles.content}>
+                <h1 className={styles.title}>
+                    404
+                    <br />
+                    ERROR
+                </h1>
+                <p className={styles.descriptionMain}>
+                    We couldn’t find this page.
+                </p>
+                <p className={styles.descriptionSecond}>
+                    Maybe its out there, somewhere...
+                </p>
+                <p className={styles.descriptionSecond}>
+                    You can always back in our{' '}
+                    <span>
+                        <Link href="/" className={styles.link}>
+                            homepage
+                        </Link>
+                    </span>
+                </p>
             </div>
         </div>
     );
