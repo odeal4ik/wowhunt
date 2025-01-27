@@ -137,8 +137,12 @@
 }
 
 .list li {
-    list-style-position: outside;
     margin-inline-start: 7px;
+}
+
+.listStyleTypeNone {
+    list-style-type: none;
+    transform: translateX(-14px);
 }
 
 .textSecondary {

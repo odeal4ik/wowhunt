@@ -37,12 +37,14 @@ export default function PrivacyPolicy() {
                             When ordering the services on our site, as
                             appropriate, you may be asked to enter your: name,
                             e-mail address or discord tag. You may, however,
-                            visit our site anonymously.Like most websites, we
-                            use cookies to enhance your experience, gather
-                            general visitor information, and track visits to our
-                            website. Please refer to the &apos;do we use cookies?&apos;
-                            section below for information about cookies and how
-                            we use them.
+                            visit our site anonymously.
+                        </p>
+                        <p className={styles.text}>
+                            Like most websites, we use cookies to enhance your
+                            experience, gather general visitor information, and
+                            track visits to our website. Please refer to the
+                            &apos;do we use cookies?&apos; section below for
+                            information about cookies and how we use them.
                         </p>
                     </div>
 
@@ -58,49 +60,54 @@ export default function PrivacyPolicy() {
                             <li className={styles.listItem}>
                                 To Personalize Your Experience
                             </li>
-                            <li className={styles.listItem}>
+                            <p
+                                className={`${styles.listItem} ${styles.listStyleTypeNone}`}>
                                 Your information helps us to better respond to
                                 your individual needs.
-                            </li>
+                            </p>
                             <li className={styles.listItem}>
                                 To Improve Our Website
                             </li>
-                            <li className={styles.listItem}>
+                            <p
+                                className={`${styles.listItem} ${styles.listStyleTypeNone}`}>
                                 We continually strive to improve our website
                                 offerings based on the information and feedback
                                 we receive from you.
-                            </li>
+                            </p>
                             <li className={styles.listItem}>
                                 To Improve Customer Service
                             </li>
-                            <li className={styles.listItem}>
+                            <p
+                                className={`${styles.listItem} ${styles.listStyleTypeNone}`}>
                                 Your information helps us to more effectively
                                 respond to your customer service requests and
                                 support needs.
-                            </li>
+                            </p>
                             <li className={styles.listItem}>
                                 To Process Transactions
                             </li>
-                            <li className={styles.listItem}>
+                            <p
+                                className={`${styles.listItem} ${styles.listStyleTypeNone}`}>
                                 Your information, whether public or private,
                                 will not be sold, exchanged, transferred, or
                                 given to any other company for any reason
                                 whatsoever, without your consent, other than for
                                 the express purpose of delivering the purchased
                                 product or service requested by the customer.
-                            </li>
+                            </p>
                             <li className={styles.listItem}>
-                                To Send Periodic Emails
+                                To Send Periodic Emaip
                             </li>
+                            <p
+                                className={`${styles.listItem} ${styles.listStyleTypeNone}`}>
+                                The email address you provide for order
+                                processing, may be used to send you information
+                                and updates pertaining to your order or request,
+                                in addition to receiving occasional company
+                                news, updates, promotions, related product or
+                                service information, etc.
+                            </p>
                         </ul>
-                        <p className={styles.text}>
-                            The email address you provide for order processing,
-                            may be used to send you information and updates
-                            pertaining to your order or request, in addition to
-                            receiving occasional company news, updates,
-                            promotions, related product or service information,
-                            etc.
-                        </p>
                     </div>
 
                     <div className={styles.section}>
@@ -223,15 +230,26 @@ export default function PrivacyPolicy() {
                             In some special cases we also use cookies provided
                             by trusted third parties. The following section
                             details which third party cookies you might
-                            encounter through this site: Google Analytics which
-                            is one of the most widespread and trusted analytics
-                            solution on the web for helping us to understand how
-                            you use the site and ways that we can improve your
-                            experience. These cookies may track things such as
-                            how long you spend on the site and the pages that
-                            you visit so we can continue to produce engaging
-                            content. Provided by Google Inc. (United
-                            States) Privacy Shield participant.
+                            encounter through this site:.
+                        </p>
+                        <p className={styles.text}>
+                            Google Analytics which is one of the most widespread
+                            and trusted analytics solution on the web for
+                            helping us to understand how you use the site and
+                            ways that we can improve your experience. These
+                            cookies may track things such as how long you spend
+                            on the site and the pages that you visit so we can
+                            continue to produce engaging content. Provided by
+                            Google Inc. (United States) Privacy Shield
+                            participant.
+                            https://policies.google.com/technologies/ads.
+                        </p>
+                        <p className={styles.text}>
+                            Bing Ads analytics system to learn more about
+                            customers that came from the Bing search. Provided
+                            by Microsoft Corporation (United States) Privacy
+                            Shield participant.
+                            https://privacy.microsoft.com/en-us/privacystatement.
                         </p>
                         <p className={`${styles.text} ${styles.textSecondary}`}>
                             As we sell services it’s important for us to
@@ -271,26 +289,26 @@ export default function PrivacyPolicy() {
                             What Rights do you Have?
                         </h2>
                         <p className={styles.text}>
-                            Access your data: You may be able to receive a
+                            Access your data: You may be able to receive a
                             report about the data we store about you.
                         </p>
                         <p className={styles.text}>
-                            Erasure: You may have a right to request the
+                            Erasure: You may have a right to request the
                             deletion of some your data.
                         </p>
                         <p className={styles.text}>
-                            Object: You may object to the processing of your
+                            Object: You may object to the processing of your
                             data if you believe we don’t have the appropriate
                             rights to engage in that processing or if you wish
                             to ask us not to process your personal data for
                             direct marketing purposes.
                         </p>
                         <p className={styles.text}>
-                            Rectification: You can correct your personal data if
+                            Rectification: You can correct your personal data if
                             you feel it’s inaccurate.
                         </p>
                         <p className={styles.text}>
-                            Restrict Processing: You can request that your data
+                            Restrict Processing: You can request that your data
                             no longer be processed in certain cases, for
                             instance, when you exercise your right to object as
                             described above. When objecting, you will be given
@@ -307,17 +325,17 @@ export default function PrivacyPolicy() {
                         </p>
                         <p className={styles.text}>
                             If you wish to perform any of the actions listed,
-                            please contact our Data Protection Officer by
-                            email: privacy@wowhunt.com.
+                            please contact our Data Protection Officer by email:
+                            privacy@wowhunt.com.
                         </p>
                     </div>
 
                     <div className={styles.section}>
-                        <h2 className={styles.sectionTitle}>GDPR Compliance</h2>
+                        <h2 className={styles.sectionTitle}>GDPR Compliance</h2>
                         <p className={styles.text}>
                             We have taken the necessary steps to ensure that we
                             are compliant with the General Data Protection
-                            Regulation by protecting the personal data and
+                            Regulation by protecting the personal data and
                             privacy of EU citizens for transactions that occur
                             within EU member states.
                         </p>
@@ -376,7 +394,7 @@ export default function PrivacyPolicy() {
                                 General Data Protection Regulation
                             </li>
                             <li className={styles.listItem}>
-                                Federal Trade Commission Fair
+                                Federal Trade Commision Fair
                             </li>
                             <li className={styles.listItem}>
                                 California Online Privacy Protection Act
