@@ -40,7 +40,7 @@ export default function PrivacyPolicy() {
                             visit our site anonymously.Like most websites, we
                             use cookies to enhance your experience, gather
                             general visitor information, and track visits to our
-                            website. Please refer to the 'do we use cookies?'
+                            website. Please refer to the &apos;do we use cookies?&apos;
                             section below for information about cookies and how
                             we use them.
                         </p>
