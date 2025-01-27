@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { Header } from '@/components/header/header';
 import { Sidebar } from '@/components/sidebar/sidebar';
 import { Splitter } from '@/components/splitter/splitter';
@@ -13,26 +12,12 @@ export default function PrivacyPolicyLayout({
 }: {
     children: React.ReactNode;
 }) {
-    const [isSidebarVisible, setIsSidebarVisible] = useState(true);
-
-    useEffect(() => {
-        const updateSidebarVisibility = () => {
-            setIsSidebarVisible(window.innerWidth >= 1024);
-        };
-
-        updateSidebarVisibility();
-        window.addEventListener('resize', updateSidebarVisibility);
-        return () => {
-            window.removeEventListener('resize', updateSidebarVisibility);
-        };
-    }, []);
-
     return (
         <>
             <Header isBlured />
             <section className={styles.container}>
                 <div className={styles.wrapper}>
-                    <Sidebar isVisible={isSidebarVisible} />
+                    <Sidebar />
                     <main className={styles.content}>
                         {children}
                         <div className={styles.other}>

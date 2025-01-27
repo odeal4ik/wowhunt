@@ -1,62 +1,59 @@
-.container {
-    overflow-x: hidden;
-}
-
 .imageContainer {
     display: flex;
     justify-content: start;
     align-items: center;
     position: relative;
-    margin: -24px -24px 0;
-    padding: 53px 24px 0 308px;
-    overflow: hidden;
+    padding-block: 15px 95px;
+    padding-inline-start: 301px;
+
+    @media (width <= 1600px) {
+        padding-inline-start: 150px;
+    }
 
     @media (width <= 1400px) {
         flex-direction: column;
-        gap: 21px;
+        gap: 32px;
         align-items: flex-start;
-        padding-left: 94px;
+        padding-inline-start: 76px;
+        padding-block: 30px 64px;
     }
 
     @media (width <= 1022px) {
         align-items: center;
-        padding-left: 0;
-        margin-left: 0;
+        padding-inline-start: 0;
     }
 
-    @media (width <= 372px) {
-        padding: 53px 0 0;
+    @media (width <= 440px) {
+        padding-block: 0;
         justify-content: center;
-        width: 100%;
     }
-}
 
-.imageContainer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -24px;
-    right: -24px;
-    bottom: -250px;
-    background-image: url('/images/BG.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
+    &::before {
+        content: '';
+        position: absolute;
+        height: 975px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        transform: translateY(0);
+        background-image: url('/images/BG.webp');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
 }
 
 .agencyImg {
-    width: 610px;
-    height: 605px;
-
     @media (width <= 1400px) {
-        width: 577px;
-        height: 572px;
+        width: 590px;
+        height: 590px;
     }
 
     @media (width <= 600px) {
-        width: 339px;
-        height: 336px;
+        width: 353px;
+        height: 353px;
         object-fit: cover;
     }
 }
@@ -67,19 +64,15 @@
     line-height: 60px;
 
     @media (width <= 1400px) {
-        padding-left: 140px;
-    }
-
-    @media (width <= 1022px) {
-        padding: 0;
-        margin-left: -170px;
+        padding-inline-start: 140px;
     }
 
     @media (width <= 1022px) {
         margin: 0 auto;
+        padding: 0;
     }
 
-    @media (width <= 400px) {
+    @media (width <= 440px) {
         text-align: center;
         font-size: 38px;
         line-height: 38px;
@@ -87,21 +80,16 @@
 }
 
 .titleSpan {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
     color: var(--yellow-500);
     text-transform: uppercase;
     font-size: 96px;
     line-height: 96px;
 
-    @media (width <= 400px) {
+    @media (width <= 440px) {
         font-size: 60px;
         line-height: 75px;
     }
-}
-
-.text {
-    white-space: pre-line;
-    gap: 0;
-    margin: 0;
 }
 
 .texts {
@@ -110,35 +98,49 @@
     gap: 28px;
     font-family: var(--font-barlow-regular-sans), serif;
     font-size: var(--font-size-m);
-    line-height: var(--font-line-height-130);
+    line-height: 24px;
     color: #a2a6c4;
-    padding: 46px 210px 46px 192px;
+    padding-block-end: 109px;
+    padding-inline: 192px 210px;
 
     @media (width <= 1400px) {
         padding-inline: 63px;
     }
 
-    @media (width <= 375px) {
-        padding-top: 150px;
-        padding-bottom: 100px;
+    @media (width <= 1024px) {
+        padding-inline: 56px 74px;
     }
+
+    @media (width <= 440px) {
+        padding-block: 70px 100px;
+        padding-inline: 20px;
+    }
+}
+
+.text {
+    line-height: var(--font-line-height-130);
+    white-space: pre-line;
 }
 
 .sectionTitle {
     font-family: var(--font-barlow-extra-bold-sans);
-    font-size: var(--font-size-m);
+    padding-block-end: 5px;
+
+    @media (width <= 1024px) {
+        font-family: var(--font-barlow-bold-sans);
+    }
 }
 
 .list {
-    padding-left: 15px;
+    padding-inline-start: 15px;
     list-style-position: outside;
 }
 
-.listItem {
-    padding-left: 5px;
+.list li {
+    list-style-position: outside;
+    margin-inline-start: 7px;
 }
 
-.thirdPartyCookiesAfterList {
-    margin-top: 28px;
+.textSecondary {
+    padding-block-start: 28px;
 }
-
