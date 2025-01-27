@@ -24,13 +24,12 @@ export default function TermsAndCondition() {
                     <div className={styles.section}>
                         <p className={styles.text}>
                             These terms and conditions (“Terms”, “Agreement”)
-                            are an agreement between wowhunt.com (Pauros LLC,
-                            Georgia, Tbilisi city, Krtsanisi district, Nino and
-                            Ilia Nakashidzeebi street, N 1, (former Avlevi),
-                            apartment N 3, building N 3) online website
-                            (“wowhunt”, “us”, “we” or “our”) and you (“user”,
-                            “you” or “your”). This Agreement sets forth the
-                            general terms and conditions of your use of the
+                            are an agreement between wowhunt.com (GameCoaching
+                            LLC, 8 The Green STE A, Dover, 19901, Delaware,
+                            United States of America) online website (“wowhunt”,
+                            “us”, “we” or “our”) and you (“user”, “you” or
+                            “your”). This Agreement sets forth the general terms
+                            and conditions of your use of the
                             https://wowhunt.com website and any of its Services
                             (collectively, “Website” or “Services”).
                         </p>
@@ -70,7 +69,7 @@ export default function TermsAndCondition() {
                             account, the same credit card, and/or orders that
                             use the same billing address. In the event that we
                             make a change to or cancel an order, we may attempt
-                            to notify you by contacting the e- mail and/or other
+                            to notify you by contacting the e-mail and/or other
                             contact information provided at the time the order
                             was made.
                         </p>
@@ -111,7 +110,10 @@ export default function TermsAndCondition() {
                             order). We undertake no obligation to update, amend
                             or clarify information on the Website including,
                             without limitation, pricing information, except as
-                            required by law.
+                            required by law. No specified update or refresh date
+                            applied on the Website should be taken to indicate
+                            that all information on the Website or on any
+                            related Service has been modified or updated.
                         </p>
                     </div>
                     <div className={styles.section}>
@@ -153,7 +155,10 @@ export default function TermsAndCondition() {
                             whether express or implied. We make no warranty that
                             the Services will meet your requirements, or that
                             the Service will be uninterrupted, timely, secure,
-                            or error-free.
+                            or error-free; nor do we make any warranty as to the
+                            results that may be obtained from the use of the
+                            Service or as to the accuracy or reliability of any
+                            information obtained through the Service.
                         </p>
                     </div>
                     <div className={styles.section}>
@@ -181,6 +186,8 @@ export default function TermsAndCondition() {
                             time, effective upon posting of an updated version
                             of this Agreement on the Website. When we do we will
                             revise the updated date at the bottom of this page.
+                            Continued use of the Website after any such changes
+                            shall constitute your consent to such changes.
                         </p>
                     </div>
                     <div className={styles.section}>
