@@ -43,12 +43,16 @@ export function Footer() {
                     </div>
 
                     <div className={styles.list}>
-                        <a className={styles.title} href='/terms-and-condition'>
+                        <Link
+                            className={styles.title}
+                            href="/terms-and-condition">
                             Terms and Conditions
-                        </a>
+                        </Link>
                         <ul>
                             <li>
-                                <a href="/privacy-policy">Privacy Policy</a>
+                                <Link href="/privacy-policy">
+                                    Privacy Policy
+                                </Link>
                             </li>
                             <li>
                                 <a href="#">Contact Us</a>

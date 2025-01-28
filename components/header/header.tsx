@@ -51,8 +51,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
         <header
             className={cn(styles.header, {
                 [styles.blured]: isCatalogVisible || isBlured,
-            })}
-        >
+            })}>
             <div className={styles.wrapper}>
                 <div className={styles.leftWrapper}>
                     <CatalogBurgerButton onClick={toggleCatalogVisibility} />
@@ -80,8 +79,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                         <a
                             href="https://www.trustpilot.com/review/wowhunt.com"
                             target="_blank"
-                            className={styles.trust}
-                        >
+                            className={styles.trust}>
                             <img
                                 src="/images/trustpilot.png"
                                 alt="trust pilot"
@@ -116,13 +114,13 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                         </div>
                     </div>
 
-                    <a className={styles.basket} href="/shopping-card">
+                    <Link className={styles.basket} href="/shopping-card">
                         <img
                             src="/images/basket.svg"
                             alt="Basket"
                             loading="lazy"
                         />
-                    </a>
+                    </Link>
                 </div>
             </div>
 

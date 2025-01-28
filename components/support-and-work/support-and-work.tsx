@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ModelWorkWithUs } from '../model-work-with-us/model-work-with-us';
 import styles from './support-and-work.module.css';
 import cn from 'classnames';
@@ -31,14 +32,14 @@ export function SupportAndWork({
                 </ModelWorkWithUs>
             )}
             {localIsContactVisible && (
-                <a
+                <Link
                     href="/"
                     className={cn(styles.contact, {
                         [styles.showInCatalog]: isInCatalog,
                     })}>
                     <div className={styles.dot}></div>
                     <span className={styles.label}>Contact Support</span>
-                </a>
+                </Link>
             )}
         </div>
     );
