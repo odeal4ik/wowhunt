@@ -1,0 +1,213 @@
+.main {
+    padding-block-start: 55px;
+    padding-inline: 70px 30px;
+    position: relative;
+    z-index: 1;
+
+    @media (width <= 1530px) {
+        padding-inline-start: 22px;
+    }
+
+    @media (width <= 1200px) {
+        padding-block-start: 0px;
+    }
+
+    @media (width <= 768px) {
+        display: grid;
+        gap: 24px;
+        padding-inline-start: 22px;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+            'containerHeaderBlock containerBalanceBlock'
+            'containerCardsBlock containerCardsBlock';
+    }
+
+    @media (width <= 700px) {
+        gap: 12px;
+    }
+
+    @media (width <= 620px) {
+        padding-inline: 12px;
+        gap: 12px;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            'containerHeaderBlock'
+            'containerBalanceBlock'
+            'containerCardsBlock';
+    }
+}
+
+.containerHeader,
+.containerBalance {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.containerHeader {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1424px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 253px;
+        height: 253px;
+        left: 0;
+        top: 0;
+        background: #9f9fb7;
+        opacity: 0.1;
+        filter: blur(134px);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 192px;
+        height: 180px;
+        right: 0;
+        bottom: 70px;
+        background: #9001ad;
+        opacity: 0.3;
+        filter: blur(77px);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    @media (width <= 1375px) {
+        &::after,
+        &::before {
+            display: none;
+        }
+
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'profileBlock buttonsMobileBlock'
+            'progressBar buttonsMobileBlock'
+            'inviteBlock inviteBlock';
+    }
+
+    @media (width <= 768px) {
+        grid-area: containerHeaderBlock;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+            'profileBlock'
+            'buttonsMobileBlock'
+            'inviteBlock';
+    }
+}
+
+.profileBlock {
+    padding-block: 18px;
+    padding-inline: 18px;
+    max-width: 400px;
+
+    @media (width <= 1471px) {
+        padding-block-end: 54px;
+    }
+
+    @media (width <= 1375px) {
+        max-width: none;
+        grid-area: profileBlock;
+        padding-block-end: 0;
+    }
+}
+
+.userBlock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (width <= 768px) {
+        align-items: flex-start;
+    }
+}
+
+.imgLevel {
+    display: none;
+
+    @media (width <= 1375px) {
+        display: block;
+    }
+}
+
+.progressBar {
+    display: none;
+
+    @media (width <= 1375px) {
+        display: block;
+    }
+}
+
+.inviteBlock {
+    @media (width <= 1375px) {
+        grid-area: inviteBlock;
+        padding-inline-start: 18px;
+        padding-block-end: 29px;
+    }
+
+    @media (width <= 768px) {
+        padding-block-end: 0;
+    }
+}
+
+.buttonsBlockMobile {
+    display: none;
+
+    @media (width <= 1375px) {
+        display: block;
+        grid-area: buttonsMobileBlock;
+    }
+
+    @media (width <= 680px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.buttonsBlockDesktop {
+    display: block;
+    padding-block: 24px 32px;
+
+    @media (width <= 1375px) {
+        display: none;
+    }
+}
+
+.containerBalance {
+    display: flex;
+    gap: 24px;
+    margin-block-end: 37px;
+
+    @media (width <= 1375px) {
+        padding-block-start: 20px;
+    }
+
+    @media (width <= 1200px) {
+        gap: 17px;
+    }
+
+    @media (width <= 768px) {
+        padding-block-start: 0;
+        margin-block-end: 0;
+        gap: 12px;
+        flex-direction: column;
+        grid-area: containerBalanceBlock;
+    }
+}
+
+.containerCards {
+    grid-area: containerCardsBlock;
+}

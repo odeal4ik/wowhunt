@@ -1,0 +1,37 @@
+.game {
+    padding-block-start: 16px;
+}
+
+.title {
+    font-size: 96px;
+    line-height: 1;
+    font-family: var(--font-barlow-bold-sans), serif;
+
+    @media (width <= 1024px) {
+        font-size: 60px;
+    }
+
+    @media (width <= 768px) {
+        font-size: 38px;
+    }
+
+    @media (width <= 600px) {
+        font-size: 32px;
+    }
+}
+
+.subtitle {
+    line-height: var(--font-line-height-130);
+}
+
+.cards {
+    max-width: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    --_columns: 5;
+    grid-template-columns: repeat(auto-fill, 293px);
+    gap: 32px 20px;
+    padding-block-start: 68px;
+}

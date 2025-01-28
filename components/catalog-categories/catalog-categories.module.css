@@ -1,0 +1,131 @@
+.categories {
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    row-gap: 40px;
+
+    padding-inline: 48px;
+    padding-block: 48px 80px;
+
+    background-image: linear-gradient(-20deg, #171932 100%, transparent 0%);
+
+    container-type: inline-size;
+    container-name: categories;
+
+    overflow-y: scroll;
+
+    transition: translate 0.2s ease;
+
+    @media (width < 1450px) {
+        padding-inline: 32px;
+    }
+
+    @media (width <= 700px) {
+        position: absolute;
+        height: 100%;
+        translate: 100%;
+        overflow-y: scroll;
+
+        &.withChoosedCategory {
+            translate: 0;
+        }
+    }
+}
+
+.title button {
+    display: inline-flex;
+    align-items: flex-end;
+    color: var(--text-color);
+    font-size: 32px;
+    line-height: 1;
+    font-family: var(--font-barlow-bold-sans), serif;
+
+    & > svg {
+        display: none;
+    }
+
+    @media (width <= 700px) {
+        & > svg {
+            display: block;
+            rotate: 180deg;
+        }
+
+        cursor: pointer;
+    }
+}
+
+.tabs {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.tab {
+    font-size: var(--font-size-m);
+    font-family: var(--font-barlow-bold-sans), serif;
+    line-height: var(--font-line-height-150);
+    color: var(--text-colory);
+    border: 1px solid var(--dark-muted);
+    background-color: transparent;
+    padding: 14px 36px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        border-color: #3b3c68;
+        background-color: rgb(61, 63, 132, 0.25);
+    }
+
+    &.active {
+        background-color: #3d3f84;
+        border-color: #3b3c68;
+    }
+
+    @media (width <= 768px) {
+        padding: 14px 11px;
+    }
+}
+
+.cards {
+    max-width: 100%;
+    width: 100%;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, 293px);
+    gap: 48px;
+
+    @container categories (width < 1100px ) {
+        gap: 25px;
+    }
+
+    @container categories (width < 950px ) {
+        gap: 20px;
+    }
+}
+
+.button {
+    align-self: center;
+    font-family: var(--font-barlow-bold-sans), serif;
+    font-size: var(--font-size-m);
+    line-height: 24px;
+    color: var(--text-color);
+    border: 2px solid var(--dark-muted);
+    background: rgba(75, 75, 119, 0.1);
+    padding: 12px 133px;
+    border-radius: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+
+    @media (width <= 665px) {
+        padding: 7px 39px;
+    }
+}

@@ -1,0 +1,67 @@
+.wrapper {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 60px;
+    margin: 0 auto;
+
+    @media (width <= 1280px) {
+        max-width: 100%;
+        padding-inline: 45px;
+        row-gap: 64px;
+    }
+
+    @media (width <= 768px) {
+        padding-inline: 40px;
+    }
+}
+
+.tabControlsWrapper {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    @media (width <= 600px) {
+        gap: 20px 24px;
+    }
+}
+
+.tabControl {
+    font-size: var(--font-size-m);
+    font-family: var(--font-barlow-bold-sans), serif;
+    line-height: 24px;
+    color: var(--text-color-secondary);
+    border: 1px solid var(--dark-muted);
+    background-color: transparent;
+    padding: 14px 36px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: var(--text-color);
+    }
+
+    &.active {
+        color: var(--text-color);
+        background-color: rgba(75, 75, 119, 0.3);
+    }
+}
+
+.tabsWrapper {
+    max-width: 100%;
+    width: 100%;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fill, 293px);
+    align-items: center;
+    justify-content: center;
+
+    @media (width <= 1280px) {
+        gap: 25px;
+    }
+}

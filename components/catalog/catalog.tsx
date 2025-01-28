@@ -1,0 +1,84 @@
+'use client';
+
+import { Suspense, useState } from 'react';
+import styles from './catalog.module.css';
+import cn from 'classnames';
+
+import Arrow from '../../public/system-icons/arrow-right.svg';
+
+import { Icon } from '@/core/icon/icon';
+import { gameNames } from './mocks';
+import { CatalogCategories } from '../catalog-categories/catalog-categories';
+import { SupportAndWork } from '../support-and-work/support-and-work';
+
+export function Catalog({
+    isContactVisible,
+    isModelVisible,
+    isVisible,
+}: {
+    isContactVisible: boolean;
+    isModelVisible: boolean;
+    isVisible: boolean;
+}) {
+    const [activeCategory, setActiveCategory] = useState<string>(
+        gameNames[0].name,
+    );
+
+    const [visibleCategory, setVisibleCategory] = useState<string>('');
+
+    function setActiveCategoryVisible() {
+        if (window && window.innerWidth <= 700) {
+            setVisibleCategory(activeCategory);
+        }
+    }
+
+    return (
+        <div
+            className={cn(styles.catalog, {
+                [styles.visible]:
+                    isVisible || isContactVisible || isModelVisible,
+            })}>
+            <div
+                className={cn(styles.menu, {
+                    [styles.withChoosedCategory]: Boolean(visibleCategory),
+                })}>
+                <SupportAndWork
+                    isContactVisible={!isContactVisible}
+                    isModelVisible={!isModelVisible}
+                    isInCatalog={true}
+                />
+
+                <span className={styles.menuTitle}>CHOOSE THE GAME</span>
+
+                <ul className={styles.menuList}>
+                    {gameNames.map(({ name, icon }) => (
+                        <li key={name} className={styles.menuItem}>
+                            <button
+                                type="button"
+                                onMouseOver={() => setActiveCategory(name)}
+                                onClick={setActiveCategoryVisible}>
+                                <span className={styles.menuIcon}>
+                                    <Suspense fallback={'Loading...'}>
+                                        <Icon svg={icon} />
+                                    </Suspense>
+                                </span>
+
+                                {name}
+
+                                <span className={styles.menuArrow}>
+                                    <Icon svg={Arrow} fill="" />
+                                </span>
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <CatalogCategories
+                activeCategory={activeCategory}
+                visibleCategory={visibleCategory}
+                clearVisibleCategory={() => setVisibleCategory('')}
+            />
+        </div>
+    );
+}

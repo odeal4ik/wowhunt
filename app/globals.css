@@ -1,42 +1,111 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+}
+body {
+    line-height: var(--font-line-height-150);
+    -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+#root,
+#__next {
+    isolation: isolate;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+    --background: #0e0e20;
+    --text-color: #ffffff;
+
+    --text-color-secondary: #9f9fb7;
+    --neutral-soft: #6d6d91;
+
+    --neutral-hover: #43436a;
+    --neutral-container-soft: rgba(75, 75, 119, 0.05);
+    --neutral-container-hover: rgba(75, 75, 119, 0.2);
+    --neutral-container-active: rgba(75, 75, 119, 0.3);
+
+    /* dark */
+    --dark-container-active: rgb(14, 14, 32, 0.3);
+    --dark-muted: #4b4b77;
+    --dark-hover: #0a0c1e;
+    --dark-active: #090916;
+    --dark-soft: #272742;
+
+    /* yellow */
+    --yellow-500: #fbbf24;
+    /* green */
+    --green-500: #00ff66;
+
+    /* fonts */
+    --font-size-ss: 12px;
+    --font-size-s: 14px;
+    --font-size-m: 16px;
+    --font-size-l: 20px;
+    --font-size-h3: 24px;
+
+    --font-line-height-130: 1.3;
+    --font-line-height-140: 1.4;
+    --font-line-height-150: 1.5;
+
+    /* Button behavior */
+    --btn-transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+    max-width: 100vw;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    background: var(--background);
+    color: var(--text-color);
+    font-family: var(--font-barlow-regular-sans), serif;
+    font-weight: 400;
+    font-size: var(--font-size-m);
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 * {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+    appearance: none;
+    border: none;
+    background: none;
 }

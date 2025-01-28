@@ -1,0 +1,87 @@
+.need-help {
+    max-width: calc(100% - 180px);
+    width: 100%;
+    margin-inline: auto;
+    margin-block: 80px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 52px;
+
+    background-image: url('/games-images/game3.png');
+    background-size: auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+
+    border-radius: 28px;
+    padding-inline: 32px;
+    padding-block: 32px;
+
+    @media (width <= 900px) {
+        max-width: calc(100% - 76px);
+    }
+
+    @media (width <= 850px) {
+        flex-direction: column;
+        background-size: cover;
+        background-position: center center;
+        row-gap: 24px;
+    }
+    @media (width <= 500px) {
+        max-width: calc(100% - 24px);
+        padding-inline: 20px;
+        margin-block: 16px 20px;
+    }
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+    @media (width <= 850px) {
+        align-self: flex-start;
+    }
+}
+
+.title {
+    color: var(--yellow-500);
+    font-size: 60px;
+    line-height: 1;
+    font-family: var(--font-barlow-extra-bold-sans), serif;
+
+    @media (width <= 850px) {
+        font-size: 38px;
+    }
+}
+
+.subTitle {
+    color: var(--text-color);
+    font-size: var(--font-size-l);
+    line-height: var(--font-line-height-140);
+}
+
+.button {
+    color: var(--dark-soft);
+    font-size: var(--font-size-h3);
+    line-height: var(--font-line-height-130);
+    font-family: var(--font-barlow-bold-sans), serif;
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    border-radius: 8px;
+    background-color: var(--yellow-500);
+    padding-block: 16px;
+    padding-inline: 40px;
+
+    transition: scale 0.1s ease-in;
+
+    &:active {
+        scale: 0.975;
+    }
+
+    @media (width <= 850px) {
+        width: 100%;
+    }
+}

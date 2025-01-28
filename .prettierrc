@@ -1,0 +1,17 @@
+{
+    "printWidth": 80,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "singleQuote": true,
+    "jsxBracketSameLine": true,
+    "semi": true,
+    "importOrder": ["^@/(.*)$", "^[./]"],
+    "importOrderSeparation": true,
+    "importOrderSortSpecifiers": true,
+    "importOrderParserPlugins": [
+        "classProperties",
+        "jsx",
+        "typescript",
+        "decorators-legacy"
+    ]
+}
