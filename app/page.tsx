@@ -9,6 +9,25 @@ import { Header } from '@/components/header/header';
 import { WhyUsSection } from '@/components/why-us-section/why-us-section';
 
 export default function Home() {
+    // try {
+    //     // ../routes/api.php
+    //     const res = await fetch(`${process.env.APP_URL}/api/games/get`);
+    //     const data = await res.json();
+    //     console.log(data);
+    // } catch (e) {
+    //     console.error(e);
+    // }
+
+    // Access the client
+    // const queryClient = useQueryClient();
+    // Queries
+    // const query = useQuery({
+    //     queryKey: ['games'],
+    //     queryFn: () => fetch(`${process.env.APP_URL}/api/games/get`),
+    // });
+
+    // console.log(query);
+
     return (
         <>
             <Header />

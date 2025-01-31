@@ -14,11 +14,29 @@ import { SearchWrapper } from '../search-wrapper/search-wrapper';
 import Logo from '@/images/logo/logo.svg';
 
 import styles from './header.module.css';
+import { useQuery } from '@tanstack/react-query';
+import { ModalLoginIn } from '../modal-login/modal-login';
+import { getUser } from '@/api/auth/getUser';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
     const [isContactVisible, setContactVisible] = useState(true);
     const [isModelVisible, setModelVisible] = useState(true);
+    const [isLoginModalVisible, setLoginModalVisible] = useState(true);
+
+    const { data, isLoading } = useQuery({
+        queryKey: ['user'],
+        queryFn: () =>
+            getUser({
+                token: '1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd5',
+            }),
+    });
+
+    console.log(data, isLoading);
+    // const test = new Worker(
+    //     new URL('../web-workers/test.worker.ts', import.meta.url),
+    // );
+    // console.log(test);
 
     useEffect(() => {
         document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';
@@ -131,6 +149,11 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     isModelVisible={isModelVisible}
                 />
             )}
+
+            <ModalLoginIn
+                isOpen={isLoginModalVisible}
+                onClose={() => setLoginModalVisible(false)}
+            />
         </header>
     );
 }

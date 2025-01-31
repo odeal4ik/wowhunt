@@ -329,7 +329,7 @@
     }
 
     @media (width <= 480px) {
-        gap: 10px; 
+        gap: 10px;
     }
 }
 

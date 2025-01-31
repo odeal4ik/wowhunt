@@ -1,25 +1,23 @@
 import React from 'react';
-import styles from './model-login.module.css';
+import styles from './modal-login.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 
-interface ModelLoginInProps {
+interface ModalLoginInProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
-export const ModelLoginIn = ({
-    isOpen,
-    onClose,
-}: ModelLoginInProps) => {
+export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
     const [activeTab, setActiveTab] = React.useState<'customer' | 'booster'>(
         'customer',
     );
 
     useEscapeClose(isOpen, onClose);
 
-     if (!isOpen) return null;  
+    if (!isOpen) return null;
+
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
             <div
