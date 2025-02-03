@@ -8,7 +8,7 @@
     backdrop-filter: blur(5px);
     z-index: 1000;
 }
-  
+
 .modalContent {
     position: relative;
     width: 100%;
@@ -36,22 +36,22 @@
     }
 }
 
-  .modalContent::-webkit-scrollbar {
+.modalContent::-webkit-scrollbar {
     width: 7px;
     background-color: #282846;
 }
-  
-  .withdrawModal {
+
+.withdrawModal {
     max-width: 600px;
-  }
-  
-  .modalHeader {
+}
+
+.modalHeader {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-block-end: 30px;
 }
-  
+
 .modalTitle {
     font-family: var(--font-barlow-bold-sans), sans-serif;
     font-size: 38px;
@@ -63,7 +63,7 @@
         line-height: var(--font-line-height-130);
     }
 }
-  
+
 .closeButton {
     position: absolute;
     top: 20px;
@@ -79,73 +79,73 @@
         background: rgba(75, 75, 119, 0.5);
     }
 }
-    
-  .withdrawFormGroup {
+
+.withdrawFormGroup {
     display: flex;
     flex-direction: column;
     gap: 8px;
     margin-bottom: 20px;
-  }
-  
-  .withdrawLabel {
+}
+
+.withdrawLabel {
     font-family: var(--font-barlow-regular-sans), sans-serif;
     font-size: var(--font-size-m);
-  }
-  
-  .withdrawSelect,
-  .withdrawInput {
-      font-family: var(--font-barlow-regular-sans), sans-serif;
-      font-size: var(--font-size-m);
-      color: var(--text-color);
-      background: rgba(75, 75, 119, 0.3);
-      border: 1px solid rgba(75, 75, 119, 0.5);
-      border-radius: 8px;
-      padding: 12px 15px;
-      width: 100%;
-      outline: none;
-      transition: border-color 0.2s;
-  
-      &:hover,
-      &:focus {
-          border-color: rgba(75, 75, 119, 0.8);
-      }
-  
-      &:disabled {
-          opacity: 0.7;
-          cursor: not-allowed;
-      }
-  
-      &::placeholder {
-          color: rgba(255, 255, 255, 0.5);
-      }
-  }
-  
-  .withdrawSelect {
+}
+
+.withdrawSelect,
+.withdrawInput {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-m);
+    color: var(--text-color);
+    background: rgba(75, 75, 119, 0.3);
+    border: 1px solid rgba(75, 75, 119, 0.5);
+    border-radius: 8px;
+    padding: 12px 15px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.2s;
+
+    &:hover,
+    &:focus {
+        border-color: rgba(75, 75, 119, 0.8);
+    }
+
+    &:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+    }
+
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.5);
+    }
+}
+
+.withdrawSelect {
     appearance: none;
     background: url('/system-icons/arrow-down.svg') no-repeat center;
     background-position: right 15px center;
     padding-right: 35px;
-  }
-  
-  .withdrawCommission {
+}
+
+.withdrawCommission {
     font-family: var(--font-barlow-regular-sans), sans-serif;
     font-size: var(--font-size-s);
     color: var(--text-color-secondary);
     margin: 0;
-  }
-  
-  .withdrawAmountGroup {
+}
+
+.withdrawAmountGroup {
     display: flex;
     gap: 15px;
     margin-bottom: 20px;
-  
+
     @media (width <= 768px) {
         flex-direction: column;
         gap: 20px;
     }
-  }
-  
-  .withdrawSubmitButton {
+}
+
+.withdrawSubmitButton {
     width: 100%;
     font-family: var(--font-barlow-bold-sans), sans-serif;
     font-size: var(--font-size-m);
@@ -157,17 +157,17 @@
     cursor: pointer;
     transition: background-color 0.2s;
     margin-top: 10px;
-  
+
     &:hover {
         color: var(--background);
-        background: #dfaa22;
+        background: var(--yellow-500-hover);
     }
-  }
-  
-  .withdrawNote {
+}
+
+.withdrawNote {
     font-family: var(--font-barlow-regular-sans), sans-serif;
     font-size: var(--font-size-s);
     color: var(--text-color-secondary);
     text-align: center;
     margin: 15px 0 0;
-  }
+}

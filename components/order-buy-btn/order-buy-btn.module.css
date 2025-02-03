@@ -27,7 +27,7 @@
     cursor: pointer;
 
     &:hover {
-        background: #dfaa22;
+        background: var(--yellow-500-hover);
     }
 
     &:active {

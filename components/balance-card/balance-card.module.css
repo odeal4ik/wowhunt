@@ -5,7 +5,7 @@
     padding-inline: 50px 20px;
     padding-block-start: 28px;
     width: 100%;
-    
+
     max-width: 692px;
     --start-gradient: var(--custom-start-color);
     --end-gradient: var(--custom-end-color);
@@ -16,8 +16,7 @@
         inset: 0;
         border-radius: 20px;
         padding: 1px;
-        background:
-            linear-gradient(
+        background: linear-gradient(
                     to right,
                     transparent 0%,
                     var(--start-gradient) 50%,
@@ -37,8 +36,7 @@
                     transparent 100%
                 )
                 top center/100% 50% no-repeat;
-        -webkit-mask:
-            linear-gradient(white 0 0) content-box,
+        -webkit-mask: linear-gradient(white 0 0) content-box,
             linear-gradient(white 0 0);
         -webkit-mask-composite: destination-out;
         mask-composite: exclude;
@@ -266,7 +264,7 @@
     background: var(--yellow-500);
 
     &:hover {
-        background-color: #dfaa22;
+        background-color: var(--yellow-500-hover);
     }
 }
 
@@ -307,7 +305,7 @@
     font-size: var(--font-size-ss);
     line-height: var(--font-line-height-130);
     position: absolute;
-   /*  z-index: 1; */
+    /*  z-index: 1; */
     left: 0;
     right: 0;
     bottom: 0;

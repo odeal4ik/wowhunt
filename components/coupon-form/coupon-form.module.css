@@ -46,13 +46,11 @@
     background-color: var(--yellow-500);
     color: var(--dark-soft);
     cursor: pointer;
-    transition:
-        background-color 0.3s ease,
-        transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     text-transform: uppercase;
 
     &:hover {
         color: var(--background);
-        background: #dfaa22;
+        background: var(--yellow-500-hover);
     }
 }

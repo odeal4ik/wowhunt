@@ -59,9 +59,11 @@ h6 {
 
     /* yellow */
     --yellow-500: #fbbf24;
+    --yellow-500-hover: #dfaa22;
     /* green */
     --green-500: #00ff66;
-
+    /* red */
+    --red-500: #d91528;
     /* fonts */
     --font-size-ss: 12px;
     --font-size-s: 14px;

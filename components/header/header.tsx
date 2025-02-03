@@ -28,15 +28,11 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
         queryKey: ['user'],
         queryFn: () =>
             getUser({
-                token: '1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd5',
+                token: '1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd4',
             }),
     });
 
     console.log(data, isLoading);
-    // const test = new Worker(
-    //     new URL('../web-workers/test.worker.ts', import.meta.url),
-    // );
-    // console.log(test);
 
     useEffect(() => {
         document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';

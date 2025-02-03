@@ -129,7 +129,7 @@
 
     &:hover {
         color: var(--background);
-        background: #dfaa22;
+        background: var(--yellow-500-hover);
     }
 
     @media (width <= 1440px) {

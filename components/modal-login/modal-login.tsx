@@ -1,18 +1,60 @@
-import React from 'react';
-import styles from './modal-login.module.css';
+import { useState } from 'react';
+import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
+
+import styles from './modal-login.module.css';
+
 import { useEscapeClose } from '../../hooks/useEscapeClose';
+import { useLogInUser } from '@/api/auth/loginUser';
 
 interface ModalLoginInProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
+const schema = yup
+    .object({
+        email: yup
+            .string()
+            .max(255, 'Name should be at most 255 characters')
+            .email('Name should be in email format')
+            .required('Name is a required field'),
+        password: yup
+            .string()
+            .min(8, 'Password should be at least 8 characters')
+            .max(255, 'Password should be at most 255 characters')
+            .required(),
+    })
+    .required();
+
+interface LoginFormInput {
+    email: string;
+    password: string;
+}
+
 export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
-    const [activeTab, setActiveTab] = React.useState<'customer' | 'booster'>(
+    const [activeTab, setActiveTab] = useState<'customer' | 'booster'>(
         'customer',
     );
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+    });
+
+    const { mutate: logInUser, isPending } = useLogInUser();
+
+    const onSubmit: SubmitHandler<LoginFormInput> = ({ email, password }) => {
+        logInUser({ email, password, type: activeTab === 'booster' });
+        console.log({ email, password, type: activeTab === 'booster' });
+    };
 
     useEscapeClose(isOpen, onClose);
 
@@ -64,38 +106,60 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
                     <div className={styles.formContainer}>
                         <h2 className={styles.formTitle}>Log in to Wowhunt</h2>
 
-                        <form className={styles.form}>
+                        <form
+                            className={styles.form}
+                            onSubmit={handleSubmit(onSubmit)}>
                             <div className={styles.formFields}>
                                 <div className={styles.formGroup}>
-                                    <label className={styles.label}>
-                                        Name{' '}
+                                    <label
+                                        className={styles.label}
+                                        htmlFor="email">
+                                        Name
                                         <span className={styles.required}>
                                             *
                                         </span>
                                     </label>
                                     <input
                                         type="text"
-                                        name="name"
                                         placeholder="Enter your Name"
+                                        autoComplete="username"
+                                        {...register('email')}
+                                        {...(isPending && { disabled: true })}
                                         className={styles.input}
-                                        required
                                     />
+                                    {errors.email ? (
+                                        <p className={styles.error}>
+                                            {errors.email.message}
+                                        </p>
+                                    ) : null}
                                 </div>
 
                                 <div className={styles.formGroup}>
-                                    <label className={styles.label}>
-                                        Enter your password{' '}
+                                    <label
+                                        className={styles.label}
+                                        htmlFor="password">
+                                        Enter your password
                                         <span className={styles.required}>
                                             *
                                         </span>
                                     </label>
                                     <input
                                         type="password"
-                                        name="password"
                                         placeholder="Password"
+                                        autoComplete="current-password"
+                                        {...register('password', {
+                                            required: true,
+                                            minLength: 8,
+                                            maxLength: 255,
+                                        })}
+                                        {...(isPending && { disabled: true })}
                                         className={styles.input}
-                                        required
                                     />
+                                    {errors.password ? (
+                                        <p className={styles.error}>
+                                            {errors.password.message}
+                                        </p>
+                                    ) : null}
                                 </div>
                             </div>
 
@@ -136,7 +200,10 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
 
                             <button
                                 type="submit"
-                                className={styles.submitButton}>
+                                className={cn(
+                                    styles.submitButton,
+                                    isPending && styles.pending,
+                                )}>
                                 Log In
                             </button>
 
