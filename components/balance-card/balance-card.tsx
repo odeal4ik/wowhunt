@@ -117,7 +117,7 @@ export function BalanceCard({
                                         ,{decimalNumber}
                                     </span>
                                     {isIncreasingBalance && (
-                                        <img
+                                        <Image
                                             src="/system-icons/arrow-up.svg"
                                             alt="Increasing"
                                             width={24}
@@ -150,7 +150,7 @@ export function BalanceCard({
                                             ,{decimalNumber}
                                         </span>
                                         {isIncreasingLastOrder && (
-                                            <img
+                                            <Image
                                                 src="/system-icons/arrow-up.svg"
                                                 alt="Increasing"
                                                 width={24}

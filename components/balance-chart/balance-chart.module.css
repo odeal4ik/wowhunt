@@ -1,6 +1,5 @@
 .chartContainer {
     position: relative;
-  /*   z-index: 1; */
     margin: 0 auto;
 
     @media (width <= 1600px) {

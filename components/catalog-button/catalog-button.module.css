@@ -15,7 +15,7 @@
         line-height: 28px;
     }
 
-    @media (width <= 1024px) {
+    @media (width <= 1170px) {
         display: none;
     }
 }
