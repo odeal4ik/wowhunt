@@ -1,7 +1,4 @@
-import { ModalFormConfig } from './model-sing-up';
-
-export const boosterFormConfig: ModalFormConfig = {
-    title: 'Become a booster on Wowhunt',
+export const boosterFormConfig = {
     fields: [
         {
             name: 'name',
@@ -9,7 +6,7 @@ export const boosterFormConfig: ModalFormConfig = {
             label: 'Name',
             placeholder: 'Enter your Name',
             required: true,
-            inputType: 'text'
+            inputType: 'text',
         },
         {
             name: 'discord',
@@ -17,7 +14,7 @@ export const boosterFormConfig: ModalFormConfig = {
             label: 'Discord',
             placeholder: 'Discord@Name#1111',
             required: true,
-            inputType: 'text'
+            inputType: 'text',
         },
         {
             name: 'game',
@@ -39,18 +36,12 @@ export const boosterFormConfig: ModalFormConfig = {
             label: 'Boost service type',
             placeholder: 'Few words what you can do...',
             required: true,
-            inputType: 'textarea'
+            inputType: 'textarea',
         },
     ],
-    imgTitle: `Become a part of Wowhunt`,
-    imgSubtitle: 'Boost the future with us!',
-    buttonText: 'Send Request',
-    imageSrc: '/images/reg-boost.webp',
-    imageAlt: 'Become a booster on Wowhunt',
 };
 
-export const userFormConfig: ModalFormConfig = {
-    title: 'Sign up to Wowhunt',
+export const userFormConfig = {
     fields: [
         {
             name: 'name',
@@ -58,7 +49,7 @@ export const userFormConfig: ModalFormConfig = {
             label: 'Name',
             placeholder: 'Enter your Name',
             required: true,
-            inputType: 'text'
+            inputType: 'text',
         },
         {
             name: 'password',
@@ -66,7 +57,7 @@ export const userFormConfig: ModalFormConfig = {
             label: 'Password',
             placeholder: 'Enter your password',
             required: true,
-            inputType: 'text'
+            inputType: 'text',
         },
         {
             name: 'confirmPassword',
@@ -74,7 +65,7 @@ export const userFormConfig: ModalFormConfig = {
             label: 'Confirm Password',
             placeholder: 'Confirm your password',
             required: true,
-            inputType: 'text'
+            inputType: 'text',
         },
         {
             name: 'discord',
@@ -82,12 +73,7 @@ export const userFormConfig: ModalFormConfig = {
             label: 'Discord',
             placeholder: 'Enter your Discord username',
             required: true,
-            inputType: 'text'
+            inputType: 'text',
         },
     ],
-    imgTitle: 'Become a part of Wowhunt',
-    imgSubtitle: 'Boost the future with us!',
-    buttonText: 'Sign Up',
-    imageSrc: '/images/reg-user.webp',
-    imageAlt: 'Sign up to Wowhunt',
 };

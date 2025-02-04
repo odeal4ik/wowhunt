@@ -17,12 +17,15 @@ import styles from './header.module.css';
 import { useQuery } from '@tanstack/react-query';
 import { ModalLoginIn } from '../modal-login/modal-login';
 import { getUser } from '@/api/auth/getUser';
+import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
+import { userFormConfig } from '../modal-sing-up/form-config';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
     const [isContactVisible, setContactVisible] = useState(true);
-    const [isModelVisible, setModelVisible] = useState(true);
+    const [isModalVisible, setModalVisible] = useState(true);
     const [isLoginModalVisible, setLoginModalVisible] = useState(true);
+    const [isSignUpModalVisible, setSignUpModalVisible] = useState(true);
 
     const { data, isLoading } = useQuery({
         queryKey: ['user'],
@@ -41,7 +44,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     useEffect(() => {
         const handleResize = () => {
             setContactVisible(window.innerWidth > 1600);
-            setModelVisible(window.innerWidth > 1280);
+            setModalVisible(window.innerWidth > 1280);
         };
 
         window.addEventListener('resize', handleResize);
@@ -83,7 +86,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     <SearchWrapper onSearch={handleSearch} />
 
                     <SupportAndWork
-                        isModelVisible={isModelVisible}
+                        isModalVisible={isModalVisible}
                         isContactVisible={isContactVisible}
                     />
                 </div>
@@ -142,13 +145,18 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                 <Catalog
                     isVisible={isCatalogVisible}
                     isContactVisible={isContactVisible}
-                    isModelVisible={isModelVisible}
+                    isModalVisible={isModalVisible}
                 />
             )}
 
             <ModalLoginIn
                 isOpen={isLoginModalVisible}
                 onClose={() => setLoginModalVisible(false)}
+            />
+
+            <ModalSignUp
+                isOpen={isSignUpModalVisible}
+                onClose={() => setSignUpModalVisible(false)}
             />
         </header>
     );

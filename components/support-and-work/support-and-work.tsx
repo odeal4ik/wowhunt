@@ -5,22 +5,22 @@ import cn from 'classnames';
 
 export function SupportAndWork({
     isContactVisible,
-    isModelVisible,
+    isModalVisible,
     isInCatalog,
 }: {
     isContactVisible: boolean;
-    isModelVisible: boolean;
+    isModalVisible: boolean;
     isInCatalog?: boolean;
 }) {
     const localIsContactVisible = isContactVisible;
-    const localIsModelVisible = isModelVisible;
+    const localisModalVisible = isModalVisible;
 
     return (
         <div
             className={cn(styles.container, {
                 [styles.containerCatalog]: isInCatalog,
             })}>
-            {localIsModelVisible && (
+            {localisModalVisible && (
                 <ModelWorkWithUs>
                     <button
                         className={cn(styles.modal, {

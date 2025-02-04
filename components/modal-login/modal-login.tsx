@@ -40,6 +40,7 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
     const [activeTab, setActiveTab] = useState<'customer' | 'booster'>(
         'customer',
     );
+    const isBooster = activeTab === 'booster';
 
     const {
         register,
@@ -49,11 +50,12 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
         resolver: yupResolver(schema),
     });
 
-    const { mutate: logInUser, isPending } = useLogInUser();
+    const { mutate: logInUser, isPending, data } = useLogInUser();
+
+    console.log(data);
 
     const onSubmit: SubmitHandler<LoginFormInput> = ({ email, password }) => {
-        logInUser({ email, password, type: activeTab === 'booster' });
-        console.log({ email, password, type: activeTab === 'booster' });
+        logInUser({ email, password, type: isBooster });
     };
 
     useEscapeClose(isOpen, onClose);
@@ -90,13 +92,13 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
                         <div className={styles.tabs}>
                             <button
                                 className={styles.tab}
-                                data-active={activeTab === 'customer'}
+                                data-active={!isBooster}
                                 onClick={() => setActiveTab('customer')}>
                                 Customer
                             </button>
                             <button
                                 className={styles.tab}
-                                data-active={activeTab === 'booster'}
+                                data-active={isBooster}
                                 onClick={() => setActiveTab('booster')}>
                                 Booster
                             </button>

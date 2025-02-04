@@ -13,11 +13,11 @@ import { SupportAndWork } from '../support-and-work/support-and-work';
 
 export function Catalog({
     isContactVisible,
-    isModelVisible,
+    isModalVisible,
     isVisible,
 }: {
     isContactVisible: boolean;
-    isModelVisible: boolean;
+    isModalVisible: boolean;
     isVisible: boolean;
 }) {
     const [activeCategory, setActiveCategory] = useState<string>(
@@ -36,16 +36,15 @@ export function Catalog({
         <div
             className={cn(styles.catalog, {
                 [styles.visible]:
-                    isVisible || isContactVisible || isModelVisible,
+                    isVisible || isContactVisible || isModalVisible,
             })}>
             <div
                 className={cn(styles.menu, {
                     [styles.withChoosedCategory]: Boolean(visibleCategory),
                 })}>
-                    
                 <SupportAndWork
                     isContactVisible={!isContactVisible}
-                    isModelVisible={!isModelVisible}
+                    isModalVisible={!isModalVisible}
                     isInCatalog={true}
                 />
 

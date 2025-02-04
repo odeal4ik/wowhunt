@@ -1,8 +1,4 @@
-import {
-    UseMutateFunction,
-    useMutation,
-    useQueryClient,
-} from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 interface LogInUserInput {
     email: string;
@@ -35,17 +31,15 @@ export async function logInUser(
 }
 
 export function useLogInUser() {
-    const queryClient = useQueryClient();
+    const { setQueryData } = useQueryClient();
 
-    const { mutate, isPending } = useMutation({
+    return useMutation({
         mutationFn: (input: LogInUserInput) => logInUser(input),
         onSuccess: (data: LogInUserResponse) => {
-            queryClient.setQueryData(['user'], data);
+            setQueryData(['user'], data);
         },
         onError: (error: unknown) => {
             console.log(error);
         },
     });
-
-    return { mutate, isPending };
 }
