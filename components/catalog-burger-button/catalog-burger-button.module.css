@@ -48,7 +48,7 @@
         border-color: var(--neutral-hover);
     }
 
-    @media (width <= 1024px) {
+    @media (width <= 1170px) {
         display: flex;
     }
 

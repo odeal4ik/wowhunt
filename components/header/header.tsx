@@ -15,14 +15,11 @@ import Logo from '@/images/logo/logo.svg';
 
 import styles from './header.module.css';
 import { useQuery } from '@tanstack/react-query';
-import { ModalLoginIn } from '../modal-login/modal-login';
 import { getUser } from '@/api/auth/getUser';
+import { BtnLogIn } from '../btnLogIn/btnLogIn';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
-    const [isContactVisible, setContactVisible] = useState(true);
-    const [isModelVisible, setModelVisible] = useState(true);
-    const [isLoginModalVisible, setLoginModalVisible] = useState(true);
 
     const { data, isLoading } = useQuery({
         queryKey: ['user'],
@@ -38,28 +35,9 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
         document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';
     }, [isCatalogVisible]);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setContactVisible(window.innerWidth > 1600);
-            setModelVisible(window.innerWidth > 1280);
-        };
-
-        window.addEventListener('resize', handleResize);
-        handleResize();
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
-
     function toggleCatalogVisibility() {
         setIsCatalogVisible(!isCatalogVisible);
     }
-
-    const handleSearch = (query: string) => {
-        localStorage.setItem('dataSearch', query);
-        window.location.href = '/search';
-    };
 
     return (
         <header
@@ -80,12 +58,9 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
 
                     <CatalogButton onClick={toggleCatalogVisibility} />
 
-                    <SearchWrapper onSearch={handleSearch} />
+                    <SearchWrapper />
 
-                    <SupportAndWork
-                        isModelVisible={isModelVisible}
-                        isContactVisible={isContactVisible}
-                    />
+                    <SupportAndWork />
                 </div>
 
                 <div className={styles.rightWrapper}>
@@ -135,21 +110,13 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                             loading="lazy"
                         />
                     </Link>
+                    <div className={styles.btnLogIn}>
+                        <BtnLogIn />
+                    </div>
                 </div>
             </div>
 
-            {isCatalogVisible && (
-                <Catalog
-                    isVisible={isCatalogVisible}
-                    isContactVisible={isContactVisible}
-                    isModelVisible={isModelVisible}
-                />
-            )}
-
-            <ModalLoginIn
-                isOpen={isLoginModalVisible}
-                onClose={() => setLoginModalVisible(false)}
-            />
+            {isCatalogVisible && <Catalog isVisible={isCatalogVisible} />}
         </header>
     );
 }

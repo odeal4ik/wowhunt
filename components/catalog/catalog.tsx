@@ -12,12 +12,8 @@ import { CatalogCategories } from '../catalog-categories/catalog-categories';
 import { SupportAndWork } from '../support-and-work/support-and-work';
 
 export function Catalog({
-    isContactVisible,
-    isModelVisible,
     isVisible,
 }: {
-    isContactVisible: boolean;
-    isModelVisible: boolean;
     isVisible: boolean;
 }) {
     const [activeCategory, setActiveCategory] = useState<string>(
@@ -35,19 +31,14 @@ export function Catalog({
     return (
         <div
             className={cn(styles.catalog, {
-                [styles.visible]:
-                    isVisible || isContactVisible || isModelVisible,
+                [styles.visible]: isVisible,
             })}>
             <div
                 className={cn(styles.menu, {
                     [styles.withChoosedCategory]: Boolean(visibleCategory),
                 })}>
                     
-                <SupportAndWork
-                    isContactVisible={!isContactVisible}
-                    isModelVisible={!isModelVisible}
-                    isInCatalog={true}
-                />
+                <SupportAndWork location="catalog" />
 
                 <span className={styles.menuTitle}>CHOOSE THE GAME</span>
 
