@@ -5,12 +5,14 @@
 }
 
 .wrapper {
-    display: grid;
-    --_sidebar-width: 280px;
-    grid-template-columns: var(--_sidebar-width) calc(100% - var(--_sidebar-width));
+    @media (width >= 1024px) {
+        --_sidebar-width: 280px;
+        display: grid;
+        grid-template-columns: var(--_sidebar-width) 1fr;
+    }
 }
 
-@media (max-width: 1023px) {
+@media (width <= 1023px) {
     .wrapper {
         display: block;
     }

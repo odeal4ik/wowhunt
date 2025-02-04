@@ -52,7 +52,7 @@
     display: none;
 }
 
-@media (width <= 768px) {
+@media (width <= 855px) {
     .searchWrapper > .search {
         display: none;
         position: absolute;
@@ -160,7 +160,7 @@
         display: block;
         position: absolute;
         right: 0;
-        transform: translateX(128px);
+        transform: translateX(139px);
         top: 26px;
         padding: 12px 28px;
         background-color: var(--yellow-500);
