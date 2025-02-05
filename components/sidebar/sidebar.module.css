@@ -1,5 +1,5 @@
 .sidebar {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -8,8 +8,8 @@
     width: 100%;
     grid-row: span 2;
 
-    @media (width > 1023px) {
-        display: flex;
+    @media (width < 1024px) {
+        display: none;    
     }
 }
 

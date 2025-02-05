@@ -14,7 +14,7 @@
     width: 100%;
     max-height: 90vh;
     max-width: 625px;
-    overflow-y: auto; /* ??? */
+    overflow-y: auto;
     background: linear-gradient(
             237.82deg,
             rgba(59, 60, 104, 0.6) -147.73%,
@@ -44,16 +44,6 @@
     width: 7px;
     background-color: #282846;
 }
-
-/* .modalContent::-webkit-scrollbar {
-  width: 7px;
-  background-color: #282846;
-  height: 20vh;
-} */
-
-/* .withdrawModal {
-  max-width: 600px;
-} */
 
 .modalHeader {
     display: flex;
@@ -105,11 +95,6 @@
         display: none;
     }
 }
-
-/* .withdrawsTable {
-  padding: 0 40px;
-
-} */
 
 .tableHeader {
     display: grid;

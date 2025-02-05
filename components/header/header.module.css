@@ -28,7 +28,7 @@
     padding-block: 20px;
     margin-inline: auto;
 
-    @media (width <= 1024px) {
+    @media (width <= 1220px) {
         padding-inline: 32px;
         padding-block: 19px;
     }
@@ -48,7 +48,7 @@
     gap: 24px;
     align-items: center;
 
-    @media (width <= 1024px) {
+    @media (width <= 1080px) {
         flex-grow: 1;
         gap: 12px;
     }
@@ -63,7 +63,6 @@
     column-gap: 12px;
     align-items: center;
     cursor: pointer;
-    padding-inline-end: 8px;
 
     & > svg {
         flex-shrink: 0;
@@ -98,12 +97,12 @@
             }
         }
 
-        @media (width <= 600px) {
+        @media (width <= 700px) {
             display: none;
         }
     }
 
-    @media (width <= 600px) {
+    @media (width <= 700px) {
         flex-shrink: 0;
     }
 }
@@ -111,6 +110,11 @@
 .rightWrapper {
     display: flex;
     align-items: center;
+    column-gap: 32px;
+
+    @media (width <= 1665px) {
+        column-gap: 12px;
+    }
 
     @media (width <= 1024px) {
         flex-shrink: 0;
@@ -120,8 +124,11 @@
 .trustAndLanguage {
     display: flex;
     align-items: center;
-    padding-inline: 31px;
-    column-gap: 16px;
+    column-gap: 32px;
+
+    @media (width <= 1665px) {
+        column-gap: 12px;
+    }
 
     @media (width <= 1350px) {
         padding-inline-start: 0;
@@ -137,7 +144,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-inline: 32px;
 
     .stars {
         display: flex;
@@ -188,7 +194,7 @@
         padding-inline: 0;
     }
 
-    @media (width <= 1024px) {
+    @media (width <= 1037px) {
         display: none;
     }
 }
@@ -306,4 +312,10 @@
     justify-content: center;
     font-size: var(--font-size-ss);
     font-weight: 600;
+}
+
+.btnLogIn {
+    @media (width <= 480px) {
+        display: none;
+    }
 }

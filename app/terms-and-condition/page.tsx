@@ -1,12 +1,13 @@
 'use client';
 import styles from './terms-and-condition.module.css';
+import Image from 'next/image';
 
 export default function TermsAndCondition() {
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
                 <div className={styles.imageContainer}>
-                    <img
+                    <Image
                         src="/images/terms-and-condition.webp"
                         alt="agency-img"
                         width={610}

@@ -278,7 +278,6 @@
 
 .chart {
     position: relative;
-    /* z-index: 1; */
     max-width: 520px;
     max-height: 144px;
     margin: 0 0 70px 8px;
@@ -305,7 +304,6 @@
     font-size: var(--font-size-ss);
     line-height: var(--font-line-height-130);
     position: absolute;
-    /*  z-index: 1; */
     left: 0;
     right: 0;
     bottom: 0;

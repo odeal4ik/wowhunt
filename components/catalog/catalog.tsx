@@ -11,15 +11,7 @@ import { gameNames } from './mocks';
 import { CatalogCategories } from '../catalog-categories/catalog-categories';
 import { SupportAndWork } from '../support-and-work/support-and-work';
 
-export function Catalog({
-    isContactVisible,
-    isModalVisible,
-    isVisible,
-}: {
-    isContactVisible: boolean;
-    isModalVisible: boolean;
-    isVisible: boolean;
-}) {
+export function Catalog({ isVisible }: { isVisible: boolean }) {
     const [activeCategory, setActiveCategory] = useState<string>(
         gameNames[0].name,
     );
@@ -35,18 +27,13 @@ export function Catalog({
     return (
         <div
             className={cn(styles.catalog, {
-                [styles.visible]:
-                    isVisible || isContactVisible || isModalVisible,
+                [styles.visible]: isVisible,
             })}>
             <div
                 className={cn(styles.menu, {
                     [styles.withChoosedCategory]: Boolean(visibleCategory),
                 })}>
-                <SupportAndWork
-                    isContactVisible={!isContactVisible}
-                    isModalVisible={!isModalVisible}
-                    isInCatalog={true}
-                />
+                <SupportAndWork location="catalog" />
 
                 <span className={styles.menuTitle}>CHOOSE THE GAME</span>
 

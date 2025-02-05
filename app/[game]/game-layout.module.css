@@ -13,14 +13,16 @@
 }
 
 .wrapper {
-    display: grid;
-    --_sidebar-width: 280px;
-    grid-template-columns: var(--_sidebar-width) calc(
-            100vw - var(--_sidebar-width)
-        );
+    @media (width >= 1024px) {
+        --_sidebar-width: 280px;
+        display: grid;
+        grid-template-columns: var(--_sidebar-width) 1fr;
+    }
+}
 
-    @media (width <= 1280px) {
-        grid-template-columns: repeat(1, 1fr);
+@media (width <= 1023px) {
+    .wrapper {
+        display: block;
     }
 }
 
@@ -36,10 +38,6 @@
 }
 
 @media (width <= 1280px) {
-    .wrapper {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
     .other {
         min-width: 0;
         grid-column: 1;
