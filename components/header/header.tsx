@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
@@ -14,26 +13,26 @@ import { SearchWrapper } from '../search-wrapper/search-wrapper';
 import Logo from '@/images/logo/logo.svg';
 
 import styles from './header.module.css';
-import { useQuery } from '@tanstack/react-query';
-import { getUser } from '@/api/auth/getUser';
+// import { useQuery } from '@tanstack/react-query';
+// import { getUser } from '@/api/auth/getUser';
 import { BtnLogIn } from '../btnLogIn/btnLogIn';
 import { ModalLoginIn } from '../modal-login/modal-login';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
-    const [isLoginModalVisible, setLoginModalVisible] = useState(true);
+    const [isLoginModalVisible, setLoginModalVisible] = useState(false);
     const [isSignUpModalVisible, setSignUpModalVisible] = useState(true);
 
-    const { data, isLoading } = useQuery({
-        queryKey: ['user'],
-        queryFn: () =>
-            getUser({
-                token: '1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd4',
-            }),
-    });
+    // const { data, isLoading } = useQuery({
+    //     queryKey: ['user'],
+    //     queryFn: () =>
+    //         getUser({
+    //             token: '1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd4',
+    //         }),
+    // });
 
-    console.log(data, isLoading);
+    // console.log(data, isLoading);
 
     useEffect(() => {
         document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';
@@ -122,15 +121,19 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
 
             {isCatalogVisible && <Catalog isVisible={isCatalogVisible} />}
 
-            <ModalLoginIn
-                isOpen={isLoginModalVisible}
-                onClose={() => setLoginModalVisible(false)}
-            />
+            {isLoginModalVisible ? (
+                <ModalLoginIn
+                    isOpen={isLoginModalVisible}
+                    onClose={() => setLoginModalVisible(false)}
+                />
+            ) : null}
 
-            <ModalSignUp
-                isOpen={isSignUpModalVisible}
-                onClose={() => setSignUpModalVisible(false)}
-            />
+            {isSignUpModalVisible && (
+                <ModalSignUp
+                    isOpen={isSignUpModalVisible}
+                    onClose={() => setSignUpModalVisible(false)}
+                />
+            )}
         </header>
     );
 }

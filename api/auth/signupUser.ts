@@ -5,6 +5,7 @@ export interface SignUpUserInput {
     email: string;
     password: string;
     password_confirmation: string;
+    discord_link: string;
     referal?: string;
 }
 
@@ -22,9 +23,7 @@ export async function signUpUser(
                 Accept: 'application/json',
                 'Content-type': 'application/json',
             },
-            body: JSON.stringify({
-                input,
-            }),
+            body: JSON.stringify(input),
         });
 
         return response.json();
@@ -33,14 +32,6 @@ export async function signUpUser(
         return null;
     }
 }
-
-// was registered with
-// signUp({
-//     type: false,
-//     email: 'api@test2.email',
-//     password: 'Aknn*7bbjb',
-//     password_confirmation: 'Aknn*7bbjb',
-// });
 
 export function useSignUpUser() {
     const { setQueryData } = useQueryClient();

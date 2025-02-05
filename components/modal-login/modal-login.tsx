@@ -3,37 +3,17 @@ import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
 import styles from './modal-login.module.css';
 
 import { useEscapeClose } from '../../hooks/useEscapeClose';
-import { useLogInUser } from '@/api/auth/loginUser';
+import { LogInUserInput, useLogInUser } from '@/api/auth/loginUser';
+import { schema } from './modal-login-schema';
 
 interface ModalLoginInProps {
     isOpen: boolean;
     onClose: () => void;
-}
-
-const schema = yup
-    .object({
-        email: yup
-            .string()
-            .max(255, 'Name should be at most 255 characters')
-            .email('Name should be in email format')
-            .required('Name is a required field'),
-        password: yup
-            .string()
-            .min(8, 'Password should be at least 8 characters')
-            .max(255, 'Password should be at most 255 characters')
-            .required(),
-    })
-    .required();
-
-interface LoginFormInput {
-    email: string;
-    password: string;
 }
 
 export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
@@ -54,7 +34,10 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
 
     console.log(data);
 
-    const onSubmit: SubmitHandler<LoginFormInput> = ({ email, password }) => {
+    const onSubmit: SubmitHandler<Omit<LogInUserInput, 'type'>> = ({
+        email,
+        password,
+    }) => {
         logInUser({ email, password, type: isBooster });
     };
 
@@ -88,21 +71,19 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
                 </div>
 
                 <div className={styles.formSection}>
-                    <div className={styles.tabsWrapper}>
-                        <div className={styles.tabs}>
-                            <button
-                                className={styles.tab}
-                                data-active={!isBooster}
-                                onClick={() => setActiveTab('customer')}>
-                                Customer
-                            </button>
-                            <button
-                                className={styles.tab}
-                                data-active={isBooster}
-                                onClick={() => setActiveTab('booster')}>
-                                Booster
-                            </button>
-                        </div>
+                    <div className={styles.tabs}>
+                        <button
+                            className={styles.tab}
+                            data-active={!isBooster}
+                            onClick={() => setActiveTab('customer')}>
+                            Customer
+                        </button>
+                        <button
+                            className={styles.tab}
+                            data-active={isBooster}
+                            onClick={() => setActiveTab('booster')}>
+                            Booster
+                        </button>
                     </div>
 
                     <div className={styles.formContainer}>
@@ -149,11 +130,7 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
                                         type="password"
                                         placeholder="Password"
                                         autoComplete="current-password"
-                                        {...register('password', {
-                                            required: true,
-                                            minLength: 8,
-                                            maxLength: 255,
-                                        })}
+                                        {...register('password')}
                                         {...(isPending && { disabled: true })}
                                         className={styles.input}
                                     />

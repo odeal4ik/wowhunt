@@ -5,24 +5,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import * as yup from 'yup';
+
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SignUpUserInput, useSignUpUser } from '@/api/auth/signupUser';
+import { schema } from './modal-sign-up-schema';
 
-export interface ModalSignUpProps {
+interface ModalSignUpProps {
     isOpen: boolean;
     onClose: () => void;
 }
-
-const schema = yup
-    .object({
-        name: yup
-            .string()
-            .max(255, 'Name should be at most 255 characters')
-            .email('Name should be in email format')
-            .required('Name is a required field'),
-    })
-    .required();
 
 export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
     const [activeTab, setActiveTab] = useState<'customer' | 'booster'>(
@@ -38,17 +29,13 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
         resolver: yupResolver(schema),
     });
 
-    console.log(errors);
-
     const { mutate: logInUser, isPending, data } = useSignUpUser();
 
     console.log(data);
 
-    const onSubmit: SubmitHandler<SignUpUserInput> = ({ email, password }) => {
+    const onSubmit: SubmitHandler<Omit<SignUpUserInput, 'type'>> = (input) => {
         logInUser({
-            email,
-            password,
-            password_confirmation,
+            ...input,
             type: !isCustomer,
         });
     };
@@ -70,14 +57,9 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                                 : '/images/reg-boost.webp'
                         }
                         alt={'Boost the future with us!'}
-                        width={500}
-                        height={600}
-                        priority
-                        style={{
-                            objectFit: 'cover',
-                            width: '100%',
-                            height: '100%',
-                        }}
+                        fill
+                        // sizes=''
+                        quality={100}
                     />
                     <div className={styles.imageOverlay}>
                         <h3 className={styles.imageTitle}>
@@ -89,103 +71,192 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                     </div>
                 </div>
 
-                <div className={styles.formContainer}>
-                    <h2 className={styles.title}>
-                        {isCustomer
-                            ? 'Sign up to Wowhunt'
-                            : 'Become a booster on Wowhunt'}
-                    </h2>
-                    <form
-                        className={styles.form}
-                        onSubmit={handleSubmit(onSubmit)}>
-                        <div className={styles.formGroup}>
-                            <label className={styles.label} htmlFor="name">
-                                Name&nbsp;
-                                <span className={styles.required}>*</span>
-                            </label>
-                            <input
-                                type="text"
-                                placeholder="Enter your Name"
-                                {...register('name')}
-                                {...(isPending && { disabled: true })}
-                                className={styles.input}
-                            />
-                        </div>
-                        {false &&
-                            fields?.map((field, index) => (
-                                <div key={index} className={styles.formGroup}>
-                                    <label
-                                        className={styles.label}
-                                        htmlFor={field.name}>
-                                        {field.label}
-                                        {field.required && (
-                                            <span className={styles.required}>
-                                                *
-                                            </span>
-                                        )}
-                                    </label>
-
-                                    {field.inputType === 'select' ? (
-                                        <div className={styles.selectWrapper}>
-                                            <select
-                                                className={`${styles.input} ${styles.select}`}
-                                                id={field.name}
-                                                name={field.name}
-                                                required={field.required}
-                                                defaultValue="">
-                                                {field.options?.map(
-                                                    (option, optionIndex) => (
-                                                        <option
-                                                            key={optionIndex}
-                                                            value={option.value}
-                                                            disabled={
-                                                                option.value ===
-                                                                ''
-                                                            }>
-                                                            {option.label}
-                                                        </option>
-                                                    ),
-                                                )}
-                                            </select>
-                                        </div>
-                                    ) : field.inputType === 'textarea' ? (
-                                        <textarea
-                                            className={`${styles.input} ${styles.textarea}`}
-                                            id={field.name}
-                                            name={field.name}
-                                            placeholder={field.placeholder}
-                                            required={field.required}
-                                        />
-                                    ) : (
-                                        <input
-                                            className={styles.input}
-                                            id={field.name}
-                                            type={field.type}
-                                            name={field.name}
-                                            placeholder={field.placeholder}
-                                            required={field.required}
-                                        />
-                                    )}
-                                </div>
-                            ))}
+                <div className={styles.formSection}>
+                    <div className={styles.tabs}>
                         <button
-                            type="submit"
                             className={cn(
-                                styles.submitButton,
-                                styles.submitButtonBooster && !isCustomer,
-                            )}>
-                            {isCustomer ? 'Sign Up' : 'Send Request'}
+                                styles.tab,
+                                isCustomer && styles.active,
+                            )}
+                            onClick={() => setActiveTab('customer')}>
+                            Customer
                         </button>
+                        <button
+                            className={cn(
+                                styles.tab,
+                                !isCustomer && styles.active,
+                            )}
+                            onClick={() => setActiveTab('booster')}>
+                            Booster
+                        </button>
+                    </div>
 
-                        <p className={styles.textLink}>
-                            You have account?&nbsp;
-                            <Link href="/login" className={styles.link}>
-                                Log in
-                            </Link>
-                        </p>
-                    </form>
+                    <div className={styles.formContainer}>
+                        <h2 className={styles.title}>
+                            {isCustomer
+                                ? 'Sign up to Wowhunt'
+                                : 'Become a booster on Wowhunt'}
+                        </h2>
+                        <form
+                            className={styles.form}
+                            onSubmit={handleSubmit(onSubmit)}>
+                            <div className={styles.formGroup}>
+                                <label className={styles.label} htmlFor="name">
+                                    Name&nbsp;
+                                    <span className={styles.required}>*</span>
+                                    {errors.email ? (
+                                        <p className={styles.error}>
+                                            {errors.email.message}
+                                        </p>
+                                    ) : null}
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Enter your Name"
+                                    autoComplete="off"
+                                    {...register('email')}
+                                    {...(isPending && { disabled: true })}
+                                    className={styles.input}
+                                />
+                            </div>
+
+                            <div className={styles.formGroup}>
+                                <label
+                                    className={styles.label}
+                                    htmlFor="password">
+                                    Enter your password&nbsp;
+                                    <span className={styles.required}>*</span>
+                                    {errors.password ? (
+                                        <p className={styles.error}>
+                                            {errors.password.message}
+                                        </p>
+                                    ) : null}
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    autoComplete="off"
+                                    {...register('password')}
+                                    {...(isPending && { disabled: true })}
+                                    className={styles.input}
+                                />
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label
+                                    className={styles.label}
+                                    htmlFor="password_confirmation">
+                                    Confirm your password&nbsp;
+                                    <span className={styles.required}>*</span>
+                                    {errors.password_confirmation ? (
+                                        <p className={styles.error}>
+                                            {
+                                                errors.password_confirmation
+                                                    .message
+                                            }
+                                        </p>
+                                    ) : null}
+                                </label>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    autoComplete="off"
+                                    {...register('password_confirmation')}
+                                    {...(isPending && { disabled: true })}
+                                    className={styles.input}
+                                />
+                            </div>
+                            <div className={styles.formGroup}>
+                                <label
+                                    className={styles.label}
+                                    htmlFor="discord_link">
+                                    Enter your discord&nbsp;
+                                    <span className={styles.required}>*</span>
+                                    {errors.discord_link ? (
+                                        <p className={styles.error}>
+                                            {errors.discord_link.message}
+                                        </p>
+                                    ) : null}
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="Discord username"
+                                    autoComplete="off"
+                                    {...register('discord_link')}
+                                    {...(isPending && { disabled: true })}
+                                    className={styles.input}
+                                />
+                            </div>
+
+                            <div className={styles.submitWrapper}>
+                                <button
+                                    type="submit"
+                                    className={cn(
+                                        styles.submitButton,
+                                        styles.submitButtonBooster &&
+                                            !isCustomer,
+                                    )}>
+                                    {isCustomer ? 'Sign Up' : 'Send Request'}
+                                </button>
+
+                                <p className={styles.textLink}>
+                                    You have account?&nbsp;
+                                    <Link href="/login" className={styles.link}>
+                                        Log in
+                                    </Link>
+                                </p>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     );
 };
+
+// {
+//     fields?.map((field, index) => (
+//         <div key={index} className={styles.formGroup}>
+//             <label className={styles.label} htmlFor={field.name}>
+//                 {field.label}
+//                 {field.required && <span className={styles.required}>*</span>}
+//             </label>
+
+//             {field.inputType === 'select' ? (
+//                 <div className={styles.selectWrapper}>
+//                     <select
+//                         className={`${styles.input} ${styles.select}`}
+//                         id={field.name}
+//                         name={field.name}
+//                         required={field.required}
+//                         defaultValue="">
+//                         {field.options?.map((option, optionIndex) => (
+//                             <option
+//                                 key={optionIndex}
+//                                 value={option.value}
+//                                 disabled={option.value === ''}>
+//                                 {option.label}
+//                             </option>
+//                         ))}
+//                     </select>
+//                 </div>
+//             ) : field.inputType === 'textarea' ? (
+//                 <textarea
+//                     className={`${styles.input} ${styles.textarea}`}
+//                     id={field.name}
+//                     name={field.name}
+//                     placeholder={field.placeholder}
+//                     required={field.required}
+//                 />
+//             ) : (
+//                 <input
+//                     className={styles.input}
+//                     id={field.name}
+//                     type={field.type}
+//                     name={field.name}
+//                     placeholder={field.placeholder}
+//                     required={field.required}
+//                 />
+//             )}
+//         </div>
+//     ));
+// }

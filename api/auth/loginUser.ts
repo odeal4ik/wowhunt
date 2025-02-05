@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-interface LogInUserInput {
+export interface LogInUserInput {
     email: string;
     password: string;
     type: boolean;

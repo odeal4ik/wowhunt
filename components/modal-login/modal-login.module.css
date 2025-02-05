@@ -168,14 +168,6 @@
     }
 }
 
-.activeTab {
-    color: var(--text-color);
-
-    &::after {
-        transform: scaleX(1);
-    }
-}
-
 .formContainer {
     padding-inline: 40px;
     padding-block-start: 32px;
