@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import Image from 'next/image';
 import styles from './cashback.module.css';
 
@@ -15,9 +14,6 @@ export default function Cashback() {
                         Get cashback for every booing and save up to 17%Get
                         cashback for every booing and save up to 17%
                     </p>
-                    <Link href="/" className={styles.contentLink}>
-                        More info
-                    </Link>
                 </div>
                 <Image
                     src="/images/cashback-1.webp"
@@ -40,9 +36,6 @@ export default function Cashback() {
                         Get cashback for every booing and save up to 17%Get
                         cashback for every booing and save up to 17%
                     </p>
-                    <Link href="/" className={styles.contentLink}>
-                        More info
-                    </Link>
                 </div>
                 <Image
                     src="/images/cashback-2.webp"
@@ -65,9 +58,6 @@ export default function Cashback() {
                     <h3 className={styles.contentTitle}>
                         Get cashback for every booing
                     </h3>
-                    <Link href="/" className={styles.contentLink}>
-                        More info
-                    </Link>
                 </div>
             </div>
         </div>

@@ -229,17 +229,3 @@
         line-height: 23px;
     }
 }
-
-.contentLink {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-m);
-    color: #000;
-    line-height: 24px;
-    text-align: center;
-    padding-block: 7px;
-    max-width: 273px;
-    border-radius: 12px;
-    background: var(--yellow-500);
-    border: 1px solid rgba(75, 75, 119, 0.3);
-    cursor: pointer;
-}
