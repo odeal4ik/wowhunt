@@ -81,6 +81,14 @@ h6 {
 
     /* Button behavior */
     --btn-transition: background-color 0.2s ease, border-color 0.2s ease;
+
+    /* for cards */
+    --success-color: #18e905;
+    --error-color: #e40052;
+    --system-color: #BF22F6;
+    --advertisement-color: #22F6D3;
+    --security-color: #37D1F3;
+    /* --yellow-500: #fbbf24; --order-status-color:  */
 }
 
 html,
