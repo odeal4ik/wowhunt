@@ -48,13 +48,13 @@ export function useSignUpUser() {
                 'errors' in data &&
                 Object.keys(data.errors).length > 0
             ) {
-                console.log(data.errors);
             } else if (data && 'token' in data) {
                 queryClient.setQueryData(['user'], data.token);
             }
         },
         onError: (error: unknown) => {
             console.log(error);
+            return null;
         },
     });
 }

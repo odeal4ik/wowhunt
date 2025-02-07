@@ -28,8 +28,6 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
         context: { isCustomer },
     });
 
-    console.log(isValid, validationError);
-
     const { mutate: signUpUser, isPending, data } = useSignUpUser();
 
     const backendValidationErrors = useMemo(() => {
@@ -308,7 +306,7 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                             <button
                                 className={cn(
                                     styles.submitButton,
-                                    isPending && styles.pending,
+                                    (isPending || !isValid) && styles.pending,
                                     !isCustomer && styles.submitButtonBooster,
                                 )}>
                                 {isCustomer ? 'Sign Up' : 'Send Request'}
