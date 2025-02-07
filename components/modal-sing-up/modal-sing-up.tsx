@@ -1,5 +1,5 @@
 import cn from 'classnames';
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styles from './modal-sing-up.module.css';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -16,25 +16,30 @@ interface ModalSignUpProps {
 }
 
 export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
-    const [activeTab, setActiveTab] = useState<'customer' | 'booster'>(
-        'customer',
-    );
-    const isCustomer = activeTab === 'customer';
+    const [isCustomer, setIsCustomer] = useState<boolean>(true);
 
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors: validationError, isValid },
     } = useForm({
         resolver: yupResolver(schema),
+        mode: 'onSubmit',
+        context: { isCustomer },
     });
 
-    const { mutate: logInUser, isPending, data } = useSignUpUser();
+    console.log(isValid, validationError);
 
-    console.log(data);
+    const { mutate: signUpUser, isPending, data } = useSignUpUser();
+
+    const backendValidationErrors = useMemo(() => {
+        if (data && 'errors' in data) {
+            return data.errors;
+        }
+    }, [data]);
 
     const onSubmit: SubmitHandler<Omit<SignUpUserInput, 'type'>> = (input) => {
-        logInUser({
+        signUpUser({
             ...input,
             type: !isCustomer,
         });
@@ -78,7 +83,7 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                                 styles.tab,
                                 isCustomer && styles.active,
                             )}
-                            onClick={() => setActiveTab('customer')}>
+                            onClick={() => setIsCustomer(true)}>
                             Customer
                         </button>
                         <button
@@ -86,27 +91,31 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                                 styles.tab,
                                 !isCustomer && styles.active,
                             )}
-                            onClick={() => setActiveTab('booster')}>
+                            onClick={() => setIsCustomer(false)}>
                             Booster
                         </button>
                     </div>
 
-                    <div className={styles.formContainer}>
+                    <form
+                        className={styles.formContainer}
+                        onSubmit={handleSubmit(onSubmit)}>
                         <h2 className={styles.title}>
                             {isCustomer
                                 ? 'Sign up to Wowhunt'
                                 : 'Become a booster on Wowhunt'}
                         </h2>
-                        <form
-                            className={styles.form}
-                            onSubmit={handleSubmit(onSubmit)}>
+                        <div className={styles.form}>
                             <div className={styles.formGroup}>
-                                <label className={styles.label} htmlFor="name">
+                                <label className={styles.label} htmlFor="email">
                                     Name&nbsp;
                                     <span className={styles.required}>*</span>
-                                    {errors.email ? (
+                                    {validationError.email ? (
                                         <p className={styles.error}>
-                                            {errors.email.message}
+                                            {validationError.email.message}
+                                        </p>
+                                    ) : backendValidationErrors?.email ? (
+                                        <p className={styles.error}>
+                                            {backendValidationErrors.email[0]}
                                         </p>
                                     ) : null}
                                 </label>
@@ -114,66 +123,97 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                                     type="text"
                                     placeholder="Enter your Name"
                                     autoComplete="off"
+                                    id="email"
                                     {...register('email')}
                                     {...(isPending && { disabled: true })}
-                                    className={styles.input}
+                                    className={cn(
+                                        styles.input,
+                                        backendValidationErrors?.email &&
+                                            styles.error,
+                                    )}
                                 />
                             </div>
 
-                            <div className={styles.formGroup}>
-                                <label
-                                    className={styles.label}
-                                    htmlFor="password">
-                                    Enter your password&nbsp;
-                                    <span className={styles.required}>*</span>
-                                    {errors.password ? (
-                                        <p className={styles.error}>
-                                            {errors.password.message}
-                                        </p>
-                                    ) : null}
-                                </label>
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    autoComplete="off"
-                                    {...register('password')}
-                                    {...(isPending && { disabled: true })}
-                                    className={styles.input}
-                                />
-                            </div>
-                            <div className={styles.formGroup}>
-                                <label
-                                    className={styles.label}
-                                    htmlFor="password_confirmation">
-                                    Confirm your password&nbsp;
-                                    <span className={styles.required}>*</span>
-                                    {errors.password_confirmation ? (
-                                        <p className={styles.error}>
-                                            {
-                                                errors.password_confirmation
-                                                    .message
-                                            }
-                                        </p>
-                                    ) : null}
-                                </label>
-                                <input
-                                    type="password"
-                                    placeholder="Password"
-                                    autoComplete="off"
-                                    {...register('password_confirmation')}
-                                    {...(isPending && { disabled: true })}
-                                    className={styles.input}
-                                />
-                            </div>
+                            {isCustomer ? (
+                                <div className={styles.formGroup}>
+                                    <label
+                                        className={styles.label}
+                                        htmlFor="password">
+                                        Enter your password&nbsp;
+                                        <span className={styles.required}>
+                                            *
+                                        </span>
+                                        {validationError.password ? (
+                                            <p className={styles.error}>
+                                                {
+                                                    validationError.password
+                                                        .message
+                                                }
+                                            </p>
+                                        ) : null}
+                                    </label>
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                        autoComplete="off"
+                                        id="password"
+                                        {...register('password')}
+                                        {...(isPending && { disabled: true })}
+                                        className={styles.input}
+                                    />
+                                </div>
+                            ) : null}
+
+                            {isCustomer ? (
+                                <div className={styles.formGroup}>
+                                    <label
+                                        className={styles.label}
+                                        htmlFor="password_confirmation">
+                                        Confirm your password&nbsp;
+                                        <span className={styles.required}>
+                                            *
+                                        </span>
+                                        {validationError.password_confirmation ? (
+                                            <p className={styles.error}>
+                                                {
+                                                    validationError
+                                                        .password_confirmation
+                                                        .message
+                                                }
+                                            </p>
+                                        ) : null}
+                                    </label>
+                                    <input
+                                        type="password"
+                                        placeholder="Password"
+                                        autoComplete="off"
+                                        id="password_confirmation"
+                                        {...register('password_confirmation')}
+                                        {...(isPending && { disabled: true })}
+                                        className={styles.input}
+                                    />
+                                </div>
+                            ) : null}
+
                             <div className={styles.formGroup}>
                                 <label
                                     className={styles.label}
                                     htmlFor="discord_link">
                                     Enter your discord&nbsp;
                                     <span className={styles.required}>*</span>
-                                    {errors.discord_link ? (
+                                    {validationError.discord_link ? (
                                         <p className={styles.error}>
-                                            {errors.discord_link.message}
+                                            {
+                                                validationError.discord_link
+                                                    .message
+                                            }
+                                        </p>
+                                    ) : backendValidationErrors?.discord_link ? (
+                                        <p className={styles.error}>
+                                            {
+                                                backendValidationErrors
+                                                    .discord_link[0]
+                                            }
                                         </p>
                                     ) : null}
                                 </label>
@@ -181,82 +221,109 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                                     type="text"
                                     placeholder="Discord username"
                                     autoComplete="off"
+                                    id="discord_link"
                                     {...register('discord_link')}
                                     {...(isPending && { disabled: true })}
-                                    className={styles.input}
+                                    className={cn(
+                                        styles.input,
+                                        backendValidationErrors?.discord_link &&
+                                            styles.error,
+                                    )}
                                 />
                             </div>
 
-                            <div className={styles.submitWrapper}>
-                                <button
-                                    type="submit"
-                                    className={cn(
-                                        styles.submitButton,
-                                        styles.submitButtonBooster &&
-                                            !isCustomer,
-                                    )}>
-                                    {isCustomer ? 'Sign Up' : 'Send Request'}
-                                </button>
+                            {!isCustomer ? (
+                                <div className={styles.formGroup}>
+                                    <label
+                                        className={styles.label}
+                                        htmlFor="game">
+                                        Choose a game&nbsp;
+                                        <span className={styles.required}>
+                                            *
+                                        </span>
+                                        {validationError.game ? (
+                                            <p className={styles.error}>
+                                                {validationError.game.message}
+                                            </p>
+                                        ) : null}
+                                    </label>
+                                    <div className={styles.selectWrapper}>
+                                        <select
+                                            className={`${styles.input} ${styles.select}`}
+                                            defaultValue=""
+                                            id="game"
+                                            {...register('game')}>
+                                            <option value="" disabled hidden>
+                                                Choose your game
+                                            </option>
+                                            {[
+                                                { id: 1, label: 'Valorant' },
+                                                {
+                                                    id: 2,
+                                                    label: 'Apex legends',
+                                                },
+                                            ].map(({ id, label }) => (
+                                                <option key={id} value={label}>
+                                                    {label}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                </div>
+                            ) : null}
 
-                                <p className={styles.textLink}>
-                                    You have account?&nbsp;
-                                    <Link href="/login" className={styles.link}>
-                                        Log in
-                                    </Link>
-                                </p>
-                            </div>
-                        </form>
-                    </div>
+                            {!isCustomer ? (
+                                <div className={styles.formGroup}>
+                                    <label
+                                        className={styles.label}
+                                        htmlFor="description">
+                                        Write your boost service type&nbsp;
+                                        <span className={styles.required}>
+                                            *
+                                        </span>
+                                        {validationError.description ? (
+                                            <p className={styles.error}>
+                                                {
+                                                    validationError.description
+                                                        .message
+                                                }
+                                            </p>
+                                        ) : null}
+                                    </label>
+                                    <textarea
+                                        className={cn(
+                                            styles.input,
+                                            styles.textarea,
+                                        )}
+                                        id="description"
+                                        rows={3}
+                                        {...register('description')}
+                                        placeholder="Few words what you can do..."
+                                    />
+                                </div>
+                            ) : null}
+                        </div>
+
+                        <div className={styles.submitWrapper}>
+                            <button
+                                className={cn(
+                                    styles.submitButton,
+                                    isPending && styles.pending,
+                                    !isCustomer && styles.submitButtonBooster,
+                                )}>
+                                {isCustomer ? 'Sign Up' : 'Send Request'}
+                            </button>
+
+                            <p className={styles.textLink}>
+                                You have account?&nbsp;
+                                <Link href="/login" className={styles.link}>
+                                    Log in
+                                </Link>
+                            </p>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     );
 };
-
-// {
-//     fields?.map((field, index) => (
-//         <div key={index} className={styles.formGroup}>
-//             <label className={styles.label} htmlFor={field.name}>
-//                 {field.label}
-//                 {field.required && <span className={styles.required}>*</span>}
-//             </label>
-
-//             {field.inputType === 'select' ? (
-//                 <div className={styles.selectWrapper}>
-//                     <select
-//                         className={`${styles.input} ${styles.select}`}
-//                         id={field.name}
-//                         name={field.name}
-//                         required={field.required}
-//                         defaultValue="">
-//                         {field.options?.map((option, optionIndex) => (
-//                             <option
-//                                 key={optionIndex}
-//                                 value={option.value}
-//                                 disabled={option.value === ''}>
-//                                 {option.label}
-//                             </option>
-//                         ))}
-//                     </select>
-//                 </div>
-//             ) : field.inputType === 'textarea' ? (
-//                 <textarea
-//                     className={`${styles.input} ${styles.textarea}`}
-//                     id={field.name}
-//                     name={field.name}
-//                     placeholder={field.placeholder}
-//                     required={field.required}
-//                 />
-//             ) : (
-//                 <input
-//                     className={styles.input}
-//                     id={field.name}
-//                     type={field.type}
-//                     name={field.name}
-//                     placeholder={field.placeholder}
-//                     required={field.required}
-//                 />
-//             )}
-//         </div>
-//     ));
-// }

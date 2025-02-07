@@ -6,12 +6,16 @@ export interface SignUpUserInput {
     password: string;
     password_confirmation: string;
     discord_link: string;
+    game?: string;
     referal?: string;
 }
 
-type SignUpUserResponse = {
-    token: string;
-} | null;
+type SignUpUserResponse =
+    | {
+          token: string;
+      }
+    | { errors: Record<keyof SignUpUserInput, string[]> }
+    | null;
 
 export async function signUpUser(
     input: SignUpUserInput,
@@ -34,12 +38,20 @@ export async function signUpUser(
 }
 
 export function useSignUpUser() {
-    const { setQueryData } = useQueryClient();
+    const queryClient = useQueryClient();
 
     return useMutation({
         mutationFn: (input: SignUpUserInput) => signUpUser(input),
         onSuccess: (data: SignUpUserResponse) => {
-            setQueryData(['user'], data);
+            if (
+                data &&
+                'errors' in data &&
+                Object.keys(data.errors).length > 0
+            ) {
+                console.log(data.errors);
+            } else if (data && 'token' in data) {
+                queryClient.setQueryData(['user'], data.token);
+            }
         },
         onError: (error: unknown) => {
             console.log(error);
