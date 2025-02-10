@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 
 import { Icon } from '../../core-components/icon/icon';

@@ -21,7 +21,6 @@ import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
-    // const [isLoginModalVisible, setLoginModalVisible] = useState(false);
     const [isSignUpModalVisible, setSignUpModalVisible] = useState(false);
 
     // const { data, isLoading } = useQuery({
@@ -72,9 +71,11 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                             href="https://www.trustpilot.com/review/wowhunt.com"
                             target="_blank"
                             className={styles.trust}>
-                            <img
+                            <Image
                                 src="/images/trustpilot.png"
                                 alt="trust pilot"
+                                width={142}
+                                height={20}
                                 loading="lazy"
                             />
                             <div className={styles.trustLabel}>
