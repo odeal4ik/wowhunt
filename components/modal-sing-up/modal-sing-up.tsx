@@ -2,26 +2,22 @@ import cn from 'classnames';
 import React, { useMemo, useState } from 'react';
 import styles from './modal-sing-up.module.css';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { yupResolver } from '@hookform/resolvers/yup';
 import { SignUpUserInput, useSignUpUser } from '@/api/auth/signupUser';
 import { schema } from './modal-sign-up-schema';
+import { ModalLoginIn } from '../modal-login/modal-login';
+import { useGlobalModal } from '@/hooks/useGlobalModal';
 
-interface ModalSignUpProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
-
-export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
+export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
     const [isCustomer, setIsCustomer] = useState<boolean>(true);
 
     const {
         register,
         handleSubmit,
-        formState: { errors: validationError, isValid },
+        formState: { errors: validationError },
     } = useForm({
         resolver: yupResolver(schema),
         mode: 'onSubmit',
@@ -43,9 +39,9 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
         });
     };
 
-    useEscapeClose(isOpen, onClose);
+    useEscapeClose(true, onClose);
 
-    if (!isOpen) return null;
+    const { open, close } = useGlobalModal();
 
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
@@ -61,7 +57,6 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                         }
                         alt={'Boost the future with us!'}
                         fill
-                        // sizes=''
                         quality={100}
                     />
                     <div className={styles.imageOverlay}>
@@ -306,7 +301,7 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
                             <button
                                 className={cn(
                                     styles.submitButton,
-                                    (isPending || !isValid) && styles.pending,
+                                    isPending && styles.pending,
                                     !isCustomer && styles.submitButtonBooster,
                                 )}>
                                 {isCustomer ? 'Sign Up' : 'Send Request'}
@@ -314,9 +309,13 @@ export const ModalSignUp = ({ isOpen, onClose }: ModalSignUpProps) => {
 
                             <p className={styles.textLink}>
                                 You have account?&nbsp;
-                                <Link href="/login" className={styles.link}>
+                                <button
+                                    className={styles.link}
+                                    onClick={() =>
+                                        open(<ModalLoginIn onClose={close} />)
+                                    }>
                                     Log in
-                                </Link>
+                                </button>
                             </p>
                         </div>
                     </form>

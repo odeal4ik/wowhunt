@@ -6,6 +6,7 @@ import './globals.css';
 import { Footer } from '@/components/footer/footer';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import QueryProvider from '@/providers/QueryProvider';
+import { GlobalModalProvider } from '@/providers/ModalProvider';
 
 const barlowSans = localFont({
     src: './fonts/Barlow/Barlow-Regular.ttf',
@@ -64,9 +65,11 @@ export default function RootLayout({
             <body
                 className={`${barlowSans.variable} ${barlowMediumSans.variable} ${barlowBoldSans.variable} ${montserratBoldSans.variable} ${montserratSans.variable} ${barlowSemiBoldSans.variable} ${barlowExtraBoldSans.variable}`}>
                 <QueryProvider>
-                    {children}
-                    <Footer />
-                    <ReactQueryDevtools initialIsOpen={false} />
+                    <GlobalModalProvider>
+                        {children}
+                        <Footer />
+                        <ReactQueryDevtools initialIsOpen={false} />
+                    </GlobalModalProvider>
                 </QueryProvider>
             </body>
         </html>

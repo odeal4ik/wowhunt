@@ -275,15 +275,14 @@
 }
 
 .submitWrapper {
-    /* padding-block-start: 47px; */
     display: flex;
     flex-direction: column;
-    row-gap: 8px;
+    row-gap: 12px;
 
     .submitButton {
         font-family: var(--font-barlow-bold-sans), sans-serif;
         font-size: var(--font-size-m);
-        line-height: 24px;
+        line-height: var(--font-line-height-150);
         color: var(--background);
         background-color: var(--yellow-500);
         border-radius: 8px;
@@ -317,13 +316,14 @@
     .textLink {
         font-family: var(--font-barlow-regular-sans), sans-serif;
         font-size: var(--font-size-s);
+        line-height: var(--font-line-height-125);
         text-align: center;
-        line-height: 20px;
     }
 
     .link {
         color: var(--yellow-500);
         text-decoration: none;
+        cursor: pointer;
     }
 }
 

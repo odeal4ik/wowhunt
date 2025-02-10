@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 import cn from 'classnames';
 
@@ -15,14 +16,13 @@ import Logo from '@/images/logo/logo.svg';
 import styles from './header.module.css';
 // import { useQuery } from '@tanstack/react-query';
 // import { getUser } from '@/api/auth/getUser';
-import { BtnLogIn } from '../btnLogIn/btnLogIn';
-import { ModalLoginIn } from '../modal-login/modal-login';
+import { ButtonOpenModalLogIn } from '../button-open-modal-logIn/button-open-modal-logIn';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
-    const [isLoginModalVisible, setLoginModalVisible] = useState(false);
-    const [isSignUpModalVisible, setSignUpModalVisible] = useState(true);
+    // const [isLoginModalVisible, setLoginModalVisible] = useState(false);
+    const [isSignUpModalVisible, setSignUpModalVisible] = useState(false);
 
     // const { data, isLoading } = useQuery({
     //     queryKey: ['user'],
@@ -107,32 +107,25 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     </div>
 
                     <Link className={styles.basket} href="/shopping-card">
-                        <img
+                        <Image
                             src="/images/basket.svg"
                             alt="Basket"
+                            width={18}
+                            height={18}
                             loading="lazy"
                         />
                     </Link>
+
                     <div className={styles.btnLogIn}>
-                        <BtnLogIn />
+                        <ButtonOpenModalLogIn />
                     </div>
                 </div>
             </div>
 
             {isCatalogVisible && <Catalog isVisible={isCatalogVisible} />}
 
-            {isLoginModalVisible ? (
-                <ModalLoginIn
-                    isOpen={isLoginModalVisible}
-                    onClose={() => setLoginModalVisible(false)}
-                />
-            ) : null}
-
             {isSignUpModalVisible && (
-                <ModalSignUp
-                    isOpen={isSignUpModalVisible}
-                    onClose={() => setSignUpModalVisible(false)}
-                />
+                <ModalSignUp onClose={() => setSignUpModalVisible(false)} />
             )}
         </header>
     );

@@ -1,13 +1,13 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
 export interface SignUpUserInput {
-    type: boolean;
-    email: string;
-    password: string;
-    password_confirmation: string;
     discord_link: string;
+    email: string;
     game?: string;
+    password_confirmation?: string;
+    password?: string;
     referal?: string;
+    type: boolean;
 }
 
 type SignUpUserResponse =

@@ -10,17 +10,11 @@ import styles from './modal-login.module.css';
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { LogInUserInput, useLogInUser } from '@/api/auth/loginUser';
 import { schema } from './modal-login-schema';
+import { useGlobalModal } from '@/hooks/useGlobalModal';
+import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
 
-interface ModalLoginInProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
-
-export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
-    const [activeTab, setActiveTab] = useState<'customer' | 'booster'>(
-        'customer',
-    );
-    const isBooster = activeTab === 'booster';
+export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
+    const [isBooster, setIsBooster] = useState<boolean>(true);
 
     const {
         register,
@@ -41,9 +35,9 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
         logInUser({ email, password, type: isBooster });
     };
 
-    useEscapeClose(isOpen, onClose);
+    useEscapeClose(true, onClose);
 
-    if (!isOpen) return null;
+    const { open, close } = useGlobalModal();
 
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
@@ -75,13 +69,13 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
                         <button
                             className={styles.tab}
                             data-active={!isBooster}
-                            onClick={() => setActiveTab('customer')}>
+                            onClick={() => setIsBooster(false)}>
                             Customer
                         </button>
                         <button
                             className={styles.tab}
                             data-active={isBooster}
-                            onClick={() => setActiveTab('booster')}>
+                            onClick={() => setIsBooster(true)}>
                             Booster
                         </button>
                     </div>
@@ -187,12 +181,14 @@ export const ModalLoginIn = ({ isOpen, onClose }: ModalLoginInProps) => {
                             </button>
 
                             <p className={styles.signupText}>
-                                You don{"'"}t have account yet?{' '}
-                                <Link
-                                    href="/signup"
-                                    className={styles.signupLink}>
+                                You don&apos;t have account yet?&nbsp;
+                                <button
+                                    className={styles.signupLink}
+                                    onClick={() =>
+                                        open(<ModalSignUp onClose={close} />)
+                                    }>
                                     Sign up
-                                </Link>
+                                </button>
                             </p>
                         </form>
                     </div>

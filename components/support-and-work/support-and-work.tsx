@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ModelWorkWithUs } from '../model-work-with-us/model-work-with-us';
 import styles from './support-and-work.module.css';
 import cn from 'classnames';
-import { BtnLogIn } from '../btnLogIn/btnLogIn';
+import { ButtonOpenModalLogIn } from '../button-open-modal-logIn/button-open-modal-logIn';
 
 export function SupportAndWork({
     location = 'header',
@@ -16,7 +16,7 @@ export function SupportAndWork({
     return (
         <div className={containerClass}>
             <div className={styles.loginButton}>
-                <BtnLogIn />
+                <ButtonOpenModalLogIn />
             </div>
 
             <ModelWorkWithUs>
