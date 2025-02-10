@@ -44,9 +44,9 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
     const { open, close } = useGlobalModal();
 
     return (
-        <div className={styles.modalOverlay} onClick={onClose}>
+        <div className={styles.overlay} onClick={onClose}>
             <div
-                className={styles.modalContainer}
+                className={styles.container}
                 onClick={(e) => e.stopPropagation()}>
                 <div className={styles.imageContainer}>
                     <Image
@@ -55,7 +55,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                 ? '/images/reg-user.webp'
                                 : '/images/reg-boost.webp'
                         }
-                        alt={'Boost the future with us!'}
+                        alt="Boost the future with us!"
                         fill
                         quality={100}
                     />
@@ -63,7 +63,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                         <h3 className={styles.imageTitle}>
                             Become a part of Wowhunt
                         </h3>
-                        <p className={styles.imgSubtitle}>
+                        <p className={styles.imgSubTitle}>
                             Boost the future with us!
                         </p>
                     </div>
@@ -97,6 +97,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                 ? 'Sign up to Wowhunt'
                                 : 'Become a booster on Wowhunt'}
                         </h2>
+
                         <div className={styles.form}>
                             <div className={styles.formGroup}>
                                 <label className={styles.label} htmlFor="email">
@@ -106,7 +107,8 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                         <p className={styles.error}>
                                             {validationError.email.message}
                                         </p>
-                                    ) : backendValidationErrors?.email ? (
+                                    ) : backendValidationErrors?.email
+                                          .length ? (
                                         <p className={styles.error}>
                                             {backendValidationErrors.email[0]}
                                         </p>
@@ -121,7 +123,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                     {...(isPending && { disabled: true })}
                                     className={cn(
                                         styles.input,
-                                        backendValidationErrors?.email &&
+                                        backendValidationErrors?.email.length &&
                                             styles.error,
                                     )}
                                 />
@@ -201,7 +203,8 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                                     .message
                                             }
                                         </p>
-                                    ) : backendValidationErrors?.discord_link ? (
+                                    ) : backendValidationErrors?.discord_link
+                                          .length ? (
                                         <p className={styles.error}>
                                             {
                                                 backendValidationErrors
@@ -219,8 +222,8 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                     {...(isPending && { disabled: true })}
                                     className={cn(
                                         styles.input,
-                                        backendValidationErrors?.discord_link &&
-                                            styles.error,
+                                        backendValidationErrors?.discord_link
+                                            .length && styles.error,
                                     )}
                                 />
                             </div>
@@ -302,7 +305,6 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                 className={cn(
                                     styles.submitButton,
                                     isPending && styles.pending,
-                                    !isCustomer && styles.submitButtonBooster,
                                 )}>
                                 {isCustomer ? 'Sign Up' : 'Send Request'}
                             </button>

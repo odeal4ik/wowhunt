@@ -23,8 +23,8 @@ export const schema = yup
                           'Password should contain one uppercase character',
                       )
                       .matches(
-                          /^(?=.*[A-Z])/,
-                          'Password should contain one uppercase character',
+                          /^(?=.*\d)/,
+                          'Password should contain one number',
                       )
                       .required('Password is required')
                 : schema,

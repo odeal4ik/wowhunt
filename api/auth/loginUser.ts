@@ -6,9 +6,12 @@ export interface LogInUserInput {
     type: boolean;
 }
 
-type LogInUserResponse = {
-    token: string;
-} | null;
+type LogInUserResponse =
+    | {
+          token: string;
+      }
+    | { errors: Record<keyof LogInUserInput, string[]> }
+    | null;
 
 export async function logInUser(
     input: LogInUserInput,
@@ -25,21 +28,35 @@ export async function logInUser(
 
         return await response.json();
     } catch (error) {
-        console.log(error);
-        return null;
+        if (error) {
+            return {
+                errors: {
+                    email: ['Something went wrong'],
+                    password: ['Something went wrong'],
+                    type: [],
+                },
+            };
+        } else return null;
     }
 }
 
 export function useLogInUser() {
-    const { setQueryData } = useQueryClient();
+    const queryClient = useQueryClient();
 
     return useMutation({
         mutationFn: (input: LogInUserInput) => logInUser(input),
         onSuccess: (data: LogInUserResponse) => {
-            setQueryData(['user'], data);
+            if (
+                data &&
+                'errors' in data &&
+                Object.keys(data.errors).length > 0
+            ) {
+            } else if (data && 'token' in data) {
+                queryClient.setQueryData(['user'], data.token);
+            }
         },
         onError: (error: unknown) => {
-            console.log(error);
+            return error;
         },
     });
 }
