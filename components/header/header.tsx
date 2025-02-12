@@ -1,23 +1,26 @@
 'use client';
-import { useEffect, useState } from 'react';
+
+// import { useQuery } from '@tanstack/react-query';
+import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import cn from 'classnames';
+import { useEffect, useState } from 'react';
 
-import { CatalogButton } from '../catalog-button/catalog-button';
-import { Catalog } from '../catalog/catalog';
-import { CatalogBurgerButton } from '../catalog-burger-button/catalog-burger-button';
-import { Icon } from '../../core-components/icon/icon';
-import { SupportAndWork } from '../support-and-work/support-and-work';
-import { SearchWrapper } from '../search-wrapper/search-wrapper';
+import { Icon } from '@/core-components/icon/icon';
+
+import { CatalogBurgerButton } from '@/components/catalog-burger-button/catalog-burger-button';
 
 import Logo from '@/images/logo/logo.svg';
 
-import styles from './header.module.css';
-// import { useQuery } from '@tanstack/react-query';
 // import { getUser } from '@/api/auth/getUser';
+
 import { ButtonOpenModalLogIn } from '../button-open-modal-logIn/button-open-modal-logIn';
+import { CatalogButton } from '../catalog-button/catalog-button';
+import { Catalog } from '../catalog/catalog';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
+import { SearchWrapper } from '../search-wrapper/search-wrapper';
+import { SupportAndWork } from '../support-and-work/support-and-work';
+import styles from './header.module.css';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
@@ -27,7 +30,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     //     queryKey: ['user'],
     //     queryFn: () =>
     //         getUser({
-    //             token: '1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd4',
+    //             token: '1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd5',
     //         }),
     // });
 

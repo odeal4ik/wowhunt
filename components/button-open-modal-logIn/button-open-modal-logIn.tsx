@@ -1,4 +1,5 @@
 import { useGlobalModal } from '@/hooks/useGlobalModal';
+
 import { ModalLoginIn } from '../modal-login/modal-login';
 import styles from './button-open-modal-logIn.module.css';
 

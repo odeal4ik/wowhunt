@@ -47,7 +47,7 @@
         display: none;
     }
 
-    img {
+    & > img {
         border-top-left-radius: 12px;
         border-bottom-left-radius: 12px;
     }

@@ -1,15 +1,17 @@
+import { yupResolver } from '@hookform/resolvers/yup';
 import cn from 'classnames';
-import React, { useMemo, useState } from 'react';
-import styles from './modal-sing-up.module.css';
 import Image from 'next/image';
-import { useEscapeClose } from '../../hooks/useEscapeClose';
+import React, { useMemo, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { yupResolver } from '@hookform/resolvers/yup';
 import { SignUpUserInput, useSignUpUser } from '@/api/auth/signupUser';
-import { schema } from './modal-sign-up-schema';
-import { ModalLoginIn } from '../modal-login/modal-login';
+
 import { useGlobalModal } from '@/hooks/useGlobalModal';
+
+import { useEscapeClose } from '../../hooks/useEscapeClose';
+import { ModalLoginIn } from '../modal-login/modal-login';
+import { schema } from './modal-sign-up-schema';
+import styles from './modal-sing-up.module.css';
 
 export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
     const [isCustomer, setIsCustomer] = useState<boolean>(true);

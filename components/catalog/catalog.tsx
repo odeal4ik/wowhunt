@@ -1,15 +1,14 @@
 'use client';
 
-import { Suspense, useState } from 'react';
-import styles from './catalog.module.css';
 import cn from 'classnames';
-
-import Arrow from '../../public/system-icons/arrow-right.svg';
+import { Suspense, useState } from 'react';
 
 import { Icon } from '../../core-components/icon/icon';
-import { gameNames } from './mocks';
+import Arrow from '../../public/system-icons/arrow-right.svg';
 import { CatalogCategories } from '../catalog-categories/catalog-categories';
 import { SupportAndWork } from '../support-and-work/support-and-work';
+import styles from './catalog.module.css';
+import { gameNames } from './mocks';
 
 export function Catalog({ isVisible }: { isVisible: boolean }) {
     const [activeCategory, setActiveCategory] = useState<string>(

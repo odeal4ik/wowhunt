@@ -1,17 +1,18 @@
-import { useMemo, useState } from 'react';
+import { yupResolver } from '@hookform/resolvers/yup';
 import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useForm, SubmitHandler } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
+import { useMemo, useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
-import styles from './modal-login.module.css';
+import { LogInUserInput, useLogInUser } from '@/api/auth/loginUser';
+
+import { useGlobalModal } from '@/hooks/useGlobalModal';
 
 import { useEscapeClose } from '../../hooks/useEscapeClose';
-import { LogInUserInput, useLogInUser } from '@/api/auth/loginUser';
-import { schema } from './modal-login-schema';
-import { useGlobalModal } from '@/hooks/useGlobalModal';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
+import { schema } from './modal-login-schema';
+import styles from './modal-login.module.css';
 
 export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
     const [isBooster, setIsBooster] = useState<boolean>(false);
