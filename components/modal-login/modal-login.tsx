@@ -1,7 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import cn from 'classnames';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useMemo, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -13,6 +12,7 @@ import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
 import { schema } from './modal-login-schema';
 import styles from './modal-login.module.css';
+import { ModalForgotPassword } from '../modal-forgot-password/modal-forgot-password';
 
 export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
     const [isBooster, setIsBooster] = useState<boolean>(false);
@@ -156,11 +156,11 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                             </div>
                         </div>
 
-                        <Link
-                            href="/forgot-password"
+                        <button
+                            onClick={() => open(<ModalForgotPassword onClose={close} />)}
                             className={styles.forgotPassword}>
                             I forgot password
-                        </Link>
+                        </button>
 
                         <div className={styles.divider}>
                             <span>or</span>
