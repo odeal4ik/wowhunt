@@ -1,12 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import cn from 'classnames';
 import Image from 'next/image';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { SignUpUserInput, useSignUpUser } from '@/api/auth/signupUser';
-
 import { useGlobalModal } from '@/hooks/useGlobalModal';
+import { SignUpUserInput, useSignUpUser } from '@/queries/auth/signupUser';
 
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { ModalLoginIn } from '../modal-login/modal-login';
@@ -26,15 +25,11 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
         context: { isCustomer },
     });
 
-    const { mutate: signUpUser, isPending, data } = useSignUpUser();
+    const { mutate: signUpUser, isPending, error } = useSignUpUser();
 
-    const backendValidationErrors = useMemo(() => {
-        if (data && 'errors' in data) {
-            return data.errors;
-        }
-    }, [data]);
-
-    const onSubmit: SubmitHandler<Omit<SignUpUserInput, 'type'>> = (input) => {
+    const onSubmit: SubmitHandler<Omit<SignUpUserInput, 'type'>> = async (
+        input,
+    ) => {
         signUpUser({
             ...input,
             type: !isCustomer,
@@ -109,10 +104,9 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                         <p className={styles.error}>
                                             {validationError.email.message}
                                         </p>
-                                    ) : backendValidationErrors?.email
-                                          .length ? (
+                                    ) : error?.email?.length ? (
                                         <p className={styles.error}>
-                                            {backendValidationErrors.email[0]}
+                                            {error.email[0]}
                                         </p>
                                     ) : null}
                                 </label>
@@ -125,8 +119,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                     {...(isPending && { disabled: true })}
                                     className={cn(
                                         styles.input,
-                                        backendValidationErrors?.email.length &&
-                                            styles.error,
+                                        error?.email?.length && styles.error,
                                     )}
                                 />
                             </div>
@@ -205,13 +198,9 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                                     .message
                                             }
                                         </p>
-                                    ) : backendValidationErrors?.discord_link
-                                          .length ? (
+                                    ) : error?.discord_link.length ? (
                                         <p className={styles.error}>
-                                            {
-                                                backendValidationErrors
-                                                    .discord_link[0]
-                                            }
+                                            {error.discord_link[0]}
                                         </p>
                                     ) : null}
                                 </label>
@@ -224,8 +213,8 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                     {...(isPending && { disabled: true })}
                                     className={cn(
                                         styles.input,
-                                        backendValidationErrors?.discord_link
-                                            .length && styles.error,
+                                        error?.discord_link.length &&
+                                            styles.error,
                                     )}
                                 />
                             </div>

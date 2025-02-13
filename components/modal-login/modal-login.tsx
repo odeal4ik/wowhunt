@@ -4,15 +4,14 @@ import Image from 'next/image';
 import { useMemo, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { LogInUserInput, useLogInUser } from '@/api/auth/loginUser';
-
 import { useGlobalModal } from '@/hooks/useGlobalModal';
+import { LogInUserInput, useLogInUser } from '@/queries/auth/loginUser';
 
 import { useEscapeClose } from '../../hooks/useEscapeClose';
+import { ModalForgotPassword } from '../modal-forgot-password/modal-forgot-password';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
 import { schema } from './modal-login-schema';
 import styles from './modal-login.module.css';
-import { ModalForgotPassword } from '../modal-forgot-password/modal-forgot-password';
 
 export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
     const [isBooster, setIsBooster] = useState<boolean>(false);
@@ -157,7 +156,9 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                         </div>
 
                         <button
-                            onClick={() => open(<ModalForgotPassword onClose={close} />)}
+                            onClick={() =>
+                                open(<ModalForgotPassword onClose={close} />)
+                            }
                             className={styles.forgotPassword}>
                             I forgot password
                         </button>
