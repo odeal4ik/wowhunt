@@ -16,7 +16,7 @@ export default function ProfileLayout({
 }) {
     const { push } = useRouter();
 
-    const { data, isLoading, isError, error } = useGetUser();
+    const { isLoading, isError } = useGetUser();
 
     if (isLoading) {
         <div className="">...Loading</div>;
@@ -25,8 +25,6 @@ export default function ProfileLayout({
     if (isError) {
         push('/');
     }
-
-    console.log({ data, isError, error });
 
     return (
         <>

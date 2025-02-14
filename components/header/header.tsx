@@ -12,6 +12,8 @@ import { CatalogBurgerButton } from '@/components/catalog-burger-button/catalog-
 
 import Logo from '@/images/logo/logo.svg';
 
+import { useGetUser } from '@/queries/auth/getUser';
+
 // import { getUser } from '@/api/auth/getUser';
 
 import { ButtonOpenModalLogIn } from '../button-open-modal-logIn/button-open-modal-logIn';
@@ -26,15 +28,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
     const [isSignUpModalVisible, setSignUpModalVisible] = useState(false);
 
-    // const { data, isLoading } = useQuery({
-    //     queryKey: ['user'],
-    //     queryFn: () =>
-    //         getUser({
-    //             token: '1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd5',
-    //         }),
-    // });
-
-    // console.log(data, isLoading);
+    const { data: userData } = useGetUser();
 
     useEffect(() => {
         document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';
@@ -120,9 +114,14 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                         />
                     </Link>
 
-                    <div className={styles.btnLogIn}>
-                        <ButtonOpenModalLogIn />
-                    </div>
+                    {/* TODO add loading for button */}
+                    {userData ? (
+                        <div className={styles.btnLogIn}>LOGOUT</div>
+                    ) : (
+                        <div className={styles.btnLogIn}>
+                            <ButtonOpenModalLogIn />
+                        </div>
+                    )}
                 </div>
             </div>
 
