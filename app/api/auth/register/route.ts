@@ -4,7 +4,7 @@ import { NextRequest } from 'next/server';
 export const POST = async (request: NextRequest) => {
     const body = await request.json();
 
-    const data = await fetch(`${process.env.APP_URL}/api/register`, {
+    const response = await fetch(`${process.env.APP_URL}/api/register`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -13,10 +13,10 @@ export const POST = async (request: NextRequest) => {
         body: JSON.stringify(body),
     });
 
-    const response = await data.json();
+    const data = await response.json();
 
-    if (data.ok && response.token) {
-        const serializedToken = serialize('token', response.token, {
+    if (response.ok && data.token) {
+        const serializedToken = serialize('token', data.token, {
             httpOnly: true,
             secure: process.env.NODE_ENV === 'production',
             sameSite: 'strict',
@@ -33,8 +33,8 @@ export const POST = async (request: NextRequest) => {
                 headers: { 'Set-Cookie': serializedToken },
             },
         );
-    } else if (!data.ok && response.errors) {
-        return new Response(JSON.stringify(response), {
+    } else if (!response.ok && data.errors) {
+        return new Response(JSON.stringify(data), {
             status: 422,
         });
     } else {

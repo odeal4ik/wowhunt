@@ -1,15 +1,39 @@
-import { NextRequest } from 'next/server';
+import { cookies } from 'next/headers';
+import { NextResponse } from 'next/server';
 
-export const GET = async (request: NextRequest) => {
-    console.log(request);
-    const response = await fetch(`https://dev.wowhunt.com/api/user`, {
+export async function GET() {
+    const cookieStore = cookies();
+
+    const token = (await cookieStore).get('token');
+
+    if (!token) {
+        return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
+    }
+
+    // TODO think about FE token validation
+
+    const response = await fetch(`${process.env.APP_URL}/api/user`, {
         headers: {
             Accept: 'application/json',
             'Content-type': 'application/json',
-            // Authorization: `Bearer ${token}`,
-            Authorization: `Bearer 1|H2nydiqMc6wFtD7ymhstMcSy1X9nh2pMDkcv9vq0253e0fd5`,
+            Authorization: `Bearer ${token?.value}`,
         },
     });
-    const parsedResponse = await response.json();
-    return Response.json(parsedResponse);
-};
+
+    const data = await response.json();
+
+    if (response.ok && data.id) {
+        return NextResponse.json(data);
+    } else if (!response.ok && data.errors) {
+        return new Response(JSON.stringify(data), {
+            status: 422,
+        });
+    } else {
+        return new Response(
+            JSON.stringify({ message: 'Oops, something went wrong...' }),
+            {
+                status: 400,
+            },
+        );
+    }
+}

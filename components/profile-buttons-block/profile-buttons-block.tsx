@@ -16,7 +16,7 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
     const [emailNotifications, setEmailNotifications] = useState(true);
     const [pushNotifications, setPushNotifications] = useState(true);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const [isNotificationsOpen, setIsNotificationsOpen] = useState(true);
+    const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
     const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
     const [isChangeEmailOpen, setIsChangeEmailOpen] = useState(false);
 
