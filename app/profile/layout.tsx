@@ -16,12 +16,17 @@ export default function ProfileLayout({
 }) {
     const { push } = useRouter();
 
-    const { isLoading, isError } = useGetUser();
+    const { data, isLoading, isError, error } = useGetUser();
+
+    if (isLoading) {
+        <div className="">...Loading</div>;
+    }
 
     if (isError) {
         push('/');
-        return null;
     }
+
+    console.log({ data, isError, error });
 
     return (
         <>
@@ -29,9 +34,7 @@ export default function ProfileLayout({
             <section className={styles.container}>
                 <div className={styles.wrapper}>
                     <Sidebar />
-                    <main className={styles.content}>
-                        {isLoading ? '...Loading' : children}
-                    </main>
+                    <main className={styles.content}>{children}</main>
                 </div>
             </section>
         </>

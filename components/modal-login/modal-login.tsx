@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import cn from 'classnames';
 import Image from 'next/image';
-import { useMemo, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { useGlobalModal } from '@/hooks/useGlobalModal';
@@ -25,17 +25,20 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
         mode: 'onSubmit',
     });
 
-    const { mutate: logInUser, isPending, data } = useLogInUser();
+    const { mutate, isPending, error } = useLogInUser();
 
-    const backendValidationErrors = useMemo(() => {
-        if (data && 'errors' in data) {
-            return data.errors;
-        }
-    }, [data]);
-
-    const onSubmit: SubmitHandler<Omit<LogInUserInput, 'type'>> = (input) => {
-        logInUser({ ...input, type: isBooster });
-    };
+    const onSubmit: SubmitHandler<Omit<LogInUserInput, 'type'>> = useCallback(
+        async (input) => {
+            return mutate(
+                {
+                    ...input,
+                    type: isBooster,
+                },
+                { onSuccess: onClose },
+            );
+        },
+        [isBooster, mutate, onClose],
+    );
 
     useEscapeClose(true, onClose);
 
@@ -97,10 +100,9 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                                         <p className={styles.error}>
                                             {validationError.email.message}
                                         </p>
-                                    ) : backendValidationErrors?.email
-                                          .length ? (
+                                    ) : error?.email?.length ? (
                                         <p className={styles.error}>
-                                            {backendValidationErrors.email[0]}
+                                            {error.email[0]}
                                         </p>
                                     ) : null}
                                 </label>
@@ -113,8 +115,7 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                                     {...(isPending && { disabled: true })}
                                     className={cn(
                                         styles.input,
-                                        backendValidationErrors?.email.length &&
-                                            styles.error,
+                                        error?.email?.length && styles.error,
                                     )}
                                 />
                             </div>
@@ -129,13 +130,9 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                                         <p className={styles.error}>
                                             {validationError.password.message}
                                         </p>
-                                    ) : backendValidationErrors?.password
-                                          .length ? (
+                                    ) : error?.password?.length ? (
                                         <p className={styles.error}>
-                                            {
-                                                backendValidationErrors
-                                                    .password[0]
-                                            }
+                                            {error.password[0]}
                                         </p>
                                     ) : null}
                                 </label>
@@ -148,8 +145,7 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                                     {...(isPending && { disabled: true })}
                                     className={cn(
                                         styles.input,
-                                        backendValidationErrors?.password
-                                            .length && styles.error,
+                                        error?.password?.length && styles.error,
                                     )}
                                 />
                             </div>
