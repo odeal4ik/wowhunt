@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import cn from 'classnames';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import { useGlobalModal } from '@/hooks/useGlobalModal';
@@ -25,16 +25,20 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
         context: { isCustomer },
     });
 
-    const { mutate: signUpUser, isPending, error } = useSignUpUser();
+    const { mutate, isPending, error } = useSignUpUser();
 
-    const onSubmit: SubmitHandler<Omit<SignUpUserInput, 'type'>> = async (
-        input,
-    ) => {
-        signUpUser({
-            ...input,
-            type: !isCustomer,
-        });
-    };
+    const onSubmit: SubmitHandler<Omit<SignUpUserInput, 'type'>> = useCallback(
+        async (input) => {
+            return mutate(
+                {
+                    ...input,
+                    type: !isCustomer,
+                } as SignUpUserInput,
+                { onSuccess: onClose },
+            );
+        },
+        [isCustomer, mutate, onClose],
+    );
 
     useEscapeClose(true, onClose);
 
@@ -198,7 +202,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                                     .message
                                             }
                                         </p>
-                                    ) : error?.discord_link.length ? (
+                                    ) : error?.discord_link?.length ? (
                                         <p className={styles.error}>
                                             {error.discord_link[0]}
                                         </p>
@@ -213,7 +217,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                     {...(isPending && { disabled: true })}
                                     className={cn(
                                         styles.input,
-                                        error?.discord_link.length &&
+                                        error?.discord_link?.length &&
                                             styles.error,
                                     )}
                                 />

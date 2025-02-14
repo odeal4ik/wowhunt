@@ -11,7 +11,10 @@ export interface SignUpUserInput {
 }
 
 export function useSignUpUser(): {
-    mutate: (input: SignUpUserInput) => void;
+    mutate: (
+        input: SignUpUserInput,
+        { onSuccess }: { onSuccess?: () => void },
+    ) => void;
     isPending: boolean;
     error: { email?: string[]; discord_link?: string[] } | null;
 } {

@@ -1,11 +1,12 @@
-import { useState } from 'react';
 import Image from 'next/image';
-import styles from './profile-buttons-block.module.css';
+import { useState } from 'react';
+
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { ChangeEmailModal } from '../modal-change-email/modal-change-email';
 import { ChangePasswordModal } from '../modal-change-password-profile/modal-change-password-profile';
 import { NotificationsModal } from '../modal-notifications/modal-notifications';
 import { SettingsModal } from '../modal-settings/modal-settings';
+import styles from './profile-buttons-block.module.css';
 
 interface ProfileButtonsBlockProps {
     email: string;
@@ -15,7 +16,7 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
     const [emailNotifications, setEmailNotifications] = useState(true);
     const [pushNotifications, setPushNotifications] = useState(true);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
-    const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
+    const [isNotificationsOpen, setIsNotificationsOpen] = useState(true);
     const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
     const [isChangeEmailOpen, setIsChangeEmailOpen] = useState(false);
 
