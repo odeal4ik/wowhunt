@@ -1,66 +1,73 @@
-/* eslint-disable @next/next/no-img-element */
 import styles from './why-us-section.module.css';
-import cn from 'classnames';
 
-interface WhyUsSectionProps {
-    items: Array<{
-        icon: string;
-        alt: string;
-        text: string;
-        title?: string;
-    }>;
-    image: {
-        src: string;
-        alt: string;
-    };
-    variant?: 'gold' | 'default';
-    className?: string;
-}
-
-export function WhyUsSection({
-    items,
-    image,
-    variant = 'default',
-    className,
-}: WhyUsSectionProps) {
+export function WhyUsSection() {
     return (
-        <section className={cn(styles.whyUs, styles[variant], className)}>
+        <section className={styles.whyUs}>
             <div className={styles.image}>
-                <img src={image.src} alt={image.alt} loading="lazy" />
+                <img src="/images/whyus.png" alt="whyus" loading="lazy" />
             </div>
 
-            <div className={styles.items}>
-                {items.map((item, index) => (
-                    <div key={index} className={styles.item}>
-                        <img
-                            src={item.icon}
-                            alt={item.alt}
-                            className={styles.icon}
-                            loading="lazy"
-                        />
-                        <div className={styles.content}>
-                            {item.title && (
-                                <h3 className={styles.title}>{item.title}</h3>
-                            )}
-                            <p className={styles.text}>{item.text}</p>
-                            {variant === 'default' && index === 2 && (
-                                <p className={styles.trust}>
-                                    <img
-                                        src="/images/trastpilot-star.svg"
-                                        alt="trastpilot"
-                                        loading="lazy"
-                                    />
-                                    <span>Trustpilot</span>
-                                    <img
-                                        src="/images/trustpilot-stars.png"
-                                        alt="trastpilot"
-                                        loading="lazy"
-                                    />
-                                </p>
-                            )}
-                        </div>
+            <div className={styles.wrapper}>
+                <div className={styles.item}>
+                    <img
+                        src="/system-icons/writting.svg"
+                        alt="Why us 1"
+                        className={styles.icon}
+                        loading="lazy"
+                    />
+                    <div className={styles.content}>
+                        <h3 className={styles.title}>ONLINE 24/7</h3>
+                        <p className={styles.text}>
+                            You can always ask any question to our operators in
+                            live chat.
+                        </p>
                     </div>
-                ))}
+                </div>
+
+                <div className={styles.item}>
+                    <img
+                        src="/system-icons/time.svg"
+                        alt="Why us 2"
+                        className={styles.icon}
+                        loading="lazy"
+                    />
+                    <div className={styles.content}>
+                        <h3 className={styles.title}>FAST DELIVERY</h3>
+                        <p className={styles.text}>
+                            We will contact you and start working on your order
+                            within 5 minutes.
+                        </p>
+                    </div>
+                </div>
+
+                <div className={styles.item}>
+                    <img
+                        src="/system-icons/star.svg"
+                        alt="Why us 3"
+                        className={styles.icon}
+                        loading="lazy"
+                    />
+                    <div className={styles.content}>
+                        <h3 className={styles.title}>WE ARE TRUSTED</h3>
+                        <p className={styles.text}>
+                            We are working in the boost industry since 2011. You
+                            can read reviews about us on trustpilot
+                        </p>
+                        <p className={styles.trust}>
+                            <img
+                                src="/images/trastpilot-star.svg"
+                                alt="trastpilot"
+                                loading="lazy"
+                            />
+                            <span>Trustpilot</span>
+                            <img
+                                src="/images/trustpilot-stars.png"
+                                alt="trastpilot"
+                                loading="lazy"
+                            />
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
     );
