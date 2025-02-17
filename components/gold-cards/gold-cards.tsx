@@ -116,7 +116,7 @@ export function GoldCards({ activeRegion, activeFaction }: GoldCardsProps) {
                     <div key={card.id} className={styles.card}>
                         <div className={styles.cardHeader}>
                             <Image
-                                src="/system-icons/gold-icon.svg"
+                                src="/system-icons/gold-icon.png"
                                 alt="Gold"
                                 width={40}
                                 height={40}
@@ -142,7 +142,7 @@ export function GoldCards({ activeRegion, activeFaction }: GoldCardsProps) {
                             </div>
                             <div className={styles.cardFaction}>
                                 <Image
-                                    src={`/system-icons/${activeFaction.toLowerCase()}.svg`}
+                                    src={`/system-icons/${activeFaction.toLowerCase()}.png`}
                                     alt={activeFaction}
                                     width={16}
                                     height={16}

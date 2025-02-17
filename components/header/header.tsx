@@ -106,7 +106,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
 
                     <Link className={styles.basket} href="/shopping-card">
                         <Image
-                            src="/images/basket.svg"
+                            src="/system-icons/basket.svg"
                             alt="Basket"
                             width={18}
                             height={18}

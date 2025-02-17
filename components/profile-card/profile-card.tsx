@@ -149,7 +149,7 @@ export function ProfileCard({ status, price, title, id, details }: OrderCard) {
                     <button
                         className={`${styles.actionButton} ${styles.actionFuttonDone}`}>
                         <Image
-                            src="/system-icons/Done.svg"
+                            src="/system-icons/done.svg"
                             alt="Done"
                             width={18}
                             height={18}

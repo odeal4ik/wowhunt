@@ -8,7 +8,7 @@ export default function ErrorPage404() {
     return (
         <div className={styles.container}>
             <Image
-                src="/images/404.png"
+                src="/images/404.webp"
                 alt="404 Error Illustration"
                 width={820}
                 height={780}

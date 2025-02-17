@@ -48,7 +48,7 @@ export default function Cashback() {
 
             <div className={styles.content}>
                 <Image
-                    src="/images/test.png"
+                    src="/images/whyus_cashback.webp"
                     alt="Cashback"
                     width={491}
                     height={406}

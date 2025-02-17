@@ -23,7 +23,7 @@ export default function Profile() {
                         <UserProfileBlock
                             id="123456789"
                             email="nikita.kudenikov@longdomain.com"
-                            srcImg="/images/avatar-profile.png"
+                            srcImg="/images/avatar-profile.webp"
                         />
                         <Image
                             src={image}
