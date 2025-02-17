@@ -12,7 +12,7 @@ import { CatalogBurgerButton } from '@/components/catalog-burger-button/catalog-
 
 import Logo from '@/images/logo/logo.svg';
 
-import { useGetUser } from '@/queries/auth/getUser';
+import { useGetToken } from '@/queries/auth/getToken';
 
 // import { getUser } from '@/api/auth/getUser';
 
@@ -28,7 +28,9 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
     const [isSignUpModalVisible, setSignUpModalVisible] = useState(false);
 
-    const { data: userData } = useGetUser();
+    const { data: isAuth } = useGetToken();
+
+    console.log('isAuth', isAuth);
 
     useEffect(() => {
         document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';
@@ -115,7 +117,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     </Link>
 
                     {/* TODO add loading for button */}
-                    {userData ? (
+                    {isAuth ? (
                         <div className={styles.btnLogIn}>LOGOUT</div>
                     ) : (
                         <div className={styles.btnLogIn}>
