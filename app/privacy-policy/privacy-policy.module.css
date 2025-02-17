@@ -60,7 +60,7 @@
 
 .title {
     font-family: var(--font-barlow-extra-bold-sans);
-    font-size: 60px;
+    font-size: var(--font-size-h1);
     line-height: 60px;
 
     @media (width <= 1400px) {
@@ -74,7 +74,7 @@
 
     @media (width <= 440px) {
         text-align: center;
-        font-size: 38px;
+        font-size: var(--font-size-h2);
         line-height: 38px;
     }
 }
@@ -83,11 +83,11 @@
     font-family: var(--font-barlow-bold-sans), sans-serif;
     color: var(--yellow-500);
     text-transform: uppercase;
-    font-size: 96px;
+    font-size: var( --font-size-hero);
     line-height: 96px;
 
     @media (width <= 440px) {
-        font-size: 60px;
+        font-size: var(--font-size-h1);
         line-height: 75px;
     }
 }

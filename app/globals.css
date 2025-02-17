@@ -69,10 +69,11 @@ h6 {
     --font-size-s: 14px;
     --font-size-m: 16px;
     --font-size-l: 20px;
-    --font-size-hero: 96px;
-    --font-size-h1: 60px;
+    --font-size-h4: 24px;
+    --font-size-h3: 32px;
     --font-size-h2: 38px;
-    --font-size-h3: 24px;
+    --font-size-h1: 60px;
+    --font-size-hero: 96px;
 
     --font-line-height-125: 1.25;
     --font-line-height-130: 1.3;

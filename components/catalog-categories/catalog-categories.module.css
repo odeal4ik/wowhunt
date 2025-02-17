@@ -40,7 +40,7 @@
     display: inline-flex;
     align-items: flex-end;
     color: var(--text-color);
-    font-size: 32px;
+    font-size: var(--font-size-h3);
     line-height: 1;
     font-family: var(--font-barlow-bold-sans), serif;
 

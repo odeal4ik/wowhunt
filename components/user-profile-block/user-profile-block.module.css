@@ -56,7 +56,7 @@
 
 .idUser {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
 
     @media (width <= 1375px) {
         font-size: var(--font-size-l);

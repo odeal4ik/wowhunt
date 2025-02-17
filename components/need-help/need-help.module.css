@@ -46,12 +46,12 @@
 
 .title {
     color: var(--yellow-500);
-    font-size: 60px;
+    font-size: var(--font-size-h1);
     line-height: 1;
     font-family: var(--font-barlow-extra-bold-sans), serif;
 
     @media (width <= 850px) {
-        font-size: 38px;
+        font-size: var(--font-size-h2);
     }
 }
 
@@ -63,7 +63,7 @@
 
 .button {
     color: var(--dark-soft);
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
     line-height: var(--font-line-height-130);
     font-family: var(--font-barlow-bold-sans), serif;
     cursor: pointer;

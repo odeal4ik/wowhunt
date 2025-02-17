@@ -5,17 +5,17 @@
 }
 
 .title {
-    font-size: 60px;
+    font-size: var(--font-size-h1);
     line-height: 1;
     font-family: var(--font-barlow-bold-sans), serif;
     padding-block-end: 88px;
 
     @media (width <= 768px) {
-        font-size: 38px;
+        font-size: var(--font-size-h2);
     }
 
     @media (width <= 600px) {
-        font-size: 32px;
+        font-size: var(--font-size-h3);
     }
 }
 

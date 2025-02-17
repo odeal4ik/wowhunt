@@ -49,7 +49,7 @@
 
 .cardTitle {
     font-family: var(--font-barlow-bold-sans);
-    font-size: 32px;
+    font-size: var(--font-size-h3);
     line-height: 32px;
     color: var(--text-color);
     padding-block-end: 20px;
@@ -133,7 +133,7 @@
 
 .price {
     font-family: var(--font-barlow-bold-sans);
-    font-size: 32px;
+    font-size: var(--font-size-h3);
     line-height: 32px;
 
     @media (width <= 1024px) {
@@ -144,18 +144,18 @@
 .deleteButton {
     cursor: pointer;
     padding: 10px;
-    background: rgba(75, 75, 119, 0.05);
+    background: var(--neutral-container-soft);
     border: 1px solid rgba(75, 75, 119, 0.3);
     border-radius: 12px;
 
     &:hover {
-        background: rgba(75, 75, 119, 0.2);
-        border: 1px solid #43436a;
+        background: var(--neutral-container-hover);
+        border: 1px solid var(--neutral-hover);
     }
 
     &:active {
-        background: rgba(75, 75, 119, 0.3);
-        border: 1px solid #6d6d91;
+        background: var(--neutral-container-active);
+        border: 1px solid var(--neutral-soft);
     }
 }
 

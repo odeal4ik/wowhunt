@@ -58,7 +58,7 @@
 
 .price {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
     line-height: var(--font-line-height-130);
     margin-block-end: 8px;
 }
@@ -120,7 +120,7 @@
 
 .detailLabel {
     font-family: var(--font-barlow-regular-sans), sans-serif;
-    color: #9f9fb7;
+    color: var(--text-color-secondary);
 }
 
 .detailValue {

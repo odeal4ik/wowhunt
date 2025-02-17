@@ -83,19 +83,19 @@
         line-height: 80px;
     }
     @media (width <= 1284px) {
-        font-size: 96px;
+        font-size: var( --font-size-hero);
         line-height: 96px;
     }
 }
 
 .descriptionMain {
     font-family: var(--font-barlow-bold-sans), serif;
-    font-size: 38px;
+    font-size: var(--font-size-h2);
     line-height: 38px;
     padding-block: 10px;
 
     @media (width <= 456px) {
-        font-size: 32px;
+        font-size: var(--font-size-h3);
         line-height: 32px;
         padding-block: 12px 15px;
     }
@@ -103,7 +103,7 @@
 
 .descriptionSecond {
     font-family: var(--font-barlow-bold-sans), serif;
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
     line-height: var(--font-line-height-130);
     color: var(--neutral-soft);
 

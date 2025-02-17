@@ -45,12 +45,12 @@
 
 .modalTitle {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: 38px;
+    font-size: var(--font-size-h2);
     line-height: 38px;
     margin: 0;
 
     @media (max-width: 768px) {
-        font-size: var(--font-size-h3);
+        font-size: var(--font-size-h4);
         line-height: var(--font-line-height-130);
     }
 }
@@ -185,7 +185,7 @@
 .selectedTitle {
     font-family: var(--font-barlow-bold-sans), sans-serif;
     line-height: var(--font-line-height-130);
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
     padding-block-end: 15px;
 }
 

@@ -22,7 +22,7 @@
     cursor: pointer;
 
     &:hover {
-        background: rgba(75, 75, 119, 0.2);
+        background: var(--neutral-container-hover);
     }
 
     &.activePage {

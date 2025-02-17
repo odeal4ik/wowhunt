@@ -115,7 +115,7 @@
 
 .price {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
     line-height: var(--font-line-height-130);
     padding-block-end: 8px;
     padding-inline-start: 4px;

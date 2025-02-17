@@ -62,7 +62,7 @@
         height: 253px;
         left: 0;
         top: 0;
-        background: #9f9fb7;
+        background: var(--text-color-secondary);
         opacity: 0.1;
         filter: blur(134px);
         border-radius: 50%;

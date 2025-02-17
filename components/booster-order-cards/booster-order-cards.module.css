@@ -1,6 +1,6 @@
 .title {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: 38px;
+    font-size: var(--font-size-h2);
     line-height: 38px;
     padding-block-end: 30px;
 
@@ -13,7 +13,7 @@
     }
 
     @media (width <= 480px) {
-        font-size: var(--font-size-h3);
+        font-size: var(--font-size-h4);
         padding-block: 18px 14px;
     }
 }
@@ -40,11 +40,11 @@
 
 .emptyStateText {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: 38px;
+    font-size: var(--font-size-h2);
     line-height: 38px;
 
     @media (width <= 1024px) {
-        font-size: 24px;
+        font-size: var(--font-size-h4);
         line-height: 130%;
     }
 }

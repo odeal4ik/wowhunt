@@ -67,7 +67,7 @@
     text-transform: uppercase;
     font-family: var(--font-montserrat-bold-sans);
     color: var(--neutral-soft);
-    font-size: 24px;
+    font-size: var(--font-size-h4);
     line-height: 32px;
 }
 

@@ -16,7 +16,7 @@
 .title {
     font-family: var(--font-barlow-extra-bold-sans);
     color: var(--yellow-500);
-    font-size: 60px;
+    font-size: var(--font-size-h1);
     line-height: 60px;
 
     @media (width <= 1024px) {
@@ -24,7 +24,7 @@
     }
 
     @media (width <= 600px) {
-        font-size: 38px;
+        font-size: var(--font-size-h2);
         line-height: 38px;
     }
 }
@@ -64,7 +64,7 @@
 
 .titleForm {
     font-family: var(--font-barlow-bold-sans);
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
     line-height: var(--font-line-height-130);
     margin-block-end: 60px;
 }

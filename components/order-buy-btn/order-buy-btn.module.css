@@ -8,7 +8,7 @@
 
 .orderTotalText {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: 32px;
+    font-size: var(--font-size-h3);
     line-height: 32px;
 }
 
@@ -18,7 +18,7 @@
 
 .buyNowButton {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h3);
+    font-size: var(--font-size-h4);
     color: var(--background);
     background-color: var(--yellow-500);
     text-transform: uppercase;

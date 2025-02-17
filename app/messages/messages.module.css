@@ -23,12 +23,12 @@
 
 .title {
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: 32px;
+    font-size: var(--font-size-h3);
     line-height: 32px;
     padding-block-end: 40px;
 
     @media (width <= 768px) {
-        font-size: 24px;
+        font-size: var(--font-size-h4);
         padding-block-end: 21px;
     }
 }
@@ -70,7 +70,7 @@
 
     &.active {
         background: rgba(75, 75, 119, 0.3);
-        border: 1px solid #6d6d91;
+        border: 1px solid var(--neutral-soft);
         box-shadow:
             0px 0px 1px rgba(68, 83, 113, 0.1),
             0px 2px 2px rgba(68, 83, 113, 0.2);

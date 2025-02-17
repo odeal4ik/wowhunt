@@ -35,7 +35,7 @@
     gap: 8px;
     padding: 7px 44px;
     background: transparent;
-    border: 1px solid #9f9fb7;
+    border: 1px solid var(--text-color-secondary);
     border-radius: 12px;
     color: var(--text-color);
     transition: background-color 0.2s;

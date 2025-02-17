@@ -3,20 +3,20 @@
 }
 
 .title {
-    font-size: 96px;
+    font-size: var( --font-size-hero);
     line-height: 1;
     font-family: var(--font-barlow-bold-sans), serif;
 
     @media (width <= 1024px) {
-        font-size: 60px;
+        font-size: var(--font-size-h1);
     }
 
     @media (width <= 768px) {
-        font-size: 38px;
+        font-size: var(--font-size-h2);
     }
 
     @media (width <= 600px) {
-        font-size: 32px;
+        font-size: var(--font-size-h3);
     }
 }
 

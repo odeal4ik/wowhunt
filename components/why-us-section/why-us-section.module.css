@@ -81,7 +81,7 @@
 }
 
 .title {
-    font-size: 24px;
+    font-size: var(--font-size-h4);
     line-height: 31.2px;
     font-family: var(--font-barlow-bold-sans), serif;
 }
@@ -101,7 +101,7 @@
 
     & > span {
         font-family: var(--font-barlow-bold-sans), serif;
-        font-size: 24px;
+        font-size: var(--font-size-h4);
         line-height: var(--font-line-height-130);
     }
 }
