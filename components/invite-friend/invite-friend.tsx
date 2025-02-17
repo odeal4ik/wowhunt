@@ -17,7 +17,7 @@ export function InviteFriend({ price }: InviteFriendProps) {
                 </div>
 
                 <Image
-                    src="/images/invite-friend2.png"
+                    src="/images/invite-friend.png"
                     alt="Invite friend"
                     width={160}
                     height={170}
