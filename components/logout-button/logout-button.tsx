@@ -8,6 +8,7 @@ type LogutButtonProps = ComponentProps<'button'>;
 
 export function LogutButton(props: LogutButtonProps) {
     const { mutate, isPending } = useLogOutUser();
+
     return (
         <div>
             <button

@@ -5,35 +5,35 @@ import { NextResponse } from 'next/server';
 export const POST = async () => {
     const cookieStore = cookies();
 
-    // const token = (await cookieStore).get('token');
+    const token = (await cookieStore).get('token');
 
-    // const response = await fetch(`${process.env.APP_URL}/api/logout`, {
-    //     headers: {
-    //         Accept: 'application/json',
-    //         'Content-type': 'application/json',
-    //         Authorization: `Bearer ${token?.value}`,
-    //     },
-    // });
+    const response = await fetch(`${process.env.APP_URL}/api/logout`, {
+        method: 'POST',
+        headers: {
+            Accept: 'application/json',
+            'Content-type': 'application/json',
+            Authorization: `Bearer ${token?.value}`,
+        },
+    });
 
-    // const data = await response.json();
-
-    // console.log('response', response);
-    // console.log('status', response.status);
-
+    const data = await response.json();
     (await cookieStore).delete('token');
+    console.log('data', data);
+    console.log('response', response);
+    console.log('status', response.status);
 
-    // if (response.ok) {
-    return NextResponse.json({}, { status: 200 });
-    // } else if (!response.ok && data.errors) {
-    //     return new Response(JSON.stringify(data), {
-    //         status: 401,
-    //     });
-    // } else {
-    //     return new Response(
-    //         JSON.stringify({ message: 'Oops, something went wrong...' }),
-    //         {
-    //             status: 400,
-    //         },
-    //     );
-    // }
+    if (response.ok) {
+        return NextResponse.json({}, { status: 200 });
+    } else if (!response.ok && data.errors) {
+        return new Response(JSON.stringify(data), {
+            status: 401,
+        });
+    } else {
+        return new Response(
+            JSON.stringify({ message: 'Oops, something went wrong...' }),
+            {
+                status: 400,
+            },
+        );
+    }
 };

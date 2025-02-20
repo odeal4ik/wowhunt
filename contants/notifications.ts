@@ -3,6 +3,12 @@ import { NotificationProps } from '@/components/toast-notification/toast-notific
 export const successLoginMessage: NotificationProps = {
     type: 'success',
     title: 'Successfull',
+    message: 'You have successfully logged in',
+};
+
+export const successPasswordChangeMessage: NotificationProps = {
+    type: 'success',
+    title: 'Successfull',
     message: 'Your password has been successfully changed',
 };
 

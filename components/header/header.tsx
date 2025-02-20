@@ -5,7 +5,6 @@ import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
 
 import { Icon } from '@/core-components/icon/icon';
 
@@ -13,14 +12,6 @@ import { CatalogBurgerButton } from '@/components/catalog-burger-button/catalog-
 
 import Logo from '@/images/logo/logo.svg';
 
-import {
-    errorMessage,
-    helpMessage,
-    infoLinkToEmailMessage,
-    skipMessage,
-    successLoginMessage,
-    warningMessage,
-} from '@/contants/notifications';
 import { useGetToken } from '@/queries/auth/getToken';
 
 import { CatalogButton } from '../catalog-button/catalog-button';
@@ -30,7 +21,6 @@ import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
 import { OpenLogInModalButton } from '../open-login-modal-button/open-login-modal-button';
 import { SearchWrapper } from '../search-wrapper/search-wrapper';
 import { SupportAndWork } from '../support-and-work/support-and-work';
-import { ToastNotification } from '../toast-notification/toast-notification';
 import styles from './header.module.css';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
@@ -46,15 +36,6 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     function toggleCatalogVisibility() {
         setIsCatalogVisible(!isCatalogVisible);
     }
-
-    const toastHandler = () => {
-        toast(<ToastNotification {...successLoginMessage} />);
-        toast(<ToastNotification {...infoLinkToEmailMessage} />);
-        toast(<ToastNotification {...warningMessage} />);
-        toast(<ToastNotification {...errorMessage} />);
-        toast(<ToastNotification {...skipMessage} />);
-        toast(<ToastNotification {...helpMessage} />);
-    };
 
     return (
         <header
@@ -78,8 +59,6 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     <SearchWrapper />
 
                     <SupportAndWork />
-
-                    <button onClick={toastHandler}>click</button>
                 </div>
 
                 <div className={styles.rightWrapper}>

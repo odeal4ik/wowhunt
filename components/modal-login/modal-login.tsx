@@ -1,10 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useQueryClient } from '@tanstack/react-query';
 import cn from 'classnames';
 import Image from 'next/image';
 import { useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
+import { successLoginMessage } from '@/contants/notifications';
 import { useGlobalModal } from '@/hooks/useGlobalModal';
 import { LogInUserInput, useLogInUser } from '@/queries/auth/loginUser';
 
@@ -28,6 +30,7 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
     });
 
     const { mutate, isPending, error } = useLogInUser();
+    const queryClient = useQueryClient();
 
     const onSubmit: SubmitHandler<Omit<LogInUserInput, 'type'>> = useCallback(
         async (input) => {
@@ -38,13 +41,14 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                 },
                 {
                     onSuccess: () => {
+                        queryClient.setQueryData(['token'], true);
                         onClose();
-                        toast(ToastNotification);
+                        toast(<ToastNotification {...successLoginMessage} />);
                     },
                 },
             );
         },
-        [isBooster, mutate, onClose],
+        [isBooster, mutate, onClose, queryClient],
     );
 
     useEscapeClose(true, onClose);
