@@ -17,4 +17,8 @@
     @media (width <= 480px) {
         width: 205px;
     }
+
+    &:disabled {
+        filter: grayscale(1);
+    }
 }

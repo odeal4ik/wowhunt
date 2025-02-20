@@ -1,12 +1,14 @@
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
-
-import './globals.css';
+import { Slide, ToastContainer } from 'react-toastify';
 
 import { Footer } from '@/components/footer/footer';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import QueryProvider from '@/providers/QueryProvider';
+
 import { GlobalModalProvider } from '@/providers/ModalProvider';
+import QueryProvider from '@/providers/QueryProvider';
+
+import './globals.css';
 
 const barlowSans = localFont({
     src: './fonts/Barlow/Barlow-Regular.ttf',
@@ -71,6 +73,19 @@ export default function RootLayout({
                         <ReactQueryDevtools initialIsOpen={false} />
                     </GlobalModalProvider>
                 </QueryProvider>
+                <ToastContainer
+                    position="top-right"
+                    autoClose={5000}
+                    hideProgressBar
+                    newestOnTop
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+                    transition={Slide}
+                />
             </body>
         </html>
     );

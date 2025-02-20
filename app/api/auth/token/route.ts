@@ -6,9 +6,5 @@ export async function GET() {
 
     const token = (await cookieStore).get('token');
 
-    if (!token) {
-        return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
-    }
-
-    return NextResponse.json({}, { status: 200 });
+    return NextResponse.json({ token: Boolean(token) }, { status: 200 });
 }

@@ -5,6 +5,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 import { Icon } from '@/core-components/icon/icon';
 
@@ -14,12 +15,12 @@ import Logo from '@/images/logo/logo.svg';
 
 import { useGetToken } from '@/queries/auth/getToken';
 
-// import { getUser } from '@/api/auth/getUser';
-
-import { ButtonOpenModalLogIn } from '../button-open-modal-logIn/button-open-modal-logIn';
 import { CatalogButton } from '../catalog-button/catalog-button';
 import { Catalog } from '../catalog/catalog';
+import { LogutButton } from '../logout-button/logout-button';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
+import { ModalSuccessForgotPassword } from '../modal-success-forgot-password/modal-success-forgot-password';
+import { OpenLogInModalButton } from '../open-login-modal-button/open-login-modal-button';
 import { SearchWrapper } from '../search-wrapper/search-wrapper';
 import { SupportAndWork } from '../support-and-work/support-and-work';
 import styles from './header.module.css';
@@ -28,9 +29,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
     const [isSignUpModalVisible, setSignUpModalVisible] = useState(false);
 
-    const { data: isAuth } = useGetToken();
-
-    console.log('isAuth', isAuth);
+    const { data: isAuth, isLoading: isAuthLoading } = useGetToken();
 
     useEffect(() => {
         document.body.style.overflow = isCatalogVisible ? 'hidden' : 'visible';
@@ -39,6 +38,10 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     function toggleCatalogVisibility() {
         setIsCatalogVisible(!isCatalogVisible);
     }
+
+    const toastHandler = () => {
+        toast(ModalSuccessForgotPassword);
+    };
 
     return (
         <header
@@ -62,6 +65,8 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     <SearchWrapper />
 
                     <SupportAndWork />
+
+                    <button onClick={toastHandler}>click</button>
                 </div>
 
                 <div className={styles.rightWrapper}>
@@ -117,13 +122,13 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     </Link>
 
                     {/* TODO add loading for button */}
-                    {isAuth ? (
-                        <div className={styles.btnLogIn}>LOGOUT</div>
-                    ) : (
-                        <div className={styles.btnLogIn}>
-                            <ButtonOpenModalLogIn />
-                        </div>
-                    )}
+                    <div className={styles.btnLogIn}>
+                        {isAuth ? (
+                            <LogutButton disabled={isAuthLoading} />
+                        ) : (
+                            <OpenLogInModalButton disabled={isAuthLoading} />
+                        )}
+                    </div>
                 </div>
             </div>
 

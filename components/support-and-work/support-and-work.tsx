@@ -1,8 +1,9 @@
-import Link from 'next/link';
-import { ModelWorkWithUs } from '../model-work-with-us/model-work-with-us';
-import styles from './support-and-work.module.css';
 import cn from 'classnames';
-import { ButtonOpenModalLogIn } from '../button-open-modal-logIn/button-open-modal-logIn';
+import Link from 'next/link';
+
+import { ModelWorkWithUs } from '../model-work-with-us/model-work-with-us';
+import { OpenLogInModalButton } from '../open-login-modal-button/open-login-modal-button';
+import styles from './support-and-work.module.css';
 
 export function SupportAndWork({
     location = 'header',
@@ -16,7 +17,7 @@ export function SupportAndWork({
     return (
         <div className={containerClass}>
             <div className={styles.loginButton}>
-                <ButtonOpenModalLogIn />
+                <OpenLogInModalButton />
             </div>
 
             <ModelWorkWithUs>

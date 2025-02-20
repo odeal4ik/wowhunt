@@ -1,0 +1,24 @@
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-l);
+    color: var(--background);
+    line-height: 28px;
+    padding-block: 6px;
+    padding-inline: 16px;
+    border-radius: 8px;
+    background: var(--yellow-500);
+    border: 1px solid var(--yellow-500);
+    cursor: pointer;
+
+    @media (width <= 480px) {
+        width: 205px;
+    }
+
+    &:disabled {
+        filter: grayscale(1);
+    }
+}

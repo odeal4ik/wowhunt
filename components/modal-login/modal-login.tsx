@@ -3,6 +3,7 @@ import cn from 'classnames';
 import Image from 'next/image';
 import { useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
 import { useGlobalModal } from '@/hooks/useGlobalModal';
 import { LogInUserInput, useLogInUser } from '@/queries/auth/loginUser';
@@ -10,6 +11,7 @@ import { LogInUserInput, useLogInUser } from '@/queries/auth/loginUser';
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { ModalForgotPassword } from '../modal-forgot-password/modal-forgot-password';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
+import { ModalSuccessForgotPassword } from '../modal-success-forgot-password/modal-success-forgot-password';
 import { schema } from './modal-login-schema';
 import styles from './modal-login.module.css';
 
@@ -34,7 +36,12 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                     ...input,
                     type: isBooster,
                 },
-                { onSuccess: onClose },
+                {
+                    onSuccess: () => {
+                        onClose();
+                        toast(ModalSuccessForgotPassword);
+                    },
+                },
             );
         },
         [isBooster, mutate, onClose],
@@ -155,7 +162,8 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                             onClick={() =>
                                 open(<ModalForgotPassword onClose={close} />)
                             }
-                            className={styles.forgotPassword}>
+                            className={styles.forgotPassword}
+                            type="button">
                             I forgot password
                         </button>
 
