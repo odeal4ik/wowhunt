@@ -1,7 +1,4 @@
 import { useMutation } from '@tanstack/react-query';
-import { toast } from 'react-toastify';
-
-import { ModalSuccessForgotPassword } from '../../components/modal-success-forgot-password/modal-success-forgot-password';
 
 export interface SignUpUserInput {
     discord_link: string;
@@ -35,9 +32,6 @@ export function useSignUpUser(): {
             } else {
                 return data;
             }
-        },
-        onSuccess: function () {
-            toast(ModalSuccessForgotPassword);
         },
     });
 }

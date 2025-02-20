@@ -86,9 +86,9 @@ h6 {
     /* for cards */
     --success-color: #18e905;
     --error-color: #e40052;
-    --system-color: #BF22F6;
-    --advertisement-color: #22F6D3;
-    --security-color: #37D1F3;
+    --system-color: #bf22f6;
+    --advertisement-color: #22f6d3;
+    --security-color: #37d1f3;
     /* --yellow-500: #fbbf24; --order-status-color:  */
 }
 
@@ -123,4 +123,13 @@ button {
     appearance: none;
     border: none;
     background: none;
+}
+
+/* reset styles for toast */
+
+:root {
+    --toastify-toast-padding: 0;
+    --toastify-toast-bd-radius: 9px;
+    --toastify-toast-shadow: none;
+    --toastify-toast-width: 375px;
 }

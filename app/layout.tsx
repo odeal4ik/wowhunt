@@ -75,16 +75,16 @@ export default function RootLayout({
                 </QueryProvider>
                 <ToastContainer
                     position="top-right"
-                    autoClose={5000}
+                    autoClose={50000}
                     hideProgressBar
                     newestOnTop
-                    closeOnClick
                     rtl={false}
+                    limit={3}
                     pauseOnFocusLoss
-                    draggable
                     pauseOnHover
-                    theme="light"
+                    theme="none"
                     transition={Slide}
+                    closeButton={false}
                 />
             </body>
         </html>

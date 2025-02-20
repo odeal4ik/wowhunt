@@ -11,7 +11,7 @@ import { LogInUserInput, useLogInUser } from '@/queries/auth/loginUser';
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { ModalForgotPassword } from '../modal-forgot-password/modal-forgot-password';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
-import { ModalSuccessForgotPassword } from '../modal-success-forgot-password/modal-success-forgot-password';
+import { ToastNotification } from '../toast-notification/toast-notification';
 import { schema } from './modal-login-schema';
 import styles from './modal-login.module.css';
 
@@ -39,7 +39,7 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                 {
                     onSuccess: () => {
                         onClose();
-                        toast(ModalSuccessForgotPassword);
+                        toast(ToastNotification);
                     },
                 },
             );

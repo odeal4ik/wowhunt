@@ -19,10 +19,10 @@ import { CatalogButton } from '../catalog-button/catalog-button';
 import { Catalog } from '../catalog/catalog';
 import { LogutButton } from '../logout-button/logout-button';
 import { ModalSignUp } from '../modal-sing-up/modal-sing-up';
-import { ModalSuccessForgotPassword } from '../modal-success-forgot-password/modal-success-forgot-password';
 import { OpenLogInModalButton } from '../open-login-modal-button/open-login-modal-button';
 import { SearchWrapper } from '../search-wrapper/search-wrapper';
 import { SupportAndWork } from '../support-and-work/support-and-work';
+import { ToastNotification } from '../toast-notification/toast-notification';
 import styles from './header.module.css';
 
 export function Header({ isBlured }: { isBlured?: boolean }) {
@@ -40,7 +40,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     }
 
     const toastHandler = () => {
-        toast(ModalSuccessForgotPassword);
+        toast(<ToastNotification type="success" />);
     };
 
     return (

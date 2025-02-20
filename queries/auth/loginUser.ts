@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation } from '@tanstack/react-query';
 
 export interface LogInUserInput {
     email: string;
@@ -14,7 +14,6 @@ export function useLogInUser(): {
     isPending: boolean;
     error: { email?: string[]; password?: string[] } | null;
 } {
-    const { setQueryData } = useQueryClient();
     return useMutation({
         mutationFn: async function logInUser(input: LogInUserInput) {
             const response = await fetch('/api/auth/login', {
@@ -29,12 +28,6 @@ export function useLogInUser(): {
             } else {
                 return data;
             }
-        },
-        onSuccess: () => {
-            setQueryData(['token'], true);
-        },
-        onError: () => {
-            setQueryData(['token'], false);
         },
     });
 }
