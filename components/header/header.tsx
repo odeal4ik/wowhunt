@@ -13,6 +13,14 @@ import { CatalogBurgerButton } from '@/components/catalog-burger-button/catalog-
 
 import Logo from '@/images/logo/logo.svg';
 
+import {
+    errorMessage,
+    helpMessage,
+    infoLinkToEmailMessage,
+    skipMessage,
+    successLoginMessage,
+    warningMessage,
+} from '@/contants/notifications';
 import { useGetToken } from '@/queries/auth/getToken';
 
 import { CatalogButton } from '../catalog-button/catalog-button';
@@ -40,7 +48,12 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     }
 
     const toastHandler = () => {
-        toast(<ToastNotification type="success" />);
+        toast(<ToastNotification {...successLoginMessage} />);
+        toast(<ToastNotification {...infoLinkToEmailMessage} />);
+        toast(<ToastNotification {...warningMessage} />);
+        toast(<ToastNotification {...errorMessage} />);
+        toast(<ToastNotification {...skipMessage} />);
+        toast(<ToastNotification {...helpMessage} />);
     };
 
     return (
