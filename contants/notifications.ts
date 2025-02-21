@@ -6,6 +6,12 @@ export const successLoginMessage: NotificationProps = {
     message: 'You have successfully logged in',
 };
 
+export const successSignupMessage: NotificationProps = {
+    type: 'success',
+    title: 'Successfull',
+    message: 'You have successfully signed up',
+};
+
 export const successPasswordChangeMessage: NotificationProps = {
     type: 'success',
     title: 'Successfull',

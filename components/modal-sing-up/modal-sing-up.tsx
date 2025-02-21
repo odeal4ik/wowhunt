@@ -1,14 +1,18 @@
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useQueryClient } from '@tanstack/react-query';
 import cn from 'classnames';
 import Image from 'next/image';
 import React, { useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 
+import { successSignupMessage } from '@/contants/notifications';
 import { useGlobalModal } from '@/hooks/useGlobalModal';
 import { SignUpUserInput, useSignUpUser } from '@/queries/auth/signupUser';
 
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { ModalLoginIn } from '../modal-login/modal-login';
+import { ToastNotification } from '../toast-notification/toast-notification';
 import { schema } from './modal-sign-up-schema';
 import styles from './modal-sing-up.module.css';
 
@@ -26,6 +30,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
     });
 
     const { mutate, isPending, error } = useSignUpUser();
+    const queryClient = useQueryClient();
 
     const onSubmit: SubmitHandler<Omit<SignUpUserInput, 'type'>> = useCallback(
         async (input) => {
@@ -34,10 +39,16 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                     ...input,
                     type: !isCustomer,
                 } as SignUpUserInput,
-                { onSuccess: onClose },
+                {
+                    onSuccess: () => {
+                        queryClient.setQueryData(['token'], true);
+                        onClose();
+                        toast(<ToastNotification {...successSignupMessage} />);
+                    },
+                },
             );
         },
-        [isCustomer, mutate, onClose],
+        [isCustomer, mutate, onClose, queryClient],
     );
 
     useEscapeClose(true, onClose);
