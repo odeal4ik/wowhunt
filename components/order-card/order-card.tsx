@@ -1,8 +1,8 @@
 'use client';
 import styles from './order-card.module.css';
 
-import { Icon } from '../../core-components/icon/icon';
-import Trash from '../../public/system-icons/trash.svg';
+import { Icon } from '@/core-components/icon/icon';
+import Trash from '@/images/system-icons/trash.svg';
 
 interface OrderCardProps {
     initialData: Array<{

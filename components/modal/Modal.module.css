@@ -50,4 +50,10 @@
     &:hover {
         background-color: rgba(75, 75, 119, 0.5);
     }
+
+    & > svg {
+        width: 14px;
+        height: 14px;
+        fill: var(--text-color)
+    }
 }

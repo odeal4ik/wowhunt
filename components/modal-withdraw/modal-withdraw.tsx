@@ -1,6 +1,10 @@
-import Image from 'next/image';
-import styles from './modal-withdraw.module.css';
+import { Icon } from '@/core-components/icon/icon';
+import { Select } from '@/core-components/select/select';
+
+import Close from '@/images/system-icons/close.svg';
+
 import { useEscapeClose } from '../../hooks/useEscapeClose';
+import styles from './modal-withdraw.module.css';
 
 interface BoosterModalWithdrawProps {
     isOpen: boolean;
@@ -11,7 +15,6 @@ export default function BoosterModalWithdraw({
     isOpen,
     onClose,
 }: BoosterModalWithdrawProps) {
-
     useEscapeClose(isOpen, onClose);
     if (!isOpen) return null;
 
@@ -25,13 +28,7 @@ export default function BoosterModalWithdraw({
                     <button
                         onClick={() => onClose()}
                         className={styles.closeButton}>
-                        <Image
-                            src="/system-icons/close.svg"
-                            alt="Close"
-                            width={14}
-                            height={14}
-                            className={styles.closeIcon}
-                        />
+                        <Icon svg={Close} />
                     </button>
                 </div>
 
@@ -40,11 +37,15 @@ export default function BoosterModalWithdraw({
                         <label className={styles.withdrawLabel}>
                             Withdraw to
                         </label>
-                        <select className={styles.withdrawSelect}>
-                            <option>
-                                Visa / Mastercard / МИР (СБП cashout)
-                            </option>
-                        </select>
+                        <Select
+                            titleStyle={styles.titleStyle}
+                            optionsStyle={styles.optionsStyle}
+                            options={[
+                                'Visa / Mastercard / MIR (CIS cadrs) 1',
+                                'Visa / Mastercard / MIR (CIS cadrs) 2',
+                                'Visa / Mastercard / MIR (CIS cadrs) 3',
+                            ]}
+                        />
                         <p className={styles.withdrawCommission}>
                             Commission: 5%, Min: 10$, Max: 99995
                         </p>

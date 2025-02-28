@@ -37,7 +37,7 @@
         right: 0;
         bottom: 0;
         transform: translateY(0);
-        background-image: url('/images/BG.webp');
+        background-image: url('../../public/background/privacy_terms.webp');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

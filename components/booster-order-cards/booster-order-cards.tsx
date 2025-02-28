@@ -2,11 +2,15 @@ import { useState } from 'react';
 import { BoosterOrderCard } from '../booster-order-card/booster-order-card';
 import styles from './booster-order-cards.module.css';
 import { BoosterOrderFilter } from '../booster-order-filter/booster-order-filter';
+import Destiny from '@/images/icons-games/destiny2.svg';
+
+import UEFlag from '@/images/for-cards/eu-flag.svg';
+import USFlag from '@/images/for-cards/us-flag.svg';
 
 interface BoosterOrderCard {
     id: number;
     game: string;
-    img: string;
+    img: SvgrComponent;
     title: string;
     price: number;
     details: {
@@ -15,14 +19,14 @@ interface BoosterOrderCard {
     }[];
     numberOrder: string;
     country: string;
-    countryFlag: string;
+    countryFlag: SvgrComponent;
 }
 
 const orderCards: BoosterOrderCard[] = [
     {
         id: 1,
         game: 'Destiny 2',
-        img: '../system-icons/destiny2.svg',
+        img: Destiny,
         title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
         price: 99.2,
         details: [
@@ -61,12 +65,12 @@ const orderCards: BoosterOrderCard[] = [
         ],
         numberOrder: '№51719',
         country: 'US',
-        countryFlag: '../system-icons/us-flag.svg',
+        countryFlag: USFlag,
     },
     {
         id: 2,
         game: 'Destiny 2',
-        img: '../system-icons/destiny2.svg',
+        img: Destiny,
         title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
         price: 99.2,
         details: [
@@ -105,12 +109,12 @@ const orderCards: BoosterOrderCard[] = [
         ],
         numberOrder: '№51719',
         country: 'US',
-        countryFlag: '../system-icons/us-flag.svg',
+        countryFlag: USFlag,
     },
     {
         id: 3,
         game: 'Destiny 2',
-        img: '../system-icons/destiny2.svg',
+        img: Destiny,
         title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
         price: 99.2,
         details: [
@@ -148,13 +152,13 @@ const orderCards: BoosterOrderCard[] = [
             },
         ],
         numberOrder: '№51719',
-        country: 'US',
-        countryFlag: '../system-icons/us-flag.svg',
+        country: 'UE',
+        countryFlag: UEFlag,
     },
     {
         id: 4,
         game: 'Destiny 2',
-        img: '../system-icons/destiny2.svg',
+        img: Destiny,
         title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
         price: 99.2,
         details: [
@@ -192,13 +196,13 @@ const orderCards: BoosterOrderCard[] = [
             },
         ],
         numberOrder: '№51719',
-        country: 'US',
-        countryFlag: '../system-icons/us-flag.svg',
+        country: 'UE',
+        countryFlag: UEFlag,
     },
     {
         id: 5,
         game: 'Destiny 2',
-        img: '../system-icons/destiny2.svg',
+        img: Destiny,
         title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
         price: 99.2,
         details: [
@@ -237,12 +241,12 @@ const orderCards: BoosterOrderCard[] = [
         ],
         numberOrder: '№51719',
         country: 'US',
-        countryFlag: '../system-icons/us-flag.svg',
+        countryFlag: USFlag,
     },
     {
         id: 6,
         game: 'Destiny 2',
-        img: '../system-icons/destiny2.svg',
+        img: Destiny,
         title: 'Nerub-ar Palace Raid | Heroic + Normal Bundle',
         price: 99.2,
         details: [
@@ -280,8 +284,8 @@ const orderCards: BoosterOrderCard[] = [
             },
         ],
         numberOrder: '№51719',
-        country: 'US',
-        countryFlag: '../system-icons/us-flag.svg',
+        country: 'UE',
+        countryFlag: UEFlag,
     },
 ];
 

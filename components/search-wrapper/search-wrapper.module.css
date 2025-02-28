@@ -40,7 +40,7 @@
     transform: translateY(-50%);
     width: 20px;
     height: 20px;
-    background-image: url('/system-icons/magnifier.svg');
+    /* background-image: url('../../images/system-icons/magnifier.svg'); */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -147,7 +147,7 @@
 
     .searchWrapper > .search.active {
         display: block;
-        background-image: url('/system-icons/magnifier-color.svg');
+        /* background-image: url('/system-icons/magnifier-color.svg'); */
         background-repeat: no-repeat;
         background-position: 12px center;
         padding-block: 10px;

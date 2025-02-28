@@ -1,5 +1,11 @@
-import Image from 'next/image';
+import { Icon } from '@/core-components/icon/icon';
+
 import { Modal } from '@/components/modal/Modal';
+
+import Telegram from '@/images/media/telegram.svg';
+import Mail from '@/images/icons/mail.svg';
+import Notification from '@/images/system-icons/notification.svg';
+
 import styles from './modal-notifications.module.css';
 
 interface NotificationsModalProps {
@@ -39,15 +45,8 @@ export const NotificationsModal = ({
                         <span className={styles.slider}></span>
                     </label>
                     <div className={styles.notificationItem}>
-                        <Image
-                            src="/system-icons/mail.svg"
-                            alt="Email"
-                            width={18}
-                            height={18}
-                        />
-                        <p className={styles.notificationText}>
-                            E-mail
-                        </p>
+                        <Icon svg={Mail} area-label="Mail" />
+                        <p className={styles.notificationText}>E-mail</p>
                     </div>
                 </div>
                 <div className={styles.modalNotificationRow}>
@@ -63,24 +62,12 @@ export const NotificationsModal = ({
                         <span className={styles.slider}></span>
                     </label>
                     <div className={styles.notificationItem}>
-                        <Image
-                            src="/system-icons/notification.svg"
-                            alt="Push"
-                            width={18}
-                            height={18}
-                        />
-                        <p className={styles.notificationText}>
-                            Push
-                        </p>
+                        <Icon svg={Notification} area-label="Notification" />
+                        <p className={styles.notificationText}>Push</p>
                     </div>
                 </div>
                 <button className={styles.modalButton}>
-                    <Image
-                        src="/system-icons/telegram.svg"
-                        alt="Telegram"
-                        width={16}
-                        height={16}
-                    />
+                    <Icon svg={Telegram} area-label="Telegram" />
                     Telegram
                 </button>
 

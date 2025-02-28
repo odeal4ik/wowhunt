@@ -1,7 +1,13 @@
-import Image from 'next/image';
 import cn from 'classnames';
-import styles from './gold-cards.module.css';
+import Image from 'next/image';
 import { useState } from 'react';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import UEFlag from '@/images/for-cards/eu-flag.svg';
+import USFlag from '@/images/for-cards/us-flag.svg';
+
+import styles from './gold-cards.module.css';
 
 const goldCards = [
     {
@@ -75,7 +81,7 @@ const goldCards = [
         inStock: 15002584,
         count: 2345600,
         price: 4.38,
-    }
+    },
 ];
 
 interface GoldCardsProps {
@@ -132,19 +138,21 @@ export function GoldCards({ activeRegion, activeFaction }: GoldCardsProps) {
 
                         <div className={styles.cardDetails}>
                             <div className={styles.cardRegion}>
-                                <Image
-                                    src={`/system-icons/${activeRegion.toLowerCase()}-flag.svg`}
-                                    alt={activeRegion}
-                                    width={16}
-                                    height={16}
+                                <Icon
+                                    svg={
+                                        activeRegion === 'EU' ? UEFlag : USFlag
+                                    }
+                                    aria-label={
+                                        activeRegion === 'EU' ? 'EU' : 'US'
+                                    }
                                 />
                                 <p>{activeRegion}</p>
                             </div>
                             <div className={styles.cardFaction}>
                                 <Image
-                                    src={`/system-icons/${activeFaction.toLowerCase()}.png`}
+                                    src={`/for-cards/${activeFaction.toLowerCase()}.png`}
                                     alt={activeFaction}
-                                    width={16}
+                                    width={12}
                                     height={16}
                                 />
                                 <p>{activeFaction}</p>
@@ -159,7 +167,12 @@ export function GoldCards({ activeRegion, activeFaction }: GoldCardsProps) {
                             <button
                                 type="button"
                                 className={styles.cardAmountBtn}
-                                onClick={() => handleChangeAmount(card.id, Math.max(card.count - 100, 0))}>
+                                onClick={() =>
+                                    handleChangeAmount(
+                                        card.id,
+                                        Math.max(card.count - 100, 0),
+                                    )
+                                }>
                                 −
                             </button>
                             <p className={styles.cardAmountValue}>
@@ -168,7 +181,12 @@ export function GoldCards({ activeRegion, activeFaction }: GoldCardsProps) {
                             <button
                                 type="button"
                                 className={styles.cardAmountBtn}
-                                onClick={() => handleChangeAmount(card.id, card.count + 100)}>
+                                onClick={() =>
+                                    handleChangeAmount(
+                                        card.id,
+                                        card.count + 100,
+                                    )
+                                }>
                                 +
                             </button>
                         </div>

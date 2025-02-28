@@ -1,20 +1,32 @@
+import Image from 'next/image';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import Star from '@/images/icons/star.svg';
+import Time from '@/images/icons/time.svg';
+import TrustpilotStarGreen from '@/images/icons/trastpilot-star-green.svg';
+import TrustpilotStar from '@/images/icons/trastpilot-star.svg';
+import Chat from '@/images/icons/writting.svg';
+
 import styles from './why-us-section.module.css';
 
 export function WhyUsSection() {
     return (
         <section className={styles.whyUs}>
-            <div className={styles.image}>
-                <img src="/images/whyus.png" alt="whyus" loading="lazy" />
-            </div>
+            <Image
+                src="/images/whyus.webp"
+                alt="whyus"
+                width={631}
+                height={613}
+                loading="lazy"
+                className={styles.image}
+            />
 
             <div className={styles.wrapper}>
                 <div className={styles.item}>
-                    <img
-                        src="/system-icons/writting.svg"
-                        alt="Why us 1"
-                        className={styles.icon}
-                        loading="lazy"
-                    />
+                    <div className={styles.iconWrapper}>
+                        <Icon svg={Chat} aria-label="chat" />
+                    </div>
                     <div className={styles.content}>
                         <h3 className={styles.title}>ONLINE 24/7</h3>
                         <p className={styles.text}>
@@ -25,12 +37,9 @@ export function WhyUsSection() {
                 </div>
 
                 <div className={styles.item}>
-                    <img
-                        src="/system-icons/time.svg"
-                        alt="Why us 2"
-                        className={styles.icon}
-                        loading="lazy"
-                    />
+                    <div className={styles.iconWrapper}>
+                        <Icon svg={Time} aria-label="time" />
+                    </div>
                     <div className={styles.content}>
                         <h3 className={styles.title}>FAST DELIVERY</h3>
                         <p className={styles.text}>
@@ -41,31 +50,37 @@ export function WhyUsSection() {
                 </div>
 
                 <div className={styles.item}>
-                    <img
-                        src="/system-icons/star.svg"
-                        alt="Why us 3"
-                        className={styles.icon}
-                        loading="lazy"
-                    />
+                    <div className={styles.iconWrapper}>
+                        <Icon svg={Star} aria-label="star" />
+                    </div>
                     <div className={styles.content}>
                         <h3 className={styles.title}>WE ARE TRUSTED</h3>
                         <p className={styles.text}>
                             We are working in the boost industry since 2011. You
                             can read reviews about us on trustpilot
                         </p>
-                        <p className={styles.trust}>
-                            <img
-                                src="/images/trastpilot-star.svg"
-                                alt="trastpilot"
-                                loading="lazy"
-                            />
-                            <span>Trustpilot</span>
-                            <img
-                                src="/images/trustpilot-stars.png"
-                                alt="trastpilot"
-                                loading="lazy"
-                            />
-                        </p>
+                        <a
+                            className={styles.trust}
+                            href="https://www.trustpilot.com/review/wowhunt.com"
+                            target="_blank">
+                            <div className={styles.trustInfo}>
+                                <Icon
+                                    svg={TrustpilotStarGreen}
+                                    aria-label="star"
+                                />
+                                <span>Trustpilot</span>
+                            </div>
+                            <div className={styles.stars}>
+                                {[...Array(5)].map((_, index) => (
+                                    <Icon
+                                        key={index}
+                                        svg={TrustpilotStar}
+                                        fill="currentColor"
+                                        aria-label="star"
+                                    />
+                                ))}
+                            </div>
+                        </a>
                     </div>
                 </div>
             </div>

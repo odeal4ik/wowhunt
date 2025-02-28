@@ -148,6 +148,11 @@
     border: 1px solid rgba(75, 75, 119, 0.3);
     border-radius: 12px;
 
+    & > svg {
+        width: 24px;
+        height: 24px;
+    }
+
     &:hover {
         background: var(--neutral-container-hover);
         border: 1px solid var(--neutral-hover);

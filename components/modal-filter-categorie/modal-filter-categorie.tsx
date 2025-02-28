@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
-import styles from './modal-filter-categorie.module.css';
-import Image from 'next/image';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import Destiny2Gold from '@/images/icons-games/destiny2-gold.svg';
+import WoWGold from '@/images/icons-games/wow-gold.svg';
+import Close from '@/images/system-icons/close.svg';
+import Search from '@/images/system-icons/search.svg';
+
 import { useEscapeClose } from '../../hooks/useEscapeClose';
+import styles from './modal-filter-categorie.module.css';
 
 interface Category {
     id: string;
     name: string;
     game: string;
-    gameIcon: string;
+    gameIcon: SvgrComponent;
 }
 
 const categories: Category[] = [
@@ -15,37 +22,37 @@ const categories: Category[] = [
         id: '1',
         name: 'Nightfalls',
         game: 'Destiny 2',
-        gameIcon: '../../system-icons/destiny2-gold.svg',
+        gameIcon: Destiny2Gold,
     },
     {
         id: '2',
         name: 'Seals & Triumphs',
         game: 'Destiny 2',
-        gameIcon: '../../system-icons/destiny2-gold.svg',
+        gameIcon: Destiny2Gold,
     },
     {
         id: '3',
         name: 'Episode Echoes',
         game: 'Destiny 2',
-        gameIcon: '../../system-icons/destiny2-gold.svg',
+        gameIcon: Destiny2Gold,
     },
     {
         id: '4',
         name: 'Mythic+ Dungeons',
         game: 'WoW TWW',
-        gameIcon: '../../system-icons/wow-gold.svg',
+        gameIcon: WoWGold,
     },
     {
         id: '5',
         name: '🔥 HOT OFFERS 🔥',
         game: 'WoW TWW',
-        gameIcon: '../../system-icons/wow-gold.svg',
+        gameIcon: WoWGold,
     },
     {
         id: '6',
         name: 'Heritage',
         game: 'WoW TWW',
-        gameIcon: '../../system-icons/wow-gold.svg',
+        gameIcon: WoWGold,
     },
 ];
 
@@ -56,7 +63,9 @@ interface CategoriesModalProps {
 
 export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedCategories, setSelectedCategories]= useState<Category[]>([]);
+    const [selectedCategories, setSelectedCategories] = useState<Category[]>(
+        [],
+    );
 
     useEscapeClose(isOpen, onClose);
 
@@ -105,12 +114,7 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                 <div className={styles.modalHeader}>
                     <h2 className={styles.modalTitle}>Choose categories</h2>
                     <button onClick={onClose} className={styles.closeButton}>
-                        <Image
-                            src="/system-icons/close.svg"
-                            alt="Close"
-                            width={14}
-                            height={14}
-                        />
+                        <Icon svg={Close} />
                     </button>
                 </div>
 
@@ -122,13 +126,9 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                    <Image
-                        src="/system-icons/magnifier-color.svg"
-                        alt="Search"
-                        width={24}
-                        height={24}
-                        className={styles.searchIcon}
-                    />
+                    <div className={styles.searchIcon}>
+                        <Icon svg={Search} />
+                    </div>
                 </div>
 
                 <div className={styles.categoriesList}>
@@ -136,12 +136,9 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                         ([game, gameCategories]) => (
                             <div key={game} className={styles.gameSection}>
                                 <h3 className={styles.gameTitle}>
-                                    <Image
-                                        src={gameCategories[0].gameIcon}
-                                        alt={game}
-                                        width={24}
-                                        height={24}
-                                        className={styles.gameIcon}
+                                    <Icon
+                                        svg={gameCategories[0].gameIcon}
+                                        aria-label={game}
                                     />
                                     {game}
                                 </h3>
@@ -192,7 +189,8 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                                 <div
                                     key={category.id}
                                     className={styles.selectedCategory}>
-                                    <div className={styles.selectedCategoryInfo}>
+                                    <div
+                                        className={styles.selectedCategoryInfo}>
                                         <p
                                             className={
                                                 styles.selectedCategoryGame
@@ -212,12 +210,7 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                                         onClick={() =>
                                             removeCategory(category.id)
                                         }>
-                                        <Image
-                                            src="/system-icons/close.svg"
-                                            alt="Close"
-                                            width={14}
-                                            height={14}
-                                        />
+                                        <Icon svg={Close} />
                                     </button>
                                 </div>
                             ))}

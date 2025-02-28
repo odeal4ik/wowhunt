@@ -199,6 +199,12 @@
             & > .icon {
                 transition: rotate 0.3s;
             }
+
+            & > .icon > svg {
+                width: 24px;
+                rotate: 180deg;
+            }
+
         }
 
         &[open] > summary > .icon {

@@ -170,6 +170,17 @@
     margin-bottom: 4px;
     position: relative;
 
+    & > svg { 
+        width: 24px;
+        height: 24px;
+        fill: transparent;
+
+        @media (width <= 1200px) {
+            width: 18px;
+            height: 18px;
+        }
+    }
+
     @media (width <= 1550px) {
         margin-bottom: 0;
     }
@@ -231,13 +242,6 @@
     }
 }
 
-.arrow {
-    @media (width <= 1200px) {
-        width: 18px;
-        height: 18px;
-    }
-}
-
 .buttonsReportsContainer {
     display: flex;
     flex-direction: column;
@@ -273,6 +277,10 @@
 
     &:hover {
         background-color: rgba(31, 41, 55, 0.8);
+    }
+
+    &:hover > svg {
+        fill: rgba(31, 41, 55, 0.8);
     }
 }
 

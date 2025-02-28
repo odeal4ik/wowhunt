@@ -6,6 +6,10 @@ import { useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
+import { Icon } from '@/core-components/icon/icon';
+import Facebook from '@/images/media/facebook.svg';
+import Google from '@/images/media/google.svg';
+
 import { successLoginMessage } from '@/contants/notifications';
 import { useGlobalModal } from '@/hooks/useGlobalModal';
 import { LogInUserInput, useLogInUser } from '@/queries/auth/loginUser';
@@ -179,23 +183,13 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                             <button
                                 type="button"
                                 className={styles.socialButton}>
-                                <Image
-                                    src="/system-icons/facebook.svg"
-                                    alt="Facebook"
-                                    width={25}
-                                    height={25}
-                                />
+                                <Icon svg={Facebook} aria-label="Facebook" />
                                 Facebook
                             </button>
                             <button
                                 type="button"
                                 className={styles.socialButton}>
-                                <Image
-                                    src="/system-icons/google.svg"
-                                    alt="Google"
-                                    width={25}
-                                    height={25}
-                                />
+                                <Icon svg={Google} aria-label="Google" />
                                 Google
                             </button>
                         </div>

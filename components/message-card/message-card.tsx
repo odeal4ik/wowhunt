@@ -1,7 +1,9 @@
 import styles from './message-card.module.css';
-import Image from 'next/image';
 import { Message } from '../../app/messages/page';
 import { useState } from 'react';
+
+import {Icon} from '@/core-components/icon/icon';
+import Support from '@/images/system-icons/support.svg';
 
 interface MessageCardProps {
     message: Message;
@@ -32,23 +34,13 @@ export default function MessageCard({ message }: MessageCardProps) {
                 <div className={styles.actions}>
                     {message.hasSupport && (
                         <button className={styles.supportButton}>
-                            <Image
-                                src="/system-icons/support-white.svg"
-                                alt="Support"
-                                width={24}
-                                height={24}
-                            />
+                            <Icon svg={Support} aria-label="Support" />
                             Support
                         </button>
-                    )}
+                    ) }
                     {message.hasChat && (
                         <button className={styles.chatButton}>
-                            <Image
-                                src="/system-icons/support-white.svg"
-                                alt="Support"
-                                width={24}
-                                height={24}
-                            />
+                             <Icon svg={Support} aria-label="Support" />
                             Chat
                         </button>
                     )}

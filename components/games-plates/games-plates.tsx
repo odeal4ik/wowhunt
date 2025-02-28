@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 import styles from './games-plates.module.css';
 
@@ -100,10 +100,12 @@ export function GamesPlates() {
                                 .replace("'", '')}`}
                             className={styles.plate}
                             key={gameNames[index]}>
-                            <img
+                            <Image
                                 className={styles.image}
                                 src={`/games-icons/game${index + 1}.png`}
                                 alt={gameNames[index]}
+                                width={90}
+                                height={90}
                                 loading="lazy"
                             />
                             <span className={styles.label}>

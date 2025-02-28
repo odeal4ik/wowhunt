@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { Icon } from '@/core-components/icon/icon';
+import Close from '@/images/system-icons/close.svg';
 import styles from './model-my-withdraw.module.css';
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 
@@ -70,13 +71,7 @@ export default function ModalMyWithdraw({
                     <button
                         onClick={() => onClose()}
                         className={styles.closeButton}>
-                        <Image
-                            src="/system-icons/close.svg"
-                            alt="Close"
-                            width={14}
-                            height={14}
-                            className={styles.closeIcon}
-                        />
+                        <Icon svg={Close} />
                     </button>
                 </div>
 

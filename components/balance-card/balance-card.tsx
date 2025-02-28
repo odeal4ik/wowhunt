@@ -2,18 +2,23 @@ import {
     CategoryScale,
     Chart as ChartJS,
     Legend,
-    LinearScale,
     LineElement,
+    LinearScale,
     PointElement,
     Title,
     Tooltip,
 } from 'chart.js';
 import React, { useState } from 'react';
+
+import { Icon } from '@/core-components/icon/icon';
+import ArrowUp from '@/images/for-cards/arrow-up.svg';
+import Download from '@/images/system-icons/download.svg';
+import Watch from '@/images/system-icons/watch.svg';
+
 import { BalanceChart } from '../balance-chart/balance-chart';
-import Image from 'next/image';
-import styles from './balance-card.module.css';
 import BoosterModalWithdraw from '../modal-withdraw/modal-withdraw';
 import ModalMyWithdraw from '../model-my-withdraw/model-my-withdraw';
+import styles from './balance-card.module.css';
 
 ChartJS.register(
     LineElement,
@@ -117,12 +122,9 @@ export function BalanceCard({
                                         ,{decimalNumber}
                                     </span>
                                     {isIncreasingBalance && (
-                                        <Image
-                                            src="/system-icons/arrow-up.svg"
-                                            alt="Increasing"
-                                            width={24}
-                                            height={24}
-                                            className={styles.arrow}
+                                        <Icon
+                                            svg={ArrowUp}
+                                            aria-label="Increasing"
                                         />
                                     )}
                                 </div>
@@ -150,12 +152,9 @@ export function BalanceCard({
                                             ,{decimalNumber}
                                         </span>
                                         {isIncreasingLastOrder && (
-                                            <Image
-                                                src="/system-icons/arrow-up.svg"
-                                                alt="Increasing"
-                                                width={24}
-                                                height={24}
-                                                className={styles.arrow}
+                                            <Icon
+                                                svg={ArrowUp}
+                                                aria-label="Increasing"
                                             />
                                         )}
                                     </div>
@@ -168,26 +167,18 @@ export function BalanceCard({
                         <div className={styles.buttonsReportsContainer}>
                             <button
                                 type="button"
-                                className={`${styles.buttonReport} ${styles.buttonDownload}`}>
-                                <Image
-                                    src="/system-icons/download.svg"
-                                    alt="Download"
-                                    width={24}
-                                    height={24}
-                                    onClick={() => setIsModalWithdrawOpen(true)}
-                                />
+                                className={`${styles.buttonReport} ${styles.buttonDownload}`}
+                                onClick={() => setIsModalWithdrawOpen(true)}>
+                                <Icon svg={Download} area-label="Download" />
                             </button>
                             <button
                                 type="button"
-                                className={`${styles.buttonReport} ${styles.buttonHistory}`}>
-                                <Image
-                                    src="/system-icons/watch.svg"
-                                    alt="History"
-                                    width={20}
-                                    height={18}
-                                    onClick={() =>
-                                        setIsModalMyWithdrawOpen(true)
-                                    }
+                                className={`${styles.buttonReport} ${styles.buttonHistory}`}
+                                onClick={() => setIsModalMyWithdrawOpen(true)}>
+                                <Icon
+                                    svg={Watch}
+                                    area-label="History"
+                                    fill="#343453"
                                 />
                             </button>
                         </div>

@@ -83,6 +83,11 @@
     block-size: 24px;
     flex-shrink: 0;
 
+    & > svg {
+        width: 10px;
+        fill: var(--text-color-secondary);
+    }
+
     &:hover {
         background: var(--neutral-container-hover);
     }

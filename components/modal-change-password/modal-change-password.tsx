@@ -1,9 +1,20 @@
 'use client';
 
-import React, { useState } from 'react';
-import styles from './modal-change-password.module.css';
 import Image from 'next/image';
+import React, { useState } from 'react';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import Close from '@/images/system-icons/close.svg';
+import PasswordHide from '@/images/system-icons/password-hide.svg';
+import PasswordShow from '@/images/system-icons/password-show.svg';
+
+import error from '@/images/notifications/error.min.svg';
+import success from '@/images/notifications/success-green.min.svg';
+import attention from '@/images/notifications/warning.min.svg';
+
 import { useEscapeClose } from '../../hooks/useEscapeClose';
+import styles from './modal-change-password.module.css';
 
 interface PasswordCriteria {
     lowercase: boolean;
@@ -23,7 +34,6 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
 }) => {
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
-    const [isSubmitted, setIsSubmitted] = useState(false);
     const [criteria, setCriteria] = useState<PasswordCriteria>({
         lowercase: false,
         uppercase: false,
@@ -43,7 +53,6 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
     const resetState = () => {
         setPassword('');
         setShowPassword(false);
-        setIsSubmitted(false);
         setCriteria({
             lowercase: false,
             uppercase: false,
@@ -78,28 +87,24 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setIsSubmitted(true);
 
         if (!password) {
             return;
         }
 
         if (Object.values(criteria).every(Boolean)) {
-            // Здесь будет логика изменения пароля
-            console.log('Password changed successfully');
             resetState();
             onClose();
         }
     };
 
-    const getStatusIcon = (criterionMet: boolean) => {
-        if (isSubmitted) {
-            return criterionMet ? 'success' : 'error';
+    const getStatusIcon = (isValid: boolean) => {
+        if (isValid) {
+            return success;
+        } else if (!isValid) {
+            return error;
         }
-        if (!password) {
-            return 'attention';
-        }
-        return criterionMet ? 'success' : 'attention';
+        return attention;
     };
 
     const handleMouseDown = (e: React.MouseEvent) => {
@@ -113,18 +118,13 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
         <div className={styles.overlay} onClick={handleClose}>
             <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                 <button className={styles.closeButton} onClick={handleClose}>
-                    <Image
-                        src="system-icons/close.svg"
-                        alt="Close"
-                        width={12}
-                        height={12}
-                    />
+                    <Icon svg={Close} />
                 </button>
 
                 <div className={styles.modalContent}>
                     <div className={styles.imgWrapper}>
                         <Image
-                            src="/images/new-password.webp"
+                            src="/images/password.webp"
                             alt="Key"
                             width={449}
                             height={172}
@@ -145,19 +145,14 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
                                     value={password}
                                     onChange={handlePasswordChange}
                                     placeholder="New password"
+                                    autoComplete="off"
                                     className={styles.input}
                                 />
                                 <button
                                     type="button"
                                     className={styles.eyeButton}
                                     onMouseDown={handleMouseDown}>
-                                    <Image
-                                        src={`/system-icons/password-${showPassword ? 'show' : 'hide'}.svg`}
-                                        alt="Toggle password visibility"
-                                        width={24}
-                                        height={24}
-                                        className={styles.eyeIcon}
-                                    />
+                                    <Icon svg={showPassword ? PasswordShow : PasswordHide} />
                                 </button>
                             </div>
 
@@ -169,13 +164,7 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
                                     <div
                                         key={key}
                                         className={styles.criteriaItem}>
-                                        <Image
-                                            src={`/system-icons/${getStatusIcon(criteria[key])}.svg`}
-                                            alt="Status"
-                                            width={20}
-                                            height={20}
-                                            className={styles.criteriaIcon}
-                                        />
+                                        <Icon svg={getStatusIcon(criteria[key])} />
                                         {label}
                                     </div>
                                 ))}

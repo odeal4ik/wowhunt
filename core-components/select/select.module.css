@@ -27,8 +27,8 @@
         position: absolute;
         top: 50%;
         right: 12px;
+        width: 24px;
         translate: 0 -50%;
-        rotate: 180deg;
         transition: rotate 0.2s ease;
     }
 
@@ -37,14 +37,13 @@
         outline: rgb(251, 191, 36, 0.1) 4px solid;
 
         & > svg {
-            rotate: 0deg;
+            rotate: 180deg;
         }
     }
 }
 
 .list {
     position: absolute;
-
     left: 0;
     top: 100%;
     width: 100%;
@@ -56,6 +55,12 @@
     border-radius: 6px;
     background-color: #171930;
     padding-block: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    max-height: 200px;
+    scrollbar-width: thin;
+    scrollbar-color: #17172d #282846;
 
     .item {
         width: 100%;

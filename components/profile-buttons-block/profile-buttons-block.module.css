@@ -103,6 +103,12 @@ input:checked + .slider:before {
     border-radius: 8px;
     cursor: pointer;
 
+    & > svg {
+        width: 18px;
+        height: 18px;
+        fill: var(--yellow-500);
+    }
+
     @media (width <= 1440px) {
         padding-inline: 15px;
     }
@@ -172,6 +178,10 @@ input:checked + .slider:before {
         color: var(--text-primary);
         cursor: pointer;
         width: 100%;
+    }
+
+    & > svg {
+        fill: transparent;
     }
 
     .mobileButton:hover {
@@ -292,9 +302,6 @@ input:checked + .slider:before {
     max-width: 350px;
     padding-inline: 20px;
     padding-block: 29px 27px;
-}
-
-.changePasswordModal {
 }
 
 .changePasswordModalTitle {

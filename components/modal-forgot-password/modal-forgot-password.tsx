@@ -1,7 +1,13 @@
-import React, { useState } from 'react';
-import styles from './modal-forgot-password.module.css';
 import Image from 'next/image';
+import React, { useState } from 'react';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import Close from '@/images/system-icons/close.svg';
+
 import { useEscapeClose } from '@/hooks/useEscapeClose';
+
+import styles from './modal-forgot-password.module.css';
 
 export const ModalForgotPassword = ({ onClose }: { onClose: () => void }) => {
     const [email, setEmail] = useState('');
@@ -12,17 +18,12 @@ export const ModalForgotPassword = ({ onClose }: { onClose: () => void }) => {
         <div className={styles.overlay} onClick={onClose}>
             <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                 <button className={styles.closeButton} onClick={onClose}>
-                    <Image
-                        src="system-icons/close.svg"
-                        alt="Close"
-                        width={14}
-                        height={14}
-                    />
+                    <Icon svg={Close} />
                 </button>
 
                 <div className={styles.imageContainer}>
                     <Image
-                        src="/images/forgot-password.webp"
+                        src="/images/password.webp"
                         alt="Key icon"
                         width={450}
                         height={172}

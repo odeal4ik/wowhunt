@@ -1,41 +1,63 @@
-import { useState } from 'react';
 import cn from 'classnames';
+import { useEffect, useState } from 'react';
 
-import { Icon } from '../icon/icon';
+import { Icon } from '@/core-components/icon/icon';
 
-import Chevron from '../../public/system-icons/chevron.svg';
+import Chevron from '@/images/system-icons/arrow-сhevron.svg';
 
 import styles from './select.module.css';
 
-export function Select() {
+interface SelectProps {
+    title?: string;
+    options: string[];
+    titleStyle?: string;
+    optionsStyle?: string;
+}
+
+export function Select({
+    title,
+    options = [],
+    optionsStyle,
+    titleStyle,
+}: SelectProps) {
     const [isOpen, setIsOpen] = useState(false);
-    const [selected, setSelected] = useState('Title');
+    const [selected, setSelected] = useState(title || options?.[0] || '');
+
+    useEffect(() => {
+        setSelected(title || options?.[0] || '');
+    }, [title, options]);
+
     return (
-        <div className={styles.wrapper}>
+        <div
+            className={cn(styles.wrapper, optionsStyle)}
+            tabIndex={0}
+            onBlur={() => setIsOpen(false)}>
             <div
-                className={cn(styles.label, { [styles.open]: isOpen })}
+                className={cn(styles.label, titleStyle, {
+                    [styles.open]: isOpen,
+                })}
                 role="button"
                 onClick={() => setIsOpen(!isOpen)}>
                 {selected}
-                <Icon svg={Chevron} />
+                <Icon svg={Chevron} fill="#858FA3" />
             </div>
-            {isOpen && (
+            {isOpen && options && (
                 <ul className={styles.list}>
-                    {Array.from({ length: 4 }).map((_, index) => (
+                    {options.map((option, index) => (
                         <li
                             className={cn(styles.item, {
-                                [styles.selected]:
-                                    selected === `Option ${index + 1}`,
+                                [styles.selected]: selected === option,
                             })}
                             key={index}
-                            onClick={() =>
+                            onClick={() => {
                                 setSelected(
-                                    selected === `Option ${index + 1}`
-                                        ? 'Title'
-                                        : `Option ${index + 1}`,
-                                )
-                            }>
-                            Option {index + 1}
+                                    selected === option
+                                        ? title || options[0]
+                                        : option,
+                                );
+                                setIsOpen(false);
+                            }}>
+                            {option}
                         </li>
                     ))}
                 </ul>

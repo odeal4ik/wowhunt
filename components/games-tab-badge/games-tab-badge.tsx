@@ -1,4 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
+import { Icon } from '@/core-components/icon/icon';
+
+import Clock from '@/images/for-cards/clock.svg';
+import Flame from '@/images/for-cards/flame.svg';
+
 import styles from './games-tab-badge.module.css';
 
 export function GamesTabBadge({
@@ -12,23 +16,14 @@ export function GamesTabBadge({
         <div className={styles.wrapper}>
             {isHotOffer ? (
                 <div className={styles.hotOffer}>
-                    HOT OFFER{' '}
-                    <img
-                        src="/badges/flame.svg"
-                        alt="hot offer"
-                        loading="lazy"
-                    />
+                    HOT OFFER <Icon svg={Flame} />
                 </div>
             ) : null}
 
             {isWeeklyOffer ? (
                 <div className={styles.weeklyOffer}>
                     Weekly offer
-                    <img
-                        src="/badges/clock.svg"
-                        alt="weekly offer"
-                        loading="lazy"
-                    />
+                    <Icon svg={Clock} />
                 </div>
             ) : null}
         </div>

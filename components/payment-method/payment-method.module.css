@@ -1,6 +1,6 @@
 .payments {
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: repeat(4, 132px);
     gap: 16px;
     align-items: center;
     justify-content: center;
@@ -19,14 +19,15 @@
         padding-inline: 34px;
     }
 
-    @media (width <= 400px) {
+    @media (width <= 420px) {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 .image {
-    align-self: center;
-    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 100%;
     border-radius: 12px;
     background: linear-gradient(
@@ -42,11 +43,9 @@
     width: 130px;
     height: 70px;
     border-radius: 16px;
-    padding-inline: 20px;
-    padding-block: 22px;
 
     &:hover {
-        background: linear-gradient(
+        background-color: linear-gradient(
                 237.82deg,
                 rgba(251, 191, 36, 0.3) -147.73%,
                 rgba(251, 191, 36, 0) 180.56%
@@ -58,10 +57,5 @@
             );
         border: 1px solid var(--yellow-500);
         cursor: pointer;
-    }
-
-    @media (width <= 1024px) {
-        padding-inline: 10px;
-        padding-block: 20px;
     }
 }

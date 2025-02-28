@@ -3,10 +3,10 @@ import cn from 'classnames';
 
 import { GamesCard } from '../games-card/games-card';
 
-import Arrow from '../../public/system-icons/arrow-right.svg';
+import { Icon } from '@/core-components/icon/icon';
+import Chevron from '@/images/system-icons/arrow-сhevron.svg';
 
 import styles from './catalog-categories.module.css';
-import { Icon } from '../../core-components/icon/icon';
 import { TabsList } from '@/components/tabs-list/tabs-list';
 
 const tabs = [
@@ -52,7 +52,7 @@ export function CatalogCategories({
             })}>
             <h2 className={styles.title}>
                 <button type="button" onClick={clearVisibleCategory}>
-                    {activeCategory && <Icon svg={Arrow} />}
+                    {activeCategory && <Icon svg={Chevron} />}
                     {activeCategory}
                 </button>
             </h2>

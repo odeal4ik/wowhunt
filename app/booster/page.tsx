@@ -11,9 +11,8 @@ import { BalanceCard } from '@/components/balance-card/balance-card';
 import { BoosterButtonServices } from '@/components/booster-button-services/booster-button-services';
 import { ProgressBooster } from '@/components/progress-booster/progress-booster';
 
-
 import styles from './booster.module.css';
-import imgLevel from '../../public/images/level-beginner-silver.png';
+import imgLevel from '@/public/images/level-beginner-silver.png';
 
 import { CategoriesModal } from '@/components/modal-filter-categorie/modal-filter-categorie';
 import { BoosterOrderCards } from '@/components/booster-order-cards/booster-order-cards';

@@ -1,10 +1,11 @@
+import { Icon } from '@/core-components/icon/icon';
+
 import styles from './booster-order-card.module.css';
-import Image from 'next/image';
 
 interface BoosterOrderCard {
     id: number;
     game: string;
-    img: string;
+    img: SvgrComponent;
     title: string;
     price: number;
     details: {
@@ -13,7 +14,7 @@ interface BoosterOrderCard {
     }[];
     numberOrder: string;
     country: string;
-    countryFlag: string;
+    countryFlag: SvgrComponent;
 }
 
 export function BoosterOrderCard({
@@ -32,12 +33,7 @@ export function BoosterOrderCard({
     return (
         <div className={styles.container}>
             <div className={styles.gameNameWrapper}>
-                <Image
-                    src={img}
-                    alt={game}
-                    width={15}
-                    height={15}
-                />
+                <Icon svg={img} aria-label={game} />
                 <p className={styles.gameName}>{game}</p>
             </div>
 
@@ -53,15 +49,23 @@ export function BoosterOrderCard({
             </p>
 
             <div className={styles.actions}>
-                <button className={`${styles.takeButton} ${styles.button}`}>Take</button>
-                <button className={`${styles.skipButton} ${styles.button}`}>Skip</button>
+                <button className={`${styles.takeButton} ${styles.button}`}>
+                    Take
+                </button>
+                <button className={`${styles.skipButton} ${styles.button}`}>
+                    Skip
+                </button>
             </div>
 
             <div className={styles.details}>
                 {details.map((detail, index) => (
                     <div key={index} className={styles.detailRow}>
-                        <p className={`${styles.detailLabel} ${styles.label}`}>{detail.label}</p>
-                        <p className={`${styles.detailValue} ${styles.label}`}>{detail.value}</p>
+                        <p className={`${styles.detailLabel} ${styles.label}`}>
+                            {detail.label}
+                        </p>
+                        <p className={`${styles.detailValue} ${styles.label}`}>
+                            {detail.value}
+                        </p>
                     </div>
                 ))}
             </div>
@@ -69,13 +73,7 @@ export function BoosterOrderCard({
             <div className={styles.footer}>
                 <p className={styles.numberOrder}>{numberOrder}</p>
                 <figure className={styles.country}>
-                    <Image
-                        src={countryFlag}
-                        alt={country}
-                        className={styles.flag}
-                        width={15}
-                        height={10}
-                    />
+                    <Icon svg={countryFlag} aria-label={country} />
                     <figcaption>{country}</figcaption>
                 </figure>
             </div>

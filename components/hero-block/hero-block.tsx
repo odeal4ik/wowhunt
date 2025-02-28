@@ -1,19 +1,36 @@
-/* eslint-disable @next/next/no-img-element */
+import Image from 'next/image';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import SandClock from '@/images/icons/sand-clock.svg';
+import Shield from '@/images/icons/shield.svg';
+import Star from '@/images/icons/star.svg';
+import TrustpilotStarGreen from '@/images/icons/trastpilot-star-green.svg';
+
 import styles from './hero-block.module.css';
+
+function TrustSubtitle() {
+    return (
+        <p className={styles.trustSubtitle}>
+            Rated 5 stars <Icon svg={TrustpilotStarGreen} /> on{' '}
+            <span>Trustpilot</span>
+        </p>
+    );
+}
 
 const advantages = [
     {
-        icon: './images/shield.svg',
+        icon: Shield,
         title: 'SAFE',
         subTitle: 'Start in 5-15 Minutes',
     },
     {
-        icon: './images/star.svg',
+        icon: Star,
         title: 'TRUST',
-        subTitle: `Rated 5 stars <img src="/images/trastpilot-star.svg" alt="trastpilot" /> on <span>Trustpilot</span>`,
+        subTitle: <TrustSubtitle />,
     },
     {
-        icon: './images/sand-clock.svg',
+        icon: SandClock,
         title: 'FAST',
         subTitle: `Start in 5-15 Minutes`,
     },
@@ -22,10 +39,12 @@ const advantages = [
 export function HeroBlock() {
     return (
         <section className={styles.hero}>
-            <img
-                src="/images/hero_block.png"
+            <Image
+                src="/background/hero_block.png"
                 alt="hero"
                 loading="lazy"
+                width={1920}
+                height={650}
                 className={styles.heroImg}
             />
 
@@ -51,22 +70,18 @@ export function HeroBlock() {
                                 // style={{ order: index + 1 }}
                                 key={advantage.title}>
                                 <div className={styles.advantagesIcon}>
-                                    <img
-                                        src={advantage.icon}
-                                        alt={advantage.title}
-                                        loading="lazy"
+                                    <Icon
+                                        svg={advantage.icon}
+                                        aria-label={advantage.title}
                                     />
                                 </div>
                                 <div className={styles.advantagesContent}>
                                     <div className={styles.advantagesTitle}>
                                         {advantage.title}
                                     </div>
-                                    <div
-                                        className={styles.advantagesSubTitle}
-                                        dangerouslySetInnerHTML={{
-                                            __html: advantage.subTitle,
-                                        }}
-                                    />
+                                    <div className={styles.advantagesSubTitle}>
+                                        {advantage.subTitle}
+                                    </div>
                                 </div>
                             </div>
                         ),

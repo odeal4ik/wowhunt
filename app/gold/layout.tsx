@@ -16,7 +16,7 @@ export default function GoldOrderLayout({
             <section className={styles.container}>
                 <div className={styles.wrapper}>
                     <Sidebar />
-                    <main className={styles.content}>{children}</main>
+                    <main>{children}</main>
                 </div>
             </section>
         </>

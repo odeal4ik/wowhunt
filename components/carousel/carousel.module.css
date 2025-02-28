@@ -1,12 +1,8 @@
 .wrapper {
-    max-width: 100%;
-    width: 100%;
-    overflow: hidden;
     position: relative;
     margin-block-start: 160px;
-    padding-block-end: 80px;
-    border-top: 2px solid var(--dark-muted);
-    border-bottom: 2px solid var(--dark-muted);
+    padding-block-end: 126px;
+    border-block: 2px solid var(--dark-muted);
     background: radial-gradient(
         54.64% 76.11% at 50% 50%,
         rgba(20, 21, 48, 0) 0%,
@@ -55,10 +51,7 @@
 
 .heading {
     display: flex;
-    align-items: center;
     justify-content: center;
-    max-width: 100%;
-    width: 100%;
     column-gap: 26px;
     padding-block: 66px 72px;
 
@@ -70,14 +63,18 @@
 
 .title {
     display: flex;
-    flex-direction: row;
     align-items: center;
-    gap: 2px;
+    gap: 6px;
 
-    & > span {
+    & > p {
         font-family: var(--font-barlow-bold-sans), serif;
         font-size: var(--font-size-h2);
         line-height: 38px;
+    }
+
+    & > svg {
+        width: 42px;
+        height: 42px;
     }
 
     @media (width <= 600px) {
@@ -86,15 +83,12 @@
 }
 
 .reviews {
-    display: flex;
-    flex-direction: column;
-
-    & > span {
+    & > p {
         font-size: var(--font-size-l);
         line-height: 28px;
     }
 
-    & > span + span {
+    & > p + p {
         font-size: var(--font-size-l);
         line-height: 30px;
         color: var(--text-color-secondary);
@@ -103,7 +97,6 @@
 
 .carousel {
     max-width: 1920px;
-    width: 100%;
     margin: 0 auto;
     display: flex;
     gap: 28px;
@@ -118,38 +111,33 @@
     flex-shrink: 0;
     scroll-snap-align: start;
     background: rgba(40, 40, 69, 0.75);
-    display: flex;
-    flex-direction: column;
-    padding-block: 22px;
+    padding-block: 20px 28px;
     padding-inline: 28px;
     border-radius: 12px;
 }
 
 .rating {
-    max-width: 100%;
-    width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     padding-block-end: 16px;
     border-bottom: 1px solid #a2a6c4;
+
+    & > p {
+        color: var(--text-color-secondary);
+    }
 }
 
 .review {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     padding-block-start: 16px;
+    line-height: var(--font-line-height-130);
 }
 
 .title {
     font-family: var(--font-barlow-bold-sans), serif;
     font-size: var(--font-size-l);
-    line-height: 26px;
+    padding-block-end: 8px;
 }
 
 .description {
-    font-size: var(--font-size-m);
-    line-height: 20.8px;
     color: var(--text-color-secondary);
 }

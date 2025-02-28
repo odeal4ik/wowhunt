@@ -1,6 +1,10 @@
 import { useState } from 'react';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import Close from '@/images/system-icons/close.svg';
+
 import styles from './booster-order-filter.module.css';
-import Image from 'next/image';
 
 interface GameNav {
     id: string;
@@ -30,7 +34,6 @@ const games = [
     },
 ];
 
-
 export function BoosterOrderFilter() {
     const [selectedGame, setSelectedGame] = useState<GameNav | null>(null);
     return (
@@ -46,16 +49,16 @@ export function BoosterOrderFilter() {
                             setSelectedGame(selectedGame === game ? null : game)
                         }>
                         <div className={styles.gameInfo}>
-                            <span className={styles.gameTitle}>{game.gameTitle}:</span>
-                            <span className={styles.gameValue}>{game.gameValue}</span>
+                            <span className={styles.gameTitle}>
+                                {game.gameTitle}:
+                            </span>
+                            <span className={styles.gameValue}>
+                                {game.gameValue}
+                            </span>
                         </div>
-                        <Image
-                            className={styles.closeIcon}
-                            src="/system-icons/close.svg"
-                            alt="Close"
-                            width={10}
-                            height={10}
-                        />
+                        <div className={styles.closeIcon}>
+                            <Icon svg={Close} />
+                        </div>
                     </div>
                 );
             })}

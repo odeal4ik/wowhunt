@@ -1,6 +1,12 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+
+import { Select } from '@/core-components/select/select';
+import { Icon } from '@/core-components/icon/icon';
+
+import Close from '@/images/system-icons/close.svg';
+
 import styles from './model-work-with-us.module.css';
 
 type Props = {
@@ -37,20 +43,7 @@ function WorkWithUsPopup({ onClose }: PopupProps) {
             }>
             <div className={styles.popup}>
                 <button className={styles.closeButton} onClick={onClose}>
-                    <svg
-                        width="40"
-                        height="40"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18 6L6 18M6 6L18 18"
-                            stroke="white"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        />
-                    </svg>
+                    <Icon svg={Close} />
                 </button>
 
                 <h2 className={styles.title}>
@@ -83,7 +76,7 @@ function WorkWithUsPopup({ onClose }: PopupProps) {
                     </div>
 
                     <div>
-                    <label htmlFor="name" className={styles.formLabel}>
+                        <label htmlFor="name" className={styles.formLabel}>
                             Discord <span className={styles.required}>*</span>
                         </label>
                         <input
@@ -92,23 +85,17 @@ function WorkWithUsPopup({ onClose }: PopupProps) {
                             className={styles.input}
                             required
                         />
-                    <label htmlFor="name" className={styles.formLabel}>
-                    Choose a game <span className={styles.required}>*</span>
+                        <label htmlFor="name" className={styles.formLabel}>
+                            Choose a game{' '}
+                            <span className={styles.required}>*</span>
                         </label>
-                        <div className={styles.selectWrapper}>
-                            <select
-                                className={`${styles.input} ${styles.select}`}
-                                defaultValue=""
-                                required>
-                                <option value="" disabled>
-                                    Choose your game
-                                </option>
-                                <option value="wow">World of Warcraft</option>
-                                <option value="diablo">Diablo IV</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
 
+                        <Select
+                            title="Choose your game"
+                            options={['wow', 'diablo', 'other']}
+                            titleStyle={styles.titleStyle}
+                            optionsStyle={styles.optionsStyle}
+                        />
                         <button type="submit" className={styles.submitButton}>
                             Send Request
                         </button>

@@ -1,8 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
 'use client';
 
 import cn from 'classnames';
+import Image from 'next/image';
 import { useState } from 'react';
+
+import CallSupport from '@/images/icons/call-support.svg';
+import Cart from '@/images/icons/cart.svg';
+import Choise from '@/images/icons/choise.svg';
+
+import { Icon } from '../../core-components/icon/icon';
 import styles from './how-it-works.module.css';
 
 const howItWorkslist = [
@@ -12,7 +18,7 @@ const howItWorkslist = [
         title: 'Choise your boost',
         description:
             'Choose the services you are interested in and click on button “Buy Now”. If you have any question ask it in live chat',
-        icon: '/system-icons/choise.svg',
+        icon: Choise,
     },
     {
         id: 2,
@@ -20,7 +26,7 @@ const howItWorkslist = [
         title: 'Place your order',
         description:
             'Go to the shopping cart, fill out your contact information and character data, then click on the checkout button',
-        icon: '/system-icons/cart.svg',
+        icon: Cart,
     },
     {
         id: 3,
@@ -28,7 +34,7 @@ const howItWorkslist = [
         title: `We'll be in touch`,
         description:
             'We will contact you within 5 minutes to clarify the details of your order and start performing the service',
-        icon: '/system-icons/call-support.svg',
+        icon: CallSupport,
     },
 ];
 
@@ -38,10 +44,12 @@ export function HowItWorks() {
     return (
         <section className={styles.wrapper}>
             <div className={styles.image}>
-                <img
+                <Image
                     loading="lazy"
                     src={activeItem.image}
                     alt={`How it works ${activeItem.id}`}
+                    width={596}
+                    height={373}
                 />
             </div>
 
@@ -54,22 +62,21 @@ export function HowItWorks() {
                         key={item.id}
                         onClick={() => setActiveItem(item)}>
                         <div className={styles.icon}>
-                            <img
-                                loading="lazy"
-                                src={item.icon}
-                                alt={`How it works icon ${item.id}`}
+                            <Icon
+                                svg={item.icon}
+                                aria-label={`How it works icon ${item.id}`}
                             />
                         </div>
 
                         <div className={styles.content}>
-                            <div className={styles.title}>{item.title}</div>
+                            <p className={styles.title}>{item.title}</p>
 
-                            <div
+                            <p
                                 className={cn(styles.text, {
                                     [styles.active]: activeItem.id === item.id,
                                 })}>
                                 {item.description}
-                            </div>
+                            </p>
                         </div>
                     </button>
                 ))}

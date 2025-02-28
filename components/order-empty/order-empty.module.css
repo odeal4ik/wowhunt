@@ -29,6 +29,11 @@
     }
 }
 
+.iconWrapper > svg {
+    width: 140px;
+    height: 140px;
+}
+
 .text {
     font-family: var(--font-barlow-bold-sans), sans-serif;
     font-size: var(--font-size-h4);

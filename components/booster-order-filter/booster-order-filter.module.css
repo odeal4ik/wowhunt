@@ -31,5 +31,10 @@
 }
 
 .closeIcon {
-  cursor: pointer;
+    cursor: pointer;
+
+    & > svg {
+        width: 10px;
+        fill: #858fa3;
+    }
 }

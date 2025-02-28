@@ -1,4 +1,7 @@
 import cn from 'classnames';
+
+import { Select } from '@/core-components/select/select';
+
 import styles from './region-faction-server-selector.module.css';
 
 interface RegionSelectorProps {
@@ -53,9 +56,12 @@ export function RegionFactionServerSelector({
                     </button>
                 </div>
                 <div className={styles.serverSelect}>
-                    <select className={styles.select}>
-                        <option>Choose server</option>
-                    </select>
+                    <Select
+                        title="Choose server"
+                        options={['Server 1', 'Server 2', 'Server 3']}
+                        titleStyle={styles.titleStyle}
+                        optionsStyle={styles.optionsStyle}
+                    />
                 </div>
             </div>
         </div>

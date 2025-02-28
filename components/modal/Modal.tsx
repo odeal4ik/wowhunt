@@ -1,5 +1,9 @@
 import { useEffect } from 'react';
-import Image from 'next/image';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import Close from '@/images/system-icons/close.svg';
+
 import styles from './Modal.module.css';
 
 interface ModalProps {
@@ -32,26 +36,21 @@ export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
 
     return (
         <div className={styles.modalOverlay} onClick={onClose}>
-            <div 
-                className={styles.modalContent} 
-                onClick={e => e.stopPropagation()}
+            <div
+                className={styles.modalContent}
+                onClick={(e) => e.stopPropagation()}
                 role="dialog"
                 aria-modal="true"
-                aria-labelledby="modal-title"
-            >
+                aria-labelledby="modal-title">
                 <div className={styles.modalHeader}>
-                    <h2 id="modal-title" className={styles.modalTitle}>{title}</h2>
-                    <button 
+                    <h2 id="modal-title" className={styles.modalTitle}>
+                        {title}
+                    </h2>
+                    <button
                         className={styles.closeButton}
                         onClick={onClose}
-                        aria-label="Close modal"
-                    >
-                        <Image 
-                            src="/system-icons/close.svg" 
-                            alt="Close" 
-                            width={14} 
-                            height={14} 
-                        />
+                        aria-label="Close modal">
+                        <Icon svg={Close} />
                     </button>
                 </div>
                 {children}

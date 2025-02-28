@@ -58,6 +58,17 @@
     flex-direction: column;
 }
 
+.menuArrow {
+    margin-inline-start: auto;
+    color: var(--neutral-soft);
+
+    & > svg {
+        width: 24px;
+        height: 24px;
+        rotate: 270deg;
+    }
+}
+
 .menuItem {
     & > button {
         width: 100%;
@@ -69,18 +80,21 @@
         color: var(--text-color-secondary);
         font-size: var(--font-size-l);
         line-height: var(--font-line-height-140);
-        transition: color 0.2s ease;
+        transition: color 0.2s ease, background-image 0.2s ease;
         cursor: pointer;
-    }
 
-    @media (hover) {
-        &:hover > button {
+        &:hover {
             color: var(--text-color);
             background-image: linear-gradient(
                 215deg,
                 #3b3c68 0%,
                 transparent 100%
             );
+
+            & .menuArrow > svg {
+                color: var(--text-color);
+                transition: color 0.2s ease;
+            }
         }
     }
 
@@ -100,8 +114,4 @@
     width: 24px;
     height: 24px;
     font-size: var(--font-size-ss);
-}
-
-.menuArrow {
-    margin-inline-start: auto;
 }

@@ -1,24 +1,20 @@
-/* eslint-disable @next/next/no-img-element */
+import { Icon } from '@/core-components/icon/icon';
+
+import Discord from '@/images/icons/discord.svg';
+import LiveChat from '@/images/icons/livechat.svg';
+
 import styles from './support.module.css';
 
 export function Support() {
     return (
         <section className={styles.support}>
             <button className={styles.button} type="button">
-                <img
-                    src="/system-icons/discord.svg"
-                    alt="discord"
-                    loading="lazy"
-                />
+                <Icon svg={Discord} />
                 WOWHUNT
             </button>
 
             <button className={styles.button} type="button">
-                <img
-                    src="/system-icons/livechat.svg"
-                    alt="live-chat"
-                    loading="lazy"
-                />
+                <Icon svg={LiveChat} />
                 LIVE CHAT
             </button>
         </section>

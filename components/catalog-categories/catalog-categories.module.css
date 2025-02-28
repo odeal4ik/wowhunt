@@ -50,8 +50,9 @@
 
     @media (width <= 700px) {
         & > svg {
+            width: 24px;
             display: block;
-            rotate: 180deg;
+            rotate: 90deg;
         }
 
         cursor: pointer;
@@ -71,7 +72,7 @@
     font-size: var(--font-size-m);
     font-family: var(--font-barlow-bold-sans), serif;
     line-height: var(--font-line-height-150);
-    color: var(--text-colory);
+    color: var(--text-color);
     border: 1px solid var(--dark-muted);
     background-color: transparent;
     padding: 14px 36px;

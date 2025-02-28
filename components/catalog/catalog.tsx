@@ -3,8 +3,8 @@
 import cn from 'classnames';
 import { Suspense, useState } from 'react';
 
-import { Icon } from '../../core-components/icon/icon';
-import Arrow from '../../public/system-icons/arrow-right.svg';
+import { Icon } from '@/core-components/icon/icon';
+import Chevron from '@/images/system-icons/arrow-сhevron.svg';
 import { CatalogCategories } from '../catalog-categories/catalog-categories';
 import { SupportAndWork } from '../support-and-work/support-and-work';
 import styles from './catalog.module.css';
@@ -45,14 +45,14 @@ export function Catalog({ isVisible }: { isVisible: boolean }) {
                                 onClick={setActiveCategoryVisible}>
                                 <span className={styles.menuIcon}>
                                     <Suspense fallback={'Loading...'}>
-                                        <Icon svg={icon} />
+                                        <Icon svg={icon} fill='' />
                                     </Suspense>
                                 </span>
 
                                 {name}
 
                                 <span className={styles.menuArrow}>
-                                    <Icon svg={Arrow} fill="" />
+                                    <Icon svg={Chevron} fill="currentColor" />
                                 </span>
                             </button>
                         </li>

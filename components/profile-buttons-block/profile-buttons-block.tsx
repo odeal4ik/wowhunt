@@ -1,5 +1,14 @@
-import Image from 'next/image';
 import { useState } from 'react';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import Telegram from '@/images/media/telegram.svg';
+import At from '@/images/system-icons/at.svg';
+import Key from '@/images/system-icons/key-password.svg';
+import Mail from '@/images/icons/mail.svg';
+import Notification from '@/images/system-icons/notification.svg';
+import Settings from '@/images/system-icons/settings.svg';
+import Support from '@/images/system-icons/support.svg';
 
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { ChangeEmailModal } from '../modal-change-email/modal-change-email';
@@ -41,12 +50,7 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                         <span className={styles.slider}></span>
                     </label>
                     <div className={styles.notificationItem}>
-                        <Image
-                            src="/system-icons/mail.svg"
-                            alt="Support"
-                            width={18}
-                            height={18}
-                        />
+                    <Icon svg={Mail} area-label="Mail" />
                         <p className={styles.notificationText}>
                             E-mail notifications
                         </p>
@@ -66,12 +70,7 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                             />
                             <span className={styles.slider}></span>
                         </label>
-                        <Image
-                            src="/system-icons/notification.svg"
-                            alt="Support"
-                            width={18}
-                            height={18}
-                        />
+                        <Icon svg={Notification} area-label="Notification" />
                         <p className={styles.notificationText}>
                             Push notifications
                         </p>
@@ -79,12 +78,7 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                 </div>
 
                 <button className={styles.notificationButton}>
-                    <Image
-                        src="/system-icons/telegram-gold.svg"
-                        alt="Telegram"
-                        width={16}
-                        height={16}
-                    />
+                    <Icon svg={Telegram} area-label="Facebook" />
                     Telegram
                 </button>
             </div>
@@ -94,32 +88,17 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                     <button
                         className={styles.notificationButton}
                         onClick={() => setIsChangeEmailOpen(true)}>
-                        <Image
-                            src="/system-icons/at.svg"
-                            alt="Email"
-                            width={18}
-                            height={18}
-                        />
+                        <Icon svg={At} area-label="Email" />
                         Change eMail
                     </button>
                     <button
                         className={styles.notificationButton}
                         onClick={() => setIsChangePasswordOpen(true)}>
-                        <Image
-                            src="/system-icons/key-password.svg"
-                            alt="Password"
-                            width={18}
-                            height={18}
-                        />
+                        <Icon svg={Key} area-label="Key" />
                         Change password
                     </button>
                     <button className={styles.notificationButton}>
-                        <Image
-                            src="/system-icons/operator-support.svg"
-                            alt="Support"
-                            width={18}
-                            height={18}
-                        />
+                        <Icon svg={Support} area-label="Support" />
                         Write to admin
                     </button>
                 </div>
@@ -128,23 +107,13 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                     <button
                         className={styles.mobileButton}
                         onClick={() => setIsSettingsOpen(true)}>
-                        <Image
-                            src="/system-icons/settings.svg"
-                            alt="Settings"
-                            width={18}
-                            height={18}
-                        />
+                        <Icon svg={Settings} area-label="Settings" />
                         Settings
                     </button>
                     <button
                         className={styles.mobileButton}
                         onClick={() => setIsNotificationsOpen(true)}>
-                        <Image
-                            src="/system-icons/notification.svg"
-                            alt="Notifications"
-                            width={18}
-                            height={18}
-                        />
+                        <Icon svg={Notification} area-label="Notification" />
                         Notifications
                     </button>
                 </div>

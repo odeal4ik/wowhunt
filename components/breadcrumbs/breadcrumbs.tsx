@@ -3,8 +3,8 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { Icon } from '../../core-components/icon/icon';
-import Caret from '../../public/system-icons/caret.svg';
+import { Icon } from '@/core-components/icon/icon';
+import Caret from '@/images/icons/caret.svg';
 
 import styles from './breadcrumbs.module.css';
 import { Fragment } from 'react';

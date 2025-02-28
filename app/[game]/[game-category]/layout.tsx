@@ -2,15 +2,16 @@
 
 import cn from 'classnames';
 
-import styles from './game-category-layout.module.css';
-import { Icon } from '@/core/icon/icon';
-
 import Chat from '@/images/icons/writting.svg';
+
+import { Icon } from '@/core/icon/icon';
+import { Checkbox } from '@/core/input/checkbox/checkbox';
+import { InputNumber } from '@/core/input/number/input-number';
 import { InputRange } from '@/core/input/range/input-range';
 import { InputSlider } from '@/core/input/slider/input-slider';
-import { InputNumber } from '@/core/input/number/input-number';
 import { Select } from '@/core/select/select';
-import { Checkbox } from '@/core/input/checkbox/checkbox';
+
+import styles from './game-category-layout.module.css';
 
 export default function GameCategoryLayout({
     children,
@@ -106,9 +107,15 @@ export default function GameCategoryLayout({
                         />
                     </div>
                     <div className={styles['rank-selects']}>
-                        <Select />
+                        <Select
+                            title="Title"
+                            options={['Option 1', 'Option 2', 'Option 3']}
+                        />
                         -
-                        <Select />
+                        <Select
+                            title="Title"
+                            options={['Option 1', 'Option 2', 'Option 3']}
+                        />
                     </div>
                 </div>
 
@@ -143,7 +150,10 @@ export default function GameCategoryLayout({
                     </span>
 
                     <div>
-                        <Select />
+                        <Select
+                            title="Title"
+                            options={['Option 1', 'Option 2', 'Option 3']}
+                        />
                     </div>
                 </div>
 

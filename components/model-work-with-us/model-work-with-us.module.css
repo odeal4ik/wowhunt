@@ -50,8 +50,14 @@
 .closeButton {
     position: absolute;
     top: 18px;
-    right: 18px;
+    right: 18Px;
     cursor: pointer;
+
+    & > svg {
+        width: 23px;
+        flex-shrink: 0;
+        fill: var(--text-color);
+    }
 
     @media (width <= 441px) {
         top: 8px;
@@ -59,8 +65,8 @@
     }
 
     @media (width <= 376px) {
-        top: 12px;
-        right: 12px;
+        top: 24px;
+        right: 24px;
     }
 }
 
@@ -173,6 +179,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
+    margin-block-start: 40px;
 
     &:hover {
         color: var(--background);
@@ -182,4 +189,18 @@
 
 .required {
     color: var(--yellow-500);
+}
+
+.titleStyle {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    color: var(--text-color-secondary);
+    background: #22223d;
+    border: 1px solid rgba(68, 83, 113, 0.15);
+    margin-block-start: 20px;
+}
+
+.optionsStyle {
+    font-family: var(--font-barlow-regular-sans), sans-serif;
+    font-size: var(--font-size-s);
+    line-height: var(--font-line-height-130);
 }

@@ -11,6 +11,7 @@ import { Icon } from '@/core-components/icon/icon';
 import { CatalogBurgerButton } from '@/components/catalog-burger-button/catalog-burger-button';
 
 import Logo from '@/images/logo/logo.svg';
+import Basket from '@/images/system-icons/basket.svg';
 
 import { useGetToken } from '@/queries/auth/getToken';
 
@@ -104,13 +105,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     </div>
 
                     <Link className={styles.basket} href="/shopping-card">
-                        <Image
-                            src="/system-icons/basket.svg"
-                            alt="Basket"
-                            width={18}
-                            height={18}
-                            loading="lazy"
-                        />
+                        <Icon svg={Basket} />
                     </Link>
 
                     {/* TODO add loading for button */}

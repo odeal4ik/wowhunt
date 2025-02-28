@@ -1,12 +1,13 @@
 'use client';
 
-import { useState } from 'react';
 import cn from 'classnames';
+import { useState } from 'react';
 
-import Chevron from '../../../public/system-icons/chevron.svg';
+import { Icon } from '@/core-components/icon/icon';
+
+import Chevron from '@/images/system-icons/arrow-сhevron.svg';
 
 import styles from './game-category.module.css';
-import { Icon } from '@/core/icon/icon';
 
 const controls = ["What you'll get", 'Requirements', 'More info', 'Reviews'];
 

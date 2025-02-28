@@ -1,7 +1,7 @@
 'use client';
 
-import { Icon } from '../../core-components/icon/icon';
-import Trash from '../../public/system-icons/trashBig.svg';
+import { Icon } from '@/core-components/icon/icon';
+import Trash from '@/images/system-icons/trash.svg';
 import styles from './order-empty.module.css';
 
 export function OrderEmpty() {

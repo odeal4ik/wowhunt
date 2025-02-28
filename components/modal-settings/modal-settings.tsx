@@ -1,5 +1,11 @@
-import Image from 'next/image';
+import { Icon } from '@/core-components/icon/icon';
+
 import { Modal } from '@/components/modal/Modal';
+
+import At from '@/images/system-icons/at.svg';
+import Key from '@/images/system-icons/key-password.svg';
+import Support from '@/images/system-icons/support.svg';
+
 import styles from './modal-settings.module.css';
 
 interface SettingsModalProps {
@@ -18,37 +24,18 @@ export const SettingsModal = ({
     return (
         <Modal isOpen={isOpen} onClose={onClose} title="Settings">
             <div className={styles.modalButtons}>
-                <button
-                    className={styles.modalButton}
-                    onClick={onEmailChange}
-                >
-                    <Image
-                        src="/system-icons/at.svg"
-                        alt="Email"
-                        width={18}
-                        height={18}
-                    />
+                <button className={styles.modalButton} onClick={onEmailChange}>
+                    <Icon svg={At} area-label="Email" />
                     Change eMail
                 </button>
                 <button
                     className={styles.modalButton}
-                    onClick={onPasswordChange}
-                >
-                    <Image
-                        src="/system-icons/key-password.svg"
-                        alt="Password"
-                        width={18}
-                        height={18}
-                    />
+                    onClick={onPasswordChange}>
+                    <Icon svg={Key} area-label="Key" />
                     Change password
                 </button>
                 <button className={styles.modalButton}>
-                    <Image
-                        src="/system-icons/operator-support.svg"
-                        alt="Support"
-                        width={18}
-                        height={18}
-                    />
+                    <Icon svg={Support} area-label="Support" fill="#FBBF24" />
                     Write to admin
                 </button>
             </div>

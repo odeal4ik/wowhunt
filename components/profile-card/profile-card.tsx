@@ -1,6 +1,15 @@
-import React from 'react';
-import styles from './profile-card.module.css';
 import Image from 'next/image';
+import React from 'react';
+
+import { Icon } from '@/core-components/icon/icon';
+
+import Copy from '@/images/system-icons/copy.svg';
+import Done from '@/images/system-icons/done.svg';
+import Info from '@/images/system-icons/info.svg';
+import Support from '@/images/system-icons/support.svg';
+import Envelope from '@/images/system-icons/mail-icon.svg';
+
+import styles from './profile-card.module.css';
 
 interface StatusConfig {
     label: string;
@@ -27,27 +36,27 @@ interface OrderCard {
 const STATUS_CONFIG: Record<OrderCard['status'], StatusConfig> = {
     delivered: {
         label: 'Delivered',
-        srcImg: '/system-icons/card-delivered.png',
+        srcImg: '/for-cards/card-delivered.png',
         bgClass: styles.statusBgDelivered,
     },
     cancelled: {
         label: 'Cancelled',
-        srcImg: '/system-icons/card-cancelled.png',
+        srcImg: '/for-cards/card-cancelled.png',
         bgClass: styles.statusBgCancelled,
     },
     'in-progress': {
         label: 'In progress',
-        srcImg: '/system-icons/card-progress.png',
+        srcImg: '/for-cards/card-progress.png',
         bgClass: styles.statusBgInProgress,
     },
     looking: {
         label: 'Looking',
-        srcImg: '/system-icons/card-looking.png',
+        srcImg: '/for-cards/card-looking.png',
         bgClass: styles.statusBgLooking,
     },
     refunded: {
         label: 'Refunded',
-        srcImg: '/system-icons/card-refunded.png',
+        srcImg: '/for-cards/card-refunded.png',
         bgClass: styles.statusBgRefunded,
     },
 };
@@ -66,31 +75,19 @@ export function ProfileCard({ status, price, title, id, details }: OrderCard) {
         <div className={`${styles.card} ${styles[status]}`}>
             <div className={styles.cardContent}>
                 <div className={styles.header}>
-                    <p className={`${styles.status} ${styles[status]}`}>
+                    <p className={`${styles.status} ${config.bgClass}`}>
                         {config.label}
                     </p>
                     <div
                         className={styles.idBlock}
                         onClick={() => handleCopy(id)}>
                         <p className={styles.id}>ID: {id}</p>
-                        <Image
-                            src="/system-icons/copy.svg"
-                            alt="Copy"
-                            width={12}
-                            height={14}
-                            className={styles.copyIcon}
-                        />
+                        <Icon svg={Copy} aria-label="Copy" />
                     </div>
                 </div>
 
                 <div className={styles.infoBlock}>
-                    <Image
-                        src="/system-icons/info.svg"
-                        alt="Info"
-                        width={19}
-                        height={19}
-                        className={styles.infoIcon}
-                    />
+                    <Icon svg={Info} aria-label="Info" />
                 </div>
 
                 <div className={styles.iconWrapper}>
@@ -129,31 +126,16 @@ export function ProfileCard({ status, price, title, id, details }: OrderCard) {
                 <div className={styles.actions}>
                     <button
                         className={`${styles.actionButton} ${styles.actionFuttonDefault}`}>
-                        <Image
-                            src="/system-icons/support-white.svg"
-                            alt="Support"
-                            width={24}
-                            height={24}
-                        />
+                        <Icon svg={Support} aria-label="Support" />
                     </button>
                     <button
                         className={`${styles.actionButton} ${styles.actionFuttonDefault}`}>
-                        <Image
-                            src="/system-icons/mail-white.svg"
-                            alt="Chat"
-                            width={24}
-                            height={24}
-                        />
+                        <Icon svg={Envelope} aria-label="Envelope" />
                         Chat
                     </button>
                     <button
                         className={`${styles.actionButton} ${styles.actionFuttonDone}`}>
-                        <Image
-                            src="/system-icons/done.svg"
-                            alt="Done"
-                            width={18}
-                            height={18}
-                        />
+                        <Icon svg={Done} aria-label="Done" />
                         Done
                     </button>
                 </div>

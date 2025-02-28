@@ -1,9 +1,38 @@
 import Link from 'next/link';
 
-import { Icon } from '../../core-components/icon/icon';
 import Logo from '@/images/logo/logo-dark.svg';
+import Payment1 from '@/images/payment/payments-methods/payment1.svg';
+import Payment2 from '@/images/payment/payments-methods/payment2.svg';
+import Payment3 from '@/images/payment/payments-methods/payment3.svg';
+import Payment4 from '@/images/payment/payments-methods/payment4.svg';
+import Payment5 from '@/images/payment/payments-methods/payment5.svg';
+import Payment6 from '@/images/payment/payments-methods/payment6.svg';
+import Payment7 from '@/images/payment/payments-methods/payment7.svg';
+import Payment8 from '@/images/payment/payments-methods/payment8.svg';
+import Payment9 from '@/images/payment/payments-methods/payment9.svg';
+import Payment10 from '@/images/payment/payments-methods/payment10.svg';
+import Payment11 from '@/images/payment/payments-methods/payment11.svg';
+import Payment12 from '@/images/payment/payments-methods/payment12.svg';
+import Payment13 from '@/images/payment/payments-methods/payment13.svg';
+
+import { Icon } from '@/core-components/icon/icon';
 import styles from './footer.module.css';
-import Image from 'next/image';
+
+const paymentIcons = [
+    Payment1,
+    Payment2,
+    Payment3,
+    Payment4,
+    Payment5,
+    Payment6,
+    Payment7,
+    Payment8,
+    Payment9,
+    Payment10,
+    Payment11,
+    Payment12,
+    Payment13,
+];
 
 export function Footer() {
     return (
@@ -16,7 +45,8 @@ export function Footer() {
                             <span className={styles.name}>wowhunt</span>
                         </Link>
                         <div className={styles.copyrights}>
-                            © WOWHUNT 2017-2023. All right reserved. Pauros LLC.
+                            © WOWHUNT 2017-2023. All right reserved. Pauros
+                            LLC.
                         </div>
                         <div className={styles.email}>
                             Contact Email: support@wowhunt.com
@@ -60,17 +90,12 @@ export function Footer() {
                     </div>
 
                     <div className={styles.payments}>
-                        {Array.from({ length: 13 }).map((_, index) => (
-                            <Image
-                                key={index}
-                                src={`/payments-methods/payment${
-                                    index + 1
-                                }.svg`}
-                                alt={`payment-${index + 1}`}
-                                loading="lazy"
-                                width={50}
-                                height={50}
-                            />
+                        {paymentIcons.map((icon, index) => (
+                            <Icon 
+                            key={index}
+                            svg={icon}
+                            aria-label={`payment-${index + 1}`}
+                        />
                         ))}
                     </div>
                 </div>
