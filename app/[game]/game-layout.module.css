@@ -34,6 +34,7 @@
 
 .other {
     grid-column: 2;
+    overflow: hidden;
 }
 
 @media (width <= 1280px) {
