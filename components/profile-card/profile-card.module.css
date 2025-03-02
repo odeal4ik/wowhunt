@@ -197,12 +197,6 @@
     background: rgba(75, 75, 119, 0.3);
     border: 1px solid #2e3a4b;
     border-radius: 8px;
-
-    & > svg {
-        width: 18px;
-        height: 18px;
-        background: transparent;
-    }
 }
 
 .actionFuttonDefault > svg {
