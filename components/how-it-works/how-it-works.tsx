@@ -14,7 +14,7 @@ import styles from './how-it-works.module.css';
 const howItWorkslist = [
     {
         id: 1,
-        image: '/images/choise-frame.png',
+        image: '/images/frame-choise.webp',
         title: 'Choise your boost',
         description:
             'Choose the services you are interested in and click on button “Buy Now”. If you have any question ask it in live chat',
@@ -22,7 +22,7 @@ const howItWorkslist = [
     },
     {
         id: 2,
-        image: '/images/place-frame.png',
+        image: '/images/frame-place.webp',
         title: 'Place your order',
         description:
             'Go to the shopping cart, fill out your contact information and character data, then click on the checkout button',
@@ -30,7 +30,7 @@ const howItWorkslist = [
     },
     {
         id: 3,
-        image: '/images/in-touch-frame.png',
+        image: '/images/frame-in-touch.webp',
         title: `We'll be in touch`,
         description:
             'We will contact you within 5 minutes to clarify the details of your order and start performing the service',
@@ -48,7 +48,7 @@ export function HowItWorks() {
                     loading="lazy"
                     src={activeItem.image}
                     alt={`How it works ${activeItem.id}`}
-                    width={596}
+                    width={550}
                     height={373}
                 />
             </div>
