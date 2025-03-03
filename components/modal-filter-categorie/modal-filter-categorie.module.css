@@ -106,7 +106,7 @@
 .searchIcon {
     position: absolute;
     right: 15px;
-    top: 0;
+    top: 5px;
     transform: translateY(50%);
     opacity: 0.5;
 }

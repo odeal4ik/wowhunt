@@ -127,7 +127,7 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <div className={styles.searchIcon}>
-                        <Icon svg={Search} />
+                        <Icon svg={Search} fill="#9F9FB7" area-label="Search" />
                     </div>
                 </div>
 

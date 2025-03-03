@@ -133,3 +133,26 @@ button {
     --toastify-toast-shadow: none;
     --toastify-toast-width: 375px;
 }
+
+/* ScrollBar */
+::-webkit-scrollbar {
+    width: 0.8vw;
+}
+
+::-webkit-scrollbar-track {
+    background: #24274c;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #45497b;
+}
+
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Для Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #45497b #24274c;
+}

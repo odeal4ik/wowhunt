@@ -1,9 +1,11 @@
-import styles from './message-card.module.css';
-import { Message } from '../../app/messages/page';
 import { useState } from 'react';
 
-import {Icon} from '@/core-components/icon/icon';
+import { Icon } from '@/core-components/icon/icon';
+
 import Support from '@/images/system-icons/support.svg';
+
+import { Message } from '../../app/messages/page';
+import styles from './message-card.module.css';
 
 interface MessageCardProps {
     message: Message;
@@ -12,15 +14,10 @@ interface MessageCardProps {
 export default function MessageCard({ message }: MessageCardProps) {
     const [isExpanded, setIsExpanded] = useState(false);
 
-    const toggleExpand = () => {
-        setIsExpanded(!isExpanded);
-    };
-
     return (
         <div
             key={message.id}
-            className={`${styles.messageCard} ${styles[message.status.toLowerCase().replace(' ', '-') + 'Border']}`}
-            onClick={toggleExpand}>
+            className={`${styles.messageCard} ${styles[message.status.toLowerCase().replace(' ', '-') + 'Border']}`}>
             <div className={styles.messageHeader}>
                 <div className={styles.statusContainer}>
                     <span className={styles.date}>{message.date}</span>
@@ -37,14 +34,18 @@ export default function MessageCard({ message }: MessageCardProps) {
                             <Icon svg={Support} aria-label="Support" />
                             Support
                         </button>
-                    ) }
+                    )}
                     {message.hasChat && (
                         <button className={styles.chatButton}>
-                             <Icon svg={Support} aria-label="Support" />
+                            <Icon svg={Support} aria-label="Support" />
                             Chat
                         </button>
                     )}
-                    <button className={styles.moreInfoButton}>More info</button>
+                    <button
+                        onClick={() => setIsExpanded(!isExpanded)}
+                        className={styles.moreInfoButton}>
+                        {isExpanded ? 'Hide info' : 'Show info'}
+                    </button>
                 </div>
             </div>
             {isExpanded && (

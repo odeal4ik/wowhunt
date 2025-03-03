@@ -1,6 +1,6 @@
 .wrapper {
-    max-width: 1586px;
     width: 100%;
+    max-width: 1600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -18,45 +18,14 @@
 }
 
 .plateWrapper {
-    --_columns: 7;
-    --_item-width: minmax(180px, 204px);
-    display: grid;
-    grid-gap: 25px;
-    grid-template-columns: repeat(var(--_columns), var(--_item-width));
-    justify-items: center;
+    display: flex;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 25px;
 
-    @media (max-width: 1600px) {
-        --_columns: 6;
-        --_item-width: minmax(170px, 204px);
-    }
-
-    @media (max-width: 1350px) {
-        --_columns: 5;
-        --_item-width: minmax(160px, 204px);
-    }
-
-    @media (max-width: 1120px) {
-        --_columns: 4;
-        --_item-width: minmax(150px, 204px);
-    }
-
-    @media (max-width: 900px) {
-        --_columns: 3;
-        --_item-width: minmax(140px, 204px);
-    }
-
-    @media (max-width: 665px) {
-        --_columns: 2;
-        --_item-width: minmax(130px, 1fr);
-    }
-
-    @media (max-width: 440px) {
-        padding-inline: 26px;
-        grid-gap: 8px 20px;
-        --_columns: 2;
-        --_item-width: 1fr;
-        width: 100%;
+    @media (max-width: 685px) {
+        gap: 25px 8px;
     }
 }
 
@@ -65,15 +34,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
     width: 100%;
+    max-width: 207px;
     height: 192px;
     padding: 24px;
     gap: 8px;
     background: linear-gradient(
         313.42deg,
-        rgba(59, 47, 134, 0.05),
-        rgba(0, 0, 0, 0)
+        rgba(59, 47, 134, 0.05) 0%,
+        rgba(0, 0, 0, 0) 100%
     );
     border-radius: 16px;
     cursor: pointer;
@@ -92,6 +61,7 @@
 
     @media (max-width: 440px) {
         height: auto;
+        max-width: 150px;
         flex-direction: row;
         padding: 7px 15px;
         border-radius: 8px;

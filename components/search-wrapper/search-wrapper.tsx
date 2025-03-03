@@ -1,6 +1,10 @@
 import { useState } from 'react';
-import styles from './search-wrapper.module.css';
 
+import { Icon } from '@/core-components/icon/icon';
+
+import Search from '@/images/system-icons/search.svg';
+
+import styles from './search-wrapper.module.css';
 
 export function SearchWrapper() {
     const [query, setQuery] = useState('');
@@ -27,20 +31,21 @@ export function SearchWrapper() {
                     }
                 }}
             />
-            <div
+            <button
                 className={`${styles.searchIcon} ${isSearchVisible ? styles.active : ''}`}
                 onClick={() => {
-                    setIsSearchVisible(!isSearchVisible);
-                    if (isSearchVisible) {
-                        setQuery('');
+                    if (query) {
+                        handleSubmitSearch();
+                    } else {
+                        setIsSearchVisible(!isSearchVisible);
                     }
                 }}>
-            </div>
+                <Icon svg={Search} fill="#9F9FB7" area-label="Search" />
+            </button>
             {isSearchVisible && (
-                <button 
+                <button
                     className={styles.searchButton}
-                    onClick={handleSubmitSearch}
-                >
+                    onClick={handleSubmitSearch}>
                     Search
                 </button>
             )}
