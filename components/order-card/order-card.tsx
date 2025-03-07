@@ -1,8 +1,10 @@
 'use client';
-import styles from './order-card.module.css';
 
 import { Icon } from '@/core-components/icon/icon';
+
 import Trash from '@/images/system-icons/trash.svg';
+
+import styles from './order-card.module.css';
 
 interface OrderCardProps {
     initialData: Array<{
@@ -46,7 +48,7 @@ export const OrderCard = ({ initialData }: OrderCardProps) => {
                         <div className={styles.actions}>
                             <p className={styles.price}>${card.price}</p>
                             <button className={styles.deleteButton}>
-                                <Icon svg={Trash} fill="" />
+                                <Icon svg={Trash} fill="" label="Trash" />
                             </button>
                         </div>
                     </div>

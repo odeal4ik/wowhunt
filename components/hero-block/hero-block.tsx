@@ -9,15 +9,6 @@ import TrustpilotStarGreen from '@/images/icons/trastpilot-star-green.svg';
 
 import styles from './hero-block.module.css';
 
-function TrustSubtitle() {
-    return (
-        <p className={styles.trustSubtitle}>
-            Rated 5 stars <Icon svg={TrustpilotStarGreen} /> on{' '}
-            <span>Trustpilot</span>
-        </p>
-    );
-}
-
 const advantages = [
     {
         icon: Shield,
@@ -27,7 +18,13 @@ const advantages = [
     {
         icon: Star,
         title: 'TRUST',
-        subTitle: <TrustSubtitle />,
+        subTitle: (
+            <p className={styles.trustSubtitle}>
+                Rated 5 stars on{' '}
+                <Icon svg={TrustpilotStarGreen} label="Trustpilot" />
+                <span>Trustpilot</span>
+            </p>
+        ),
     },
     {
         icon: SandClock,
@@ -72,7 +69,7 @@ export function HeroBlock() {
                                 <div className={styles.advantagesIcon}>
                                     <Icon
                                         svg={advantage.icon}
-                                        aria-label={advantage.title}
+                                        label={advantage.title}
                                     />
                                 </div>
                                 <div className={styles.advantagesContent}>

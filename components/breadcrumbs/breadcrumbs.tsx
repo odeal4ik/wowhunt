@@ -26,7 +26,7 @@ export function Breadcrumbs() {
             <Link href="/">Home</Link>
             {pathParts.map(({ url, label }) => (
                 <Fragment key={url}>
-                    <Icon svg={Caret} fill="#9f9fb7" />
+                    <Icon svg={Caret} fill="#9f9fb7" label="Caret" />
                     <Link href={`/${url}`}>{label}</Link>
                 </Fragment>
             ))}

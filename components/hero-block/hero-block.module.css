@@ -74,35 +74,35 @@
     @media (width <= 600px) {
         row-gap: 4px;
     }
-}
 
-.heroTitle {
-    font-size: 72px;
-    line-height: 1;
-    text-transform: uppercase;
-    font-family: var(--font-barlow-bold-sans), serif;
+    .heroTitle {
+        font-size: 72px;
+        line-height: 1;
+        text-transform: uppercase;
+        font-family: var(--font-barlow-bold-sans), serif;
 
-    & > span {
-        color: var(--yellow-500);
+        & > span {
+            color: var(--yellow-500);
+        }
+
+        @media (width <= 768px) and (width > 600px) {
+            font-size: var(--font-size-h1);
+            padding-inline-end: 200px;
+        }
+
+        @media (width <= 600px) {
+            font-size: var(--font-size-h3);
+        }
     }
 
-    @media (width <= 768px) and (width > 600px) {
-        font-size: var(--font-size-h1);
-        padding-inline-end: 200px;
-    }
+    .heroDescription {
+        font-size: 30px;
+        line-height: 1.2;
 
-    @media (width <= 600px) {
-        font-size: var(--font-size-h3);
-    }
-}
-
-.heroDescription {
-    font-size: 30px;
-    line-height: 1.2;
-
-    @media (width <= 600px) {
-        font-size: var(--font-size-l);
-        line-height: var(--font-line-height-140);
+        @media (width <= 600px) {
+            font-size: var(--font-size-l);
+            line-height: var(--font-line-height-140);
+        }
     }
 }
 
@@ -218,6 +218,11 @@
 .trustSubtitle {
     display: flex;
     column-gap: 4px;
+
+    & > svg {
+        width: 26px;
+        height: 26px;
+    }
 
     & > span {
         color: var(--text-color);

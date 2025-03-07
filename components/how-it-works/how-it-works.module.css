@@ -1,7 +1,6 @@
 .wrapper {
     max-width: 1300px;
     width: 100%;
-    /* margin: 0 auto; */
     margin-inline: calc((100% - 1316px) / 2);
     display: grid;
     grid-template-columns: minmax(500px, 596px) 1fr;

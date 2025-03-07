@@ -185,7 +185,6 @@
     & > .trustLabel {
         color: var(--text-color);
         font-size: var(--font-size-ss);
-        font-weight: 400;
         line-height: 15.6px;
         white-space: nowrap;
     }
@@ -297,21 +296,6 @@
         width: 33px;
         height: 33px;
     }
-}
-
-.count {
-    width: 16px;
-    height: 16px;
-    border-radius: 9999px;
-    background-color: var(--yellow-500);
-    position: absolute;
-    top: -5%;
-    right: -5%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: var(--font-size-ss);
-    font-weight: 600;
 }
 
 .btnLogIn {

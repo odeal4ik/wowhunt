@@ -39,7 +39,7 @@ export function Select({
                 role="button"
                 onClick={() => setIsOpen(!isOpen)}>
                 {selected}
-                <Icon svg={Chevron} fill="#858FA3" />
+                <Icon svg={Chevron} fill="#858FA3" label="Chevron" />
             </div>
             {isOpen && options && (
                 <ul className={styles.list}>

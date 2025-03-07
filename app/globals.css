@@ -5,6 +5,7 @@
 }
 * {
     margin: 0;
+    /* border: 1px solid red; */
 }
 body {
     line-height: var(--font-line-height-150);
@@ -47,6 +48,7 @@ h6 {
 
     --neutral-hover: #43436a;
     --neutral-container-soft: rgba(75, 75, 119, 0.05);
+    --neutral-container-light: var(--neutral-container-light);
     --neutral-container-hover: rgba(75, 75, 119, 0.2);
     --neutral-container-active: rgba(75, 75, 119, 0.3);
 
@@ -84,6 +86,8 @@ h6 {
     --btn-transition: background-color 0.2s ease, border-color 0.2s ease;
 
     /* for cards */
+    --background-card: rgba(18, 122, 141, 0.08);
+
     --success-color: #18e905;
     --error-color: #e40052;
     --system-color: #bf22f6;

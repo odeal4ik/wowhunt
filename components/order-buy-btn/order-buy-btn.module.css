@@ -10,10 +10,10 @@
     font-family: var(--font-barlow-bold-sans), sans-serif;
     font-size: var(--font-size-h3);
     line-height: 32px;
-}
 
-.orderTotalAmount {
-    color: var(--yellow-500);
+    .orderTotalAmount {
+        color: var(--yellow-500);
+    }
 }
 
 .buyNowButton {

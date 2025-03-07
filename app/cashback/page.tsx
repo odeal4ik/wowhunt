@@ -1,5 +1,7 @@
 'use client';
+
 import Image from 'next/image';
+
 import styles from './cashback.module.css';
 
 export default function Cashback() {

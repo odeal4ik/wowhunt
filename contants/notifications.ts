@@ -54,3 +54,9 @@ export const skipMessage: NotificationProps = {
     title: 'Nothing to do here',
     message: 'Some info that you can skip',
 };
+
+export const copyMessage: NotificationProps = {
+    type: 'copy',
+    title: 'Copied',
+    message: ' Message copied to clipboard',
+};

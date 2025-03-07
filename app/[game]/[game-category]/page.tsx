@@ -109,7 +109,7 @@ export default function GameCategory() {
                         <summary className={styles.summary}>
                             Why choose Wowhunt?
                             <span className={styles.icon}>
-                                <Icon svg={Chevron} />
+                                <Icon svg={Chevron} label="Chevron" />
                             </span>
                         </summary>
 

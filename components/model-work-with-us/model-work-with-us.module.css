@@ -45,40 +45,40 @@
     @media (width <= 551px) {
         padding: 24px 12px;
     }
-}
 
-.closeButton {
-    position: absolute;
-    top: 18px;
-    right: 18Px;
-    cursor: pointer;
+    .closeButton {
+        position: absolute;
+        top: 18px;
+        right: 18px;
+        cursor: pointer;
 
-    & > svg {
-        width: 23px;
-        flex-shrink: 0;
-        fill: var(--text-color);
+        & > svg {
+            width: 23px;
+            flex-shrink: 0;
+            fill: var(--text-color);
+        }
+
+        @media (width <= 441px) {
+            top: 8px;
+            right: 10px;
+        }
+
+        @media (width <= 376px) {
+            top: 24px;
+            right: 24px;
+        }
     }
 
-    @media (width <= 441px) {
-        top: 8px;
-        right: 10px;
-    }
+    .title {
+        font-family: var(--font-barlow-bold-sans), sans-serif;
+        font-size: var(--font-size-h3);
+        margin-bottom: 48px;
 
-    @media (width <= 376px) {
-        top: 24px;
-        right: 24px;
-    }
-}
-
-.title {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h3);
-    margin-bottom: 48px;
-
-    @media (width <= 400px) {
-        font-size: var(--font-size-h4);
-        line-height: var(--font-line-height-130);
-        margin-bottom: 24px;
+        @media (width <= 400px) {
+            font-size: var(--font-size-h4);
+            line-height: var(--font-line-height-130);
+            margin-bottom: 24px;
+        }
     }
 }
 
@@ -103,30 +103,10 @@
         font-size: var(--font-size-m);
         line-height: 24px;
     }
-}
 
-.selectWrapper {
-    position: relative;
-}
-
-.selectWrapper::after {
-    content: '';
-    position: absolute;
-    top: 40%;
-    right: 20px;
-    transform: translateY(-50%);
-    width: 10px;
-    height: 10px;
-    background: url('/system-icons/arrow-down.svg') no-repeat center;
-    pointer-events: none;
-}
-
-.select {
-    appearance: none;
-    color: var(--text-color-secondary);
-    font-family: var(--font-barlow-regular-sans), sans-serif;
-    font-size: var(--font-size-m);
-    line-height: var(--font-line-height-130);
+    .required {
+        color: var(--yellow-500);
+    }
 }
 
 .input {
@@ -168,15 +148,13 @@
 
 .submitButton {
     grid-column: 1 / -1;
-    background: #fdb827;
+    background: var(--yellow-500);
     border: none;
     border-radius: 8px;
     width: 100%;
     padding: 10px 10px;
     color: var(--dark-soft);
     font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-m);
-    font-weight: 600;
     cursor: pointer;
     transition: background-color 0.2s;
     margin-block-start: 40px;
@@ -185,10 +163,6 @@
         color: var(--background);
         background: var(--yellow-500-hover);
     }
-}
-
-.required {
-    color: var(--yellow-500);
 }
 
 .titleStyle {

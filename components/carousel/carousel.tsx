@@ -10,7 +10,7 @@ export function Carousel() {
         <section className={styles.wrapper}>
             <div className={styles.heading}>
                 <div className={styles.title}>
-                    <Icon svg={TrustpilotStarGreen} aria-label="star" />
+                    <Icon svg={TrustpilotStarGreen} label="Star" />
                     <p>Trustpilot</p>
                 </div>
 
@@ -28,7 +28,7 @@ export function Carousel() {
                                 /* add link to review */
                                 href="https://www.trustpilot.com/review/wowhunt.com"
                                 target="_blank">
-                                <Icon svg={FiveStars} aria-label="FiveStars" />
+                                <Icon svg={FiveStars} label="FiveStars" />
                             </a>
                             <p>Joanna Hargett</p>
                         </div>

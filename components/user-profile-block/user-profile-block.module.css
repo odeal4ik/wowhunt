@@ -33,63 +33,63 @@
     @media (width <= 1575px) {
         padding-block-start: 6px;
     }
-}
 
-.idContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    line-height: var(--font-line-height-130);
-    gap: 4px;
-
-    @media (width <= 1373px) {
-        gap: 7px;
-    }
-}
-
-.wrapper {
-    @media (width <= 1375px) {
+    .idContainer {
         display: flex;
-        gap: 13px;       
-    }
-}
+        flex-direction: column;
+        align-items: flex-start;
+        line-height: var(--font-line-height-130);
+        gap: 4px;
 
-.idUser {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h4);
+        @media (width <= 1373px) {
+            gap: 7px;
+        }
 
-    @media (width <= 1375px) {
-        font-size: var(--font-size-l);
-    }
+        .wrapper {
+            @media (width <= 1375px) {
+                display: flex;
+                gap: 13px;
+            }
 
-    @media (width <= 400px) {
-        font-size: var(--font-size-l);
-    }
-}
+            .idUser {
+                font-family: var(--font-barlow-bold-sans), sans-serif;
+                font-size: var(--font-size-h4);
 
-.progressContainer {
-    display: none;
+                @media (width <= 1375px) {
+                    font-size: var(--font-size-l);
+                }
 
-    @media (width <= 1375px) {
-        display: block;
-    }
+                @media (width <= 400px) {
+                    font-size: var(--font-size-l);
+                }
+            }
 
-    @media (width <= 768px) {
-        display: none;
-    }
-}
+            .progressContainer {
+                display: none;
 
-.emailUser {
-    font-family: var(--font-barlow-regular-sans), sans-serif;
-    font-size: var(--font-size-s);
-    word-break: break-all;
+                @media (width <= 1375px) {
+                    display: block;
+                }
 
-    @media (width <= 1570px) {
-        max-width: 160px;
-    }
+                @media (width <= 768px) {
+                    display: none;
+                }
+            }
+        }
 
-    @media (width <= 1375px) {
-        font-size: var(--font-size-s);
-        max-width: none;
+        .emailUser {
+            font-family: var(--font-barlow-regular-sans), sans-serif;
+            font-size: var(--font-size-s);
+            word-break: break-all;
+
+            @media (width <= 1570px) {
+                max-width: 160px;
+            }
+
+            @media (width <= 1375px) {
+                font-size: var(--font-size-s);
+                max-width: none;
+            }
+        }
     }
 }

@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    background: rgba(127, 141, 164, 0.08);
+    background: var(--background-card);
     border-radius: 14px;
     max-width: 350px;
     padding-block: 12px 21px;

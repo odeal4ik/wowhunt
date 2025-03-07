@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import styles from './user-profile-block.module.css';
+
 import { ProgressBooster } from '../progress-booster/progress-booster';
+import styles from './user-profile-block.module.css';
 
 interface UserProfileBlockProps {
     id: string;

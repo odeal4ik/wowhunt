@@ -21,14 +21,3 @@
     display: flex;
     flex-direction: column;
 }
-
-.other {
-    grid-column: 2;
-}
-
-@media (max-width: 1280px) {
-   .other {
-        min-width: 0;
-        grid-column: 1;
-    }
-}

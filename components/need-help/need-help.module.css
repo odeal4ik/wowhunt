@@ -42,23 +42,22 @@
     @media (width <= 850px) {
         align-self: flex-start;
     }
-}
 
-.title {
-    color: var(--yellow-500);
-    font-size: var(--font-size-h1);
-    line-height: 1;
-    font-family: var(--font-barlow-extra-bold-sans), serif;
+    .title {
+        color: var(--yellow-500);
+        font-size: var(--font-size-h1);
+        line-height: 1;
+        font-family: var(--font-barlow-extra-bold-sans), serif;
 
-    @media (width <= 850px) {
-        font-size: var(--font-size-h2);
+        @media (width <= 850px) {
+            font-size: var(--font-size-h2);
+        }
     }
-}
 
-.subTitle {
-    color: var(--text-color);
-    font-size: var(--font-size-l);
-    line-height: var(--font-line-height-140);
+    .subTitle {
+        font-size: var(--font-size-l);
+        line-height: var(--font-line-height-140);
+    }
 }
 
 .button {
@@ -76,6 +75,10 @@
     padding-inline: 40px;
 
     transition: scale 0.1s ease-in;
+
+    &:hover {
+        background: var(--yellow-500-hover);
+    }
 
     &:active {
         scale: 0.975;

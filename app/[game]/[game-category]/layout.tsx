@@ -191,7 +191,7 @@ export default function GameCategoryLayout({
                         BUY NOW
                     </button>
                     <button className={styles.chat} type="button">
-                        <Icon svg={Chat} fill="#9f9fb7" />
+                        <Icon svg={Chat} fill="#9f9fb7" label="Chat" />
                         CHAT
                     </button>
                 </div>

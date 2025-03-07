@@ -45,14 +45,14 @@ export function Catalog({ isVisible }: { isVisible: boolean }) {
                                 onClick={setActiveCategoryVisible}>
                                 <span className={styles.menuIcon}>
                                     <Suspense fallback={'Loading...'}>
-                                        <Icon svg={icon} fill='' />
+                                        <Icon svg={icon} fill='' label={name} />
                                     </Suspense>
                                 </span>
 
                                 {name}
 
                                 <span className={styles.menuArrow}>
-                                    <Icon svg={Chevron} fill="currentColor" />
+                                    <Icon svg={Chevron} fill="currentColor" label="Chevron" />
                                 </span>
                             </button>
                         </li>

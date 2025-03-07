@@ -1,6 +1,7 @@
-import styles from './profile-cards.module.css';
 import { useState } from 'react';
+
 import { ProfileCard } from '../profile-card/profile-card';
+import styles from './profile-cards.module.css';
 
 interface OrderCard {
     status: 'delivered' | 'cancelled' | 'in-progress' | 'looking' | 'refunded';
@@ -315,7 +316,7 @@ export function ProfileCards() {
     const cardsToShow = isMoreOrders ? orderCards : orderCards.slice(0, 4);
 
     return (
-        <>
+        <div className={styles.wrapper}>
             <div className={styles.cardGrid}>
                 {cardsToShow.map((card) => (
                     <ProfileCard key={card.id} {...card} />
@@ -329,6 +330,6 @@ export function ProfileCards() {
                     {isMoreOrders ? 'SHOW LESS' : 'SHOW MORE'}
                 </button>
             )}
-        </>
+        </div>
     );
 }

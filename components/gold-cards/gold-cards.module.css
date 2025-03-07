@@ -33,7 +33,7 @@
 .card {
     display: flex;
     flex-direction: column;
-    background: rgba(127, 141, 164, 0.08);
+    background: var(--background-card);
     border-radius: 14px;
     padding: 20px;
     position: relative;
@@ -196,7 +196,7 @@
     font-family: var(--font-barlow-bold-sans), sans-serif;
     font-size: var(--font-size-m);
     color: var(--text-color);
-    background: rgba(75, 75, 119, 0.1);
+    background: var(--neutral-container-light);
     border: 2px solid var(--dark-muted);
     padding: 12px 32px;
     border-radius: 12px;

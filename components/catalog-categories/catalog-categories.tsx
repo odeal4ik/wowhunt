@@ -52,7 +52,7 @@ export function CatalogCategories({
             })}>
             <h2 className={styles.title}>
                 <button type="button" onClick={clearVisibleCategory}>
-                    {activeCategory && <Icon svg={Chevron} />}
+                    {activeCategory && <Icon svg={Chevron} label="Chevron" />}
                     {activeCategory}
                 </button>
             </h2>

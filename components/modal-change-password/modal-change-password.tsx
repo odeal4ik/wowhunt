@@ -5,13 +5,12 @@ import React, { useState } from 'react';
 
 import { Icon } from '@/core-components/icon/icon';
 
-import Close from '@/images/system-icons/close.svg';
-import PasswordHide from '@/images/system-icons/password-hide.svg';
-import PasswordShow from '@/images/system-icons/password-show.svg';
-
 import error from '@/images/notifications/error.min.svg';
 import success from '@/images/notifications/success-green.min.svg';
 import attention from '@/images/notifications/warning.min.svg';
+import Close from '@/images/system-icons/close.svg';
+import PasswordHide from '@/images/system-icons/password-hide.svg';
+import PasswordShow from '@/images/system-icons/password-show.svg';
 
 import { useEscapeClose } from '../../hooks/useEscapeClose';
 import styles from './modal-change-password.module.css';
@@ -118,7 +117,7 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
         <div className={styles.overlay} onClick={handleClose}>
             <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                 <button className={styles.closeButton} onClick={handleClose}>
-                    <Icon svg={Close} />
+                    <Icon svg={Close} label="Close" />
                 </button>
 
                 <div className={styles.modalContent}>
@@ -152,7 +151,14 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
                                     type="button"
                                     className={styles.eyeButton}
                                     onMouseDown={handleMouseDown}>
-                                    <Icon svg={showPassword ? PasswordShow : PasswordHide} />
+                                    <Icon
+                                        svg={
+                                            showPassword
+                                                ? PasswordShow
+                                                : PasswordHide
+                                        }
+                                        label={showPassword ? 'Hide' : 'Show'}
+                                    />
                                 </button>
                             </div>
 
@@ -164,7 +170,10 @@ export const ModalChangePassword: React.FC<ModalChangePasswordProps> = ({
                                     <div
                                         key={key}
                                         className={styles.criteriaItem}>
-                                        <Icon svg={getStatusIcon(criteria[key])} />
+                                        <Icon
+                                            svg={getStatusIcon(criteria[key])}
+                                            label={getStatusIcon(criteria[key])}
+                                        />
                                         {label}
                                     </div>
                                 ))}

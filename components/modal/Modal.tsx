@@ -50,7 +50,7 @@ export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
                         className={styles.closeButton}
                         onClick={onClose}
                         aria-label="Close modal">
-                        <Icon svg={Close} />
+                        <Icon svg={Close} label="Close" />
                     </button>
                 </div>
                 {children}

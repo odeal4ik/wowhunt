@@ -57,7 +57,7 @@ export function BoosterOrderFilter() {
                             </span>
                         </div>
                         <div className={styles.closeIcon}>
-                            <Icon svg={Close} />
+                            <Icon svg={Close} label="Close" />
                         </div>
                     </div>
                 );

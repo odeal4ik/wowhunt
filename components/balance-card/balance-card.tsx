@@ -124,7 +124,7 @@ export function BalanceCard({
                                     {isIncreasingBalance && (
                                         <Icon
                                             svg={ArrowUp}
-                                            aria-label="Increasing"
+                                            label="ArrowUp"
                                         />
                                     )}
                                 </div>
@@ -154,7 +154,7 @@ export function BalanceCard({
                                         {isIncreasingLastOrder && (
                                             <Icon
                                                 svg={ArrowUp}
-                                                aria-label="Increasing"
+                                                label="ArrowUp"
                                             />
                                         )}
                                     </div>
@@ -169,7 +169,7 @@ export function BalanceCard({
                                 type="button"
                                 className={`${styles.buttonReport} ${styles.buttonDownload}`}
                                 onClick={() => setIsModalWithdrawOpen(true)}>
-                                <Icon svg={Download} area-label="Download" />
+                                <Icon svg={Download} label="Download" />
                             </button>
                             <button
                                 type="button"
@@ -177,7 +177,7 @@ export function BalanceCard({
                                 onClick={() => setIsModalMyWithdrawOpen(true)}>
                                 <Icon
                                     svg={Watch}
-                                    area-label="History"
+                                    label="History"
                                     fill="#343453"
                                 />
                             </button>

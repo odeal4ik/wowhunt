@@ -14,7 +14,7 @@ import Close from '@/images/system-icons/close.svg';
 import styles from './toast-notification.module.css';
 
 export interface NotificationProps {
-    type: 'success' | 'info' | 'warning' | 'error' | 'skip' | 'help';
+    type: 'success' | 'info' | 'warning' | 'error' | 'skip' | 'help' | 'copy';
     title: string;
     message: string;
     // closeToast is injected after calling like this toast(<ToastNotification type="success" />);
@@ -33,16 +33,18 @@ export const ToastNotification = ({
     const isError = type === 'error';
     const isSkip = type === 'skip';
     const isHelp = type === 'help';
+    const isCopy = type === 'copy';
 
     return (
         <div className={cn(styles.wrapper, styles[type])}>
             <div className={styles.icon}>
-                {isSuccess && <Icon svg={Success} />}
-                {isInfo && <Icon svg={Info} />}
-                {isWarning && <Icon svg={Warning} />}
-                {isError && <Icon svg={Error} />}
-                {isHelp && <Icon svg={Help} />}
-                {isSkip && <Icon svg={Skip} />}
+                {isSuccess && <Icon svg={Success} label="Success" />}
+                {isInfo && <Icon svg={Info} label="Info" />}
+                {isCopy && <Icon svg={Info} label="Info" />}
+                {isWarning && <Icon svg={Warning} label="Warning" />}
+                {isError && <Icon svg={Error} label="Error" />}
+                {isHelp && <Icon svg={Help} label="Help" />}
+                {isSkip && <Icon svg={Skip} label="Skip" />}
             </div>
 
             <div className={styles.content}>
@@ -52,7 +54,7 @@ export const ToastNotification = ({
                 </div>
 
                 <button className={styles.closeButton} onClick={closeToast}>
-                    <Icon svg={Close} fill="#9F9FB7" />
+                    <Icon svg={Close} fill="#9F9FB7" label="Close" />
                 </button>
             </div>
         </div>

@@ -33,7 +33,7 @@ export function BoosterOrderCard({
     return (
         <div className={styles.container}>
             <div className={styles.gameNameWrapper}>
-                <Icon svg={img} aria-label={game} />
+                <Icon svg={img} label={game} />
                 <p className={styles.gameName}>{game}</p>
             </div>
 
@@ -73,7 +73,7 @@ export function BoosterOrderCard({
             <div className={styles.footer}>
                 <p className={styles.numberOrder}>{numberOrder}</p>
                 <figure className={styles.country}>
-                    <Icon svg={countryFlag} aria-label={country} />
+                    <Icon svg={countryFlag} label={country} />
                     <figcaption>{country}</figcaption>
                 </figure>
             </div>

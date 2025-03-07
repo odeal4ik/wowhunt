@@ -51,70 +51,69 @@
         rgba(59, 60, 104, 0) 211.54%
     );
     border-radius: 18px;
-}
 
-.iconWrapper {
-    flex-shrink: 0;
-    width: 62px;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-}
-
-.title {
-    font-family: var(--font-barlow-bold-sans), serif;
-    font-size: var(--font-size-h4);
-    line-height: var(--font-line-height-130);
-}
-
-.text {
-    font-size: var(--font-size-l);
-    line-height: 28px;
-    color: #a2a6c4;
-}
-
-.trustInfo {
-    display: flex;
-    column-gap: 8px;
-
-    & > span {
-        font-family: var(--font-barlow-bold-sans), serif;
-        font-size: var(--font-size-h4);
-        line-height: var(--font-line-height-130);
+    .iconWrapper {
+        flex-shrink: 0;
+        width: 62px;
     }
-}
 
-.stars {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    column-gap: 6px;
+    .content {
+        display: flex;
+        flex-direction: column;
 
-    & > svg {
-        width: 32px;
-        height: 32px;
-        background-color: #3b3c68;
-        border-radius: 6px;
-        padding: 9px;
-        transition: all 0.2s ease-in-out;
-    }
-}
+        .title {
+            font-family: var(--font-barlow-bold-sans), serif;
+            font-size: var(--font-size-h4);
+            line-height: var(--font-line-height-130);
+        }
 
-.trust {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    column-gap: 24px;
-    row-gap: 12px;
-    padding-block-start: 20px;
+        .text {
+            font-size: var(--font-size-l);
+            line-height: 28px;
+            color: #a2a6c4;
+        }
 
-    &:hover .stars > svg {
-        background-color: #00b67a;
+        .trust {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 24px;
+            row-gap: 12px;
+            padding-block-start: 20px;
 
-        path {
-            fill: var(--text-color);
+            &:hover .stars > svg {
+                background-color: #00b67a;
+
+                path {
+                    fill: var(--text-color);
+                }
+            }
+
+            .trustInfo {
+                display: flex;
+                column-gap: 8px;
+
+                & > span {
+                    font-family: var(--font-barlow-bold-sans), serif;
+                    font-size: var(--font-size-h4);
+                    line-height: var(--font-line-height-130);
+                }
+            }
+            .stars {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                column-gap: 6px;
+
+                & > svg {
+                    width: 32px;
+                    height: 32px;
+                    background-color: #3b3c68;
+                    border-radius: 6px;
+                    padding: 9px;
+                    transition: all 0.2s ease-in-out;
+                }
+            }
         }
     }
 }

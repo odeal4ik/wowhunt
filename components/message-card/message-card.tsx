@@ -31,13 +31,13 @@ export default function MessageCard({ message }: MessageCardProps) {
                 <div className={styles.actions}>
                     {message.hasSupport && (
                         <button className={styles.supportButton}>
-                            <Icon svg={Support} aria-label="Support" />
+                            <Icon svg={Support} label="Support" />
                             Support
                         </button>
                     )}
                     {message.hasChat && (
                         <button className={styles.chatButton}>
-                            <Icon svg={Support} aria-label="Support" />
+                            <Icon svg={Support} label="Support" />
                             Chat
                         </button>
                     )}

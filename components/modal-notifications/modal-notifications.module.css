@@ -97,20 +97,18 @@
 }
 
 .telegramInstructions {
-    font-family: var(--font-barlow-regular-sans), sans-serif;
-    font-size: var(--font-size-m);
     line-height: var(--font-line-height-130);
     color: #7f8da4;
-}
 
-.telegramInstructions ol {
-    padding-inline-start: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+    & > ol {
+        padding-inline-start: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
 
-.textStyle {
-    color: var(--yellow-500);
-    cursor: pointer;
+    .textStyle {
+        color: var(--yellow-500);
+        cursor: pointer;
+    }
 }

@@ -25,27 +25,27 @@
     flex-direction: row;
     justify-content: space-between;
     padding-inline: 40px;
-}
 
-.progressText {
-    position: absolute;
-    transform: translateX(-50%);
-}
+    .progressText {
+        position: absolute;
+        transform: translateX(-50%);
+    }
 
-.progressText:nth-child(1) {
-    left: 10%;
-}
-.progressText:nth-child(2) {
-    left: 30%;
-}
-.progressText:nth-child(3) {
-    left: 50%;
-}
-.progressText:nth-child(4) {
-    left: 70%;
-}
-.progressText:nth-child(5) {
-    left: 90%;
+    .progressText:nth-child(1) {
+        left: 10%;
+    }
+    .progressText:nth-child(2) {
+        left: 30%;
+    }
+    .progressText:nth-child(3) {
+        left: 50%;
+    }
+    .progressText:nth-child(4) {
+        left: 70%;
+    }
+    .progressText:nth-child(5) {
+        left: 90%;
+    }
 }
 
 .progressBarText {
@@ -100,16 +100,16 @@
     border-radius: 4px;
     position: relative;
     overflow: hidden;
-}
 
-.progressLine {
-    position: absolute;
-    left: 0;
-    top: 0;
-    height: 100%;
-    background: linear-gradient(90deg, #d84221 0%, #e1d74c 100%);
-    border-radius: 4px;
-    transition: width 0.3s ease;
+    .progressLine {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: linear-gradient(90deg, #d84221 0%, #e1d74c 100%);
+        border-radius: 4px;
+        transition: width 0.3s ease;
+    }
 }
 
 .progressBarLabels {

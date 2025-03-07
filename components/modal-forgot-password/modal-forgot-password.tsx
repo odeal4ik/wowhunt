@@ -18,7 +18,7 @@ export const ModalForgotPassword = ({ onClose }: { onClose: () => void }) => {
         <div className={styles.overlay} onClick={onClose}>
             <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
                 <button className={styles.closeButton} onClick={onClose}>
-                    <Icon svg={Close} />
+                    <Icon svg={Close} label="Close" />
                 </button>
 
                 <div className={styles.imageContainer}>

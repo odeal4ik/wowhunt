@@ -17,7 +17,7 @@ export function BackButton({ path }: BackButtonProps) {
         <button
             onClick={() => router.back()}
             className={styles.backButton}>
-            <Icon svg={Chevron} fill="currentColor" />
+            <Icon svg={Chevron} fill="currentColor" label="Chevron" />
             <span>{path}</span>
         </button>
     );

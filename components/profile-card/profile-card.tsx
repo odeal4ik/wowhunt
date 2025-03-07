@@ -1,14 +1,17 @@
 import Image from 'next/image';
 import React from 'react';
+import { toast } from 'react-toastify';
 
 import { Icon } from '@/core-components/icon/icon';
 
 import Copy from '@/images/system-icons/copy.svg';
 import Done from '@/images/system-icons/done.svg';
-import Info from '@/images/system-icons/info.svg';
-import Support from '@/images/system-icons/support.svg';
 import Envelope from '@/images/system-icons/mail-icon.svg';
+import Support from '@/images/system-icons/support.svg';
 
+import { copyMessage } from '@/contants/notifications';
+
+import { ToastNotification } from '../toast-notification/toast-notification';
 import styles from './profile-card.module.css';
 
 interface StatusConfig {
@@ -66,6 +69,7 @@ export function ProfileCard({ status, price, title, id, details }: OrderCard) {
 
     const handleCopy = (text: string) => {
         navigator.clipboard.writeText(text);
+        toast(<ToastNotification {...copyMessage} />);
     };
 
     const formattedPrice = price.toFixed(2);
@@ -82,12 +86,8 @@ export function ProfileCard({ status, price, title, id, details }: OrderCard) {
                         className={styles.idBlock}
                         onClick={() => handleCopy(id)}>
                         <p className={styles.id}>ID: {id}</p>
-                        <Icon svg={Copy} aria-label="Copy" />
+                        <Icon svg={Copy} label="Copy" />
                     </div>
-                </div>
-
-                <div className={styles.infoBlock}>
-                    <Icon svg={Info} aria-label="Info" />
                 </div>
 
                 <div className={styles.iconWrapper}>
@@ -126,16 +126,16 @@ export function ProfileCard({ status, price, title, id, details }: OrderCard) {
                 <div className={styles.actions}>
                     <button
                         className={`${styles.actionButton} ${styles.actionFuttonDefault}`}>
-                        <Icon svg={Support} aria-label="Support" />
+                        <Icon svg={Support} label="Support" />
                     </button>
                     <button
                         className={`${styles.actionButton} ${styles.actionFuttonDefault}`}>
-                        <Icon svg={Envelope} aria-label="Envelope" />
+                        <Icon svg={Envelope} label="Envelope" />
                         Chat
                     </button>
                     <button
                         className={`${styles.actionButton} ${styles.actionFuttonDone}`}>
-                        <Icon svg={Done} aria-label="Done" />
+                        <Icon svg={Done} label="Done" />
                         Done
                     </button>
                 </div>

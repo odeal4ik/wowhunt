@@ -16,14 +16,14 @@ export function GamesTabBadge({
         <div className={styles.wrapper}>
             {isHotOffer ? (
                 <div className={styles.hotOffer}>
-                    HOT OFFER <Icon svg={Flame} />
+                    HOT OFFER <Icon svg={Flame} label="Flame" />
                 </div>
             ) : null}
 
             {isWeeklyOffer ? (
                 <div className={styles.weeklyOffer}>
                     Weekly offer
-                    <Icon svg={Clock} />
+                    <Icon svg={Clock} label="Clock" />
                 </div>
             ) : null}
         </div>

@@ -169,6 +169,10 @@
         font-size: var(--font-size-m);
         cursor: pointer;
         z-index: 20;
+
+        &:hover {
+            background: var(--yellow-500-hover);
+        }
     }
 
     .searchIcon.active {

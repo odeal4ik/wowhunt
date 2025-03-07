@@ -40,7 +40,7 @@ export function SearchWrapper() {
                         setIsSearchVisible(!isSearchVisible);
                     }
                 }}>
-                <Icon svg={Search} fill="#9F9FB7" area-label="Search" />
+                <Icon svg={Search} fill="#9F9FB7" label="Search" />
             </button>
             {isSearchVisible && (
                 <button

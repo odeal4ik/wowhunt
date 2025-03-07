@@ -1,11 +1,16 @@
+import { toast } from 'react-toastify';
+
 import { Icon } from '@/core-components/icon/icon';
 
 import { Modal } from '@/components/modal/Modal';
 
-import Telegram from '@/images/media/telegram.svg';
 import Mail from '@/images/icons/mail.svg';
+import Telegram from '@/images/media/telegram.svg';
 import Notification from '@/images/system-icons/notification.svg';
 
+import { copyMessage } from '@/contants/notifications';
+
+import { ToastNotification } from '../toast-notification/toast-notification';
 import styles from './modal-notifications.module.css';
 
 interface NotificationsModalProps {
@@ -25,8 +30,10 @@ export const NotificationsModal = ({
     onEmailNotificationsChange,
     onPushNotificationsChange,
 }: NotificationsModalProps) => {
+    
     const handleCopy = (text: string) => {
         navigator.clipboard.writeText(text);
+        toast(<ToastNotification {...copyMessage} />);
     };
 
     return (
@@ -45,7 +52,7 @@ export const NotificationsModal = ({
                         <span className={styles.slider}></span>
                     </label>
                     <div className={styles.notificationItem}>
-                        <Icon svg={Mail} area-label="Mail" />
+                        <Icon svg={Mail} label="Mail" />
                         <p className={styles.notificationText}>E-mail</p>
                     </div>
                 </div>
@@ -62,12 +69,12 @@ export const NotificationsModal = ({
                         <span className={styles.slider}></span>
                     </label>
                     <div className={styles.notificationItem}>
-                        <Icon svg={Notification} area-label="Notification" />
+                        <Icon svg={Notification} label="Notification" />
                         <p className={styles.notificationText}>Push</p>
                     </div>
                 </div>
                 <button className={styles.modalButton}>
-                    <Icon svg={Telegram} area-label="Telegram" />
+                    <Icon svg={Telegram} label="Telegram" />
                     Telegram
                 </button>
 

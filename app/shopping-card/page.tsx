@@ -1,13 +1,14 @@
 'use client';
-import styles from './shopping-card.module.css';
 
 import { BackButton } from '@/components/backtrack/backtrack';
-import { OrderCard } from '@/components/order-card/order-card';
-import { OrderEmpty } from '@/components/order-empty/order-empty';
 import { CouponForm } from '@/components/coupon-form/coupon-form';
 import { FormOrder } from '@/components/form-order/form-order';
-import { PaymentMethod } from '@/components/payment-method/payment-method';
 import { OrderBuyBtn } from '@/components/order-buy-btn/order-buy-btn';
+import { OrderCard } from '@/components/order-card/order-card';
+import { OrderEmpty } from '@/components/order-empty/order-empty';
+import { PaymentMethod } from '@/components/payment-method/payment-method';
+
+import styles from './shopping-card.module.css';
 
 const orderCardsData = [
     {
@@ -84,7 +85,11 @@ export default function ShoppingCard() {
                     <h1 className={styles.title}>ORDER DETAILS</h1>
                     <BackButton path="Back to Shopping" />
                 </div>
-                {hasOrders ? <OrderCard initialData={orderCardsData} /> : <OrderEmpty />}
+                {hasOrders ? (
+                    <OrderCard initialData={orderCardsData} />
+                ) : (
+                    <OrderEmpty />
+                )}
             </div>
             {hasOrders && (
                 <>
@@ -93,18 +98,18 @@ export default function ShoppingCard() {
                         <div>
                             <p className={styles.titleForm}>
                                 <span className={styles.titleFormColor}>
-                                    Step 1:{' '}
+                                    Step 1:&nbsp;
                                 </span>
-                                Please fill the form{' '}
+                                Please fill the form
                             </p>
                             <FormOrder />
                         </div>
                         <div>
                             <p className={styles.titleForm}>
                                 <span className={styles.titleFormColor}>
-                                    Step 2:{' '}
+                                    Step 2:&nbsp;
                                 </span>
-                                Choose payment method{' '}
+                                Choose payment method
                             </p>
                             <PaymentMethod />
                         </div>

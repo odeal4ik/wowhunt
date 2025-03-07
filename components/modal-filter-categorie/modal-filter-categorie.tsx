@@ -114,7 +114,7 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                 <div className={styles.modalHeader}>
                     <h2 className={styles.modalTitle}>Choose categories</h2>
                     <button onClick={onClose} className={styles.closeButton}>
-                        <Icon svg={Close} />
+                        <Icon svg={Close} label="Close" />
                     </button>
                 </div>
 
@@ -127,7 +127,7 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <div className={styles.searchIcon}>
-                        <Icon svg={Search} fill="#9F9FB7" area-label="Search" />
+                        <Icon svg={Search} fill="#9F9FB7" label="Search" />
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                                 <h3 className={styles.gameTitle}>
                                     <Icon
                                         svg={gameCategories[0].gameIcon}
-                                        aria-label={game}
+                                        label={game}
                                     />
                                     {game}
                                 </h3>
@@ -156,11 +156,11 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                                             onClick={() =>
                                                 toggleCategory(category)
                                             }>
-                                            <span
+                                            <p
                                                 className={styles.categoryName}>
                                                 {category.name}
-                                            </span>
-                                            <span
+                                            </p>
+                                            <p
                                                 className={`${styles.categoryGame} 
                                                 ${
                                                     selectedCategories.some(
@@ -172,7 +172,7 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                                                         : ''
                                                 }`}>
                                                 {category.game}
-                                            </span>
+                                            </p>
                                         </div>
                                     ))}
                                 </div>
@@ -210,7 +210,7 @@ export function CategoriesModal({ isOpen, onClose }: CategoriesModalProps) {
                                         onClick={() =>
                                             removeCategory(category.id)
                                         }>
-                                        <Icon svg={Close} />
+                                        <Icon svg={Close} label="Close" />
                                     </button>
                                 </div>
                             ))}

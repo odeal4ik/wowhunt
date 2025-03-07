@@ -6,6 +6,10 @@ import React, { useCallback, useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
+import { Icon } from '@/core-components/icon/icon';
+
+import Chevron from '@/images/system-icons/arrow-сhevron.svg';
+
 import { successSignupMessage } from '@/contants/notifications';
 import { useGlobalModal } from '@/hooks/useGlobalModal';
 import { SignUpUserInput, useSignUpUser } from '@/queries/auth/signupUser';
@@ -255,7 +259,7 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                             defaultValue=""
                                             id="game"
                                             {...register('game')}>
-                                            <option value="" disabled hidden>
+                                            <option value="" disabled hidden className={styles.placeholder}>
                                                 Choose your game
                                             </option>
                                             {[
@@ -270,6 +274,13 @@ export const ModalSignUp = ({ onClose }: { onClose: () => void }) => {
                                                 </option>
                                             ))}
                                         </select>
+                                        <div className={styles.selectIcon}>
+                                            <Icon
+                                                svg={Chevron}
+                                                fill="#858FA3"
+                                                label="Chevron"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             ) : null}

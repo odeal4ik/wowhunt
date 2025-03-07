@@ -37,7 +37,7 @@ export function PaymentMethod() {
                 <div className={styles.image} key={index}>
                     <Icon
                         svg={icon}
-                        aria-label={`payment-${index + 1}`}
+                        label={`payment-${index + 1}`}
                     />
                 </div>
             ))}

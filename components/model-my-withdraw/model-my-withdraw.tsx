@@ -71,7 +71,7 @@ export default function ModalMyWithdraw({
                     <button
                         onClick={() => onClose()}
                         className={styles.closeButton}>
-                        <Icon svg={Close} />
+                        <Icon svg={Close} label="Close" />
                     </button>
                 </div>
 

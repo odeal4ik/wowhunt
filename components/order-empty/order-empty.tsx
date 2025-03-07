@@ -8,7 +8,7 @@ export function OrderEmpty() {
     return (
         <div className={styles.container}>
             <div className={styles.iconWrapper}>
-                <Icon svg={Trash} fill="" />
+                <Icon svg={Trash} fill="" label="Trash" />
             </div>
             <p className={styles.text}>Your cart is currently empty</p>
         </div>

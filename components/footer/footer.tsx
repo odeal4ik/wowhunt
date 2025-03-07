@@ -41,7 +41,7 @@ export function Footer() {
                 <div className={styles.links}>
                     <div className={styles.logo}>
                         <Link href="/" className={styles.logoWrapper}>
-                            <Icon svg={Logo} />
+                            <Icon svg={Logo} label="Logo" />
                             <span className={styles.name}>wowhunt</span>
                         </Link>
                         <div className={styles.copyrights}>
@@ -94,7 +94,7 @@ export function Footer() {
                             <Icon 
                             key={index}
                             svg={icon}
-                            aria-label={`payment-${index + 1}`}
+                            label={`payment-${index + 1}`}
                         />
                         ))}
                     </div>

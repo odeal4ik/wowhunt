@@ -58,9 +58,9 @@
     color: var(--text-color);
     font-size: var(--font-size-m);
     padding: 12px 16px;
-    border: 1px solid rgba(75, 75, 119, 0.1);
+    border: 1px solid var(--neutral-container-light);
     border-radius: 8px;
-    background: rgba(75, 75, 119, 0.1);
+    background: var(--neutral-container-light);
     outline: none;
     transition: border-color 0.2s ease;
 

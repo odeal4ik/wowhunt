@@ -183,13 +183,13 @@ export const ModalLoginIn = ({ onClose }: { onClose: () => void }) => {
                             <button
                                 type="button"
                                 className={styles.socialButton}>
-                                <Icon svg={Facebook} aria-label="Facebook" />
+                                <Icon svg={Facebook} label="Facebook" />
                                 Facebook
                             </button>
                             <button
                                 type="button"
                                 className={styles.socialButton}>
-                                <Icon svg={Google} aria-label="Google" />
+                                <Icon svg={Google} label="Google" />
                                 Google
                             </button>
                         </div>

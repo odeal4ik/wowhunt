@@ -22,7 +22,7 @@ export function GamesCard({ card }: { card: string }) {
             />
 
             <div className={styles.frame}>
-                <Icon svg={Frame} />
+                <Icon svg={Frame} label="Frame" />
             </div>
 
             {/* TODO set own rules */}
@@ -41,7 +41,7 @@ export function GamesCard({ card }: { card: string }) {
             </div>
 
             <button type="button" className={styles.button}>
-                <Icon svg={Arrow} />
+                <Icon svg={Arrow} label="Arrow" />
             </button>
         </Link>
     );

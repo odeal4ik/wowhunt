@@ -43,7 +43,7 @@ function WorkWithUsPopup({ onClose }: PopupProps) {
             }>
             <div className={styles.popup}>
                 <button className={styles.closeButton} onClick={onClose}>
-                    <Icon svg={Close} />
+                    <Icon svg={Close} label="Close" />
                 </button>
 
                 <h2 className={styles.title}>

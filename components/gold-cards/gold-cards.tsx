@@ -142,7 +142,7 @@ export function GoldCards({ activeRegion, activeFaction }: GoldCardsProps) {
                                     svg={
                                         activeRegion === 'EU' ? UEFlag : USFlag
                                     }
-                                    aria-label={
+                                    label={
                                         activeRegion === 'EU' ? 'EU' : 'US'
                                     }
                                 />

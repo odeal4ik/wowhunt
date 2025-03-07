@@ -43,9 +43,24 @@
     width: 130px;
     height: 70px;
     border-radius: 16px;
+    cursor: pointer;
 
     &:hover {
-        background-color: linear-gradient(
+        background: linear-gradient(
+                237.82deg,
+                rgba(59, 60, 104, 0.8) -147.73%,
+                rgba(59, 60, 104, 0) 180.56%
+            ),
+            linear-gradient(
+                313.42deg,
+                rgba(59, 47, 134, 0.05) 0%,
+                rgba(0, 0, 0, 0) 100%
+            );
+        border: 1px solid #6f709c;
+    }
+
+    &:active {
+        background: linear-gradient(
                 237.82deg,
                 rgba(251, 191, 36, 0.3) -147.73%,
                 rgba(251, 191, 36, 0) 180.56%
@@ -55,7 +70,7 @@
                 rgba(59, 47, 134, 0.05) 0%,
                 rgba(0, 0, 0, 0) 100%
             );
+
         border: 1px solid var(--yellow-500);
-        cursor: pointer;
     }
 }

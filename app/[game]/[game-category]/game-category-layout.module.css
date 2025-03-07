@@ -43,8 +43,7 @@
     background-color: var(--dark-hover);
     padding-block-start: 263px;
     padding-inline: 24px 16px;
-    background-image: linear-gradient(transparent 0%, var(--dark-hover) 35%),
-        url('/images/card.png');
+    background-image: url('/images/card.png');
     background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
@@ -189,7 +188,9 @@
         text-align: center;
         cursor: pointer;
         border-radius: 8px;
-        transition: color 0.2s ease-in, background-color 0.2s ease-in;
+        transition:
+            color 0.2s ease-in,
+            background-color 0.2s ease-in;
 
         &:has(input:checked) {
             background-color: var(--yellow-500);
@@ -234,6 +235,11 @@
         &.submit {
             background-color: var(--yellow-500);
             color: var(--dark-soft);
+
+            &:hover {
+                background-color: var(--yellow-500-hover);
+                color: var(--dark-active);
+            }
         }
 
         &.chat {

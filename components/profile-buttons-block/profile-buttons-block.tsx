@@ -50,7 +50,7 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                         <span className={styles.slider}></span>
                     </label>
                     <div className={styles.notificationItem}>
-                    <Icon svg={Mail} area-label="Mail" />
+                    <Icon svg={Mail} label="Mail" />
                         <p className={styles.notificationText}>
                             E-mail notifications
                         </p>
@@ -70,7 +70,7 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                             />
                             <span className={styles.slider}></span>
                         </label>
-                        <Icon svg={Notification} area-label="Notification" />
+                        <Icon svg={Notification} label="Notification" />
                         <p className={styles.notificationText}>
                             Push notifications
                         </p>
@@ -78,7 +78,7 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                 </div>
 
                 <button className={styles.notificationButton}>
-                    <Icon svg={Telegram} area-label="Facebook" />
+                    <Icon svg={Telegram} label="Facebook" />
                     Telegram
                 </button>
             </div>
@@ -88,17 +88,17 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                     <button
                         className={styles.notificationButton}
                         onClick={() => setIsChangeEmailOpen(true)}>
-                        <Icon svg={At} area-label="Email" />
+                        <Icon svg={At} label="Email" />
                         Change eMail
                     </button>
                     <button
                         className={styles.notificationButton}
                         onClick={() => setIsChangePasswordOpen(true)}>
-                        <Icon svg={Key} area-label="Key" />
+                        <Icon svg={Key} label="Key" />
                         Change password
                     </button>
                     <button className={styles.notificationButton}>
-                        <Icon svg={Support} area-label="Support" />
+                        <Icon svg={Support} label="Support" />
                         Write to admin
                     </button>
                 </div>
@@ -107,13 +107,13 @@ export function ProfileButtonsBlock({ email }: ProfileButtonsBlockProps) {
                     <button
                         className={styles.mobileButton}
                         onClick={() => setIsSettingsOpen(true)}>
-                        <Icon svg={Settings} area-label="Settings" />
+                        <Icon svg={Settings} label="Settings" />
                         Settings
                     </button>
                     <button
                         className={styles.mobileButton}
                         onClick={() => setIsNotificationsOpen(true)}>
-                        <Icon svg={Notification} area-label="Notification" />
+                        <Icon svg={Notification} label="Notification" />
                         Notifications
                     </button>
                 </div>

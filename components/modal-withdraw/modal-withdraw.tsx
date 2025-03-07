@@ -28,7 +28,7 @@ export default function BoosterModalWithdraw({
                     <button
                         onClick={() => onClose()}
                         className={styles.closeButton}>
-                        <Icon svg={Close} />
+                        <Icon svg={Close} label="Close" />
                     </button>
                 </div>
 

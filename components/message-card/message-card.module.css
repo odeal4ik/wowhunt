@@ -6,7 +6,7 @@
     padding-block: 21px;
     padding-inline: 20px;
     position: relative;
-    --border-color: transparent;
+
 
     &::before {
         content: '';
@@ -330,8 +330,8 @@
 .comment {
     color: #666;
     font-size: var(--font-size-s);
-}
 
-.comment .label {
-    margin-right: 8px;
+    .label {
+        margin-right: 8px;
+    }
 }

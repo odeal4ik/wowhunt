@@ -64,7 +64,7 @@ export function HowItWorks() {
                         <div className={styles.icon}>
                             <Icon
                                 svg={item.icon}
-                                aria-label={`How it works icon ${item.id}`}
+                                label={`How it works icon ${item.id}`}
                             />
                         </div>
 

@@ -48,7 +48,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     <CatalogBurgerButton onClick={toggleCatalogVisibility} />
 
                     <Link className={styles.logoWrapper} href="/">
-                        <Icon svg={Logo} />
+                        <Icon svg={Logo} label="Logo" />
                         <div className={styles.name}>
                             <span>wow</span>
                             <span>hunt</span>
@@ -105,7 +105,7 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                     </div>
 
                     <Link className={styles.basket} href="/shopping-card">
-                        <Icon svg={Basket} />
+                        <Icon svg={Basket} label="Basket" />
                     </Link>
 
                     {/* TODO add loading for button */}

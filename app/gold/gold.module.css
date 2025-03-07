@@ -1,7 +1,7 @@
 .container {
-    padding-inline-start: 58px;
     position: relative;
     z-index: 2;
+    padding-inline-start: 58px;
 
     @media (width <= 1600px) {
         padding-inline-end: 47px;
@@ -17,6 +17,7 @@
     z-index: 1;
     top: 0;
     left: 0;
+
     width: 100%;
     height: 550px;
 
@@ -39,19 +40,19 @@
     @media (width <= 440px) {
         padding-inline: 12px;
     }
-}
 
-.title {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h2);
-    line-height: 38px;
-    color: var(--yellow-500);
-    padding-block-end: 20px;
-    position: relative;
-    z-index: 2;
+    .title {
+        font-family: var(--font-barlow-bold-sans), sans-serif;
+        font-size: var(--font-size-h2);
+        line-height: 38px;
+        color: var(--yellow-500);
+        padding-block-end: 20px;
+        position: relative;
+        z-index: 2;
 
-    @media (width <= 768px) {
-        padding-block-end: 12px;
+        @media (width <= 768px) {
+            padding-block-end: 12px;
+        }
     }
 }
 
@@ -69,7 +70,6 @@
 
 .tab {
     font-family: var(--font-barlow-bold-sans), serif;
-    font-size: var(--font-size-m);
     line-height: var(--font-line-height-130);
     color: var(--text-color);
     background: var(--neutral-container-hover);

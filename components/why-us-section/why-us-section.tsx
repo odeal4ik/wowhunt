@@ -25,7 +25,7 @@ export function WhyUsSection() {
             <div className={styles.wrapper}>
                 <div className={styles.item}>
                     <div className={styles.iconWrapper}>
-                        <Icon svg={Chat} aria-label="chat" />
+                        <Icon svg={Chat} label="chat" />
                     </div>
                     <div className={styles.content}>
                         <h3 className={styles.title}>ONLINE 24/7</h3>
@@ -38,7 +38,7 @@ export function WhyUsSection() {
 
                 <div className={styles.item}>
                     <div className={styles.iconWrapper}>
-                        <Icon svg={Time} aria-label="time" />
+                        <Icon svg={Time} label="time" />
                     </div>
                     <div className={styles.content}>
                         <h3 className={styles.title}>FAST DELIVERY</h3>
@@ -51,7 +51,7 @@ export function WhyUsSection() {
 
                 <div className={styles.item}>
                     <div className={styles.iconWrapper}>
-                        <Icon svg={Star} aria-label="star" />
+                        <Icon svg={Star} label="star" />
                     </div>
                     <div className={styles.content}>
                         <h3 className={styles.title}>WE ARE TRUSTED</h3>
@@ -66,7 +66,7 @@ export function WhyUsSection() {
                             <div className={styles.trustInfo}>
                                 <Icon
                                     svg={TrustpilotStarGreen}
-                                    aria-label="star"
+                                    label="star"
                                 />
                                 <span>Trustpilot</span>
                             </div>
@@ -76,7 +76,7 @@ export function WhyUsSection() {
                                         key={index}
                                         svg={TrustpilotStar}
                                         fill="currentColor"
-                                        aria-label="star"
+                                        label="star"
                                     />
                                 ))}
                             </div>

@@ -25,17 +25,17 @@ export const SettingsModal = ({
         <Modal isOpen={isOpen} onClose={onClose} title="Settings">
             <div className={styles.modalButtons}>
                 <button className={styles.modalButton} onClick={onEmailChange}>
-                    <Icon svg={At} area-label="Email" />
+                    <Icon svg={At} label="Email" />
                     Change eMail
                 </button>
                 <button
                     className={styles.modalButton}
                     onClick={onPasswordChange}>
-                    <Icon svg={Key} area-label="Key" />
+                    <Icon svg={Key} label="Key" />
                     Change password
                 </button>
                 <button className={styles.modalButton}>
-                    <Icon svg={Support} area-label="Support" fill="#FBBF24" />
+                    <Icon svg={Support} label="Support" fill="#FBBF24" />
                     Write to admin
                 </button>
             </div>
