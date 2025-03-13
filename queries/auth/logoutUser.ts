@@ -17,7 +17,6 @@ export function useLogOutUser() {
             }
         },
         onSuccess: function onSuccess() {
-            console.log('User logged out');
             queryClient.setQueryData(['token'], false);
         },
     });

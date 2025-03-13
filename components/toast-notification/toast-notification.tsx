@@ -48,10 +48,12 @@ export const ToastNotification = ({
             </div>
 
             <div className={styles.content}>
-                <div className={styles.text}>
-                    <p className={styles.title}>{title}</p>
-                    <p className={styles.message}>{message}</p>
-                </div>
+                {(title || message) && (
+                    <div className={styles.text}>
+                        {title && <p className={styles.title}>{title}</p>}
+                        {message && <p className={styles.message}>{message}</p>}
+                    </div>
+                )}
 
                 <button className={styles.closeButton} onClick={closeToast}>
                     <Icon svg={Close} fill="#9F9FB7" label="Close" />

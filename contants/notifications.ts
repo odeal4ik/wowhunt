@@ -24,6 +24,13 @@ export const successPasswordRestoreMessage: NotificationProps = {
     message: 'We have sent you a message to your email to confirm your change',
 };
 
+export const infoLogoutMessage: NotificationProps = {
+    type: 'info',
+    title: '',
+    message:
+        'You have successfully logged out. You will be redirected to the main page',
+};
+
 export const infoConfirmationRequiredMessage: NotificationProps = {
     type: 'info',
     title: 'Confirmation required',
