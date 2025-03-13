@@ -24,8 +24,9 @@
     display: flex;
     flex-direction: row;
     column-gap: 10px;
+    max-width: 680px;
 
-    @media (width <= 550px) {
+    @media (width <= 570px) {
         display: grid;
         grid-template-columns: max-content max-content;
         grid-template-rows: auto auto;
@@ -37,8 +38,8 @@
         }
     }
 
-    @media (width <= 440px) {
-        grid-template-columns: auto auto;
+    @media (width <= 530px) {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
@@ -86,7 +87,6 @@
 }
 
 .titleStyle {
-    width: 380px;
     font-family: var(--font-barlow-regular-sans), sans-serif;
     color: var(--text-color-secondary);
     background: var(--neutral-container-hover);
@@ -95,6 +95,5 @@
 }
 
 .optionsStyle {
-    width: 380px;
     background: var(--neutral-container-hover);
 }

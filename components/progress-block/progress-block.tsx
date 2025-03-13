@@ -1,8 +1,8 @@
 import Image, { StaticImageData } from 'next/image';
-import styles from './progress-block.module.css';
+
 import ProgressBar from '../progress-bar/progress-bar';
-import { BoosterButtonServices } from '../booster-button-services/booster-button-services';
 import { ProgressBooster } from '../progress-booster/progress-booster';
+import styles from './progress-block.module.css';
 
 interface BaseProfileBlockProps {
     image: string | StaticImageData;
@@ -17,7 +17,6 @@ interface ProfileVariantProps extends BaseProfileBlockProps {
 
 interface BoosterVariantProps extends BaseProfileBlockProps {
     variant: 'booster';
-    buttonText: string;
     onClick: () => void;
 }
 
@@ -48,10 +47,9 @@ export function ProgressBlock(props: ProgressBlockProps) {
             {props.variant === 'profile' ? (
                 <ProgressBar progress={props.progress} />
             ) : (
-                <BoosterButtonServices
-                    buttonText={props.buttonText}
-                    onClick={props.onClick}
-                />
+                <button className={styles.button} onClick={props.onClick}>
+                    Services that i can do
+                </button>
             )}
         </div>
     );

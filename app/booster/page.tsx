@@ -2,20 +2,19 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { UserProfileBlock } from '@/components/user-profile-block/user-profile-block';
-import { InviteFriend } from '@/components/invite-friend/invite-friend';
-import { ProgressBlock } from '@/components/progress-block/progress-block';
-import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
+
 import { BalanceCard } from '@/components/balance-card/balance-card';
-
-import { BoosterButtonServices } from '@/components/booster-button-services/booster-button-services';
+import { BoosterOrderCards } from '@/components/booster-order-cards/booster-order-cards';
+import { InviteFriend } from '@/components/invite-friend/invite-friend';
+import { CategoriesModal } from '@/components/modal-filter-categorie/modal-filter-categorie';
+import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
+import { ProgressBlock } from '@/components/progress-block/progress-block';
 import { ProgressBooster } from '@/components/progress-booster/progress-booster';
+import { UserProfileBlock } from '@/components/user-profile-block/user-profile-block';
 
-import styles from './booster.module.css';
 import imgLevel from '@/public/images/level-beginner-silver.png';
 
-import { CategoriesModal } from '@/components/modal-filter-categorie/modal-filter-categorie';
-import { BoosterOrderCards } from '@/components/booster-order-cards/booster-order-cards';
+import styles from './booster.module.css';
 
 export default function Profile() {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -52,16 +51,16 @@ export default function Profile() {
                             </p>
                         </div>
 
-                        <BoosterButtonServices
-                            buttonText="Services that i can do"
-                            onClick={() => setIsModalOpen(true)}
-                        />
+                        <button
+                            className={styles.button}
+                            onClick={() => setIsModalOpen(true)}>
+                            Services that i can do
+                        </button>
                     </div>
                 </div>
 
                 <ProgressBlock
                     variant="booster"
-                    buttonText="Services that i can do"
                     image={imgLevel}
                     title="Young Booster"
                     description="To reach the next level you need to have 4 completed orders."

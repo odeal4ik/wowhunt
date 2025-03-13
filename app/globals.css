@@ -5,7 +5,6 @@
 }
 * {
     margin: 0;
-    /* border: 1px solid red; */
 }
 body {
     line-height: var(--font-line-height-150);
@@ -48,7 +47,7 @@ h6 {
 
     --neutral-hover: #43436a;
     --neutral-container-soft: rgba(75, 75, 119, 0.05);
-    --neutral-container-light: var(--neutral-container-light);
+    --neutral-container-light: rgba(75, 75, 119, 0.1);
     --neutral-container-hover: rgba(75, 75, 119, 0.2);
     --neutral-container-active: rgba(75, 75, 119, 0.3);
 
