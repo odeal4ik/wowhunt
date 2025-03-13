@@ -1,18 +1,21 @@
 'use client';
 
-import styles from './profile.module.css';
 import Image from 'next/image';
-import { UserProfileBlock } from '@/components/user-profile-block/user-profile-block';
-import { InviteFriend } from '@/components/invite-friend/invite-friend';
-import { ProgressBlock } from '@/components/progress-block/progress-block';
-import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
+
 import { BalanceCard } from '@/components/balance-card/balance-card';
+import { InviteFriend } from '@/components/invite-friend/invite-friend';
+import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
 import { ProfileCards } from '@/components/profile-cards/profile-cards';
 import ProgressBar from '@/components/progress-bar/progress-bar';
+import { ProgressBlock } from '@/components/progress-block/progress-block';
+import { UserProfileBlock } from '@/components/user-profile-block/user-profile-block';
+
 import { getUserProgress } from '../../utils/progress';
+import styles from './profile.module.css';
+
+const currentProgress = 50;
 
 export default function Profile() {
-    const currentProgress = 50;
     const { image, title, description } = getUserProgress(currentProgress);
 
     return (

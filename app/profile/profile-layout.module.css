@@ -21,3 +21,34 @@
     display: flex;
     flex-direction: column;
 }
+
+.shimmer {
+    padding-inline: 18px;
+    padding-block: 18px;
+    background: linear-gradient(
+        90deg,
+        #ffffff08 25%,
+        #ffffff20 50%,
+        #ffffff08 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-block: 24px;
+    max-inline-size: calc(100% - 48px);
+    inline-size: 100%;
+    margin-inline: auto;
+    grid-row: span 2;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}

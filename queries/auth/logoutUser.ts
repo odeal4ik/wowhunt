@@ -18,6 +18,7 @@ export function useLogOutUser() {
         },
         onSuccess: function onSuccess() {
             queryClient.setQueryData(['token'], false);
+            queryClient.setQueryData(['user'], null);
         },
     });
 }

@@ -1,6 +1,10 @@
 import { useMutation } from '@tanstack/react-query';
 
-export function useForgotPassword(): {
+// TODO
+// добавить модалку в которой вытазить из урл параметр token email
+// два поля для пароля и подтверждения пароля
+// кнопка отправить
+export function useResetPassword(): {
     mutate: (
         { email }: { email: string },
         { onSuccess }: { onSuccess?: () => void },
