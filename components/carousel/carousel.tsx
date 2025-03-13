@@ -29,8 +29,8 @@ export function Carousel() {
                 {isLoading ? (
                     <div className={styles.loading}>Loading...</div>
                 ) : reviews.length > 0 ? (
-                    reviews.map((review: Review, index: number) => (
-                        <div className={styles.item} key={index}>
+                    reviews.map((review: Review) => (
+                        <div className={styles.item} key={review.name}>
                             <div className={styles.rating}>
                                 <a
                                     href={
