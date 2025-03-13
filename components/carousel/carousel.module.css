@@ -116,6 +116,13 @@
     border-radius: 12px;
 }
 
+.stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 6px;
+}
+
 .rating {
     display: flex;
     justify-content: space-between;
@@ -139,5 +146,12 @@
 }
 
 .description {
+    color: var(--text-color-secondary);
+}
+
+.loading {
+    text-align: center;
+    margin: 0 auto;
+    font-size: var(--font-size-hero);
     color: var(--text-color-secondary);
 }

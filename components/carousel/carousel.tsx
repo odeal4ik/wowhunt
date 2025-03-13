@@ -1,11 +1,37 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 import { Icon } from '@/core-components/icon/icon';
 
 import TrustpilotStarGreen from '@/images/icons/trastpilot-star-green.svg';
-import FiveStars from '@/images/icons/five-stars.svg';
+
+import { Review, getReviews } from '@/queries/reviews/getReviews';
 
 import styles from './carousel.module.css';
 
 export function Carousel() {
+    const [reviews, setReviews] = useState<Review[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        async function loadReviews() {
+            try {
+                const data = await getReviews();
+                if (data) {
+                    setReviews(data);
+                } else {
+                    console.error('Unable to load reviews');
+                }
+            } catch (err) {
+                console.error('Error loading reviews', err);
+            } finally {
+                setIsLoading(false);
+            }
+        }
+        loadReviews();
+    }, []);
+
     return (
         <section className={styles.wrapper}>
             <div className={styles.heading}>
@@ -21,32 +47,42 @@ export function Carousel() {
             </div>
 
             <div className={styles.carousel}>
-                {Array.from({ length: 10 }).map((_, index) => (
-                    <div className={styles.item} key={index}>
-                        <div className={styles.rating}>
-                            <a
-                                /* add link to review */
-                                href="https://www.trustpilot.com/review/wowhunt.com"
-                                target="_blank">
-                                <Icon svg={FiveStars} label="FiveStars" />
-                            </a>
-                            <p>Joanna Hargett</p>
+                {isLoading ? (
+                    <div className={styles.loading}>Loading...</div>
+                ) : reviews.length > 0 ? (
+                    reviews.map((review, index) => (
+                        <div className={styles.item} key={index}>
+                            <div className={styles.rating}>
+                                <a
+                                    href={
+                                        review.link ||
+                                        'https://www.trustpilot.com/review/wowhunt.com'
+                                    }
+                                    target="_blank">
+                                    <div className={styles.stars}>
+                                        {[...Array(review.rating)]
+                                            .map((_, index) => (
+                                                <Icon
+                                                    key={index}
+                                                    svg={TrustpilotStarGreen}
+                                                    fill="currentColor"
+                                                    label="star"
+                                                />
+                                            ))
+                                            .reverse()}
+                                    </div>
+                                </a>
+                                <p>{review.name}</p>
+                            </div>
+                            <div className={styles.review}>
+                                <p className={styles.title}>{review.title}</p>
+                                <p className={styles.description}>
+                                    {review.text}
+                                </p>
+                            </div>
                         </div>
-                        <div className={styles.review}>
-                            <p className={styles.title}>No complaints here!</p>
-                            <p className={styles.description}>
-                                Always will go to them when I am looking to try
-                                a difficult dungeon/raid for the first time. I
-                                learn a lot by doing, and since LFR is pretty
-                                toxic in WoW, it is hard for a beginner to learn
-                                through LFR. I like running with these guys.
-                                They&apos;ll carry you through so you can learn
-                                the mechanics while running through without
-                                stressing out.
-                            </p>
-                        </div>
-                    </div>
-                ))}
+                    ))
+                ) : null}
             </div>
         </section>
     );
