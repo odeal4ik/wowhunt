@@ -1,3 +1,5 @@
+import { useQuery } from '@tanstack/react-query';
+
 export type Review = {
     rating: number;
     title: string;
@@ -6,18 +8,15 @@ export type Review = {
     link: string;
 };
 
-export async function getReviews(): Promise<Review[] | null> {
-    try {
-        const response = await fetch('/api/reviews');
-
-        if (!response.ok) {
-            console.error('API request failed:', response.status);
-            return null;
-        }
-
-        return response.json();
-    } catch (error) {
-        console.error('Failed to fetch reviews:', error);
-        return null;
-    }
+export function useGetReviews() {
+    return useQuery({
+        queryKey: ['reviews'],
+        queryFn: async () => {
+            const response = await fetch('/api/reviews');
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.json();
+        },
+    });
 }
