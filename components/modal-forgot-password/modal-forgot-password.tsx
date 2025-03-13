@@ -78,6 +78,13 @@ export const ModalForgotPassword = ({ onClose }: { onClose: () => void }) => {
                     <label htmlFor="email" className={styles.label}>
                         Enter your email and we will send you a password reset
                         link
+                        {validationError.email ? (
+                            <p className={styles.error}>
+                                {validationError.email.message}
+                            </p>
+                        ) : error?.email?.length ? (
+                            <p className={styles.error}>{error.email[0]}</p>
+                        ) : null}
                     </label>
                     <input
                         {...register('email')}
@@ -90,13 +97,7 @@ export const ModalForgotPassword = ({ onClose }: { onClose: () => void }) => {
                             error?.email?.length && styles.error,
                         )}
                     />
-                    {validationError.email ? (
-                        <p className={styles.error}>
-                            {validationError.email.message}
-                        </p>
-                    ) : error?.email?.length ? (
-                        <p className={styles.error}>{error.email[0]}</p>
-                    ) : null}
+
                     <button type="submit" className={styles.submitButton}>
                         Send
                     </button>

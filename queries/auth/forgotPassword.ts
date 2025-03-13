@@ -10,7 +10,7 @@ export function useForgotPassword(): {
 } {
     return useMutation({
         mutationFn: async function logInUser({ email }) {
-            const response = await fetch('/api/auth/forgot-password', {
+            const response = await fetch('/api/auth/password', {
                 method: 'POST',
                 body: JSON.stringify({ email }),
             });
