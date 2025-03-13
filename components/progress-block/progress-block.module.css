@@ -50,3 +50,33 @@
     display: flex;
     gap: 12px;
 }
+
+.button {
+    font-family: var(--font-barlow-bold-sans), sans-serif;
+    font-size: var(--font-size-l);
+    line-height: 24px;
+    color: var(--dark-soft);
+    background-color: var(--yellow-500);
+    border-radius: 8px;
+    padding: 12px 35px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: block;
+    margin: 0 auto;
+
+    &:hover {
+        color: var(--background);
+        background: var(--yellow-500-hover);
+    }
+
+    @media (width <= 1375px) {
+        margin: 0;
+        width: 100%;
+        max-width: 382px;
+    }
+
+    @media (width <= 680px) {
+        padding-inline: 0;
+        max-width: none;
+    }
+}

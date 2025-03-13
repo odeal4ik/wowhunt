@@ -19,9 +19,17 @@
     }
 }
 
-@media (width <= 1023px) {
+@media (width <= 1280px) {
     .wrapper {
         display: block;
+    }
+
+    .sidebar {
+        display: none;
+    }
+
+    .content {
+        padding-block-start: 115px;
     }
 }
 
@@ -35,10 +43,4 @@
 .other {
     grid-column: 2;
     overflow: hidden;
-}
-
-@media (width <= 1280px) {
-    .content {
-        padding-block-start: 115px;
-    }
 }

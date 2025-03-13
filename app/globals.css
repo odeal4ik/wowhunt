@@ -5,7 +5,6 @@
 }
 * {
     margin: 0;
-    /* border: 1px solid red; */
 }
 body {
     line-height: var(--font-line-height-150);

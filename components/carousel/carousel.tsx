@@ -1,36 +1,15 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-
 import { Icon } from '@/core-components/icon/icon';
 
 import TrustpilotStarGreen from '@/images/icons/trastpilot-star-green.svg';
 
-import { Review, getReviews } from '@/queries/reviews/getReviews';
+import { Review, useGetReviews } from '@/queries/reviews/getReviews';
 
 import styles from './carousel.module.css';
 
 export function Carousel() {
-    const [reviews, setReviews] = useState<Review[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        async function loadReviews() {
-            try {
-                const data = await getReviews();
-                if (data) {
-                    setReviews(data);
-                } else {
-                    console.error('Unable to load reviews');
-                }
-            } catch (err) {
-                console.error('Error loading reviews', err);
-            } finally {
-                setIsLoading(false);
-            }
-        }
-        loadReviews();
-    }, []);
+    const { data: reviews, isLoading } = useGetReviews();
 
     return (
         <section className={styles.wrapper}>
@@ -50,7 +29,7 @@ export function Carousel() {
                 {isLoading ? (
                     <div className={styles.loading}>Loading...</div>
                 ) : reviews.length > 0 ? (
-                    reviews.map((review, index) => (
+                    reviews.map((review: Review, index: number) => (
                         <div className={styles.item} key={index}>
                             <div className={styles.rating}>
                                 <a
@@ -60,16 +39,16 @@ export function Carousel() {
                                     }
                                     target="_blank">
                                     <div className={styles.stars}>
-                                        {[...Array(review.rating)]
-                                            .map((_, index) => (
+                                        {[...Array(review.rating)].map(
+                                            (_, index) => (
                                                 <Icon
                                                     key={index}
                                                     svg={TrustpilotStarGreen}
                                                     fill="currentColor"
                                                     label="star"
                                                 />
-                                            ))
-                                            .reverse()}
+                                            ),
+                                        )}
                                     </div>
                                 </a>
                                 <p>{review.name}</p>

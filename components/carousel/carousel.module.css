@@ -97,8 +97,8 @@
 
 .carousel {
     max-width: 1920px;
-    margin: 0 auto;
     display: flex;
+    justify-content: center;
     gap: 28px;
     scroll-snap-type: x mandatory;
     overflow-x: scroll;
@@ -114,6 +114,10 @@
     padding-block: 20px 28px;
     padding-inline: 28px;
     border-radius: 12px;
+
+    @media (width <= 480px) {
+        width: 360px;
+    }
 }
 
 .stars {

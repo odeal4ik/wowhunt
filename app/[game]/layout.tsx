@@ -1,13 +1,13 @@
-import { Header } from '@/components/header/header';
 import { Breadcrumbs } from '@/components/breadcrumbs/breadcrumbs';
-import { Sidebar } from '@/components/sidebar/sidebar';
-
-import styles from './game-layout.module.css';
 import { Carousel } from '@/components/carousel/carousel';
-import { Splitter } from '@/components/splitter/splitter';
+import { Header } from '@/components/header/header';
 import { HowItWorks } from '@/components/how-it-works/how-it-works';
+import { Sidebar } from '@/components/sidebar/sidebar';
+import { Splitter } from '@/components/splitter/splitter';
 import { Support } from '@/components/support/support';
 import { WhyUsSection } from '@/components/why-us-section/why-us-section';
+
+import styles from './game-layout.module.css';
 
 export default function GameLayout({
     children,
@@ -20,7 +20,9 @@ export default function GameLayout({
 
             <section className={styles.game}>
                 <div className={styles.wrapper}>
-                    <Sidebar />
+                    <div className={styles.sidebar}>
+                        <Sidebar />
+                    </div>
 
                     <main className={styles.content}>
                         <Breadcrumbs />
