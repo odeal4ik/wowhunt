@@ -1,6 +1,6 @@
 .title {
     font-size: var(--font-size-h1);
-    line-height: 1;
+    line-height: var(--font-line-height-100);
     font-family: var(--font-barlow-extra-bold-sans), serif;
     grid-area: title;
 
@@ -36,13 +36,13 @@
 
     & > span:first-child {
         font-size: var(--font-size-h3);
-        line-height: 1;
+        line-height: var(--font-line-height-100);
         font-family: var(--font-barlow-bold-sans), serif;
     }
 
     & > span:last-child {
         font-size: var(--font-size-m);
-        line-height: 1;
+        line-height: var(--font-line-height-100);
     }
 }
 
@@ -204,7 +204,6 @@
                 width: 24px;
                 rotate: 180deg;
             }
-
         }
 
         &[open] > summary > .icon {

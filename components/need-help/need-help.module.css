@@ -46,7 +46,7 @@
     .title {
         color: var(--yellow-500);
         font-size: var(--font-size-h1);
-        line-height: 1;
+        line-height: var(--font-line-height-100);
         font-family: var(--font-barlow-extra-bold-sans), serif;
 
         @media (width <= 850px) {

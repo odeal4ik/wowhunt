@@ -3,8 +3,8 @@
 }
 
 .title {
-    font-size: var( --font-size-hero);
-    line-height: 1;
+    font-size: var(--font-size-hero);
+    line-height: var(--font-line-height-100);
     font-family: var(--font-barlow-bold-sans), serif;
 
     @media (width <= 1024px) {

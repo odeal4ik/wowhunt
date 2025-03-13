@@ -39,7 +39,7 @@ export function HeroBlock() {
             <Image
                 src="/background/hero_block.png"
                 alt="hero"
-                loading="lazy"
+                priority
                 width={1920}
                 height={650}
                 className={styles.heroImg}

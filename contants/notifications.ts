@@ -18,8 +18,8 @@ export const successPasswordChangeMessage: NotificationProps = {
     message: 'Your password has been successfully changed',
 };
 
-export const infoLinkToEmailMessage: NotificationProps = {
-    type: 'info',
+export const successPasswordRestoreMessage: NotificationProps = {
+    type: 'success',
     title: 'Link sent to e-mail',
     message: 'We have sent you a message to your email to confirm your change',
 };

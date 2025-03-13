@@ -74,7 +74,7 @@
     .imageTitle {
         font-family: var(--font-barlow-extra-bold-sans), serif;
         font-size: var(--font-size-h1);
-        line-height: 1;
+        line-height: var(--font-line-height-100);
         text-transform: uppercase;
 
         @media (width <= 1600px) {
@@ -167,7 +167,7 @@
 .title {
     font-family: var(--font-barlow-bold-sans), serif;
     font-size: var(--font-size-h2);
-    line-height: 1;
+    line-height: var(--font-line-height-100);
     padding-block-end: 60px;
 
     @media (width <= 1600px) {

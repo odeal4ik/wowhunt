@@ -87,7 +87,9 @@
         color: var(--text-color-secondary);
         font-size: var(--font-size-l);
         line-height: var(--font-line-height-140);
-        transition: color 0.2s ease, background-image 0.2s ease;
+        transition:
+            color 0.2s ease,
+            background-image 0.2s ease;
         cursor: pointer;
 
         &:hover {
@@ -117,7 +119,7 @@
 .menuIcon {
     display: inline-flex;
     flex-shrink: 0;
-    line-height: 1;
+    line-height: var(--font-line-height-100);
     width: 24px;
     height: 24px;
     font-size: var(--font-size-ss);
