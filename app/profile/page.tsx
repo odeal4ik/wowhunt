@@ -10,12 +10,17 @@ import ProgressBar from '@/components/progress-bar/progress-bar';
 import { ProgressBlock } from '@/components/progress-block/progress-block';
 import { UserProfileBlock } from '@/components/user-profile-block/user-profile-block';
 
+import { useGetUser } from '@/queries/auth/getUser';
+
 import { getUserProgress } from '../../utils/progress';
 import styles from './profile.module.css';
 
 const currentProgress = 50;
 
 export default function Profile() {
+    const { data: user } = useGetUser();
+    console.log(user);
+
     const { image, title, description } = getUserProgress(currentProgress);
 
     return (
@@ -24,9 +29,10 @@ export default function Profile() {
                 <div className={styles.profileBlock}>
                     <div className={styles.userBlock}>
                         <UserProfileBlock
-                            id="123456789"
-                            email="nikita.kudenikov@longdomain.com"
-                            srcImg="/images/avatar-profile.webp"
+                            id={user.id}
+                            email={user.email}
+                            srcImg={user.avatar}
+                            // srcImg="/storage/upload/demo/icon-demo.svg"
                         />
                         <Image
                             src={image}
