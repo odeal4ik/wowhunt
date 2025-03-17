@@ -59,6 +59,7 @@ export default function ProgressBar({ progress }: ProgressBarProps) {
                     90%
                 </span>
             </div>
+
             <div className={styles.progressBar}>
                 <div className={styles.progressBarMarkers}>
                     {[10, 30, 50, 70, 90].map(
@@ -78,6 +79,7 @@ export default function ProgressBar({ progress }: ProgressBarProps) {
                             ),
                     )}
                 </div>
+
                 <div className={styles.progressTrack}>
                     <div
                         className={styles.progressLine}
@@ -85,6 +87,7 @@ export default function ProgressBar({ progress }: ProgressBarProps) {
                     />
                 </div>
             </div>
+
             <div className={styles.progressBarLabels}>
                 <p className={styles.progressBarText}>Beginner</p>
                 <p className={styles.progressBarText}>Gamer</p>

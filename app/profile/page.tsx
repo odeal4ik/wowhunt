@@ -15,45 +15,50 @@ import { useGetUser } from '@/queries/auth/getUser';
 import { getUserProgress } from '../../utils/progress';
 import styles from './profile.module.css';
 
-const currentProgress = 50;
-
 export default function Profile() {
     const { data: user } = useGetUser();
     console.log(user);
 
-    const { image, title, description } = getUserProgress(currentProgress);
+    const { image, title, description } = getUserProgress(
+        user.level_customer_id * 10,
+    );
 
     return (
         <main className={styles.main}>
-            <div className={styles.profileWrapper}>
+            <div className={styles.wrapper}>
                 <div className={styles.profile}>
-                    <div className={styles.profileBlock}>
-                        <div className={styles.userBlock}>
+                    <div className={styles.userWrapper}>
+                        <div className={styles.user}>
                             <UserProfile />
 
                             <Image
                                 src={image}
                                 alt={title}
+                                quality={100}
                                 width={57}
                                 height={48}
-                                className={styles.imgLevel}
+                                className={styles.image}
                             />
                         </div>
 
+                        {/* Mobile progress bar */}
                         <div className={styles.progressBar}>
-                            <ProgressBar progress={currentProgress} />
+                            <ProgressBar
+                                progress={user.level_customer_id * 10}
+                            />
                         </div>
                     </div>
 
+                    {/* Desktop progress block */}
                     <ProgressBlock
                         variant="profile"
-                        progress={currentProgress}
+                        progress={user.level_customer_id * 10}
                         image={image}
                         title={title}
                         description={description}
                     />
 
-                    <div className={styles.inviteBlock}>
+                    <div className={styles.invite}>
                         <InviteFriend price={15} />
                     </div>
 
@@ -85,7 +90,7 @@ export default function Profile() {
                 />
             </div>
 
-            <div className={styles.containerCards}>
+            <div className={styles.cards}>
                 <ProfileCards />
             </div>
         </main>

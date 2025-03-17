@@ -85,6 +85,7 @@ export default function Profile() {
                     buttonsReports={true}
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
+
                 <BalanceCard
                     balance={boster.spending}
                     balanceTitle="Total earnings"
