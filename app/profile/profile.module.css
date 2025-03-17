@@ -19,7 +19,7 @@
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         grid-template-rows: auto;
         grid-template-areas:
-            'containerHeaderBlock containerBalanceBlock'
+            'profileWrapperBlock containerBalanceBlock'
             'containerCardsBlock containerCardsBlock';
     }
 
@@ -33,79 +33,55 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto;
         grid-template-areas:
-            'containerHeaderBlock'
+            'profileWrapperBlock'
             'containerBalanceBlock'
             'containerCardsBlock';
     }
 }
 
-.containerHeader,
+.profileWrapper,
 .containerBalance {
     width: 100%;
     min-width: 0;
     max-width: 100%;
 }
 
-.containerHeader {
-    display: flex;
-    justify-content: space-between;
+.profileWrapper {
+    background-image: linear-gradient(
+        90deg,
+        #18182a 0%,
+        rgb(144, 1, 173, 0.5) 100%
+    );
     max-width: 1424px;
+    padding: 3px;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.03);
-    position: relative;
-    z-index: 1;
 
-    &::before {
-        content: '';
-        position: absolute;
-        width: 253px;
-        height: 253px;
-        left: 0;
-        top: 0;
-        background: var(--text-color-secondary);
-        opacity: 0.1;
-        filter: blur(134px);
-        border-radius: 50%;
-        z-index: 0;
-    }
+    .profile {
+        display: flex;
+        justify-content: space-between;
+        border-radius: 17px;
+        position: relative;
+        background: #161627;
 
-    &::after {
-        content: '';
-        position: absolute;
-        width: 192px;
-        height: 180px;
-        right: 0;
-        bottom: 70px;
-        background: #9001ad;
-        opacity: 0.3;
-        filter: blur(77px);
-        border-radius: 50%;
-        z-index: 0;
-    }
-
-    @media (width <= 1375px) {
-        &::after,
-        &::before {
-            display: none;
+        @media (width <= 1375px) {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            grid-template-rows: auto auto auto;
+            grid-template-areas:
+                'profileBlock buttonsMobileBlock'
+                'progressBar buttonsMobileBlock'
+                'inviteBlock inviteBlock';
         }
 
-        display: grid;
-        grid-template-columns: 1fr auto auto;
-        grid-template-rows: auto auto auto;
-        grid-template-areas:
-            'profileBlock buttonsMobileBlock'
-            'progressBar buttonsMobileBlock'
-            'inviteBlock inviteBlock';
-    }
-
-    @media (width <= 768px) {
-        grid-area: containerHeaderBlock;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas:
-            'profileBlock'
-            'buttonsMobileBlock'
-            'inviteBlock';
+        @media (width <= 768px) {
+            grid-area: profileWrapperBlock;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas:
+                'profileBlock'
+                'buttonsMobileBlock'
+                'inviteBlock';
+        }
     }
 }
 

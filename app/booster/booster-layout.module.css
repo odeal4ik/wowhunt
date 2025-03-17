@@ -32,3 +32,7 @@
         grid-column: 1;
     }
 }
+
+.shimmer {
+    composes: shimmer from '../../core-css/utility-classes/shimmer.module.css';
+}

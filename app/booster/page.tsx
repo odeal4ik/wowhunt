@@ -10,13 +10,16 @@ import { CategoriesModal } from '@/components/modal-filter-categorie/modal-filte
 import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
 import { ProgressBlock } from '@/components/progress-block/progress-block';
 import { ProgressBooster } from '@/components/progress-booster/progress-booster';
-import { UserProfileBlock } from '@/components/user-profile-block/user-profile-block';
+import { UserProfile } from '@/components/user-profile';
 
 import imgLevel from '@/public/images/level-beginner-silver.png';
+import { useGetUser } from '@/queries/auth/getUser';
 
 import styles from './booster.module.css';
 
 export default function Profile() {
+    const { data: boster } = useGetUser();
+    console.log(boster);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
@@ -24,11 +27,8 @@ export default function Profile() {
             <div className={styles.containerHeader}>
                 <div className={styles.profileBlock}>
                     <div className={styles.userBlock}>
-                        <UserProfileBlock
-                            id="123456789"
-                            email="nikita.kudenikov@longdomain.com"
-                            srcImg="/images/avatar-booster-profile.webp"
-                        />
+                        <UserProfile />
+
                         <Image
                             src={imgLevel}
                             alt="level"
@@ -76,7 +76,7 @@ export default function Profile() {
 
             <div className={styles.containerBalance}>
                 <BalanceCard
-                    balance={12.345}
+                    balance={boster.balance}
                     balanceTitle="Balance"
                     isIncreasingBalance={true}
                     lastOrder={10.345}
@@ -86,7 +86,7 @@ export default function Profile() {
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
                 <BalanceCard
-                    balance={20.953}
+                    balance={boster.spending}
                     balanceTitle="Total earnings"
                     isIncreasingBalance={true}
                     buttonsReports={false}

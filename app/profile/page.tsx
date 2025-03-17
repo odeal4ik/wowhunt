@@ -8,7 +8,7 @@ import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-
 import { ProfileCards } from '@/components/profile-cards/profile-cards';
 import ProgressBar from '@/components/progress-bar/progress-bar';
 import { ProgressBlock } from '@/components/progress-block/progress-block';
-import { UserProfileBlock } from '@/components/user-profile-block/user-profile-block';
+import { UserProfile } from '@/components/user-profile';
 
 import { useGetUser } from '@/queries/auth/getUser';
 
@@ -25,39 +25,41 @@ export default function Profile() {
 
     return (
         <main className={styles.main}>
-            <div className={styles.containerHeader}>
-                <div className={styles.profileBlock}>
-                    <div className={styles.userBlock}>
-                        <UserProfileBlock
-                            id={user.id}
-                            email={user.email}
-                            srcImg={user.avatar}
-                            // srcImg="/storage/upload/demo/icon-demo.svg"
-                        />
-                        <Image
-                            src={image}
-                            alt={title}
-                            width={57}
-                            height={48}
-                            className={styles.imgLevel}
-                        />
+            <div className={styles.profileWrapper}>
+                <div className={styles.profile}>
+                    <div className={styles.profileBlock}>
+                        <div className={styles.userBlock}>
+                            <UserProfile />
+
+                            <Image
+                                src={image}
+                                alt={title}
+                                width={57}
+                                height={48}
+                                className={styles.imgLevel}
+                            />
+                        </div>
+
+                        <div className={styles.progressBar}>
+                            <ProgressBar progress={currentProgress} />
+                        </div>
                     </div>
-                    <div className={styles.progressBar}>
-                        <ProgressBar progress={currentProgress} />
+
+                    <ProgressBlock
+                        variant="profile"
+                        progress={currentProgress}
+                        image={image}
+                        title={title}
+                        description={description}
+                    />
+
+                    <div className={styles.inviteBlock}>
+                        <InviteFriend price={15} />
                     </div>
-                </div>
-                <ProgressBlock
-                    variant="profile"
-                    progress={currentProgress}
-                    image={image}
-                    title={title}
-                    description={description}
-                />
-                <div className={styles.inviteBlock}>
-                    <InviteFriend price={15} />
-                </div>
-                <div className={styles.buttonsBlockMobile}>
-                    <ProfileButtonsBlock email="nikita.kudenikov@srg.com" />
+
+                    <div className={styles.buttonsBlockMobile}>
+                        <ProfileButtonsBlock email="nikita.kudenikov@srg.com" />
+                    </div>
                 </div>
             </div>
 
@@ -67,20 +69,22 @@ export default function Profile() {
 
             <div className={styles.containerBalance}>
                 <BalanceCard
-                    balance={12.345}
+                    balance={user.balance}
                     balanceTitle="Balance"
                     isIncreasingBalance={true}
                     buttonsReports={false}
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
+
                 <BalanceCard
-                    balance={20.953}
+                    balance={user.spending}
                     balanceTitle="Total spending"
-                    isIncreasingBalance={true}
+                    isIncreasingBalance
                     buttonsReports={false}
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
             </div>
+
             <div className={styles.containerCards}>
                 <ProfileCards />
             </div>

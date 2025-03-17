@@ -11,6 +11,7 @@ import {
 import React, { useState } from 'react';
 
 import { Icon } from '@/core-components/icon/icon';
+
 import ArrowUp from '@/images/for-cards/arrow-up.svg';
 import Download from '@/images/system-icons/download.svg';
 import Watch from '@/images/system-icons/watch.svg';
@@ -39,7 +40,7 @@ export const calculateDate = (daysAgo: number) => {
 };
 
 interface BalanceCardProps {
-    balance: number;
+    balance: string;
     balanceTitle: string;
     lastOrder?: number;
     lastOrderTitle?: string;
@@ -83,8 +84,7 @@ export function BalanceCard({
     const [isModalWithdrawOpen, setIsModalWithdrawOpen] = useState(false);
     const [isModalMyWithdrawOpen, setIsModalMyWithdrawOpen] = useState(false);
 
-    const formattedBalance = balance.toFixed(3);
-    const [integerNumber, decimalNumber] = formattedBalance.split('.');
+    const [integerNumber, decimalNumber] = balance.split('.');
 
     const dates = [
         calculateDate(0),
@@ -122,10 +122,7 @@ export function BalanceCard({
                                         ,{decimalNumber}
                                     </span>
                                     {isIncreasingBalance && (
-                                        <Icon
-                                            svg={ArrowUp}
-                                            label="ArrowUp"
-                                        />
+                                        <Icon svg={ArrowUp} label="ArrowUp" />
                                     )}
                                 </div>
                             </div>

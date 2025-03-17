@@ -12,17 +12,6 @@ const nextConfig: NextConfig = {
         },
     },
 
-    images: {
-        // remotePatterns: [
-        //     {
-        //         protocol: 'https',
-        //         hostname: process.env.APP_DOMAIN as string,
-        //         port: '',
-        //         pathname: '/storage/**',
-        //         search: '',
-        //     },
-        // ],
-    },
     async rewrites() {
         return [
             {
