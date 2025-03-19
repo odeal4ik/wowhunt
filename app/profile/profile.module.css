@@ -86,7 +86,7 @@
         }
 
         .userWrapper {
-            padding-block: 18px;
+            padding-block: 15px;
             padding-inline: 18px;
             max-width: 400px;
 
@@ -130,6 +130,8 @@
 }
 
 .invite {
+    flex-basis: 392px;
+
     @media (width <= 1375px) {
         grid-area: invite;
         padding-inline-start: 18px;

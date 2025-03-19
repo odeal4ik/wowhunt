@@ -2,8 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 342px;
-    padding-block: 21px;
+    row-gap: 25px;
+    height: 100%;
+    padding-block: 17px;
     padding-inline-end: 50px;
     position: relative;
 
@@ -25,42 +26,57 @@
 
 .container {
     display: flex;
-}
+    flex-direction: column;
+    row-gap: 4px;
 
-.title {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h4);
-    line-height: var(--font-line-height-130);
-    margin-bottom: 4px;
+    .title {
+        font-family: var(--font-barlow-bold-sans), sans-serif;
+        font-size: var(--font-size-h4);
+        line-height: var(--font-line-height-130);
 
-    @media (width <= 768px) {
-        font-size: var(--font-size-l);
+        @media (width <= 768px) {
+            font-size: var(--font-size-l);
+        }
     }
-}
 
-.text {
-    font-family: var(--font-barlow-regular-sans), sans-serif;
-    font-size: var(--font-size-m);
-    line-height: var(--font-line-height-130);
-    max-width: 180px;
+    .text {
+        font-family: var(--font-barlow-regular-sans), sans-serif;
+        font-size: var(--font-size-m);
+        line-height: var(--font-line-height-130);
+        max-width: 180px;
 
-    @media (width <= 1375px) {
-        max-width: none;
-        font-size: var(--font-size-ss);
-        padding-block-end: 17px;
+        @media (width <= 1375px) {
+            max-width: none;
+            font-size: var(--font-size-ss);
+            padding-block-end: 17px;
+        }
     }
-}
 
-.image {
-    img {
+    .image {
         max-width: 218px;
         max-height: 218px;
-        object-fit: cover;
         position: absolute;
         right: 0;
         top: 0;
-        transform: translateY(-50px);
+        transform: translateY(-82px);
         pointer-events: none;
+
+        &:before {
+            content: '';
+            filter: blur(50px);
+            width: 50px;
+            height: 50px;
+            border-radius: 9999px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            translate: -109px 109px;
+            background-color: yellow;
+        }
+
+        img {
+            object-fit: cover;
+        }
 
         @media (width <= 1440px) {
             transform: translate(25px, -60px);
@@ -76,8 +92,7 @@
 
 .form {
     display: flex;
-    gap: 6px;
-    padding-block-start: 25px;
+    position: relative;
 
     @media (width <= 1375px) {
         max-width: 650px;
@@ -91,19 +106,19 @@
     }
 
     .input {
+        font-size: var(--font-size-m);
+        line-height: var(--font-line-height-130);
         background: var(--neutral-container-light);
         color: var(--text-color);
-        border: 2px solid rgba(68, 83, 113, 0.15);
+        border: 2px solid #292a40;
         border-radius: 6px;
-        padding: 8px 16px;
+        padding-block: 11.5;
+        padding-inline: 10px 100px;
         width: 100%;
         outline: none;
         transition: border-color 0.2s ease;
 
         &::placeholder {
-            font-family: var(--font-barlow-regular-sans), sans-serif;
-            font-size: var(--font-size-m);
-            line-height: var(--font-line-height-130);
             color: var(--text-color);
         }
 
@@ -117,30 +132,24 @@
         font-family: var(--font-barlow-semi-bold-sans), sans-serif;
         font-size: var(--font-size-l);
         color: var(--background);
-        line-height: 24px;
+        line-height: var(--font-line-height-140);
         background-color: var(--yellow-500);
         border-radius: 8px;
         padding: 6px 16px;
         cursor: pointer;
         transition: background-color 0.2s;
         position: absolute;
-        right: 0;
-        top: 0;
-        transform: translate(-54px, 127px);
+        right: 3px;
+        top: 50%;
+        translate: 0 -50%;
 
         &:hover {
             color: var(--background);
-            background: var(--yellow-500-hover);
-        }
-
-        @media (width <= 1440px) {
-            transform: translate(-25px, 127px);
+            background-color: var(--yellow-500-hover);
         }
 
         @media (width <= 1375px) {
             position: relative;
-            transform: none;
-            padding-inline: 100px;
         }
     }
 }

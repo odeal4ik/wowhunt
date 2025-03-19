@@ -6,19 +6,18 @@ export function InviteFriend({ price }: { price: number }) {
     return (
         <div className={styles.wrapper}>
             <div className={styles.container}>
-                <div>
-                    <h3 className={styles.title}>Invite friends</h3>
-                    <p className={styles.text}>
-                        Invite your referrals and get ${price} to your account
-                    </p>
-                </div>
+                <h3 className={styles.title}>Invite friends</h3>
+                <p className={styles.text}>
+                    Invite your referrals and get ${price} to your account
+                </p>
 
                 <div className={styles.image}>
                     <Image
                         src="/images/invite-friend.png"
                         alt="Invite friend"
-                        width={160}
-                        height={170}
+                        width={218}
+                        height={218}
+                        quality={100}
                     />
                 </div>
             </div>
