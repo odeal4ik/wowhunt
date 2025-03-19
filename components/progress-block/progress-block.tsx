@@ -33,6 +33,7 @@ export function ProgressBlock(props: ProgressBlockProps) {
                     height={72}
                     className={styles.imgLevel}
                 />
+
                 <div className={styles.wrapper}>
                     <div className={styles.titleContainer}>
                         <h3 className={styles.headerTitle}>{props.title}</h3>
@@ -44,6 +45,7 @@ export function ProgressBlock(props: ProgressBlockProps) {
                     <p className={styles.headerProgress}>{props.description}</p>
                 </div>
             </div>
+
             {props.variant === 'profile' ? (
                 <ProgressBar progress={props.progress} />
             ) : (
