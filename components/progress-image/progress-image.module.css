@@ -1,0 +1,15 @@
+.smallSkeleton {
+    max-inline-size: 62px;
+    inline-size: 62px;
+    height: 69px;
+    margin: 0;
+    composes: shimmer from '../../core-css/utility-classes/shimmer.module.css';
+}
+
+.bigSkeleton {
+    max-inline-size: 87px;
+    inline-size: 87px;
+    height: 72px;
+    margin: 0;
+    composes: shimmer from '../../core-css/utility-classes/shimmer.module.css';
+}

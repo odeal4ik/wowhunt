@@ -10,8 +10,6 @@ export async function GET() {
         return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
     }
 
-    // TODO think about FE token validation
-
     const response = await fetch(`${process.env.APP_URL}/api/user`, {
         headers: {
             Accept: 'application/json',

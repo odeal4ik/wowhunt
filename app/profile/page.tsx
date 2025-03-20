@@ -1,13 +1,12 @@
 'use client';
 
-import Image from 'next/image';
-
 import { BalanceCard } from '@/components/balance-card/balance-card';
 import { InviteFriend } from '@/components/invite-friend/invite-friend';
 import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
 import { ProfileCards } from '@/components/profile-cards/profile-cards';
 import ProgressBar from '@/components/progress-bar/progress-bar';
 import { ProgressBlock } from '@/components/progress-block/progress-block';
+import { ProgressImage } from '@/components/progress-image';
 import { UserProfile } from '@/components/user-profile';
 
 import { useGetUser } from '@/queries/auth/getUser';
@@ -16,12 +15,15 @@ import { getUserProgress } from '../../utils/progress';
 import styles from './profile.module.css';
 
 export default function Profile() {
-    const { data: user } = useGetUser();
-    console.log(user);
+    const { data } = useGetUser();
 
-    const { image, title, description } = getUserProgress(
-        user.level_customer_id * 10,
-    );
+    if (!data) {
+        return null;
+    }
+
+    const { balance, level_customer_id, spending } = data;
+
+    const { title, description } = getUserProgress(level_customer_id * 10);
 
     return (
         <main className={styles.main}>
@@ -31,29 +33,24 @@ export default function Profile() {
                         <div className={styles.user}>
                             <UserProfile />
 
-                            <Image
-                                src={image}
-                                alt={title}
-                                quality={100}
-                                width={57}
-                                height={48}
-                                className={styles.image}
-                            />
+                            <div className={styles.image}>
+                                <ProgressImage
+                                    level={level_customer_id}
+                                    isBooster={false}
+                                />
+                            </div>
                         </div>
 
                         {/* Mobile progress bar */}
                         <div className={styles.progressBar}>
-                            <ProgressBar
-                                progress={user.level_customer_id * 10}
-                            />
+                            <ProgressBar progress={level_customer_id * 10} />
                         </div>
                     </div>
 
                     {/* Desktop progress block */}
                     <ProgressBlock
                         variant="profile"
-                        progress={user.level_customer_id * 10}
-                        image={image}
+                        level={level_customer_id}
                         title={title}
                         description={description}
                     />
@@ -74,7 +71,7 @@ export default function Profile() {
 
             <div className={styles.containerBalance}>
                 <BalanceCard
-                    balance={user.balance}
+                    balance={balance}
                     balanceTitle="Balance"
                     isIncreasingBalance={true}
                     buttonsReports={false}
@@ -82,7 +79,7 @@ export default function Profile() {
                 />
 
                 <BalanceCard
-                    balance={user.spending}
+                    balance={spending}
                     balanceTitle="Total spending"
                     isIncreasingBalance
                     buttonsReports={false}

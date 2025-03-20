@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { useState } from 'react';
 
 import { BalanceCard } from '@/components/balance-card/balance-card';
@@ -10,17 +9,24 @@ import { CategoriesModal } from '@/components/modal-filter-categorie/modal-filte
 import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
 import { ProgressBlock } from '@/components/progress-block/progress-block';
 import { ProgressBooster } from '@/components/progress-booster/progress-booster';
+import { ProgressImage } from '@/components/progress-image';
 import { UserProfile } from '@/components/user-profile';
 
-import imgLevel from '@/public/images/level-beginner-silver.png';
 import { useGetUser } from '@/queries/auth/getUser';
 
 import styles from './booster.module.css';
 
 export default function Profile() {
-    const { data: boster } = useGetUser();
-    console.log(boster);
+    const { data } = useGetUser();
+    console.log(data);
+
     const [isModalOpen, setIsModalOpen] = useState(false);
+
+    if (!data) {
+        return null;
+    }
+
+    const { balance, level_booster_id, spending } = data;
 
     return (
         <main className={styles.main}>
@@ -29,13 +35,9 @@ export default function Profile() {
                     <div className={styles.userBlock}>
                         <UserProfile />
 
-                        <Image
-                            src={imgLevel}
-                            alt="level"
-                            width={57}
-                            height={48}
-                            className={styles.imgLevel}
-                        />
+                        <div className={styles.imgLevel}>
+                            <ProgressImage level={level_booster_id} isBooster />
+                        </div>
                     </div>
                     <div className={styles.btnServices}>
                         <div className={styles.progressBlock}>
@@ -61,11 +63,12 @@ export default function Profile() {
 
                 <ProgressBlock
                     variant="booster"
-                    image={imgLevel}
                     title="Young Booster"
                     description="To reach the next level you need to have 4 completed orders."
+                    level={level_booster_id}
                     onClick={() => setIsModalOpen(true)}
                 />
+
                 <div className={styles.inviteBlock}>
                     <InviteFriend price={10} />
                 </div>
@@ -76,7 +79,7 @@ export default function Profile() {
 
             <div className={styles.containerBalance}>
                 <BalanceCard
-                    balance={boster.balance}
+                    balance={balance}
                     balanceTitle="Balance"
                     isIncreasingBalance={true}
                     lastOrder={10.345}
@@ -87,7 +90,7 @@ export default function Profile() {
                 />
 
                 <BalanceCard
-                    balance={boster.spending}
+                    balance={spending}
                     balanceTitle="Total earnings"
                     isIncreasingBalance={true}
                     buttonsReports={false}
