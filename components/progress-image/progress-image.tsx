@@ -1,4 +1,5 @@
 import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
 
 import { Icon } from '@/core-components/icon/icon';
 
@@ -103,11 +104,19 @@ interface BoosterVariantProps {
 type ProgressBlockProps = ProfileVariantProps | BoosterVariantProps;
 
 export function ProgressImage({ level, isBooster }: ProgressBlockProps) {
-    return (
+    const [isMounted, setIsMounted] = useState(false);
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setIsMounted(true);
+        }, 100);
+        return () => clearTimeout(timeout);
+    }, []);
+
+    return isMounted ? (
         <Icon
             svg={isBooster ? BoosterLevelIcon[level] : CustomerLevelIcon[level]}
             label={String(level)}
             fill="none"
         />
-    );
+    ) : null;
 }

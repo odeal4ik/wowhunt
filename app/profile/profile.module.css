@@ -115,6 +115,7 @@
 
 .image {
     display: none;
+    visibility: hidden;
 
     @media (width <= 1375px) {
         display: block;

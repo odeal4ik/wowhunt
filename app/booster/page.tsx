@@ -17,12 +17,12 @@ import { useGetUser } from '@/queries/auth/getUser';
 import styles from './booster.module.css';
 
 export default function Profile() {
-    const { data } = useGetUser();
+    const { data, isSuccess } = useGetUser();
     console.log(data);
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
-    if (!data) {
+    if (!isSuccess) {
         return null;
     }
 
