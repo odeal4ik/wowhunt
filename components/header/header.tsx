@@ -13,6 +13,7 @@ import { CatalogBurgerButton } from '@/components/catalog-burger-button/catalog-
 import Logo from '@/images/logo/logo.svg';
 import Basket from '@/images/system-icons/basket.svg';
 
+import { useRegion } from '@/providers/RegionProvider';
 import { useGetToken } from '@/queries/auth/getToken';
 
 import { CatalogButton } from '../catalog-button/catalog-button';
@@ -27,6 +28,7 @@ import styles from './header.module.css';
 export function Header({ isBlured }: { isBlured?: boolean }) {
     const [isCatalogVisible, setIsCatalogVisible] = useState(false);
     const [isSignUpModalVisible, setSignUpModalVisible] = useState(false);
+    const { region, setRegion } = useRegion();
 
     const { data: isAuth, isLoading: isAuthLoading } = useGetToken();
 
@@ -37,6 +39,10 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
     function toggleCatalogVisibility() {
         setIsCatalogVisible(!isCatalogVisible);
     }
+
+    const handleRegionChange = (value: 'us' | 'eu') => {
+        setRegion(value);
+    };
 
     return (
         <header
@@ -87,7 +93,8 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                                     type="radio"
                                     name="radio-lang"
                                     value="eu"
-                                    defaultChecked
+                                    checked={region === 'eu'}
+                                    onChange={() => handleRegionChange('eu')}
                                 />
                                 <label htmlFor="0">Eu</label>
                             </div>
@@ -98,6 +105,8 @@ export function Header({ isBlured }: { isBlured?: boolean }) {
                                     type="radio"
                                     name="radio-lang"
                                     value="us"
+                                    checked={region === 'us'}
+                                    onChange={() => handleRegionChange('us')}
                                 />
                                 <label htmlFor="1">Us</label>
                             </div>

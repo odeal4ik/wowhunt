@@ -7,6 +7,7 @@ import { Footer } from '@/components/footer/footer';
 
 import { GlobalModalProvider } from '@/providers/ModalProvider';
 import QueryProvider from '@/providers/QueryProvider';
+import { RegionProvider } from '@/providers/RegionProvider';
 
 import './globals.css';
 
@@ -68,9 +69,11 @@ export default function RootLayout({
                 className={`${barlowSans.variable} ${barlowMediumSans.variable} ${barlowBoldSans.variable} ${montserratBoldSans.variable} ${montserratSans.variable} ${barlowSemiBoldSans.variable} ${barlowExtraBoldSans.variable}`}>
                 <QueryProvider>
                     <GlobalModalProvider>
-                        {children}
-                        <Footer />
-                        <ReactQueryDevtools initialIsOpen={false} />
+                        <RegionProvider>
+                            {children}
+                            <Footer />
+                            <ReactQueryDevtools initialIsOpen={false} />
+                        </RegionProvider>
                     </GlobalModalProvider>
                 </QueryProvider>
                 <ToastContainer
