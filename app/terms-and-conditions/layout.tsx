@@ -17,7 +17,7 @@ export default function TermsAndConditionLayout({
             <Header isBlured />
             <section className={styles.container}>
                 <div className={styles.wrapper}>
-                <Sidebar type="privatePages" />
+                    <Sidebar type="privacyPages" />
                     <main className={styles.content}>
                         {children}
                         <div className={styles.other}>
