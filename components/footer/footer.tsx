@@ -1,5 +1,7 @@
 import Link from 'next/link';
 
+import { Icon } from '@/core-components/icon/icon';
+
 import Logo from '@/images/logo/logo-dark.svg';
 import Payment1 from '@/images/payment/payments-methods/payment1.svg';
 import Payment2 from '@/images/payment/payments-methods/payment2.svg';
@@ -15,7 +17,6 @@ import Payment11 from '@/images/payment/payments-methods/payment11.svg';
 import Payment12 from '@/images/payment/payments-methods/payment12.svg';
 import Payment13 from '@/images/payment/payments-methods/payment13.svg';
 
-import { Icon } from '@/core-components/icon/icon';
 import styles from './footer.module.css';
 
 const paymentIcons = [
@@ -84,18 +85,18 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <a href="#">Contact Us</a>
+                                <Link href="/contact">Contact Us</Link>
                             </li>
                         </ul>
                     </div>
 
                     <div className={styles.payments}>
                         {paymentIcons.map((icon, index) => (
-                            <Icon 
-                            key={index}
-                            svg={icon}
-                            label={`payment-${index + 1}`}
-                        />
+                            <Icon
+                                key={index}
+                                svg={icon}
+                                label={`payment-${index + 1}`}
+                            />
                         ))}
                     </div>
                 </div>

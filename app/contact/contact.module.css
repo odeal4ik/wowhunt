@@ -1,0 +1,103 @@
+.content {
+    display: flex;
+    align-items: center;
+    column-gap: 64px;
+    padding-inline: 0 62px;
+    padding-block: 86px 50px;
+
+    @media (width <= 1280px) {
+        padding-block-start: 150px;
+        align-items: flex-start;
+    }
+
+    @media (width <= 1180px) {
+        column-gap: 28px;
+    }
+
+    @media (width <= 1024px) {
+        padding-block-start: 75px;
+        padding-inline: 36px 40px;
+    }
+
+    @media (width <= 880px) {
+        padding-inline: 24px;
+        column-gap: 20px;
+    }
+
+    @media (width <= 600px) {
+        padding-block-start: 10px;
+        padding-inline: 0px;
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 56px;
+    }
+}
+
+.imageWrapper {
+    flex: 1 1 776px;
+    max-width: 776px;
+
+    .image {
+        max-width: 100%;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media (width <= 1180px) {
+        flex: 0 0 335px;
+    }
+
+    @media (width <= 700px) {
+        flex: 0 0 250px;
+    }
+
+    @media (width <= 600px) {
+        flex: 0 1 auto;
+    }
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    max-width: 560px;
+    row-gap: 27px;
+    flex: 0 1 auto;
+    font-family: var(--font-barlow-extra-bold-sans), sans-serif;
+    line-height: var(--font-line-height-100);
+    color: var(--yellow-500);
+
+    @media (width <= 600px) {
+        padding-inline: 36px 20px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+    }
+
+    h1 {
+        font-size: var(--font-size-hero);
+        text-transform: uppercase;
+        padding-block-end: 21px;
+
+        @media (width <= 1180px) {
+            text-transform: none;
+            font-size: 60px;
+        }
+    }
+
+    h2 {
+        font-size: var(--font-size-h2);
+        padding-block-end: 6px;
+
+        @media (width <= 880px) {
+            font-size: var(--font-size-h3);
+        }
+    }
+
+    span {
+        font-size: var(--font-size-l);
+        color: var(--text-color);
+        line-height: var(--font-line-height-140);
+    }
+}
