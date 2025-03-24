@@ -25,14 +25,17 @@ export default function TermsAndCondition() {
             <div className={styles.texts}>
                 <div className={styles.section}>
                     <p className={styles.text}>
-                        These terms and conditions (“Terms”, “Agreement”) are an
-                        agreement between wowhunt.com (GameCoaching LLC, 8 The
-                        Green STE A, Dover, 19901, Delaware, United States of
-                        America) online website (“wowhunt”, “us”, “we” or “our”)
-                        and you (“user”, “you” or “your”). This Agreement sets
-                        forth the general terms and conditions of your use of
-                        the https://wowhunt.com website and any of its Services
-                        (collectively, “Website” or “Services”).
+                        These terms and conditions (&quot;Terms&quot;,
+                        &quot;Agreement&quot;) are an agreement between
+                        wowhunt.com (GameCoaching LLC, 8 The Green STE A, Dover,
+                        19901, Delaware, United States of America) online
+                        website (&quot;wowhunt&quot;, &quot;us&quot;,
+                        &quot;we&quot; or &quot;our&quot;) and you
+                        (&quot;user&quot;, &quot;you&quot; or &quot;your&quot;).
+                        This Agreement sets forth the general terms and
+                        conditions of your use of the https://wowhunt.com
+                        website and any of its Services (collectively,
+                        &quot;Website&quot; or &quot;Services&quot;).
                     </p>
                 </div>
                 <div className={styles.section}>
@@ -146,15 +149,15 @@ export default function TermsAndCondition() {
                     </h2>
                     <p className={styles.text}>
                         You agree that your use of our Website or Services is
-                        provided on an “as is” and “as available” basis. We
-                        expressly disclaim all warranties of any kind, whether
-                        express or implied. We make no warranty that the
-                        Services will meet your requirements, or that the
-                        Service will be uninterrupted, timely, secure, or
-                        error-free; nor do we make any warranty as to the
-                        results that may be obtained from the use of the Service
-                        or as to the accuracy or reliability of any information
-                        obtained through the Service.
+                        provided on an &quot;as is&quot; and &quot;as
+                        available&quot; basis. We expressly disclaim all
+                        warranties of any kind, whether express or implied. We
+                        make no warranty that the Services will meet your
+                        requirements, or that the Service will be uninterrupted,
+                        timely, secure, or error-free; nor do we make any
+                        warranty as to the results that may be obtained from the
+                        use of the Service or as to the accuracy or reliability
+                        of any information obtained through the Service.
                     </p>
                 </div>
                 <div className={styles.section}>
@@ -163,7 +166,7 @@ export default function TermsAndCondition() {
                         You agree to indemnify and hold wowhunt and its
                         affiliates, directors, officers, employees, and agents
                         harmless from and against any liabilities, losses,
-                        damages or costs, including reasonable attorneys’ fees,
+                        damages or costs, including reasonable attorneys&apos; fees,
                         incurred in connection with or arising from any
                         third-party allegations, claims, actions, disputes, or
                         demands asserted against any of them as a result of or

@@ -17,7 +17,7 @@ export default function PrivacyPolicyLayout({
             <Header isBlured />
             <section className={styles.container}>
                 <div className={styles.wrapper}>
-                    <Sidebar />
+                    <Sidebar type="privatePages" />
                     <main className={styles.content}>
                         {children}
                         <div className={styles.other}>

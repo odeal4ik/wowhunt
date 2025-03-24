@@ -148,10 +148,10 @@ export default function PrivacyPolicy() {
                     <h2 className={styles.sectionTitle}>Do we Use Cookies?</h2>
                     <p className={styles.text}>
                         Cookies are small files that a site or its service
-                        provider transfers to your computer’s hard drive through
-                        your Web browser (if you allow) that enables the sites
-                        or service providers systems to recognize your browser
-                        and capture and remember certain information.
+                        provider transfers to your computer&apos;s hard drive
+                        through your Web browser (if you allow) that enables the
+                        sites or service providers systems to recognize your
+                        browser and capture and remember certain information.
                     </p>
                     <p className={styles.text}>
                         We use cookies to help us remember and process the items
@@ -239,13 +239,14 @@ export default function PrivacyPolicy() {
                         https://privacy.microsoft.com/en-us/privacystatement.
                     </p>
                     <p className={`${styles.text} ${styles.textSecondary}`}>
-                        As we sell services it’s important for us to understand
-                        statistics about how many of the visitors to our site
-                        actually make a purchase and as such this is the kind of
-                        data that these cookies will track. This is important to
-                        you as it means that we can accurately make business
-                        predictions that allow us to monitor our advertising and
-                        product costs to ensure the best possible price.
+                        As we sell services it&apos;s important for us to
+                        understand statistics about how many of the visitors to
+                        our site actually make a purchase and as such this is
+                        the kind of data that these cookies will track. This is
+                        important to you as it means that we can accurately make
+                        business predictions that allow us to monitor our
+                        advertising and product costs to ensure the best
+                        possible price.
                     </p>
                 </div>
 
@@ -262,10 +263,10 @@ export default function PrivacyPolicy() {
                         this information confidential. We may also release your
                         information when we believe release is appropriate to
                         comply with the law, enforce our site policies, or
-                        protect ours or others’ rights, property, or safety.
-                        However, non-personally identifiable visitor information
-                        may be provided to other parties for marketing,
-                        advertising, or other uses.
+                        protect ours or others&apos; rights, property, or
+                        safety. However, non-personally identifiable visitor
+                        information may be provided to other parties for
+                        marketing, advertising, or other uses.
                     </p>
                 </div>
 
@@ -283,14 +284,14 @@ export default function PrivacyPolicy() {
                     </p>
                     <p className={styles.text}>
                         Object: You may object to the processing of your data if
-                        you believe we don’t have the appropriate rights to
+                        you believe we don&apos;t have the appropriate rights to
                         engage in that processing or if you wish to ask us not
                         to process your personal data for direct marketing
                         purposes.
                     </p>
                     <p className={styles.text}>
                         Rectification: You can correct your personal data if you
-                        feel it’s inaccurate.
+                        feel it&apos;s inaccurate.
                     </p>
                     <p className={styles.text}>
                         Restrict Processing: You can request that your data no

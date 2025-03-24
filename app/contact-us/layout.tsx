@@ -2,10 +2,10 @@
 
 import { Header } from '@/components/header/header';
 import { Sidebar } from '@/components/sidebar/sidebar';
-
-import styles from './contact-layout.module.css';
 import { Splitter } from '@/components/splitter/splitter';
 import { Support } from '@/components/support/support';
+
+import styles from './contact-layout.module.css';
 
 export default function ContactLayout({
     children,
@@ -17,7 +17,7 @@ export default function ContactLayout({
             <Header isBlured />
             <section className={styles.container}>
                 <div className={styles.wrapper}>
-                    <Sidebar />
+                    <Sidebar type="privatePages" />
                     <main className={styles.content}>
                         {children}
                         <div className={styles.other}>

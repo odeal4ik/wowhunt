@@ -21,25 +21,26 @@ export default function Contact() {
 
                 <div className={styles.item}>
                     <h2>NEED HELP? WRITE TO US</h2>
-                    <span>Contact Email: support@wowhunt.com</span>
-                    <span>Customer Support Discord: WOWHUNT#8888</span>
+                    <p>Contact Email: support@wowhunt.com</p>
+                    <p>Customer Support Discord: WOWHUNT#8888</p>
                 </div>
 
                 <div className={styles.item}>
                     <h2>BECOME A BOOSTER</h2>
-                    <span>
+                    <p>
                         If you want to work together with our team, leave a
-                        request on the header in the section &quot;Work With Us&quot;.
-                    </span>
+                        request on the header in the section &quot;Work With
+                        Us&quot;.
+                    </p>
                 </div>
 
                 <div className={styles.item}>
                     <h2>OUR ADRESS</h2>
-                    <span>
+                    <p>
                         Georgia, Tbilisi city, Krtsanisi district, Nino and Ilia
                         Nakashidzeebi street, N 1, (former Avlevi), apartment N
                         3, building N 3
-                    </span>
+                    </p>
                 </div>
             </div>
         </div>

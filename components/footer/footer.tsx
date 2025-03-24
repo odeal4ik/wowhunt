@@ -85,7 +85,7 @@ export function Footer() {
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/contact">Contact Us</Link>
+                                <Link href="/contact-us">Contact Us</Link>
                             </li>
                         </ul>
                     </div>
