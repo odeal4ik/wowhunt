@@ -78,7 +78,7 @@ export default function RootLayout({
                 </QueryProvider>
                 <ToastContainer
                     position="top-right"
-                    autoClose={20000}
+                    autoClose={2000}
                     hideProgressBar
                     newestOnTop
                     rtl={false}

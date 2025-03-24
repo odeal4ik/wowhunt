@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
-interface User {
+export interface User {
     active_booster: 0 | 1;
     affiliate_id: string;
     avatar: string;

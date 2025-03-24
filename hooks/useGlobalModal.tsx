@@ -1,9 +1,11 @@
-import { GlobalModalContext } from '@/providers/ModalProvider';
 import { useContext } from 'react';
+
+import { GlobalModalContext } from '@/providers/ModalProvider';
+
+const noop = () => {};
 
 export function useGlobalModal() {
     const context = useContext(GlobalModalContext);
-    const noop = () => {};
 
     if (context !== null) {
         return {

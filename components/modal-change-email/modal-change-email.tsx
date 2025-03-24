@@ -1,19 +1,19 @@
 import { Modal } from '@/components/modal/Modal';
+
 import styles from './modal-change-email.module.css';
 
 interface ChangeEmailModalProps {
-    isOpen: boolean;
     onClose: () => void;
-    currentEmail: string;
+    email: string;
 }
 
-export const ChangeEmailModal = ({ isOpen, onClose, currentEmail }: ChangeEmailModalProps) => {
+export const ChangeEmailModal = ({ onClose, email }: ChangeEmailModalProps) => {
     return (
-        <Modal isOpen={isOpen} onClose={onClose} title="Change e-mail">
+        <Modal isOpen onClose={onClose} title="Change e-mail">
             <div className={styles.modalForm}>
                 <div className={styles.currentEmailContainer}>
                     <p className={styles.currentEmailText}>Your e-mail:</p>
-                    <p className={styles.currentEmail}>{currentEmail}</p>
+                    <p className={styles.currentEmail}>{email}</p>
                 </div>
                 <div className={styles.formGroup}>
                     <label className={styles.label}>New E-mail</label>
@@ -23,9 +23,7 @@ export const ChangeEmailModal = ({ isOpen, onClose, currentEmail }: ChangeEmailM
                         className={styles.input}
                     />
                 </div>
-                <button className={styles.continueButton}>
-                    Continue
-                </button>
+                <button className={styles.continueButton}>Continue</button>
             </div>
         </Modal>
     );

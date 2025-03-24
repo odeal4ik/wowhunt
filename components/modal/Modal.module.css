@@ -1,4 +1,4 @@
-.modalOverlay {
+.overlay {
     position: fixed;
     inset: 0;
     display: flex;
@@ -7,53 +7,54 @@
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     z-index: 9999;
-}
 
-.modalContent {
-    position: relative;
-    width: 100%;
-    max-width: 350px;
-    background: linear-gradient(
-            237.82deg,
-            rgba(59, 60, 104, 0.6) -147.73%,
-            rgba(59, 60, 104, 0) 180.56%
-        ),
-        #090916;
-    border-radius: 20px;
-    padding-block: 38px 30px;
-    padding-inline: 38px 35px;
-}
+    .content {
+        position: relative;
+        width: 100%;
+        max-width: 350px;
+        background: linear-gradient(
+                237.82deg,
+                rgba(59, 60, 104, 0.6) -147.73%,
+                rgba(59, 60, 104, 0) 180.56%
+            ),
+            #090916;
+        border-radius: 20px;
+        padding-block: 29px 27px;
+        padding-inline: 20px;
 
-.modalHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-block-end: 8px;
-}
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-block-end: 8px;
 
-.modalTitle {
-    font-family: var(--font-barlow-bold-sans), sans-serif;
-    font-size: var(--font-size-h4);
-    line-height: var(--font-line-height-130);
-}
+            .title {
+                font-family: var(--font-barlow-bold-sans), sans-serif;
+                font-size: var(--font-size-h4);
+                line-height: var(--font-line-height-130);
+                padding-inline-end: 34px;
+            }
 
-.closeButton {
-    background: rgba(75, 75, 119, 0.3);
-    border-radius: 8px;
-    padding: 15px;
-    cursor: pointer;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-    border: none;
+            .close {
+                background: rgba(75, 75, 119, 0.3);
+                border-radius: 8px;
+                padding: 15px;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                border: none;
 
-    &:hover {
-        background-color: rgba(75, 75, 119, 0.5);
-    }
+                &:hover {
+                    background-color: rgba(75, 75, 119, 0.5);
+                }
 
-    & > svg {
-        width: 14px;
-        height: 14px;
-        fill: var(--text-color)
+                & > svg {
+                    width: 14px;
+                    height: 14px;
+                    fill: var(--text-color);
+                }
+            }
+        }
     }
 }

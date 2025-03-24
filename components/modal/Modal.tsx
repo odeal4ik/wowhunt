@@ -35,19 +35,19 @@ export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
     if (!isOpen) return null;
 
     return (
-        <div className={styles.modalOverlay} onClick={onClose}>
+        <div className={styles.overlay} onClick={onClose}>
             <div
-                className={styles.modalContent}
+                className={styles.content}
                 onClick={(e) => e.stopPropagation()}
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="modal-title">
-                <div className={styles.modalHeader}>
-                    <h2 id="modal-title" className={styles.modalTitle}>
+                <div className={styles.header}>
+                    <h2 id="modal-title" className={styles.title}>
                         {title}
                     </h2>
                     <button
-                        className={styles.closeButton}
+                        className={styles.close}
                         onClick={onClose}
                         aria-label="Close modal">
                         <Icon svg={Close} label="Close" />

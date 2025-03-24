@@ -21,6 +21,8 @@ export default function Profile() {
         return null;
     }
 
+    console.log(data);
+
     const { balance, level_customer_id, spending } = data;
 
     const { title, description } = getUserProgress(level_customer_id * 10);
@@ -61,13 +63,13 @@ export default function Profile() {
                     </div>
 
                     <div className={styles.buttonsBlockMobile}>
-                        <ProfileButtonsBlock email="nikita.kudenikov@srg.com" />
+                        <ProfileButtonsBlock />
                     </div>
                 </div>
             </div>
 
             <div className={styles.buttonsBlockDesktop}>
-                <ProfileButtonsBlock email="nikita.kudenikov@srg.com" />
+                <ProfileButtonsBlock />
             </div>
 
             <div className={styles.containerBalance}>

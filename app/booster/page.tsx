@@ -73,7 +73,7 @@ export default function Profile() {
                     <InviteFriend price={10} />
                 </div>
                 <div className={styles.buttonsBlockDesktop}>
-                    <ProfileButtonsBlock email="nikita.kudenikov@srg.com" />
+                    <ProfileButtonsBlock />
                 </div>
             </div>
 

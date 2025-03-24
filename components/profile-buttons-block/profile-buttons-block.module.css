@@ -1,105 +1,130 @@
-.notificationControls {
+.wrapper {
     display: flex;
     justify-content: space-between;
-    gap: 10px;
-    margin-block-end: 10px;
-    max-width: 1424px;
+    column-gap: 10px;
+    max-width: 100%;
 
     @media (width <= 768px) {
         justify-content: space-around;
     }
-}
 
-.notificationLeftContainer {
-    display: flex;
-    gap: 11px;
+    .left {
+        display: flex;
+        align-items: center;
+        column-gap: 11px;
 
-    @media (width <= 1375px) {
-        display: none;
-    }
-}
-
-.notificationRow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 8px;
-    padding: 11px 24px;
-
-    @media (width <= 1490px) {
-        padding-inline: 12px;
-    }
-
-    .switch {
-        position: relative;
-        display: inline-block;
-        width: 30px;
-        height: 16px;
-
-        input:checked + .slider {
-            background-color: var(--yellow-500);
+        @media (width <= 1375px) {
+            display: none;
         }
 
-        input:checked + .slider:before {
-            transform: translateX(16px);
-        }
+        .item {
+            display: flex;
+            align-items: flex-end;
+            flex-shrink: 0;
+            column-gap: 8px;
+            background: #202032;
+            border-radius: 8px;
+            padding-block: 8px 12px;
+            padding-inline: 25px 24px;
 
-        .notificationCheckbox {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
+            .switch {
+                position: relative;
+                display: inline-block;
+                width: 30px;
+                height: 16px;
+                margin-block: 2px;
 
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #27294c;
-            transition: 0.3s;
-            border-radius: 16px;
+                input:checked + .slider {
+                    background-color: var(--yellow-500);
+                }
 
-            &:before {
-                position: absolute;
-                content: '';
-                height: 12px;
-                width: 12px;
-                left: 0px;
-                bottom: 2px;
-                background-color: white;
-                transition: 0.3s;
-                border-radius: 50%;
+                input:checked + .slider:before {
+                    transform: translateX(14px);
+                }
+
+                input:disabled + .slider {
+                    cursor: wait;
+                    opacity: 0.5;
+                    filter: grayscale(1);
+                }
+
+                .checkbox {
+                    opacity: 0;
+                    visibility: hidden;
+                    width: 0;
+                    height: 0;
+                }
+
+                .slider {
+                    position: absolute;
+                    cursor: pointer;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background-color: #27294c;
+                    transition: 0.3s;
+                    border-radius: 16px;
+
+                    &:before {
+                        position: absolute;
+                        content: '';
+                        height: 12px;
+                        width: 12px;
+                        left: 2px;
+                        bottom: 2px;
+                        background-color: white;
+                        transition: 0.3s;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            .content {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+
+                .text {
+                    font-family: var(--font-barlow-regular-sans), sans-serif;
+                    font-size: var(--font-size-s);
+                    line-height: var(--font-line-height-130);
+                }
             }
         }
     }
 
-    .notificationItem {
+    .right {
         display: flex;
-        align-items: center;
-        gap: 8px;
+        gap: 11px;
 
-        .notificationText {
-            font-family: var(--font-barlow-regular-sans), sans-serif;
-            font-size: var(--font-size-s);
-            line-height: var(--font-line-height-130);
+        @media (width <= 680px) {
+            width: 100%;
+        }
+
+        .controls {
+            display: flex;
+            gap: 11px;
+
+            @media (width <= 1375px) {
+                display: none;
+            }
         }
     }
 }
 
-.notificationButton {
+.button {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
+    column-gap: 8px;
+    flex-shrink: 0;
     font-family: var(--font-barlow-regular-sans), sans-serif;
     font-size: var(--font-size-s);
     line-height: var(--font-line-height-130);
     color: var(--text-color);
     padding: 11px 24px;
-    background: rgba(255, 255, 255, 0.03);
+    background: #202032;
     border-radius: 8px;
     cursor: pointer;
 
@@ -111,24 +136,6 @@
 
     @media (width <= 1440px) {
         padding-inline: 15px;
-    }
-}
-
-.notificationRightContainer {
-    display: flex;
-    gap: 11px;
-
-    @media (width <= 680px) {
-        width: 100%;
-    }
-
-    .controls {
-        display: flex;
-        gap: 11px;
-
-        @media (width <= 1375px) {
-            display: none;
-        }
     }
 }
 

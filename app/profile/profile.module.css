@@ -3,6 +3,9 @@
     padding-inline: 70px 30px;
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1424px;
 
     @media (width <= 1530px) {
         padding-inline-start: 22px;
@@ -47,9 +50,7 @@
     );
     width: 100%;
     min-width: 0;
-    /* TODO max-width */
     max-width: 100%;
-    max-width: 1424px;
     padding: 3px;
     border-radius: 20px;
 
