@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 
 import { Modal } from '@/components/modal';
 
-import { successEmailChangeMessage } from '@/contants/user/notifications';
+import { successPasswordChangeMessage } from '@/contants/notifications';
 import {
     UpdatePasswordInput,
     useUpdatePassword,
@@ -31,7 +31,9 @@ export const ChangePasswordModal = ({ onClose }: { onClose: () => void }) => {
         async (input) => {
             return mutate(input, {
                 onSuccess: () => {
-                    toast(<ToastNotification {...successEmailChangeMessage} />);
+                    toast(
+                        <ToastNotification {...successPasswordChangeMessage} />,
+                    );
                     onClose();
                 },
             });
@@ -42,6 +44,14 @@ export const ChangePasswordModal = ({ onClose }: { onClose: () => void }) => {
     return (
         <Modal isOpen onClose={onClose} title="Change password">
             <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
+                <div className={styles.group} style={{ display: 'none' }}>
+                    <input
+                        type="text"
+                        placeholder="Enter your Name"
+                        autoComplete="username"
+                        id="email"
+                    />
+                </div>
                 <div className={styles.group}>
                     <label className={styles.label} htmlFor="old_password">
                         Old password

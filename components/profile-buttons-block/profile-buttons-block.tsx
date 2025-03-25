@@ -17,7 +17,6 @@ import { useGlobalModal } from '@/hooks/useGlobalModal';
 import { User, useGetUser } from '@/queries/auth/getUser';
 import { UpdateUserInput, useUpdateUser } from '@/queries/auth/updateUser';
 
-import { useEscapeClose } from '../../hooks/useEscapeClose';
 import { ChangeEmailModal } from '../modal-change-email';
 import { ChangePasswordModal } from '../modal-change-password-profile';
 import { NotificationsModal } from '../modal-notifications/modal-notifications';
@@ -32,13 +31,11 @@ export function ProfileButtonsBlock() {
     const [pushNotifications, setPushNotifications] = useState(true);
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
-    const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
-    const [isChangeEmailOpen, setIsChangeEmailOpen] = useState(false);
 
-    useEscapeClose(isSettingsOpen, () => setIsSettingsOpen(false));
-    useEscapeClose(isNotificationsOpen, () => setIsNotificationsOpen(false));
-    useEscapeClose(isChangePasswordOpen, () => setIsChangePasswordOpen(false));
-    useEscapeClose(isChangeEmailOpen, () => setIsChangeEmailOpen(false));
+    const onOpenChangeEmailModal = () =>
+        open(<ChangeEmailModal email={email} onClose={close} />);
+    const onOpenChangePasswordModal = () =>
+        open(<ChangePasswordModal onClose={close} />);
 
     const { mutate, isPending } = useUpdateUser();
     const queryClient = useQueryClient();
@@ -130,23 +127,14 @@ export function ProfileButtonsBlock() {
                 <div className={styles.controls}>
                     <button
                         className={styles.button}
-                        onClick={() =>
-                            open(
-                                <ChangeEmailModal
-                                    email={email}
-                                    onClose={close}
-                                />,
-                            )
-                        }>
+                        onClick={onOpenChangeEmailModal}>
                         <Icon svg={At} label="Email" />
                         Change eMail
                     </button>
 
                     <button
                         className={styles.button}
-                        onClick={() =>
-                            open(<ChangePasswordModal onClose={close} />)
-                        }>
+                        onClick={onOpenChangePasswordModal}>
                         <Icon svg={Key} label="Key" />
                         Change password
                     </button>
@@ -176,29 +164,8 @@ export function ProfileButtonsBlock() {
                     <SettingsModal
                         isOpen={isSettingsOpen}
                         onClose={() => setIsSettingsOpen(false)}
-                        onEmailChange={() => {
-                            setIsSettingsOpen(false);
-                            setIsChangeEmailOpen(true);
-                        }}
-                        onPasswordChange={() => {
-                            setIsSettingsOpen(false);
-                            setIsChangePasswordOpen(true);
-                        }}
-                    />
-                )}
-
-                {isSettingsOpen && (
-                    <SettingsModal
-                        isOpen={isSettingsOpen}
-                        onClose={() => setIsSettingsOpen(false)}
-                        onEmailChange={() => {
-                            setIsSettingsOpen(false);
-                            setIsChangeEmailOpen(true);
-                        }}
-                        onPasswordChange={() => {
-                            setIsSettingsOpen(false);
-                            setIsChangePasswordOpen(true);
-                        }}
+                        onEmailChange={onOpenChangeEmailModal}
+                        onPasswordChange={onOpenChangePasswordModal}
                     />
                 )}
 
