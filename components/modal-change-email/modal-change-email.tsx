@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 
-import { Modal } from '@/components/modal/Modal';
+import { Modal } from '@/components/modal';
 
 import { successEmailChangeMessage } from '@/contants/user/notifications';
 import { useUpdateEmail } from '@/queries/auth/updateUserEmail';

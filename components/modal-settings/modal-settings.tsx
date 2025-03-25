@@ -1,6 +1,6 @@
 import { Icon } from '@/core-components/icon/icon';
 
-import { Modal } from '@/components/modal/Modal';
+import { Modal } from '@/components/modal';
 
 import At from '@/images/system-icons/at.svg';
 import Key from '@/images/system-icons/key-password.svg';

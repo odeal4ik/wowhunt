@@ -2,7 +2,7 @@ import { toast } from 'react-toastify';
 
 import { Icon } from '@/core-components/icon/icon';
 
-import { Modal } from '@/components/modal/Modal';
+import { Modal } from '@/components/modal';
 
 import Mail from '@/images/icons/mail.svg';
 import Telegram from '@/images/media/telegram.svg';
@@ -30,7 +30,6 @@ export const NotificationsModal = ({
     onEmailNotificationsChange,
     onPushNotificationsChange,
 }: NotificationsModalProps) => {
-    
     const handleCopy = (text: string) => {
         navigator.clipboard.writeText(text);
         toast(<ToastNotification {...copyMessage} />);

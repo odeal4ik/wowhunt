@@ -1,4 +1,5 @@
-import { Modal } from '@/components/modal/Modal';
+import { Modal } from '@/components/modal';
+
 import styles from './modal-change-password-profile.module.css';
 
 interface ChangePasswordModalProps {
@@ -6,14 +7,15 @@ interface ChangePasswordModalProps {
     onClose: () => void;
 }
 
-export const ChangePasswordModal = ({ isOpen, onClose }: ChangePasswordModalProps) => {
+export const ChangePasswordModal = ({
+    isOpen,
+    onClose,
+}: ChangePasswordModalProps) => {
     return (
         <Modal isOpen={isOpen} onClose={onClose} title="Change password">
             <div className={styles.modalFormPassword}>
                 <div className={styles.formGroup}>
-                    <label className={styles.passwordLabel}>
-                        Old password
-                    </label>
+                    <label className={styles.passwordLabel}>Old password</label>
                     <input
                         type="password"
                         placeholder="Enter old password..."
@@ -21,9 +23,7 @@ export const ChangePasswordModal = ({ isOpen, onClose }: ChangePasswordModalProp
                     />
                 </div>
                 <div className={styles.formGroup}>
-                    <label className={styles.passwordLabel}>
-                        New password
-                    </label>
+                    <label className={styles.passwordLabel}>New password</label>
                     <input
                         type="password"
                         placeholder="Enter new password..."
@@ -40,9 +40,7 @@ export const ChangePasswordModal = ({ isOpen, onClose }: ChangePasswordModalProp
                         className={styles.passwordInput}
                     />
                 </div>
-                <button className={styles.continueButton}>
-                    Continue
-                </button>
+                <button className={styles.continueButton}>Continue</button>
             </div>
         </Modal>
     );
