@@ -1,19 +1,17 @@
 import { useMutation } from '@tanstack/react-query';
 
-export interface UpdateUserInput {
-    email: string;
-}
-
-export function useUpdateUser(): {
+export function useUpdateEmail(): {
     mutate: (
-        input: UpdateUserInput,
+        input: {
+            email: string;
+        },
         { onSuccess }: { onSuccess?: () => void },
     ) => void;
     isPending: boolean;
-    error: { email_notifу?: string[]; push_notifу?: string[] } | null;
+    error: { email?: string[] } | null;
 } {
     return useMutation({
-        mutationFn: async function signUpUser(input: UpdateUserInput) {
+        mutationFn: async function signUpUser(input: { email: string }) {
             const response = await fetch('/api/auth/user/update/email', {
                 method: 'POST',
                 body: JSON.stringify(input),

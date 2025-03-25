@@ -215,16 +215,16 @@
 
         .input {
             background: var(--neutral-container-light);
-            border: 2px solid rgba(68, 83, 113, 0.15);
             border-radius: 6px;
-            padding: 12px;
-            width: 100%;
-            outline: none;
-            transition: border-color 0.2s ease;
+            border: 2px solid rgba(68, 83, 113, 0.15);
+            color: var(--text-color);
             font-family: var(--font-barlow-regular-sans), sans-serif;
             font-size: var(--font-size-m);
             line-height: var(--font-line-height-125);
-            color: var(--text-color);
+            outline: none;
+            padding: 12px;
+            transition: border-color 0.2s ease;
+            width: 100%;
 
             &::placeholder {
                 color: var(--text-color-secondary);

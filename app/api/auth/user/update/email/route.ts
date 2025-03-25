@@ -25,13 +25,25 @@ export async function POST(request: NextRequest) {
     );
 
     const data = await response.json();
-
+    console.log('response', response);
+    console.log('data', data);
     if (response.ok) {
         return NextResponse.json(data);
-    } else if (!response.ok && data.errors) {
+    } else if (!response.ok && response.status === 422 && data.errors) {
         return new Response(JSON.stringify(data), {
             status: 422,
         });
+    } else if (!response.ok && response.status === 403) {
+        return new Response(
+            JSON.stringify({
+                errors: {
+                    email: [data.message],
+                },
+            }),
+            {
+                status: 403,
+            },
+        );
     } else {
         return new Response(
             JSON.stringify({ message: 'Oops, something went wrong...' }),

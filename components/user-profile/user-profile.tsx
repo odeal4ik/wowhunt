@@ -6,9 +6,13 @@ import { ProgressBooster } from '../progress-booster/progress-booster';
 import styles from './user-profile.module.css';
 
 export function UserProfile() {
-    const {
-        data: { id, email, avatar, active_booster },
-    } = useGetUser();
+    const { data, isSuccess } = useGetUser();
+
+    if (!isSuccess) {
+        return null;
+    }
+
+    const { id, email, avatar, active_booster } = data;
 
     return (
         <div className={styles.wrapper}>

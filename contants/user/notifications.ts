@@ -5,3 +5,9 @@ export const successEmailNotificationMessage: NotificationProps = {
     title: 'Successfull',
     message: 'Email notifications have been successfully changed',
 };
+
+export const successEmailChangeMessage: NotificationProps = {
+    type: 'success',
+    title: 'Link sent to e-mail',
+    message: 'We have sent you a message to your email to confirm your change',
+};

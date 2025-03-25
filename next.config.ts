@@ -11,7 +11,18 @@ const nextConfig: NextConfig = {
             },
         },
     },
-
+    images: {
+        remotePatterns: [
+            {
+                protocol: 'https',
+                hostname: 'placehold.co',
+                port: '',
+                pathname: '/50x50',
+                search: '?text=Avatar',
+            },
+        ],
+        dangerouslyAllowSVG: true,
+    },
     async rewrites() {
         return [
             {
