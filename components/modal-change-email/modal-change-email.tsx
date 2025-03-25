@@ -12,12 +12,13 @@ import { ToastNotification } from '../toast-notification/toast-notification';
 import { schema } from './modal-change-email-schema';
 import styles from './modal-change-email.module.css';
 
-interface ChangeEmailModalProps {
+export const ChangeEmailModal = ({
+    onClose,
+    email,
+}: {
     onClose: () => void;
     email: string;
-}
-
-export const ChangeEmailModal = ({ onClose, email }: ChangeEmailModalProps) => {
+}) => {
     const { mutate, isPending, error } = useUpdateEmail();
 
     const {
@@ -29,7 +30,7 @@ export const ChangeEmailModal = ({ onClose, email }: ChangeEmailModalProps) => {
         mode: 'onSubmit',
     });
 
-    const onEmailChangeHandler: SubmitHandler<{ email: string }> = useCallback(
+    const onSubmit: SubmitHandler<{ email: string }> = useCallback(
         async (input) => {
             return mutate(input, {
                 onSuccess: () => {
@@ -40,11 +41,10 @@ export const ChangeEmailModal = ({ onClose, email }: ChangeEmailModalProps) => {
         },
         [mutate, onClose],
     );
+
     return (
         <Modal isOpen onClose={onClose} title="Change e-mail">
-            <form
-                className={styles.form}
-                onSubmit={handleSubmit(onEmailChangeHandler)}>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={styles.current}>
                     <p className={styles.text}>Your e-mail:</p>
                     <p className={styles.email}>{email}</p>

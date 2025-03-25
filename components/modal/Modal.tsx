@@ -4,6 +4,8 @@ import { Icon } from '@/core-components/icon/icon';
 
 import Close from '@/images/system-icons/close.svg';
 
+import { useEscapeClose } from '@/hooks/useEscapeClose';
+
 import styles from './modal.module.css';
 
 interface ModalProps {
@@ -14,20 +16,14 @@ interface ModalProps {
 }
 
 export const Modal = ({ isOpen, onClose, children, title }: ModalProps) => {
-    useEffect(() => {
-        const handleEscape = (e: KeyboardEvent) => {
-            if (e.key === 'Escape') {
-                onClose();
-            }
-        };
+    useEscapeClose(isOpen, onClose);
 
+    useEffect(() => {
         if (isOpen) {
-            document.addEventListener('keydown', handleEscape);
             document.body.style.overflow = 'hidden';
         }
 
         return () => {
-            document.removeEventListener('keydown', handleEscape);
             document.body.style.overflow = 'unset';
         };
     }, [isOpen, onClose]);

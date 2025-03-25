@@ -37,6 +37,7 @@
         border-radius: 8px;
         padding: 12px 35px;
         cursor: pointer;
+        margin-block-start: 14px;
         transition: background-color 0.2s;
         width: 100%;
 

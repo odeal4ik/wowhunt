@@ -18,8 +18,8 @@ import { User, useGetUser } from '@/queries/auth/getUser';
 import { UpdateUserInput, useUpdateUser } from '@/queries/auth/updateUser';
 
 import { useEscapeClose } from '../../hooks/useEscapeClose';
-import { ChangeEmailModal } from '../modal-change-email/modal-change-email';
-import { ChangePasswordModal } from '../modal-change-password-profile/modal-change-password-profile';
+import { ChangeEmailModal } from '../modal-change-email';
+import { ChangePasswordModal } from '../modal-change-password-profile';
 import { NotificationsModal } from '../modal-notifications/modal-notifications';
 import { SettingsModal } from '../modal-settings/modal-settings';
 import { ToastNotification } from '../toast-notification/toast-notification';
@@ -141,12 +141,16 @@ export function ProfileButtonsBlock() {
                         <Icon svg={At} label="Email" />
                         Change eMail
                     </button>
+
                     <button
                         className={styles.button}
-                        onClick={() => setIsChangePasswordOpen(true)}>
+                        onClick={() =>
+                            open(<ChangePasswordModal onClose={close} />)
+                        }>
                         <Icon svg={Key} label="Key" />
                         Change password
                     </button>
+
                     <button className={styles.button}>
                         <Icon svg={Support} label="Support" />
                         Write to admin
@@ -206,13 +210,6 @@ export function ProfileButtonsBlock() {
                         onEmailNotificationsChange={setEmailNotifications}
                         pushNotifications={pushNotifications}
                         onPushNotificationsChange={setPushNotifications}
-                    />
-                )}
-
-                {isChangePasswordOpen && (
-                    <ChangePasswordModal
-                        isOpen={isChangePasswordOpen}
-                        onClose={() => setIsChangePasswordOpen(false)}
                     />
                 )}
             </div>

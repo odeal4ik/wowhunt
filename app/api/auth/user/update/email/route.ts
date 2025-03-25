@@ -25,8 +25,7 @@ export async function POST(request: NextRequest) {
     );
 
     const data = await response.json();
-    console.log('response', response);
-    console.log('data', data);
+
     if (response.ok) {
         return NextResponse.json(data);
     } else if (!response.ok && response.status === 422 && data.errors) {
