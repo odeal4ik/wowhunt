@@ -1,7 +1,7 @@
 'use client';
 
 import { BalanceCard } from '@/components/balance-card/balance-card';
-import { InviteFriend } from '@/components/invite-friend/invite-friend';
+import { InviteFriend } from '@/components/invite-friend';
 import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
 import { ProfileCards } from '@/components/profile-cards/profile-cards';
 import ProgressBar from '@/components/progress-bar/progress-bar';

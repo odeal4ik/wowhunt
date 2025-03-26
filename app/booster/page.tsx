@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import { BalanceCard } from '@/components/balance-card/balance-card';
 import { BoosterOrderCards } from '@/components/booster-order-cards/booster-order-cards';
-import { InviteFriend } from '@/components/invite-friend/invite-friend';
+import { InviteFriend } from '@/components/invite-friend';
 import { CategoriesModal } from '@/components/modal-filter-categorie/modal-filter-categorie';
 import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
 import { ProgressBlock } from '@/components/progress-block/progress-block';

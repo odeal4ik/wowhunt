@@ -126,6 +126,22 @@
             border-color: var(--yellow-500);
             color: var(--text-color);
         }
+
+        &:disabled {
+            filter: opacity(50%);
+            cursor: wait;
+        }
+    }
+
+    .error {
+        font-family: var(--font-barlow-regular-sans), sans-serif;
+        font-size: var(--font-size-ss);
+        line-height: var(--font-line-height-100);
+        color: var(--red-500);
+        position: absolute;
+        left: 10px;
+        top: -2px;
+        translate: 0 -100%;
     }
 
     .button {
@@ -146,6 +162,11 @@
         &:hover {
             color: var(--background);
             background-color: var(--yellow-500-hover);
+        }
+
+        &:disabled {
+            filter: grayscale(1);
+            cursor: wait;
         }
 
         @media (width <= 1375px) {
