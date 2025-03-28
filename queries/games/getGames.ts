@@ -1,17 +1,22 @@
-type Gemes = unknown;
+import { useQuery } from '@tanstack/react-query';
 
-export async function getGames(): Promise<Gemes | null> {
-    try {
-        const response = await fetch(`https://dev.wowhunt.com/games/get`, {
-            headers: {
-                Accept: 'application/json',
-                'Content-type': 'application/json',
-            },
-        });
+export type Game = {
+    id: number;
+    icon: string;
+    icon_alternative: string;
+    name: string;
+    slug: string;
+};
 
-        return response.json();
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
+export function useGetGames() {
+    return useQuery<Game[]>({
+        queryKey: ['games'],
+        queryFn: async () => {
+            const response = await fetch('/api/games/games');
+            if (!response.ok) {
+                throw new Error('Failed to fetch data');
+            }
+            return response.json();
+        },
+    });
 }
