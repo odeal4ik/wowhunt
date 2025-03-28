@@ -49,7 +49,7 @@ export const ChangePasswordModal = ({ onClose }: { onClose: () => void }) => {
                         type="text"
                         placeholder="Enter your Name"
                         autoComplete="username"
-                        id="email"
+                        id="hidden-email"
                     />
                 </div>
                 <div className={styles.group}>

@@ -1,8 +1,9 @@
-import styles from './balance-chart.module.css';
-import { ChartOptions, TooltipItem, Chart as ChartJS } from 'chart.js';
+import { Chart as ChartJS, ChartOptions, TooltipItem } from 'chart.js';
 import { useRef } from 'react';
 import { Line } from 'react-chartjs-2';
-import { calculateDate } from '../balance-card/balance-card';
+
+import { calculateDate } from '../balance-card/utils';
+import styles from './balance-chart.module.css';
 
 interface BalanceChartProps {
     rowDataPoints: number[];
@@ -22,13 +23,13 @@ export function BalanceChart({
     const chartRef = useRef<ChartJS<'line'>>(null);
 
     const labels = [
-      calculateDate(30),
-      calculateDate(25),
-      calculateDate(20),
-      calculateDate(15),
-      calculateDate(10),
-      calculateDate(5),
-      calculateDate(0),
+        calculateDate(30),
+        calculateDate(25),
+        calculateDate(20),
+        calculateDate(15),
+        calculateDate(10),
+        calculateDate(5),
+        calculateDate(0),
     ];
 
     const maxValue = Math.max(...rowDataPoints);
@@ -108,21 +109,36 @@ export function BalanceChart({
                 borderWidth: 7,
                 tension: 0.4,
                 borderColor: function (context: ScriptableContext) {
-                    const chart = context.chart;
-                    const { ctx, chartArea } = chart;
+                    const {
+                        chart: { ctx, chartArea },
+                    } = context;
 
                     if (!chartArea) {
                         return startColor;
                     }
 
-                    const gradient = ctx.createLinearGradient(
-                        chartArea.left,
-                        0,
-                        chartArea.right,
-                        0,
-                    );
-                    gradient.addColorStop(0, startColor);
-                    gradient.addColorStop(1, endColor);
+                    let width, height, gradient;
+                    const chartWidth = chartArea.right - chartArea.left;
+                    const chartHeight = chartArea.bottom - chartArea.top;
+
+                    if (
+                        !gradient ||
+                        width !== chartWidth ||
+                        height !== chartHeight
+                    ) {
+                        // Create the gradient because this is either the first render
+                        // or the size of the chart has changed
+                        width = chartWidth;
+                        height = chartHeight;
+                        gradient = ctx.createLinearGradient(
+                            0,
+                            chartArea.bottom,
+                            0,
+                            chartArea.top,
+                        );
+                        gradient.addColorStop(0, startColor);
+                        gradient.addColorStop(1, endColor);
+                    }
 
                     ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
                     ctx.shadowBlur = 5;

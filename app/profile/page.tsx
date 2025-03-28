@@ -1,6 +1,6 @@
 'use client';
 
-import { BalanceCard } from '@/components/balance-card/balance-card';
+import { BalanceCard } from '@/components/balance-card';
 import { InviteFriend } from '@/components/invite-friend';
 import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
 import { ProfileCards } from '@/components/profile-cards/profile-cards';
@@ -76,15 +76,14 @@ export default function Profile() {
                 <BalanceCard
                     balance={balance}
                     balanceTitle="Balance"
-                    isIncreasingBalance={true}
                     buttonsReports={false}
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
+                    isBalance
                 />
 
                 <BalanceCard
                     balance={spending}
                     balanceTitle="Total spending"
-                    isIncreasingBalance
                     buttonsReports={false}
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />

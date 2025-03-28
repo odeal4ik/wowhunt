@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 import { Icon } from '@/core-components/icon/icon';
 
 import Mail from '@/images/icons/mail.svg';
-import Telegram from '@/images/media/telegram.svg';
 import At from '@/images/system-icons/at.svg';
 import Key from '@/images/system-icons/key-password.svg';
 import Notification from '@/images/system-icons/notification.svg';
@@ -116,11 +115,6 @@ export function ProfileButtonsBlock() {
                         <p className={styles.text}>Push notifications</p>
                     </div>
                 </div>
-
-                <button className={styles.button}>
-                    <Icon svg={Telegram} label="Facebook" />
-                    Telegram
-                </button>
             </div>
 
             <div className={styles.right}>

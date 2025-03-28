@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 
-import { BalanceCard } from '@/components/balance-card/balance-card';
+import { BalanceCard } from '@/components/balance-card';
 import { BoosterOrderCards } from '@/components/booster-order-cards/booster-order-cards';
 import { InviteFriend } from '@/components/invite-friend';
 import { CategoriesModal } from '@/components/modal-filter-categorie/modal-filter-categorie';
@@ -81,7 +81,6 @@ export default function Profile() {
                 <BalanceCard
                     balance={balance}
                     balanceTitle="Balance"
-                    isIncreasingBalance={true}
                     lastOrder={10.345}
                     lastOrderTitle="Last order"
                     isIncreasingLastOrder={true}
@@ -92,7 +91,6 @@ export default function Profile() {
                 <BalanceCard
                     balance={spending}
                     balanceTitle="Total earnings"
-                    isIncreasingBalance={true}
                     buttonsReports={false}
                     rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
