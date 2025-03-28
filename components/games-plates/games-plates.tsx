@@ -1,127 +1,57 @@
 'use client';
 
-import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+
+import { useGetGames } from '@/queries/games/getGames';
 
 import styles from './games-plates.module.css';
 
-const gameNames = [
-    'Adventure Quest',
-    'Battle Arena',
-    'Cosmic Odyssey',
-    'Dragon Slayer',
-    'Elemental Clash',
-    'Fantasy Kingdom',
-    'Galactic Wars',
-    "Hero's Journey",
-    'Island Escape',
-    'Jungle Expedition',
-    "Knight's Honor",
-    'Lost Treasure',
-    'Mystic Lands',
-    'Ninja Showdown',
-    'Ocean Explorer',
-    "Pirate's Cove",
-    'Quest for Glory',
-    'Robot Invasion',
-    'Space Frontier',
-    'Treasure Hunt',
-    'Underworld Adventure',
-    'Viking Saga',
-    "Wizard's Duel",
-    'Xenon Wars',
-    "Yeti's Lair",
-    'Zombie Apocalypse',
-    'Alien Encounter',
-    'Battle Royale',
-    'Cyberpunk City',
-    'Dungeon Crawler',
-    'Epic Quest',
-    'Fantasy World',
-    'Galactic Empire',
-    'Heroic Legends',
-    'Island Survival',
-    'Jungle Safari',
-    'Kingdom Conquest',
-    'Lost Civilization',
-    'Mystic Quest',
-    'Ninja Warriors',
-    'Ocean Adventure',
-    "Pirate's Treasure",
-    'Quest for Power',
-    'Robot Revolution',
-    'Space Odyssey',
-    'Treasure Island',
-    'Underwater Kingdom',
-    'Viking Adventure',
-    "Wizard's Quest",
-    'Xenon Battle',
-    "Yeti's Quest",
-    'Zombie Invasion',
-    'Alien Wars',
-    'Battle Legends',
-    'Cyber City',
-    'Dungeon Quest',
-    'Epic Adventure',
-    'Fantasy Realm',
-    'Galactic Quest',
-    "Hero's Saga",
-    'Island Quest',
-    'Jungle Adventure',
-    'Kingdom Quest',
-    'Lost World',
-    'Mystic Adventure',
-    'Ninja Quest',
-    'Ocean Quest',
-    "Pirate's Adventure",
-    'Quest for Honor',
-    'Robot Wars',
-    'Space Adventure',
-    'Treasure Quest',
-    'Underworld Quest',
-    'Viking Quest',
-    "Wizard's Adventure",
-];
+const INITIAL_GAMES_COUNT = 21;
 
 export function GamesPlates() {
-    const [isMoreGames, setIsMoreGames] = useState(false);
+    const { data: games } = useGetGames();
+    const [showAllGames, setShowAllGames] = useState(false);
+
+    if (!games?.length) return null;
+
+    const visibleGamesCount =
+        games.length > INITIAL_GAMES_COUNT && !showAllGames
+            ? INITIAL_GAMES_COUNT
+            : games.length;
 
     return (
         <div className={styles.wrapper}>
             <div className={styles.plateWrapper}>
-                {/* should be decided about even and odd number of items and grid from design side */}
-                {Array.from({ length: !isMoreGames ? 21 : 73 }).map(
-                    (_, index) => (
+                {games.slice(0, visibleGamesCount).map((game) => {
+                    return (
                         <Link
-                            href={`/${gameNames[index]
-                                .toLowerCase()
-                                .replace(/ /g, '-')
-                                .replace("'", '')}`}
+                            href={`/${game.slug}`}
                             className={styles.plate}
-                            key={gameNames[index]}>
+                            key={game.id}>
                             <Image
                                 className={styles.image}
-                                src={`/games-icons/game${index + 1}.png`}
-                                alt={gameNames[index]}
+                                src={game.icon}
+                                alt={game.name}
                                 width={90}
                                 height={90}
                                 loading="lazy"
                             />
-                            <span className={styles.label}>
-                                {gameNames[index]}
-                            </span>
+                            <p className={styles.label}>{game.name}</p>
                         </Link>
-                    ),
-                )}
+                    );
+                })}
             </div>
 
-            <button
-                type="button"
-                className={styles.button}
-                onClick={() => setIsMoreGames(!isMoreGames)}>
-                {isMoreGames ? `LESS GAMES` : `MORE GAMES`}
-            </button>
+            {games.length > INITIAL_GAMES_COUNT && (
+                <button
+                    type="button"
+                    className={styles.button}
+                    onClick={() => setShowAllGames(!showAllGames)}>
+                    {showAllGames ? 'LESS GAMES' : 'MORE GAMES'}
+                </button>
+            )}
         </div>
     );
 }
