@@ -13,56 +13,56 @@ const BoosterSkeleton = () => {
 };
 
 const BoosterLevel1 = dynamic<SvgrComponent>(
-    () => import('@/images/levels/booster-lvl-1.svg'),
+    async () => await import('@/images/levels/booster-lvl-1.svg'),
     {
         loading: BoosterSkeleton,
     },
 );
 
 const BoosterLevel2 = dynamic<SvgrComponent>(
-    () => import('@/images/levels/booster-lvl-2.svg'),
+    async () => await import('@/images/levels/booster-lvl-2.svg'),
     {
         loading: BoosterSkeleton,
     },
 );
 
 const BoosterLevel3 = dynamic<SvgrComponent>(
-    () => import('@/images/levels/booster-lvl-3.svg'),
+    async () => await import('@/images/levels/booster-lvl-3.svg'),
     {
         loading: BoosterSkeleton,
     },
 );
 
 const CustomerLevel1 = dynamic<SvgrComponent>(
-    () => import('@/images/levels/user-lvl-1.svg'),
+    async () => await import('@/images/levels/user-lvl-1.svg'),
     {
         loading: CustomerSkeleton,
     },
 );
 
 const CustomerLevel2 = dynamic<SvgrComponent>(
-    () => import('@/images/levels/user-lvl-2.svg'),
+    async () => await import('@/images/levels/user-lvl-2.svg'),
     {
         loading: CustomerSkeleton,
     },
 );
 
 const CustomerLevel3 = dynamic<SvgrComponent>(
-    () => import('@/images/levels/user-lvl-3.svg'),
+    async () => await import('@/images/levels/user-lvl-3.svg'),
     {
         loading: CustomerSkeleton,
     },
 );
 
 const CustomerLevel4 = dynamic<SvgrComponent>(
-    () => import('@/images/levels/user-lvl-4.svg'),
+    async () => await import('@/images/levels/user-lvl-4.svg'),
     {
         loading: CustomerSkeleton,
     },
 );
 
 const CustomerLevel5 = dynamic<SvgrComponent>(
-    () => import('@/images/levels/user-lvl-5.svg'),
+    async () => await import('@/images/levels/user-lvl-5.svg'),
     {
         loading: CustomerSkeleton,
     },

@@ -10,7 +10,7 @@ interface Error {
 }
 
 export function useGetUserTrands(type: 'balance' | 'spend') {
-    return useQuery({
+    return useQuery<Trand[]>({
         queryKey: ['trand', type],
         queryFn: async function getTrand({ queryKey }) {
             const response = await fetch(
@@ -26,7 +26,7 @@ export function useGetUserTrands(type: 'balance' | 'spend') {
             if (`message` in data && data.message) {
                 throw data.message as Error;
             } else {
-                return data as Trand[];
+                return data;
             }
         },
     });

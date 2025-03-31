@@ -1,12 +1,14 @@
 'use client';
 
+import { useWindowSize } from 'react-use';
+
 import { BalanceCard } from '@/components/balance-card';
 import { InviteFriend } from '@/components/invite-friend';
 import { ProfileButtonsBlock } from '@/components/profile-buttons-block/profile-buttons-block';
 import { ProfileCards } from '@/components/profile-cards/profile-cards';
 import ProgressBar from '@/components/progress-bar/progress-bar';
 import { ProgressBlock } from '@/components/progress-block/progress-block';
-// import { ProgressImage } from '@/components/progress-image';
+import { ProgressImage } from '@/components/progress-image';
 import { UserProfile } from '@/components/user-profile';
 
 import { useGetUser } from '@/queries/auth/getUser';
@@ -16,6 +18,8 @@ import styles from './profile.module.css';
 
 export default function Profile() {
     const { data, isSuccess } = useGetUser();
+
+    const { width } = useWindowSize();
 
     if (!isSuccess) {
         return null;
@@ -35,13 +39,13 @@ export default function Profile() {
                         <div className={styles.user}>
                             <UserProfile />
 
-                            {/* TODO figure out why downloading of two similar svgs cause render problem */}
-                            {/* <div className={styles.image}>
+                            {width <= 1375 ? (
                                 <ProgressImage
+                                    key={'mobile'}
                                     level={level_customer_id}
                                     isBooster={false}
                                 />
-                            </div> */}
+                            ) : null}
                         </div>
 
                         {/* Mobile progress bar */}

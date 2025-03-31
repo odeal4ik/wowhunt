@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { useGetOrders } from '@/queries/orders/getOrders';
+
 import { ProfileCard } from '../profile-card/profile-card';
 import styles from './profile-cards.module.css';
 
@@ -312,6 +314,8 @@ const orderCards: OrderCard[] = [
 ];
 
 export function ProfileCards() {
+    const { data: orders } = useGetOrders();
+    console.log(orders);
     const [isMoreOrders, setIsMoreOrders] = useState(false);
     const cardsToShow = isMoreOrders ? orderCards : orderCards.slice(0, 4);
 
@@ -322,6 +326,7 @@ export function ProfileCards() {
                     <ProfileCard key={card.id} {...card} />
                 ))}
             </div>
+
             {orderCards.length > 4 && (
                 <button
                     type="button"

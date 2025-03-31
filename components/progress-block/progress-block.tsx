@@ -63,9 +63,17 @@ export function ProgressBlock({
                         } as CSSProperties
                     }>
                     {isBooster ? (
-                        <ProgressImage level={level} isBooster />
+                        <ProgressImage
+                            key={'booster'}
+                            level={level}
+                            isBooster
+                        />
                     ) : (
-                        <ProgressImage level={level} isBooster={false} />
+                        <ProgressImage
+                            key={'customer'}
+                            level={level}
+                            isBooster={false}
+                        />
                     )}
                 </div>
 
