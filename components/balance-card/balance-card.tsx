@@ -41,7 +41,6 @@ interface BalanceCardProps {
     lastOrderTitle?: string;
     isIncreasingLastOrder?: boolean;
     buttonsReports?: boolean;
-    rowDataPoints: number[];
     isBalance?: boolean;
 }
 
@@ -52,7 +51,6 @@ export function BalanceCard({
     lastOrderTitle = 'Last order',
     isIncreasingLastOrder = true,
     buttonsReports = true,
-    rowDataPoints,
     isBalance = false,
 }: BalanceCardProps) {
     const [isModalWithdrawOpen, setIsModalWithdrawOpen] = useState(false);

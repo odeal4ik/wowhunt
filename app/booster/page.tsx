@@ -85,14 +85,12 @@ export default function Profile() {
                     lastOrderTitle="Last order"
                     isIncreasingLastOrder={true}
                     buttonsReports={true}
-                    rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
 
                 <BalanceCard
                     balance={spending}
                     balanceTitle="Total earnings"
                     buttonsReports={false}
-                    rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
             </div>
             <div className={styles.containerCards}>
