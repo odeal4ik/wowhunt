@@ -40,7 +40,7 @@ export function BalanceChart({
                 grid: {
                     display: false,
                 },
-                grace: '25%',
+                grace: '50%',
                 ticks: {
                     stepSize: 1,
                 },

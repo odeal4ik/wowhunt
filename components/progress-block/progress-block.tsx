@@ -1,10 +1,11 @@
+import { CSSProperties } from 'react';
+
 import ProgressBar from '../progress-bar/progress-bar';
 import { ProgressBooster } from '../progress-booster/progress-booster';
 import { ProgressImage } from '../progress-image';
 import styles from './progress-block.module.css';
 
 interface BaseProfileBlockProps {
-    title: string;
     description: string;
 }
 
@@ -21,10 +22,31 @@ interface BoosterVariantProps extends BaseProfileBlockProps {
 
 type ProgressBlockProps = ProfileVariantProps | BoosterVariantProps;
 
+const levelColor = {
+    1: '#d1a66e',
+    2: '#8aa8b5',
+    3: '#f07e00',
+    4: '#0078f0',
+    5: '#ff8d80',
+};
+
+const levelBoosterTitle = {
+    1: 'Young Booster',
+    2: 'Regular Booster',
+    3: 'Main Booster',
+};
+
+const levelCustomerTitle = {
+    1: 'New',
+    2: 'Beginner',
+    3: 'Active',
+    4: 'Loyal',
+    5: 'King',
+};
+
 export function ProgressBlock({
     description,
     level,
-    title,
     variant,
     ...props
 }: ProgressBlockProps) {
@@ -33,21 +55,27 @@ export function ProgressBlock({
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>
-                <div className={styles.level}>
+                <div
+                    className={styles.level}
+                    style={
+                        {
+                            '--level-bg-color': levelColor[level],
+                        } as CSSProperties
+                    }>
                     {isBooster ? (
-                        <ProgressImage key={level} level={level} isBooster />
+                        <ProgressImage level={level} isBooster />
                     ) : (
-                        <ProgressImage
-                            key={level}
-                            level={level}
-                            isBooster={false}
-                        />
+                        <ProgressImage level={level} isBooster={false} />
                     )}
                 </div>
 
                 <div className={styles.text}>
                     <div className={styles.titleContainer}>
-                        <h3 className={styles.title}>{title}</h3>
+                        <h3 className={styles.title}>
+                            {isBooster
+                                ? levelBoosterTitle[level]
+                                : levelCustomerTitle[level]}
+                        </h3>
                         {isBooster ? <ProgressBooster /> : null}
                     </div>
 

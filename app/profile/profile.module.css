@@ -168,7 +168,7 @@
     }
 }
 
-.containerBalance {
+.balances {
     display: flex;
     column-gap: 24px;
     margin-block-end: 37px;
@@ -190,6 +190,6 @@
     }
 }
 
-.cards {
+.orders {
     grid-area: cards;
 }

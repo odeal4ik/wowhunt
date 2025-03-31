@@ -25,7 +25,7 @@ export default function Profile() {
 
     const { level_customer_id } = data;
 
-    const { title, description } = getUserProgress(level_customer_id * 10);
+    const { description } = getUserProgress(level_customer_id * 10);
 
     return (
         <main className={styles.main}>
@@ -54,7 +54,6 @@ export default function Profile() {
                     <ProgressBlock
                         variant="profile"
                         level={level_customer_id}
-                        title={title}
                         description={description}
                     />
 
@@ -72,20 +71,13 @@ export default function Profile() {
                 <ProfileButtonsBlock />
             </div>
 
-            <div className={styles.containerBalance}>
-                <BalanceCard
-                    balanceTitle="Balance"
-                    buttonsReports={false}
-                    isBalance
-                />
+            <div className={styles.balances}>
+                <BalanceCard title="Balance" isBalance />
 
-                <BalanceCard
-                    balanceTitle="Total spending"
-                    buttonsReports={false}
-                />
+                <BalanceCard title="Total spending" />
             </div>
 
-            <div className={styles.cards}>
+            <div className={styles.orders}>
                 <ProfileCards />
             </div>
         </main>

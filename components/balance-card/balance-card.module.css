@@ -1,27 +1,27 @@
+.skeleton {
+    composes: shimmer from '../../core-css/utility-classes/shimmer.module.css';
+}
+
 .wrapper {
     max-width: 50%;
     width: 100%;
     border-radius: 20px;
-    --start-gradient: var(--custom-start-color);
-    --end-gradient: var(--custom-end-color);
     background-image: linear-gradient(
         0deg,
         #171728 0%,
-        var(--start-gradient) 50%,
-        var(--end-gradient) 300%
+        var(--custom-start-color) 50%,
+        var(--custom-end-color) 300%
     );
     padding: 4px;
 }
 
 .container {
     padding-inline: 46px 100px;
-    padding-block: 25px 70px;
+    padding-block: 25px 45px;
     height: 100%;
     border-radius: 16px;
     position: relative;
     background-color: #171728;
-    --start-gradient: var(--custom-start-color, #d203fa);
-    --end-gradient: var(--custom-end-color, #e44803);
 
     &::before {
         content: '';
@@ -32,8 +32,8 @@
         top: 180px;
         background: linear-gradient(
             90deg,
-            var(--start-gradient) 0%,
-            var(--end-gradient) 98%
+            var(--custom-start-color) 0%,
+            var(--custom-end-color) 98%
         );
         opacity: 0.3;
         filter: blur(32px);
@@ -84,12 +84,12 @@
     }
 }
 
-.containerBalance {
+.header {
     display: flex;
     justify-content: space-between;
 }
 
-.wrapperBalance {
+.summary {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -119,8 +119,7 @@
     font-family: var(--font-barlow-regular-sans), sans-serif;
     font-size: var(--font-size-l);
     color: var(--text-color);
-    line-height: 28px;
-    margin: 0;
+    line-height: var(--font-line-height-140);
 
     @media (width <= 1200px) {
         font-size: var(--font-size-ss);
@@ -131,18 +130,15 @@
 .balance {
     font-family: var(--font-barlow-regular-sans), sans-serif;
     color: var(--text-color);
-    font-size: var(--font-size-xxl);
-    line-height: 28px;
     display: flex;
     align-items: baseline;
-    gap: 4px;
-    margin-bottom: 4px;
+    column-gap: 4px;
     position: relative;
+    line-height: var(--font-line-height-100);
 
     & > svg {
         width: 24px;
         height: 24px;
-        fill: transparent;
 
         @media (width <= 1200px) {
             width: 18px;
@@ -150,29 +146,25 @@
         }
     }
 
-    @media (width <= 1550px) {
-        margin-bottom: 0;
+    &.negative svg {
+        rotate: 180deg;
     }
 }
 
-.currencySymbol {
+.currency {
     font-size: 50px;
-    line-height: 52px;
     color: var(--text-color);
 
     @media (width <= 1550px) {
         font-size: 30px;
-        line-height: 39px;
     }
 }
 
-.integerNumber {
+.integer {
     font-size: 70px;
-    line-height: 83px;
 
     @media (width <= 1550px) {
         font-size: 40px;
-        line-height: 62px;
     }
 }
 
@@ -193,9 +185,8 @@
     }
 }
 
-.decimalNumber {
+.decimal {
     font-size: 40px;
-    line-height: 83px;
     color: var(--text-color-secondary);
 
     @media (width <= 1550px) {
@@ -257,7 +248,6 @@
     position: relative;
     z-index: 5;
     max-width: 520px;
-    max-height: 144px;
     cursor: pointer;
 
     @media (width <= 1600px) {

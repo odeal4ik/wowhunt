@@ -15,7 +15,6 @@ const BoosterSkeleton = () => {
 const BoosterLevel1 = dynamic<SvgrComponent>(
     () => import('@/images/levels/booster-lvl-1.svg'),
     {
-        ssr: false,
         loading: BoosterSkeleton,
     },
 );
@@ -23,7 +22,6 @@ const BoosterLevel1 = dynamic<SvgrComponent>(
 const BoosterLevel2 = dynamic<SvgrComponent>(
     () => import('@/images/levels/booster-lvl-2.svg'),
     {
-        ssr: false,
         loading: BoosterSkeleton,
     },
 );
@@ -31,7 +29,6 @@ const BoosterLevel2 = dynamic<SvgrComponent>(
 const BoosterLevel3 = dynamic<SvgrComponent>(
     () => import('@/images/levels/booster-lvl-3.svg'),
     {
-        ssr: false,
         loading: BoosterSkeleton,
     },
 );
@@ -39,7 +36,6 @@ const BoosterLevel3 = dynamic<SvgrComponent>(
 const CustomerLevel1 = dynamic<SvgrComponent>(
     () => import('@/images/levels/user-lvl-1.svg'),
     {
-        ssr: false,
         loading: CustomerSkeleton,
     },
 );
@@ -47,7 +43,6 @@ const CustomerLevel1 = dynamic<SvgrComponent>(
 const CustomerLevel2 = dynamic<SvgrComponent>(
     () => import('@/images/levels/user-lvl-2.svg'),
     {
-        ssr: false,
         loading: CustomerSkeleton,
     },
 );
@@ -55,7 +50,6 @@ const CustomerLevel2 = dynamic<SvgrComponent>(
 const CustomerLevel3 = dynamic<SvgrComponent>(
     () => import('@/images/levels/user-lvl-3.svg'),
     {
-        ssr: false,
         loading: CustomerSkeleton,
     },
 );
@@ -63,7 +57,6 @@ const CustomerLevel3 = dynamic<SvgrComponent>(
 const CustomerLevel4 = dynamic<SvgrComponent>(
     () => import('@/images/levels/user-lvl-4.svg'),
     {
-        ssr: false,
         loading: CustomerSkeleton,
     },
 );
@@ -71,7 +64,6 @@ const CustomerLevel4 = dynamic<SvgrComponent>(
 const CustomerLevel5 = dynamic<SvgrComponent>(
     () => import('@/images/levels/user-lvl-5.svg'),
     {
-        ssr: false,
         loading: CustomerSkeleton,
     },
 );
@@ -105,7 +97,7 @@ type ProgressBlockProps = ProfileVariantProps | BoosterVariantProps;
 export function ProgressImage({ level, isBooster }: ProgressBlockProps) {
     return (
         <Icon
-            svg={isBooster ? BoosterLevelIcon[level] : CustomerLevelIcon[4]}
+            svg={isBooster ? BoosterLevelIcon[level] : CustomerLevelIcon[level]}
             label={String(level)}
             fill="none"
         />

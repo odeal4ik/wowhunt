@@ -63,7 +63,6 @@ export default function Profile() {
 
                 <ProgressBlock
                     variant="booster"
-                    title="Young Booster"
                     description="To reach the next level you need to have 4 completed orders."
                     level={level_booster_id}
                     onClick={() => setIsModalOpen(true)}
@@ -79,21 +78,19 @@ export default function Profile() {
 
             <div className={styles.containerBalance}>
                 <BalanceCard
-                    balanceTitle="Balance"
+                    title="Balance"
                     lastOrder={10.345}
                     lastOrderTitle="Last order"
                     isIncreasingLastOrder={true}
-                    buttonsReports={true}
+                    buttonsReports
                 />
 
-                <BalanceCard
-                    balanceTitle="Total earnings"
-                    buttonsReports={false}
-                />
+                <BalanceCard title="Total earnings" />
             </div>
             <div className={styles.containerCards}>
                 <BoosterOrderCards />
             </div>
+
             {isModalOpen && (
                 <CategoriesModal
                     onClose={() => setIsModalOpen(false)}
