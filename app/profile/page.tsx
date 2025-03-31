@@ -23,7 +23,7 @@ export default function Profile() {
 
     console.log(data);
 
-    const { balance, level_customer_id, spending } = data;
+    const { level_customer_id } = data;
 
     const { title, description } = getUserProgress(level_customer_id * 10);
 
@@ -74,18 +74,14 @@ export default function Profile() {
 
             <div className={styles.containerBalance}>
                 <BalanceCard
-                    balance={balance}
                     balanceTitle="Balance"
                     buttonsReports={false}
-                    rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                     isBalance
                 />
 
                 <BalanceCard
-                    balance={spending}
                     balanceTitle="Total spending"
                     buttonsReports={false}
-                    rowDataPoints={[60, 70, 50, 65, 60, 70, 60]}
                 />
             </div>
 

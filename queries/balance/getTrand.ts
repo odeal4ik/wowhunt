@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 
 interface Trand {
     balance: string;
-    date: Date;
+    date: string;
 }
 
 interface Error {

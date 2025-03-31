@@ -255,6 +255,7 @@
 
 .chart {
     position: relative;
+    z-index: 5;
     max-width: 520px;
     max-height: 144px;
     cursor: pointer;
@@ -273,17 +274,12 @@
     @media (width <= 620px) {
         max-width: 100%;
     }
-}
 
-.dates {
-    font-family: var(--font-barlow-regular-sans), sans-serif;
-    font-size: var(--font-size-ss);
-    line-height: var(--font-line-height-130);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: translateY(100%);
-    display: flex;
-    justify-content: space-around;
+    .dates {
+        font-family: var(--font-barlow-regular-sans), sans-serif;
+        font-size: var(--font-size-ss);
+        line-height: var(--font-line-height-130);
+        display: flex;
+        justify-content: space-around;
+    }
 }

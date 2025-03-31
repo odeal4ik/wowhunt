@@ -22,7 +22,6 @@ import { BalanceChart } from '../balance-chart/balance-chart';
 import BoosterModalWithdraw from '../modal-withdraw/modal-withdraw';
 import ModalMyWithdraw from '../model-my-withdraw/model-my-withdraw';
 import styles from './balance-card.module.css';
-import { calculateDate } from './utils';
 
 ChartJS.register(
     LineElement,
@@ -35,34 +34,24 @@ ChartJS.register(
 );
 
 interface BalanceCardProps {
-    balance: string;
     balanceTitle: string;
-    lastOrder?: number;
-    lastOrderTitle?: string;
-    isIncreasingLastOrder?: boolean;
     buttonsReports?: boolean;
     isBalance?: boolean;
+    isIncreasingLastOrder?: boolean;
+    lastOrder?: number;
+    lastOrderTitle?: string;
 }
 
 export function BalanceCard({
-    balance,
     balanceTitle,
-    lastOrder,
-    lastOrderTitle = 'Last order',
-    isIncreasingLastOrder = true,
     buttonsReports = true,
     isBalance = false,
+    isIncreasingLastOrder = true,
+    lastOrder,
+    lastOrderTitle = 'Last order',
 }: BalanceCardProps) {
     const [isModalWithdrawOpen, setIsModalWithdrawOpen] = useState(false);
     const [isModalMyWithdrawOpen, setIsModalMyWithdrawOpen] = useState(false);
-
-    const [integerNumber, decimalNumber] = balance.split('.');
-
-    const dates = [
-        calculateDate(0),
-        calculateDate(14),
-        calculateDate(28),
-    ].reverse();
 
     const startChartColor = isBalance ? '#d203fa' : '#0cc9eb';
     const endChartColor = isBalance ? '#e44803' : '#6405e9';
@@ -79,9 +68,29 @@ export function BalanceCard({
         return null;
     }
 
-    const dataPoints = data.toReversed().map(({ balance }) => balance);
+    const computedData = data.length
+        ? data
+        : Array.from({ length: 5 }).map((_, i) => {
+              const date = new Date();
+              date.setDate(date.getDate() - i);
+              return {
+                  balance: '0.00',
+                  date: `${date.getDate().toString().padStart(2, '0')}.${(
+                      date.getMonth() + 1
+                  )
+                      .toString()
+                      .padStart(2, '0')}.${date.getFullYear()}`,
+              };
+          });
 
-    console.log('dataPoints', dataPoints);
+    const balanceData = computedData.toReversed().map(({ balance }) => balance);
+    const datesData = computedData
+        .toReversed()
+        .map(({ date }) => date.split('.').slice(0, -1).join('.'));
+
+    const [integerNumber, decimalNumber] = computedData[0].balance.split('.');
+
+    console.log('balanceData', balanceData);
 
     return (
         <div
@@ -165,10 +174,12 @@ export function BalanceCard({
                     <BalanceChart
                         startColor={startChartColor}
                         endColor={endChartColor}
-                        rowDataPoints={[...dataPoints, ...dataPoints]}
+                        data={balanceData}
+                        dates={datesData}
                     />
+
                     <div className={styles.dates}>
-                        {dates.map((date, index) => (
+                        {datesData.map((date, index) => (
                             <span key={index}>{date}</span>
                         ))}
                     </div>

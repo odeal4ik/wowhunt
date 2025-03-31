@@ -2,11 +2,11 @@ import { Chart as ChartJS, ChartOptions, TooltipItem } from 'chart.js';
 import { useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 
-import { calculateDate } from '../balance-card/utils';
 import styles from './balance-chart.module.css';
 
 interface BalanceChartProps {
-    rowDataPoints: number[];
+    data: string[];
+    dates: string[];
     startColor: string;
     endColor: string;
 }
@@ -16,29 +16,14 @@ interface ScriptableContext {
 }
 
 export function BalanceChart({
-    rowDataPoints,
+    data,
+    dates,
     startColor,
     endColor,
 }: BalanceChartProps) {
     const chartRef = useRef<ChartJS<'line'>>(null);
 
-    const labels = [
-        calculateDate(30),
-        calculateDate(25),
-        calculateDate(20),
-        calculateDate(15),
-        calculateDate(10),
-        calculateDate(5),
-        calculateDate(0),
-    ];
-
-    console.log(labels);
-
-    const maxValue = Math.max(...rowDataPoints);
-    const minValue = Math.min(...rowDataPoints);
-    const padding = (maxValue - minValue) * 0.1;
-    const yMin = minValue === maxValue ? minValue - 1 : minValue - padding;
-    const yMax = minValue === maxValue ? maxValue + 1 : maxValue + padding;
+    const dataToNumbers = data.map((i) => Number(i));
 
     const options: ChartOptions<'line'> = {
         responsive: true,
@@ -55,8 +40,7 @@ export function BalanceChart({
                 grid: {
                     display: false,
                 },
-                min: yMin,
-                max: yMax,
+                grace: '25%',
                 ticks: {
                     stepSize: 1,
                 },
@@ -103,11 +87,11 @@ export function BalanceChart({
     };
 
     const chartData = {
-        labels,
+        labels: dates,
         datasets: [
             {
                 label: 'Balance',
-                data: rowDataPoints,
+                data: dataToNumbers,
                 borderWidth: 7,
                 tension: 0.4,
                 borderColor: function (context: ScriptableContext) {
@@ -145,7 +129,7 @@ export function BalanceChart({
                     ctx.shadowColor = 'rgba(0, 0, 0, 0.2)';
                     ctx.shadowBlur = 5;
                     ctx.shadowOffsetX = 5;
-                    ctx.shadowOffsetY = 30;
+                    ctx.shadowOffsetY = 20;
 
                     return gradient;
                 },

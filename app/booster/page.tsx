@@ -26,7 +26,7 @@ export default function Profile() {
         return null;
     }
 
-    const { balance, level_booster_id, spending } = data;
+    const { level_booster_id } = data;
 
     return (
         <main className={styles.main}>
@@ -79,7 +79,6 @@ export default function Profile() {
 
             <div className={styles.containerBalance}>
                 <BalanceCard
-                    balance={balance}
                     balanceTitle="Balance"
                     lastOrder={10.345}
                     lastOrderTitle="Last order"
@@ -88,7 +87,6 @@ export default function Profile() {
                 />
 
                 <BalanceCard
-                    balance={spending}
                     balanceTitle="Total earnings"
                     buttonsReports={false}
                 />
