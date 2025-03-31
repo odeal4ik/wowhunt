@@ -22,7 +22,7 @@
     background-color: #171728;
     --start-gradient: var(--custom-start-color, #d203fa);
     --end-gradient: var(--custom-end-color, #e44803);
-    /* 
+
     &::before {
         content: '';
         position: absolute;
@@ -57,7 +57,7 @@
         filter: blur(32px);
         border-radius: 50%;
         z-index: 0;
-    } */
+    }
 
     @media (width <= 1550px) {
         display: flex;

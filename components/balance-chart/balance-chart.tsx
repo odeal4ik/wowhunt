@@ -32,6 +32,8 @@ export function BalanceChart({
         calculateDate(0),
     ];
 
+    console.log(labels);
+
     const maxValue = Math.max(...rowDataPoints);
     const minValue = Math.min(...rowDataPoints);
     const padding = (maxValue - minValue) * 0.1;

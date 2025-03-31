@@ -73,9 +73,17 @@ export function BalanceCard({
         : 'rgb(12, 201, 235, 0)';
     const endBgColor = isBalance ? 'rgb(233, 74, 5, 1)' : 'rgb(100, 5, 233, 1)';
 
-    const { data } = useGetUserTrands(isBalance ? 'balance' : 'spend');
+    const { data, isSuccess } = useGetUserTrands(
+        isBalance ? 'balance' : 'spend',
+    );
 
-    console.log(data);
+    if (!isSuccess) {
+        return null;
+    }
+
+    const dataPoints = data.toReversed().map(({ balance }) => balance);
+
+    console.log('dataPoints', dataPoints);
 
     return (
         <div
@@ -159,7 +167,7 @@ export function BalanceCard({
                     <BalanceChart
                         startColor={startChartColor}
                         endColor={endChartColor}
-                        rowDataPoints={rowDataPoints}
+                        rowDataPoints={[...dataPoints, ...dataPoints]}
                     />
                     <div className={styles.dates}>
                         {dates.map((date, index) => (

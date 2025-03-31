@@ -26,7 +26,7 @@ export function useGetUserTrands(type: 'balance' | 'spend') {
             if (`message` in data && data.message) {
                 throw data.message as Error;
             } else {
-                return data as Trand;
+                return data as Trand[];
             }
         },
     });
