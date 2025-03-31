@@ -9,27 +9,24 @@ interface GamesTabBadgeProps {
 }
 
 export function GamesTabBadge({ tags }: GamesTabBadgeProps) {
-    const TAG_STYLES: Record<string, string> = {
-        'hot offer': styles.hotOffer,
-        'weekly offer': styles.weeklyOffer,
+    const getTagStyle = (tagName: string) => {
+        return tagName.toLowerCase() === 'hot offer'
+            ? styles.hotOffer
+            : styles.defaultStylesOffer;
     };
 
     if (!tags?.length) return null;
 
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.badge}>
             {tags.map((tag) => {
-                const tagStyle = TAG_STYLES[tag.name.toLowerCase()] || '';
-
                 return (
                     <div
                         key={tag.id}
-                        className={`${styles.offers} ${tagStyle}`}
-                        style={{
-                            color: tag.color,
-                        }}>
+                        className={`${styles.offers} ${getTagStyle(tag.name)}`}
+                        style={{ color: tag.color }}>
                         {tag.name}
-                        {tag.icon?.icon && tag.icon.icon !== '' && (
+                        {tag.icon?.icon && (
                             <Image
                                 src={tag.icon.icon}
                                 alt="icon"

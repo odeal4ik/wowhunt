@@ -1,13 +1,24 @@
 <svg width="277" height="162" viewBox="0 0 277 162" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g filter="url(#filter0_b_97_60181)">
-<path d="M0 16C0 7.16344 7.16344 0 16 0H261C269.837 0 277 7.16344 277 16V72C277 80.8366 269.837 88 261 88H233C215.879 88 202 101.879 202 119V146C202 154.837 194.837 162 186 162H16C7.16344 162 0 154.837 0 146V16Z" fill="#949494" fill-opacity="0.12"/>
+<g clip-path="url(#clip0_97_60173)">
+<mask id="mask0_97_60173" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="277" height="162">
+<path d="M261 0H16C7.16344 0 0 7.16344 0 16V146C0 154.837 7.16344 162 16 162H261C269.837 162 277 154.837 277 146V16C277 7.16344 269.837 0 261 0Z" fill="white"/>
+</mask>
+<g mask="url(#mask0_97_60173)">
+<g opacity="0.21" filter="url(#filter0_f_97_60173)">
+<path d="M27 304C96.5879 304 153 255.647 153 196C153 136.353 96.5879 88 27 88C-42.5879 88 -99 136.353 -99 196C-99 255.647 -42.5879 304 27 304Z" fill="#FCBE05"/>
+</g>
+<foreignObject x="-7" y="-7" width="291" height="176"><div xmlns="http://www.w3.org/1999/xhtml" style="backdrop-filter:blur(3.5px);clip-path:url(#bgblur_1_97_60173_clip_path);height:100%;width:100%"></div></foreignObject><path data-figma-bg-blur-radius="7" d="M0 16C0 7.16344 7.16344 0 16 0H261C269.837 0 277 7.16344 277 16V72C277 80.8366 269.837 88 261 88H233C215.879 88 202 101.879 202 119V146C202 154.837 194.837 162 186 162H16C7.16344 162 0 154.837 0 146V16Z" fill="#949494" fill-opacity="0.12"/>
+</g>
 </g>
 <defs>
-<filter id="filter0_b_97_60181" x="-7" y="-7" width="291" height="176" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_f_97_60173" x="-164.7" y="22.3" width="383.4" height="347.4" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImageFix" stdDeviation="3.5"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_97_60181"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_97_60181" result="shape"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="32.85" result="effect1_foregroundBlur_97_60173"/>
 </filter>
+<clipPath id="bgblur_1_97_60173_clip_path" transform="translate(7 7)"><path d="M0 16C0 7.16344 7.16344 0 16 0H261C269.837 0 277 7.16344 277 16V72C277 80.8366 269.837 88 261 88H233C215.879 88 202 101.879 202 119V146C202 154.837 194.837 162 186 162H16C7.16344 162 0 154.837 0 146V16Z"/>
+</clipPath><clipPath id="clip0_97_60173">
+<rect width="277" height="162" fill="white"/>
+</clipPath>
 </defs>
 </svg>
