@@ -59,13 +59,15 @@
         }
 
         &::before {
-            left: calc(50% - 192px / 2 + 100px);
-            top: calc(50% - 180px / 2 - 173px);
+            right: 0;
+            top: 0;
+            translate: 25% -25%;
         }
 
         &::after {
-            right: calc(50% - 192px / 2 + 100px);
-            bottom: calc(50% - 180px / 2 - 173px);
+            left: 0;
+            bottom: 0;
+            translate: -25% 25%;
         }
 
         .delivered & {
