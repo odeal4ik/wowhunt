@@ -38,13 +38,13 @@ export const ToastNotification = ({
     return (
         <div className={cn(styles.wrapper, styles[type])}>
             <div className={styles.icon}>
-                {isSuccess && <Icon svg={Success} label="Success" />}
-                {isInfo && <Icon svg={Info} label="Info" />}
                 {isCopy && <Icon svg={Info} label="Info" />}
-                {isWarning && <Icon svg={Warning} label="Warning" />}
                 {isError && <Icon svg={Error} label="Error" />}
                 {isHelp && <Icon svg={Help} label="Help" />}
+                {isInfo && <Icon svg={Info} label="Info" />}
                 {isSkip && <Icon svg={Skip} label="Skip" />}
+                {isSuccess && <Icon svg={Success} label="Success" />}
+                {isWarning && <Icon svg={Warning} label="Warning" />}
             </div>
 
             <div className={styles.content}>

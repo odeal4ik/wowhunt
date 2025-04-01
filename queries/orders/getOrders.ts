@@ -10,32 +10,44 @@ export type OrdersListData = {
     next_page_url: string | null; // 'https://dev.wowhunt.com/api/order-items?page=2';
     prev_page_url: string | null; // 'https://dev.wowhunt.com/api/order-items?page=3'
     data: {
-        id: number; //ID заказа
-        boost_id: number | null; //ID заказанного буста, может быть null, если буст удален
-        user_id: number | null; //ID бустера
-        price_booster: string; // Цена для бустера
-        amount: number; //Сколько единиц заказали
-        status_id: number; //Статус заказа
+        /** ID заказа */
+        id: number;
+        /** ID заказанного буста, может быть null, если буст удален */
+        boost_id: number | null;
+        /** ID бустера */
+        user_id: number | null;
+        /** Цена для бустера */
+        price_booster: string;
+        /** Сколько единиц заказали */
+        amount: number;
+        /** Статус заказа */
+        status_id: number;
         attributes: {
-            //Атрибуты заказанного товара
+            /** Атрибуты заказанного товара */
             Test: {
-                //Ключ, название атрибута, может быть массивом значений
-                id: number; // Можно пропустить, не понадобится
-                value: string; // Значение атрибута
+                /** Ключ, название атрибута, может быть массивом значений */
+                /** Можно пропустить, не понадобится*/
+                id: number;
+                /** Значение атрибута */
+                value: string;
             };
+            /** Регион */
             Region: {
                 id: 0 | 1;
                 value: 'EU' | 'US';
             };
-            // Пример массива значений,
+            /** Пример массива значений */
             Attribute: {
                 id: number;
                 value: string;
             }[];
         };
-        parametrs: null; // Параметры игры для заказа, может быть null
-        status: string; // Название статуса заказа
-        boost: null; //Объект заказанного буста, может быть пустым
+        /** Параметры игры для заказа, может быть null */
+        parametrs: null;
+        /** Название статуса заказа */
+        status: string;
+        /** Объект заказанного буста, может быть пустым */
+        boost: { id: number; name: string } | null;
     }[];
 };
 

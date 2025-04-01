@@ -5,6 +5,7 @@
     width: 100%;
 
     &.info,
+    &.copy,
     &.help {
         border: 2px solid #1998ff66;
     }

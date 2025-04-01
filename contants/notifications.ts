@@ -65,5 +65,5 @@ export const skipMessage: NotificationProps = {
 export const copyMessage: NotificationProps = {
     type: 'copy',
     title: 'Copied',
-    message: ' Message copied to clipboard',
+    message: 'Message copied to clipboard',
 };

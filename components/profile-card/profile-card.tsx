@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import Image from 'next/image';
 import React from 'react';
 import { toast } from 'react-toastify';
@@ -10,6 +11,7 @@ import Envelope from '@/images/system-icons/mail-icon.svg';
 import Support from '@/images/system-icons/support.svg';
 
 import { copyMessage } from '@/contants/notifications';
+import { OrdersListData } from '@/queries/orders/getOrders';
 
 import { ToastNotification } from '../toast-notification/toast-notification';
 import styles from './profile-card.module.css';
@@ -21,14 +23,12 @@ interface StatusConfig {
 }
 
 interface OrderCard {
+    order: OrdersListData['data'][number];
     status: 'delivered' | 'cancelled' | 'in-progress' | 'looking' | 'refunded';
-    price: number;
-    title: string;
     platform: string;
     startDate: string;
     accFreeHours: string;
     additionalInfo: string;
-    id: string;
     details: {
         type: 'additional' | 'normal';
         label: string;
@@ -64,33 +64,33 @@ const STATUS_CONFIG: Record<OrderCard['status'], StatusConfig> = {
     },
 };
 
-export function ProfileCard({ status, price, title, id, details }: OrderCard) {
+const handleCopy = (text: string | number) => {
+    navigator.clipboard.writeText(String(text));
+    toast(<ToastNotification {...copyMessage} />);
+};
+
+export function ProfileCard({ status, details, order }: OrderCard) {
     const config = STATUS_CONFIG[status];
-
-    const handleCopy = (text: string) => {
-        navigator.clipboard.writeText(text);
-        toast(<ToastNotification {...copyMessage} />);
-    };
-
-    const formattedPrice = price.toFixed(2);
-    const [integerPart, decimalPart] = formattedPrice.split('.');
+    const { id, price_booster, boost } = order;
+    const [integer, decimal] = price_booster.split('.');
 
     return (
-        <div className={`${styles.card} ${styles[status]}`}>
-            <div className={styles.cardContent}>
+        <div className={cn(styles.card, styles[status])}>
+            <div className={styles.content}>
                 <div className={styles.header}>
-                    <p className={`${styles.status} ${config.bgClass}`}>
-                        {config.label}
-                    </p>
-                    <div
-                        className={styles.idBlock}
-                        onClick={() => handleCopy(id)}>
-                        <p className={styles.id}>ID: {id}</p>
-                        <Icon svg={Copy} label="Copy" />
+                    <div className={cn(styles.status, config.bgClass)}>
+                        <p className={styles.label}>{config.label}</p>
                     </div>
+
+                    <button
+                        className={styles.id}
+                        onClick={() => handleCopy(id)}>
+                        <p>ID: {id}</p>
+                        <Icon svg={Copy} label="Copy" />
+                    </button>
                 </div>
 
-                <div className={styles.iconWrapper}>
+                <div className={styles.icon}>
                     <Image
                         src={config.srcImg}
                         alt={config.label}
@@ -100,11 +100,11 @@ export function ProfileCard({ status, price, title, id, details }: OrderCard) {
                 </div>
 
                 <p className={styles.price}>
-                    <span>${integerPart}</span>
-                    <span className={styles.decimalPart}>.{decimalPart}</span>
+                    <span>${integer}</span>
+                    <span className={styles.decimal}>.{decimal}</span>
                 </p>
 
-                <p className={styles.title}>{title}</p>
+                <p className={styles.title}>{boost?.name}</p>
 
                 <div className={styles.details}>
                     {details.map((detail, index) =>

@@ -1,3 +1,14 @@
+.loading {
+    display: flex;
+    column-gap: 20px;
+}
+
+.item {
+    display: flex;
+    min-height: 200px;
+    composes: shimmer from '../../core-css/utility-classes/shimmer.module.css';
+}
+
 .wrapper {
     max-width: 1420px;
 }
